@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0bc207c3bc9c944896d716dc12a47c4, type: 3}
+  m_Name: TuningConfig
+  m_EditorClassIdentifier: LastCallCrew.Config::LastCallCrew.Config.TuningConfig
+  _drunkennessMin: 0
+  _pompetteThreshold: 30
+  _ivreThreshold: 60
+  _koThreshold: 100
+  _gainPerDrink: 20
+  _passiveDecayPerSecond: 0.2
+  _waterReduction: 15
+  _refuseDurationSeconds: 2
+  _sociableRefuseMultiplier: 2
+  _npcOfferCooldownSeconds: 20
+  _waterWakeHoldSeconds: 3
+  _drunkennessAfterWaterWake: 50
+  _autoWakeSeconds: 45
+  _drunkennessAfterAutoWake: 90
+  _carrySpeedMultiplier: 0.6
