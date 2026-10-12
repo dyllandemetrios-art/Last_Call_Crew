@@ -10,7 +10,7 @@ namespace LastCallCrew.Network
 
         void Start()
         {
-            // Lancement scripté : -lcc-role host|client (tests sans clic, ex. build autonome + éditeur).
+            // Lancement scriptÃ© : -lcc-role host|client (tests sans clic, ex. build autonome + Ã©diteur).
             var nm = NetworkManager.Singleton;
             string[] args = System.Environment.GetCommandLineArgs();
             for (int i = 0; i < args.Length - 1; i++)

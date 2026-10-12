@@ -35,7 +35,7 @@ namespace LastCallCrew.Network
             _move = _runtimeActions.FindAction("Player/Move", true);
             _look = _runtimeActions.FindAction("Player/Look", true);
             _runtimeActions.Enable();
-            // Entrée scriptée pour les tests sans humain : -lcc-autowalk (marche en cercle).
+            // EntrÃ©e scriptÃ©e pour les tests sans humain : -lcc-autowalk (marche en cercle).
             _autoWalk = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lcc-autowalk") >= 0;
         }
 
