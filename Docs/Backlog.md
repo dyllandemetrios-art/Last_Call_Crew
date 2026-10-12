@@ -6,9 +6,9 @@
 
 | ID | Tâche | Critère de fin | Statut |
 | --- | --- | --- | --- |
-| P1-000 | Établir la référence Unity | Projet ouvert avec Unity 6000.3.8f1, compilation sans erreur bloquante | À faire |
-| P1-001 | Créer la fondation réseau locale | Un hôte et un client contrôlent chacun une capsule et voient les deux déplacements pendant 5 minutes | Prêt pour Claude |
-| P1-002 | Ajouter une interaction réseau générique | Un joueur active un objet ; l'hôte autorise le changement et les deux joueurs voient le même état | Bloqué par P1-001 |
+| P1-000 | Établir la référence Unity | Projet ouvert avec Unity 6000.3.8f1, compilation sans erreur bloquante | PASS |
+| P1-001 | Créer la fondation réseau locale | Un hôte et un client contrôlent chacun une capsule et voient les deux déplacements pendant 5 minutes | PASS le 12 octobre 2026 |
+| P1-002 | Ajouter une interaction réseau générique | Un joueur active un objet ; l'hôte autorise le changement et les deux joueurs voient le même état | Prêt pour Claude |
 | P1-003 | Configurer Unity Cloud et Relay | Une session produit un code que la seconde instance peut rejoindre | Bloqué par P1-002 et action Dyllan |
 | P1-004 | Valider un build Windows à deux joueurs | Deux processus rejoignent la même partie via Relay sans erreur bloquante | Bloqué par P1-003 |
 

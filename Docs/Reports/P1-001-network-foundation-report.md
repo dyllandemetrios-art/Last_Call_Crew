@@ -1,6 +1,8 @@
 # Rapport P1-001 — Fondation réseau locale
 
-**Statut : PASS avec réserves** (test hôte + client MPPM de ~5 min réalisé avec entrées simulées ; feeling et entrée clavier/souris humaine non validés par Claude — voir Résultat).
+**Statut : PASS**
+
+Dyllan a confirmé le test manuel après la passe automatisée : hôte et client fonctionnels, contrôle propriétaire et synchronisation validés pendant cinq minutes.
 
 ## Départ
 
@@ -22,8 +24,7 @@ Dépendances résolues automatiquement (ex. `com.unity.transport`) : voir `Packa
 - `Assets/_Project/Scripts/Runtime/Network/NetworkTestHud.cs` : boutons IMGUI Host / Client / Shutdown ; arguments `-lcc-role host|client` ; log toutes les 5 s de la position des deux joueurs (`[P1-001] local=… player owner=… pos=…`).
 - `Assets/_Project/Prefabs/Player.prefab` : capsule + NetworkObject + NetworkTransform (autorité propriétaire) + PlayerController + enfant `CameraRoot` (Camera + AudioListener).
 - `Assets/_Project/Scenes/NetworkTest.unity` : sol, lumière, caméra d'ensemble (depth −10), `NetworkManager` + `UnityTransport` (127.0.0.1:7777 par défaut), prefab joueur assigné, `NetworkTestHud`.
-- `Assets/_Project/Prefabs/DefaultNetworkPrefabs.asset` : liste de prefabs réseau auto-générée par NGO, déplacée depuis `Assets/` (GUID conservé). **NGO a recréé** un `Assets/DefaultNetworkPrefabs.asset` (autre GUID) : doublon à nettoyer/arbitrer.
-- `AgentScripts/BuildP1001.cs` : script éditeur ayant construit prefab et scène (hors `Assets/`, jetable ; à supprimer ou garder selon Dyllan).
+- `Assets/_Project/Prefabs/DefaultNetworkPrefabs.asset` : liste de prefabs réseau référencée par la scène de test.
 - Tous les `.meta` correspondants.
 
 ## Fichiers modifiés par effet de bord (à relire avant tout commit)
@@ -65,13 +66,12 @@ Non fait : test Relay, build autonome (le build existe mais n'a pas été joué)
 - Interface Host/Client : cliquer Host sur les deux instances provoque l'erreur de port ; procédure : Host sur l'instance principale uniquement.
 - Spawn décalé par `OwnerClientId * 3` (côté propriétaire) : positions correctes observées sur les deux instances.
 - `runInBackground=true` ajouté aux ProjectSettings (nécessaire pour MPPM).
-- Doublon `DefaultNetworkPrefabs.asset`.
-- Entrée humaine, feeling et mouvement du client non validés.
+- Relay, reconnexion et conditions réseau réelles ne sont pas encore validés.
 
-## Changements non commités
+## Historique
 
-Tout ce qui précède. Aucun commit, aucun push.
+Implémentation initiale commitée sur `feature/p1-001-network-foundation` au commit `e8f7235`. Le doublon racine et le script de construction jetable ont ensuite été supprimés.
 
 ## Prochaine action recommandée
 
-Dyllan rejoue la procédure à la main (feeling, souris/clavier) ; puis traiter le doublon `DefaultNetworkPrefabs.asset` et les modifications `ProjectSettings` avant commit.
+P1-002 : interaction réseau générique autorisée par l'hôte et répliquée aux deux joueurs.
