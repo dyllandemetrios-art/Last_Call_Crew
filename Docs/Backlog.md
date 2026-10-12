@@ -8,7 +8,7 @@
 | --- | --- | --- | --- |
 | P1-000 | Établir la référence Unity | Projet ouvert avec Unity 6000.3.8f1, compilation sans erreur bloquante | PASS |
 | P1-001 | Créer la fondation réseau locale | Un hôte et un client contrôlent chacun une capsule et voient les deux déplacements pendant 5 minutes | PASS le 12 octobre 2026 |
-| P1-002 | Ajouter une interaction réseau générique | Un joueur active un objet ; l'hôte autorise le changement et les deux joueurs voient le même état | Prêt pour Claude |
+| P1-002 | Ajouter une interaction réseau générique | Un joueur active un objet ; l'hôte autorise le changement et les deux joueurs voient le même état | PASS au commit `9f13a46` |
 | P1-003 | Configurer Unity Cloud et Relay | Une session produit un code que la seconde instance peut rejoindre | Bloqué par P1-002 et action Dyllan |
 | P1-004 | Valider un build Windows à deux joueurs | Deux processus rejoignent la même partie via Relay sans erreur bloquante | Bloqué par P1-003 |
 
@@ -17,7 +17,7 @@
 | ID | Tâche | Critère de fin | Statut |
 | --- | --- | --- | --- |
 | P1-010 | Créer la greybox | Deux joueurs apparaissent dans un petit lieu avec entrée et sortie lisibles | Bloqué par P1-002 |
-| P1-011 | Créer le TuningConfig | Gain et décroissance d'ivresse, seuils, KO, refus et réveil sont réglables | Bloqué par P1-001 |
+| P1-011 | Créer le TuningConfig | Gain et décroissance d'ivresse, seuils, KO, refus et réveil sont réglables | Prêt pour Claude |
 | P1-012 | Boire et refuser | Le choix est autorisé par l'hôte et possède un feedback sur les deux instances | Bloqué par P1-002 |
 | P1-013 | Ivresse synchronisée | L'état 0–100 et ses paliers restent cohérents chez l'hôte et le client | Bloqué par P1-011 et P1-012 |
 | P1-014 | Dialogue absurde | Une situation complète produit une réponse et une réaction comiques | Bloqué par P1-012 |
