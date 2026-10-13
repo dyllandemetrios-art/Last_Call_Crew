@@ -20,7 +20,7 @@
 | P1-011 | Créer le TuningConfig | Gain et décroissance d'ivresse, seuils, KO, refus et réveil sont réglables | PASS au commit `4757202` |
 | P1-012 | Boire et refuser | Le choix est autorisé par l'hôte et possède un feedback sur les deux instances | PASS validé par Dyllan le 13 octobre 2026 |
 | P1-013 | Ivresse synchronisée | L'état 0–100 et ses paliers restent cohérents chez l'hôte et le client | PASS validé par Dyllan le 13 octobre 2026 |
-| P1-014 | Dialogue absurde | Une situation complète produit une réponse et une réaction comiques | Bloqué par P1-012 |
+| P1-014 | Dialogue absurde | Une situation complète produit une réponse et une réaction comiques | Prêt pour Claude |
 
 ## Entraide
 
@@ -53,9 +53,9 @@
 
 Maison simple, clés, portefeuille, téléphone et taxi minimal. Aucun de ces éléments ne doit retarder la boucle boire, KO, entraide et retour.
 
-## Décision d'interaction à appliquer avec P1-014
+## Décision d'interaction pour P1-014
 
-`E` ouvre l'interaction avec la cible ; les réponses utilisent `1`, `2`, `3`, etc. Une réponse instantanée se déclenche à la pression de son chiffre ; une réponse longue se valide en maintenant ce chiffre. Les actions actuelles ne sont pas refondues avant que P1-014 fournisse un vrai cas à choix multiples.
+Conserver les commandes contextuelles existantes : boire/porter sur `E`, refuser au clic droit maintenu et réveiller sur `F` maintenu. P1-014 ne crée pas de système universel et ne modifie pas ces commandes. Pour un PNJ dialogué, `E` ouvre sa proposition puis `1`, `2`, `3`, etc. sélectionnent une réponse simple. Chaque PNJ pourra proposer ses propres bêtises plus tard.
 
 ## Après P1
 

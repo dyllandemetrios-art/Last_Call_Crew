@@ -17,7 +17,7 @@ Connexion locale, déplacement, boire/refuser, ivresse synchronisée, KO, portag
 
 ## Contrôles actuels et décision future
 
-Les contrôles du prototype restent répartis entre interaction, refus, portage et réveil. P1-014 devra appliquer la convention validée : `E` ouvre l'interaction ; `1`, `2`, `3`, etc. choisissent une réponse ; un choix long se valide en maintenant son chiffre. Ne pas refondre les contrôles avant cette fiche.
+Conserver les commandes contextuelles : boire/porter sur `E`, refuser au clic droit maintenu et réveiller sur `F` maintenu. P1-014 ne doit pas les refondre. Pour un PNJ dialogué seulement, `E` ouvre sa proposition puis `1`, `2`, `3`, etc. choisissent une réponse simple. Chaque PNJ pourra avoir ses propres choix plus tard ; ne pas créer de framework universel.
 
 ## Limites connues
 
