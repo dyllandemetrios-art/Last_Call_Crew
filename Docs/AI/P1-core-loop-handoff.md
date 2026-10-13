@@ -5,7 +5,7 @@ Mis à jour le 13 octobre 2026 après validation de P1-033.
 ## État de reprise
 
 - Branche : `feature/p1-001-network-foundation`
-- Dernier commit fonctionnel : `79cebf7` (`feat: P1-014 add first NPC dialogue`)
+- Dernier commit fonctionnel : `e2defe0` (`feat: P1-010 add playable bar greybox`)
 - Unity : 6000.3.8f1, URP, Netcode for GameObjects 2.13.3, Multiplayer Play Mode 2.0.2
 - Scène de travail : `Assets/_Project/Scenes/NetworkTest.unity`
 - Autorité : règles et états de gameplay écrits par l'hôte ; entrées lues par le propriétaire
@@ -27,6 +27,7 @@ Conserver les commandes contextuelles : boire/porter sur `E`, refuser au clic dr
 - L'impossibilité de refuser à forte ivresse et la confusion progressive des choix sont des idées de design différées.
 - L'interface actuelle est un HUD de prototype en IMGUI ; elle est lisible mais n'est pas l'interface finale.
 - P1-015 corrige la capture du pointeur et le refus au clic droit ; Dyllan a validé le comportement réel dans Multiplayer Play Mode.
+- La greybox `BarGreybox.unity` est validée. Défaut ouvert P1-031a : un joueur sorti de la zone reste actuellement marqué rentré, ce qui peut produire une fausse victoire.
 - NGO peut recréer `Assets/DefaultNetworkPrefabs.asset` : supprimer ce doublon avant commit et conserver `Assets/_Project/Prefabs/DefaultNetworkPrefabs.asset`.
 
 ## Prochaine décision
@@ -34,7 +35,7 @@ Conserver les commandes contextuelles : boire/porter sur `E`, refuser au clic dr
 Ne pas commencer P1-040 : il est bloqué par P1-003/P1-004. Les prochaines voies utiles sont :
 
 1. P1-003/P1-004 pour sécuriser Relay et les builds réels ; cela demande que Dyllan lie le projet à Unity Cloud.
-2. P1-015 pour corriger la capture souris et le refus au clic droit.
-3. P1-010 pour remplacer la scène de test par une greybox de lieu lisible.
+2. P1-031a pour faire dépendre la victoire de la présence réelle et simultanée dans la zone.
+3. Reprendre ensuite la progression P1 depuis la greybox validée.
 
 Lire ensuite uniquement la fiche choisie, le rapport précédent pertinent et le diff Git. Aucun push implicite.

@@ -46,7 +46,7 @@ Déplacement simulé par pas de 0,083 m (5 m/s à 60 Hz) vers des waypoints, ave
 
 ## Captures (3 prises au maximum)
 
-`Docs/Reports/img/P1-010-overview.png` (vue générale) et `Docs/Reports/img/P1-010-exit-return.png` (sortie turquoise, chemin, zone verte et colonne). **Pas de capture de l'intérieur du bar** : la troisième tentative n'a pas déplacé la vue et a été supprimée (doublon). Vues de l'éditeur, pas de Game View.
+Deux captures relues puis archivées hors dépôt dans `D:\Assets\LastCallCrew\PlaytestCaptures\P1-010` : vue générale et sortie vers la zone verte. Elles ne sont pas versionnées à cause d'un échec local du filtre Git LFS. **Pas de capture de l'intérieur du bar** : la troisième tentative n'a pas déplacé la vue et a été supprimée (doublon). Vues de l'éditeur, pas de Game View.
 
 ## Incidents
 
