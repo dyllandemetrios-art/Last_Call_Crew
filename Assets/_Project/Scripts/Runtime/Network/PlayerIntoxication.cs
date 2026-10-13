@@ -73,6 +73,10 @@ namespace LastCallCrew.Network
             if (!IsServer || !IsSpawned)
                 return;
 
+            // P1-033 : l'ivresse finale reste stable pendant le bilan.
+            if (NightOutcome.IsFrozen)
+                return;
+
             float previous = _serverValue;
             _serverValue = IntoxicationRules.ApplyDecay(_serverValue, Time.deltaTime, tuning);
             if (_serverValue == previous || _serverValue == _value.Value)

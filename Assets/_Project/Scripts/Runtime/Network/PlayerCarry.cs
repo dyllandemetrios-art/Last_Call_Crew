@@ -84,7 +84,10 @@ namespace LastCallCrew.Network
         [Rpc(SendTo.Server)]
         public void RequestCarryRpc(NetworkObjectReference target, RpcParams rpcParams = default)
         {
-            CarryOutcome outcome = ServerStart(target, rpcParams.Receive.SenderClientId);
+            // P1-033 : l'hôte rejette toute demande reçue après le résultat de la nuit.
+            CarryOutcome outcome = NightOutcome.IsFrozen
+                ? CarryOutcome.RejectedFrozen
+                : ServerStart(target, rpcParams.Receive.SenderClientId);
             Debug.Log($"[P1-021] host: client={OwnerClientId} carry request -> {outcome}");
             ResultRpc(outcome);
         }
@@ -92,9 +95,11 @@ namespace LastCallCrew.Network
         [Rpc(SendTo.Server)]
         public void RequestDropRpc(RpcParams rpcParams = default)
         {
-            CarryOutcome outcome = rpcParams.Receive.SenderClientId != OwnerClientId
-                ? CarryOutcome.RejectedInvalidSender
-                : CarryRules.EvaluateDrop(IsCarrying);
+            CarryOutcome outcome = NightOutcome.IsFrozen
+                ? CarryOutcome.RejectedFrozen
+                : rpcParams.Receive.SenderClientId != OwnerClientId
+                    ? CarryOutcome.RejectedInvalidSender
+                    : CarryRules.EvaluateDrop(IsCarrying);
             if (outcome == CarryOutcome.Dropped)
                 ServerDrop();
             else
@@ -114,6 +119,7 @@ namespace LastCallCrew.Network
                 case CarryOutcome.RejectedOutOfRange: message = "TROP LOIN"; break;
                 case CarryOutcome.RejectedTargetNotKnockedOut: message = "CE JOUEUR N'EST PAS KO"; break;
                 case CarryOutcome.RejectedTargetAlreadyCarried: message = "DÉJÀ PORTÉ"; break;
+                case CarryOutcome.RejectedFrozen: message = "NUIT TERMINÉE"; break;
                 default: message = "PORTAGE REFUSÉ"; break;
             }
             _message = message;
@@ -166,6 +172,19 @@ namespace LastCallCrew.Network
             }
             _carryingIdPlusOne.Value = 0;
             Debug.Log($"[P1-021] host: client={OwnerClientId} dropped the carried player");
+        }
+
+        /// <summary>
+        /// Hôte, relance (P1-033) : efface tout lien de portage de ce joueur. La position de dépose est le point
+        /// de départ : si ce joueur suivait son porteur, chaque instance le replace là en terminant le suivi.
+        /// </summary>
+        public void ServerResetForRound(Vector3 startPosition)
+        {
+            if (!IsServer)
+                return;
+            _dropPosition.Value = startPosition;
+            _carriedByIdPlusOne.Value = 0;
+            _carryingIdPlusOne.Value = 0;
         }
 
         /// <summary>Hôte : si ce joueur est porté, son porteur le lâche (ex. sortie de KO injectée).</summary>

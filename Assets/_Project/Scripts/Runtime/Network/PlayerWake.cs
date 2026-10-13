@@ -78,12 +78,22 @@ namespace LastCallCrew.Network
             _autoWakeDeadline.Value = WakeRules.NoDeadline;
         }
 
+        /// <summary>Hôte, relance (P1-033) : plus de maintien ni d'échéance de réveil automatique.</summary>
+        public void ServerResetForRound()
+        {
+            if (!IsServer)
+                return;
+            _serverHoldActive = false;
+            _autoWakeDeadline.Value = WakeRules.NoDeadline;
+        }
+
         /// <summary>Hôte : abandonne un maintien en cours (le réveilleur tombe KO).</summary>
         public void ServerCancelHold() => _serverHoldActive = false;
 
         void Update()
         {
-            if (!IsServer || !IsSpawned || !_knockout.IsKnockedOut)
+            // P1-033 : le réveil automatique ne modifie plus rien une fois le résultat décidé.
+            if (!IsServer || !IsSpawned || !_knockout.IsKnockedOut || NightOutcome.IsFrozen)
                 return;
             if (WakeRules.IsAutoWakeDue(NetworkManager.ServerTime.Time, _autoWakeDeadline.Value))
                 ServerWake(WakeCause.Auto, null);
@@ -113,7 +123,11 @@ namespace LastCallCrew.Network
         public void RequestStartRpc(NetworkObjectReference target, RpcParams rpcParams = default)
         {
             _serverHoldActive = false;
-            WakeOutcome outcome = ServerBuildRequest(target, rpcParams.Receive.SenderClientId, out PlayerWake other, out WakeRequest request);
+            PlayerWake other = null;
+            WakeRequest request = default;
+            WakeOutcome outcome = NightOutcome.IsFrozen
+                ? WakeOutcome.RejectedFrozen
+                : ServerBuildRequest(target, rpcParams.Receive.SenderClientId, out other, out request);
             if (outcome == WakeOutcome.HoldStarted)
                 outcome = WakeRules.EvaluateStart(request);
 
@@ -133,7 +147,11 @@ namespace LastCallCrew.Network
         [Rpc(SendTo.Server)]
         public void RequestEndRpc(NetworkObjectReference target, RpcParams rpcParams = default)
         {
-            WakeOutcome outcome = ServerBuildRequest(target, rpcParams.Receive.SenderClientId, out PlayerWake other, out WakeRequest request);
+            PlayerWake other = null;
+            WakeRequest request = default;
+            WakeOutcome outcome = NightOutcome.IsFrozen
+                ? WakeOutcome.RejectedFrozen
+                : ServerBuildRequest(target, rpcParams.Receive.SenderClientId, out other, out request);
             if (outcome == WakeOutcome.HoldStarted)
             {
                 bool startedOnThisTarget = _serverHoldActive && _serverHoldTargetId == other.NetworkObjectId;
@@ -197,6 +215,7 @@ namespace LastCallCrew.Network
                 case WakeOutcome.RejectedOutOfRange: message = "TROP LOIN"; break;
                 case WakeOutcome.RejectedTargetCarried: message = "LÂCHEZ-LE D'ABORD"; break;
                 case WakeOutcome.RejectedTargetNotKnockedOut: message = "DÉJÀ RÉVEILLÉ"; break;
+                case WakeOutcome.RejectedFrozen: message = "NUIT TERMINÉE"; break;
                 default: message = "RÉVEIL REFUSÉ"; break;
             }
             _message = message;

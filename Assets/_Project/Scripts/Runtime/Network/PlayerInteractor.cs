@@ -103,6 +103,16 @@ namespace LastCallCrew.Network
             _aimedOffer = null;
             _aimedPartner = null;
 
+            // P1-033 : après le résultat de la nuit, plus aucune interaction (les maintiens en cours sont abandonnés).
+            if (NightOutcome.IsFrozen)
+            {
+                _holding = false;
+                _holdOffer = null;
+                _wakeHolding = false;
+                _wakeTarget = null;
+                return;
+            }
+
             // P1-020 : un joueur KO n'interagit plus ; un refus en cours est abandonné sans décision (l'hôte le rejetterait de toute façon).
             if (_knockout.IsKnockedOut)
             {
@@ -271,6 +281,8 @@ namespace LastCallCrew.Network
         {
             offer = null;
             distance = float.PositiveInfinity;
+            if (NightOutcome.IsFrozen)
+                return DrinkRequestOutcome.RejectedFrozen;
             if (senderClientId != OwnerClientId)
                 return DrinkRequestOutcome.RejectedInvalidSender;
             if (_knockout.IsKnockedOut)
@@ -311,6 +323,9 @@ namespace LastCallCrew.Network
                     return; // l'écran KO du HUD suffit
                 case DrinkRequestOutcome.RejectedCarrying:
                     _message = "VOUS PORTEZ QUELQU'UN";
+                    break;
+                case DrinkRequestOutcome.RejectedFrozen:
+                    _message = "NUIT TERMINÉE";
                     break;
                 default:
                     _message = "DEMANDE REFUSÉE";

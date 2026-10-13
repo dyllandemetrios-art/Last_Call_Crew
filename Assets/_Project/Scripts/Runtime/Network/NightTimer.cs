@@ -26,7 +26,23 @@ namespace LastCallCrew.Network
         public bool IsExpired => NightTimerRules.IsExpiredForDisplay(State, RemainingSeconds);
         public bool IsFinalCountdown => NightTimerRules.IsFinalCountdown(State, RemainingSeconds);
         public float RemainingSeconds =>
-            NightTimerRules.Remaining(_state.Value, NetworkManager != null ? NetworkManager.ServerTime.Time : 0d, _deadline.Value, tuning);
+            NightTimerRules.Remaining(_state.Value, ClockNow(), _deadline.Value, tuning);
+
+        // P1-033 : une fois le résultat décidé, le temps affiché reste celui de la décision.
+        double ClockNow()
+        {
+            double now = NetworkManager != null ? NetworkManager.ServerTime.Time : 0d;
+            return NightOutcome.IsFrozen ? System.Math.Min(now, NightOutcome.CurrentDecidedTime) : now;
+        }
+
+        /// <summary>Hôte uniquement (NightRound) : retour à l'attente ; le départ se refait tout seul avec les joueurs requis.</summary>
+        public void ServerResetForRound()
+        {
+            if (!IsServer)
+                return;
+            _deadline.Value = 0d;
+            _state.Value = NightState.Waiting;
+        }
 
         public override void OnNetworkSpawn()
         {
@@ -48,7 +64,7 @@ namespace LastCallCrew.Network
                 _state.Value = NightState.Running;
                 Debug.Log($"[P1-030] host: night started, duration {tuning.NightDurationSeconds:0.##} s, deadline {_deadline.Value:0.00}");
             }
-            else if (NightTimerRules.ShouldExpire(_state.Value, now, _deadline.Value))
+            else if (!NightOutcome.IsFrozen && NightTimerRules.ShouldExpire(_state.Value, now, _deadline.Value))
             {
                 _state.Value = NightState.Expired;
                 Debug.Log("[P1-030] host: night expired");

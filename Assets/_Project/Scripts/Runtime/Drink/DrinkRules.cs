@@ -24,6 +24,8 @@ namespace LastCallCrew.Drink
         HoldTooShort,
         /// <summary>Fin de refus reçue sans début valide.</summary>
         RejectedNoRefusalStarted,
+        /// <summary>Demande reçue après le résultat de la nuit (P1-033) : gameplay gelé.</summary>
+        RejectedFrozen,
     }
 
     /// <summary>Règles de décision pures (sans NGO), évaluées par l'hôte.</summary>

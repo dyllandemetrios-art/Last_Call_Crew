@@ -27,6 +27,8 @@ namespace LastCallCrew.Network
         DrinkOffer _offer;
         NightTimer _night;
         NightOutcome _outcome;
+        NightRound _round;
+        int _seenRound = -1;
         float _nextRefresh;
         int _seenDecisionCount = -1;
         float _decisionFeedbackUntil;
@@ -43,6 +45,7 @@ namespace LastCallCrew.Network
 
             _kit.Ensure();
             Refresh();
+            ResetPresentationOnNewRound();
 
             PlayerKnockout localKnockout = nm.LocalClient?.PlayerObject != null
                 ? nm.LocalClient.PlayerObject.GetComponent<PlayerKnockout>()
@@ -66,6 +69,26 @@ namespace LastCallCrew.Network
                 DrawKnockoutMessage(localCarry, nm.LocalClient.PlayerObject.GetComponent<PlayerWake>());
             // Après le message KO : le bandeau de résultat se place dessous au lieu de passer derrière.
             DrawNightOutcome();
+        }
+
+        // P1-033 : à chaque changement de manche répliqué, les feedbacks temporaires et les compteurs observés
+        // repartent de zéro, une seule fois par instance.
+        void ResetPresentationOnNewRound()
+        {
+            if (_round == null || !_round.IsSpawned || _round.Round == _seenRound)
+                return;
+            bool first = _seenRound < 0;
+            _seenRound = _round.Round;
+            if (first)
+                return;
+            for (int i = 0; i < _seenWakeCounts.Length; i++) _seenWakeCounts[i] = -1;
+            for (int i = 0; i < _seenReturned.Length; i++) _seenReturned[i] = -1;
+            _seenDecisionCount = -1;
+            _wakeFeedbackText = null;
+            _returnFeedbackText = null;
+            _wakeFeedbackUntil = 0f;
+            _returnFeedbackUntil = 0f;
+            _decisionFeedbackUntil = 0f;
         }
 
         void Refresh()
@@ -101,6 +124,8 @@ namespace LastCallCrew.Network
                 _night = FindFirstObjectByType<NightTimer>();
             if (_outcome == null)
                 _outcome = FindFirstObjectByType<NightOutcome>();
+            if (_round == null)
+                _round = FindFirstObjectByType<NightRound>();
         }
 
         // ---- Panneau Ivresse (haut à droite) ----
@@ -180,8 +205,10 @@ namespace LastCallCrew.Network
             // Centré et assez étroit pour ne jamais recouvrir le panneau Ivresse (droite) ni le panneau réseau (gauche).
             float width = Mathf.Min(u(900f), Screen.width - 2f * u(480f + 32f));
             ulong? carrier = localCarry != null ? localCarry.CarrierClientId : null;
+            // Pas de compte à rebours de réveil pendant le bilan : le réveil automatique est gelé.
+            bool showWake = localWake != null && !NightOutcome.IsFrozen;
             // Placé dans le tiers haut pour laisser le corps couché, cadré par la caméra de KO, visible au centre (P1-020a).
-            float height = u(120f) + (carrier.HasValue ? u(56f) : 0f) + (localWake != null ? u(56f) : 0f);
+            float height = u(120f) + (carrier.HasValue ? u(56f) : 0f) + (showWake ? u(56f) : 0f);
             var rect = new Rect((Screen.width - width) * 0.5f, Mathf.Max(Screen.height * 0.1f, _timerBottom + _kit.U(12f)), width, height);
             _koBottom = rect.yMax;
             _kit.Panel(rect, new Color(0.05f, 0.02f, 0.03f, 0.88f));
@@ -192,7 +219,7 @@ namespace LastCallCrew.Network
                 DebugGuiKit.Label(new Rect(rect.x, y, rect.width, u(50f)), $"PORTÉ PAR JOUEUR {carrier.Value}", _kit.Prompt, new Color(0.65f, 0.9f, 1f));
                 y += u(56f);
             }
-            if (localWake != null)
+            if (showWake)
                 DebugGuiKit.Label(new Rect(rect.x, y, rect.width, u(50f)),
                     $"RÉVEIL AUTOMATIQUE DANS {Mathf.CeilToInt(localWake.AutoWakeRemaining)} s", _kit.Prompt, new Color(1f, 0.85f, 0.4f));
         }
@@ -260,7 +287,7 @@ namespace LastCallCrew.Network
             _kit.Bar(new Rect(card.x + u(14f), card.y + u(TimerCardHeight - 32f), card.width - u(28f), u(18f)), fraction, fill);
         }
 
-        // ---- Résultat de la nuit (bandeau central, sous le message KO, au-dessus des invites) ----
+        // ---- Bilan de la nuit (carte centrale, sous le message KO) ----
 
         void DrawNightOutcome()
         {
@@ -268,12 +295,51 @@ namespace LastCallCrew.Network
                 return;
             float u(float v) => _kit.U(v);
             bool victory = _outcome.Result == NightResult.Victory;
-            // Pleine largeur utile : placé sous les panneaux latéraux (y ≥ 46 % de l'écran), il ne les recouvre pas.
+            bool isHost = NetworkManager.Singleton != null && NetworkManager.Singleton.IsServer;
+
+            int rows = 0;
+            foreach (PlayerIntoxication p in _players)
+                if (p != null && p.IsSpawned)
+                    rows++;
+
+            // Pleine largeur utile : placée sous les panneaux latéraux (y >= 46 % de l'écran), elle ne les recouvre pas.
             float width = Mathf.Min(u(1000f), Screen.width - u(32f));
-            var rect = new Rect((Screen.width - width) * 0.5f, Mathf.Max(Screen.height * 0.46f, _koBottom + u(12f)), width, u(96f));
-            _kit.Panel(rect, victory ? new Color(0.04f, 0.16f, 0.08f, 0.92f) : new Color(0.18f, 0.04f, 0.06f, 0.92f));
-            DebugGuiKit.Label(rect, NightOutcomeRules.Banner(_outcome.Result), _kit.Prompt,
-                victory ? new Color(0.5f, 1f, 0.6f) : new Color(1f, 0.4f, 0.45f));
+            float height = u(96f) + rows * u(40f) + u(104f);
+            var rect = new Rect((Screen.width - width) * 0.5f, Mathf.Max(Screen.height * 0.46f, _koBottom + u(12f)), width, height);
+            Color accent = victory ? new Color(0.5f, 1f, 0.6f) : new Color(1f, 0.4f, 0.45f);
+            _kit.Panel(rect, victory ? new Color(0.04f, 0.16f, 0.08f, 0.94f) : new Color(0.18f, 0.04f, 0.06f, 0.94f));
+            DebugGuiKit.Label(new Rect(rect.x, rect.y, rect.width, u(60f)), NightOutcomeRules.Banner(_outcome.Result), _kit.Prompt, accent);
+
+            string remaining = _night != null ? NightTimerRules.Format(_night.RemainingSeconds) : "00:00";
+            DebugGuiKit.Label(new Rect(rect.x, rect.y + u(52f), rect.width, u(40f)), "TEMPS RESTANT " + remaining, _kit.Prompt, new Color(0.8f, 0.88f, 1f));
+
+            float y = rect.y + u(96f);
+            for (int i = 0; i < _players.Length; i++)
+            {
+                PlayerIntoxication p = _players[i];
+                if (p == null || !p.IsSpawned)
+                    continue;
+                bool ko = _knockouts[i] != null && _knockouts[i].IsKnockedOut;
+                bool returned = _returns[i] != null && _returns[i].IsReturned;
+                string who = (p.IsOwner ? "VOUS" : "AUTRE") + " · Joueur " + p.OwnerClientId;
+                DebugGuiKit.Label(new Rect(rect.x + u(16f), y, rect.width * 0.34f, u(36f)), who, _kit.Body, p.IsOwner ? new Color(0.65f, 0.9f, 1f) : Color.white);
+                DebugGuiKit.Label(new Rect(rect.x + rect.width * 0.34f, y, rect.width * 0.38f, u(36f)), RestartRules.FinalState(returned, ko), _kit.Body,
+                    returned ? new Color(0.45f, 0.95f, 0.6f) : new Color(1f, 0.55f, 0.5f));
+                DebugGuiKit.Label(new Rect(rect.x + rect.width * 0.72f, y, rect.width * 0.28f - u(16f), u(36f)), "IVRESSE " + Mathf.RoundToInt(p.Value), _kit.Body, Color.white);
+                y += u(40f);
+            }
+
+            float bottom = rect.yMax - u(16f);
+            if (isHost && _round != null)
+            {
+                var button = new Rect(rect.x + rect.width * 0.5f - u(150f), bottom - u(56f), u(300f), u(56f));
+                if (GUI.Button(button, "RELANCER", _kit.Button))
+                    _round.RequestRestartRpc();
+            }
+            else
+            {
+                DebugGuiKit.Label(new Rect(rect.x, bottom - u(56f), rect.width, u(56f)), "EN ATTENTE DE L'HÔTE", _kit.Prompt, new Color(1f, 0.85f, 0.4f));
+            }
         }
 
         // ---- Bandeau du porteur (haut au centre, sous la carte NUIT) ----
@@ -311,6 +377,9 @@ namespace LastCallCrew.Network
             var promptRect = new Rect(centerX - promptWidth * 0.5f, bottom - promptHeight, promptWidth, promptHeight);
 
             float feedbackBottom = promptRect.y;
+            // P1-033 : plus d'invite d'action pendant le bilan (le gameplay est gelé).
+            if (NightOutcome.IsFrozen)
+                return;
             if (local.IsWaking)
             {
                 // Grande barre de réveil : plus haute que celle du refus pour être lue d'un coup d'œil.

@@ -34,7 +34,7 @@ namespace LastCallCrew.Network
             if (!IsOwner)
                 return;
 
-            transform.position = new Vector3(OwnerClientId * 3f, 1f, 0f);
+            transform.position = LastCallCrew.Night.RestartRules.StartPosition(OwnerClientId);
             _runtimeActions = Instantiate(inputActions);
             _move = _runtimeActions.FindAction("Player/Move", true);
             _look = _runtimeActions.FindAction("Player/Look", true);
@@ -62,6 +62,10 @@ namespace LastCallCrew.Network
             if (_knockout != null && _knockout.IsKnockedOut)
                 return;
 
+            // P1-033 : après le résultat de la nuit, ni déplacement ni regard jusqu'à la relance.
+            if (NightOutcome.IsFrozen)
+                return;
+
             if (_autoWalk)
             {
                 transform.Rotate(0f, 30f * Time.deltaTime, 0f);
@@ -77,6 +81,20 @@ namespace LastCallCrew.Network
             Vector2 move = _move.ReadValue<Vector2>();
             Vector3 direction = transform.right * move.x + transform.forward * move.y;
             transform.position += direction * (moveSpeed * CarrySpeedFactor * Time.deltaTime);
+        }
+
+        /// <summary>
+        /// P1-033 : l'hôte demande au propriétaire de se replacer au départ (la position est en autorité propriétaire).
+        /// </summary>
+        [Rpc(SendTo.Owner)]
+        public void ResetPoseRpc(Vector3 position, Quaternion rotation)
+        {
+            transform.SetPositionAndRotation(position, rotation);
+            _pitch = 0f;
+            if (cameraRoot != null && !(_knockout != null && _knockout.IsKnockedOut))
+                cameraRoot.localRotation = Quaternion.identity;
+            if (TryGetComponent(out Unity.Netcode.Components.NetworkTransform nt) && nt.enabled)
+                nt.Teleport(position, rotation, transform.localScale);
         }
 
         // P1-021 : le multiplicateur de portage (TuningConfig) s'applique sans toucher à la vitesse de base.

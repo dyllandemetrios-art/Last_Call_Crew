@@ -21,16 +21,43 @@ namespace LastCallCrew.Network
         readonly NetworkVariable<double> _decidedAt = new NetworkVariable<double>(ReturnRules.NotReturned);
         readonly List<double> _returnTimes = new List<double>(4);
 
+        static NightOutcome _current;
+
+        /// <summary>
+        /// Vrai dès qu'un résultat terminal est répliqué : le gameplay est gelé jusqu'à la relance (P1-033).
+        /// Lu par le propriétaire (entrées) et par l'hôte (rejet des demandes, temps qui s'écoule).
+        /// </summary>
+        public static bool IsFrozen => _current != null && _current.IsSpawned && RestartRules.IsFrozen(_current._result.Value);
+
+        /// <summary>Temps serveur de la décision en cours (ReturnRules.NotReturned s'il n'y en a pas).</summary>
+        public static double CurrentDecidedTime => _current != null ? _current._decidedAt.Value : ReturnRules.NotReturned;
+
         public NightResult Result => _result.Value;
         /// <summary>Temps serveur de la décision ; ReturnRules.NotReturned tant qu'elle n'a pas eu lieu.</summary>
         public double DecidedServerTime => _decidedAt.Value;
 
         public override void OnNetworkSpawn()
         {
+            _current = this;
             if (timer == null)
                 timer = FindFirstObjectByType<NightTimer>();
             if (timer == null)
                 throw new System.InvalidOperationException("NightOutcome : NightTimer introuvable.");
+        }
+
+        public override void OnNetworkDespawn()
+        {
+            if (_current == this)
+                _current = null;
+        }
+
+        /// <summary>Hôte uniquement (appelé par NightRound) : le résultat redevient Pending pour la manche suivante.</summary>
+        public void ServerResetForRound()
+        {
+            if (!IsServer)
+                return;
+            _decidedAt.Value = ReturnRules.NotReturned;
+            _result.Value = NightResult.Pending;
         }
 
         void LateUpdate()

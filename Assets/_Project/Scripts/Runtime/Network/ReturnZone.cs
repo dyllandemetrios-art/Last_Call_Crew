@@ -32,7 +32,8 @@ namespace LastCallCrew.Network
         void Update()
         {
             NetworkManager nm = NetworkManager.Singleton;
-            if (nm == null || !nm.IsServer || !nm.IsListening || trigger == null)
+            // P1-033 : plus aucun retour n'est enregistré une fois le résultat décidé.
+            if (nm == null || !nm.IsServer || !nm.IsListening || trigger == null || NightOutcome.IsFrozen)
                 return;
 
             double now = nm.ServerTime.Time;
@@ -42,8 +43,13 @@ namespace LastCallCrew.Network
                 if (player == null || !IsInside(player.transform.position))
                     continue;
 
+                // Après une relance, ignorer la position tant que la pose de départ n'est pas arrivée sur l'hôte.
                 if (player.TryGetComponent(out PlayerReturn self))
+                {
+                    if (!self.ServerPoseSettled(player.transform.position, now))
+                        continue;
                     self.ServerMarkReturned(now);
+                }
 
                 // Un porteur qui rentre ramène son partenaire porté, même si le collider de celui-ci est désactivé.
                 if (player.TryGetComponent(out PlayerCarry carrier)

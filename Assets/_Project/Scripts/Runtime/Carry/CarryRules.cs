@@ -19,6 +19,8 @@ namespace LastCallCrew.Carry
         RejectedTargetCarrying,
         RejectedOutOfRange,
         RejectedNotCarrying,
+        /// <summary>Demande reçue après le résultat de la nuit (P1-033) : gameplay gelé.</summary>
+        RejectedFrozen,
     }
 
     /// <summary>État des deux joueurs au moment d'une demande de prise, lu par l'hôte.</summary>

@@ -19,6 +19,8 @@ namespace LastCallCrew.Wake
         RejectedOutOfRange,
         RejectedNoHoldStarted,
         HoldTooShort,
+        /// <summary>Demande reçue après le résultat de la nuit (P1-033) : gameplay gelé.</summary>
+        RejectedFrozen,
     }
 
     /// <summary>Origine d'un réveil.</summary>
