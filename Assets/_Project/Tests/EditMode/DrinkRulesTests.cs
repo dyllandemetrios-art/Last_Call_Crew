@@ -18,26 +18,22 @@ namespace LastCallCrew.Tests
         public void TearDown() => Object.DestroyImmediate(_config);
 
         [Test]
-        public void Accept_InRangeAndAvailable_IsAccepted() =>
-            Assert.AreEqual(DrinkRequestOutcome.Accepted, DrinkRules.EvaluateAccept(2f, Range, true));
+        public void Accept_InRange_IsAccepted() =>
+            Assert.AreEqual(DrinkRequestOutcome.Accepted, DrinkRules.EvaluateAccept(2f, Range));
 
         [Test]
         public void Accept_AtExactRange_IsAccepted() =>
-            Assert.AreEqual(DrinkRequestOutcome.Accepted, DrinkRules.EvaluateAccept(Range, Range, true));
+            Assert.AreEqual(DrinkRequestOutcome.Accepted, DrinkRules.EvaluateAccept(Range, Range));
 
         [Test]
         public void Accept_OutOfRange_IsRejected() =>
-            Assert.AreEqual(DrinkRequestOutcome.RejectedOutOfRange, DrinkRules.EvaluateAccept(Range + 0.01f, Range, true));
-
-        [Test]
-        public void Accept_Unavailable_IsRejected() =>
-            Assert.AreEqual(DrinkRequestOutcome.RejectedUnavailable, DrinkRules.EvaluateAccept(2f, Range, false));
+            Assert.AreEqual(DrinkRequestOutcome.RejectedOutOfRange, DrinkRules.EvaluateAccept(Range + 0.01f, Range));
 
         [Test]
         public void Accept_InvalidDistance_IsRejectedAsOutOfRange()
         {
-            Assert.AreEqual(DrinkRequestOutcome.RejectedOutOfRange, DrinkRules.EvaluateAccept(float.NaN, Range, true));
-            Assert.AreEqual(DrinkRequestOutcome.RejectedOutOfRange, DrinkRules.EvaluateAccept(float.PositiveInfinity, Range, true));
+            Assert.AreEqual(DrinkRequestOutcome.RejectedOutOfRange, DrinkRules.EvaluateAccept(float.NaN, Range));
+            Assert.AreEqual(DrinkRequestOutcome.RejectedOutOfRange, DrinkRules.EvaluateAccept(float.PositiveInfinity, Range));
         }
 
         [Test]
@@ -45,7 +41,7 @@ namespace LastCallCrew.Tests
         {
             float required = _config.RefuseDurationSeconds;
             Assert.AreEqual(DrinkRequestOutcome.Refused,
-                DrinkRules.EvaluateRefuse(2f, Range, true, required, required, Tolerance));
+                DrinkRules.EvaluateRefuse(2f, Range, required, required, Tolerance));
         }
 
         [Test]
@@ -53,7 +49,7 @@ namespace LastCallCrew.Tests
         {
             float required = _config.RefuseDurationSeconds;
             Assert.AreEqual(DrinkRequestOutcome.Refused,
-                DrinkRules.EvaluateRefuse(2f, Range, true, required - Tolerance, required, Tolerance));
+                DrinkRules.EvaluateRefuse(2f, Range, required - Tolerance, required, Tolerance));
         }
 
         [Test]
@@ -61,24 +57,30 @@ namespace LastCallCrew.Tests
         {
             float required = _config.RefuseDurationSeconds;
             Assert.AreEqual(DrinkRequestOutcome.HoldTooShort,
-                DrinkRules.EvaluateRefuse(2f, Range, true, required * 0.5, required, Tolerance));
+                DrinkRules.EvaluateRefuse(2f, Range, required * 0.5, required, Tolerance));
             Assert.AreEqual(DrinkRequestOutcome.HoldTooShort,
-                DrinkRules.EvaluateRefuse(2f, Range, true, 0.0, required, Tolerance));
+                DrinkRules.EvaluateRefuse(2f, Range, 0.0, required, Tolerance));
         }
 
         [Test]
-        public void Refuse_OutOfRangeOrUnavailable_IsRejectedEvenIfHeldLongEnough()
+        public void Refuse_OutOfRange_IsRejectedEvenIfHeldLongEnough()
         {
             float required = _config.RefuseDurationSeconds;
             Assert.AreEqual(DrinkRequestOutcome.RejectedOutOfRange,
-                DrinkRules.EvaluateRefuse(Range + 1f, Range, true, required, required, Tolerance));
-            Assert.AreEqual(DrinkRequestOutcome.RejectedUnavailable,
-                DrinkRules.EvaluateRefuse(2f, Range, false, required, required, Tolerance));
+                DrinkRules.EvaluateRefuse(Range + 1f, Range, required, required, Tolerance));
+        }
+
+        [Test]
+        public void ConsecutiveValidRequests_GiveTheSameOutcome()
+        {
+            // Aucun état partagé entre deux demandes : deux demandes valides de suite donnent la même issue.
+            Assert.AreEqual(DrinkRequestOutcome.Accepted, DrinkRules.EvaluateAccept(2f, Range));
+            Assert.AreEqual(DrinkRequestOutcome.Accepted, DrinkRules.EvaluateAccept(2f, Range));
         }
 
         [Test]
         public void Refuse_NaNHold_IsNotRefused() =>
             Assert.AreEqual(DrinkRequestOutcome.HoldTooShort,
-                DrinkRules.EvaluateRefuse(2f, Range, true, double.NaN, _config.RefuseDurationSeconds, Tolerance));
+                DrinkRules.EvaluateRefuse(2f, Range, double.NaN, _config.RefuseDurationSeconds, Tolerance));
     }
 }

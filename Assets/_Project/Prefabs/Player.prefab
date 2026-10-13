@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5005931014193574734}
   - component: {fileID: 5046532385235059929}
   - component: {fileID: 7755367336105949486}
+  - component: {fileID: 5144675143387499164}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -228,6 +229,23 @@ MonoBehaviour:
   cameraRoot: {fileID: 1470204162343861948}
   interactRange: 3
   serverRangeTolerance: 1
+  serverHoldTolerance: 0.15
+--- !u!114 &5144675143387499164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705727650154815863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0ec683e04f8674d90efbc8014e19c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LastCallCrew.Network.PlayerIntoxication
+  ShowTopMostFoldoutHeaderGroup: 1
+  tuning: {fileID: 11400000, guid: 93f73e323e74ac042a759a485eee3001, type: 2}
+  decayReplicationInterval: 0.5
+  decayReplicationStep: 0.1
 --- !u!1 &8761169269103621495
 GameObject:
   m_ObjectHideFlags: 0

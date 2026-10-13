@@ -1,0 +1,16 @@
+{
+    "name": "LastCallCrew.Intoxication",
+    "rootNamespace": "LastCallCrew.Intoxication",
+    "references": [
+        "LastCallCrew.Config"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -8,8 +8,9 @@ namespace LastCallCrew.Network
     /// <summary>
     /// Interaction du joueur avec une proposition de verre (P1-002 puis P1-012).
     /// Le propriétaire vise, lit ses entrées et envoie des demandes ; l'hôte revérifie émetteur,
-    /// cible, portée, disponibilité et, pour un refus, la durée de maintien qu'il mesure lui-même.
+    /// cible, portée et, pour un refus, la durée de maintien qu'il mesure lui-même.
     /// </summary>
+    [RequireComponent(typeof(PlayerIntoxication))]
     public class PlayerInteractor : NetworkBehaviour
     {
         [SerializeField] InputActionAsset inputActions;
@@ -19,12 +20,21 @@ namespace LastCallCrew.Network
         [Tooltip("Marge (s) appliquée par l'hôte à la durée de maintien d'un refus, pour la gigue réseau.")]
         [SerializeField] float serverHoldTolerance = 0.15f;
 
+        PlayerIntoxication _intoxication;
         InputActionAsset _runtimeActions;
         InputAction _accept;
         InputAction _refuse;
         DrinkOffer _aimedOffer;
         string _message;
         float _messageUntil;
+
+        /// <summary>Proposition visée par le propriétaire (null sinon). Lu par le HUD de debug.</summary>
+        public DrinkOffer AimedOffer => _aimedOffer;
+        public bool IsHolding => _holding;
+        public float HoldProgress =>
+            _holding && _holdOffer != null ? Mathf.Clamp01((Time.time - _holdStartTime) / _holdOffer.RefuseDurationSeconds) : 0f;
+        /// <summary>Message local bref (rejet ou annulation) ; vide s'il n'y en a pas.</summary>
+        public string FeedbackMessage => Time.time < _messageUntil ? _message : string.Empty;
 
         // Côté propriétaire : maintien de refus en cours.
         bool _holding;
@@ -38,6 +48,7 @@ namespace LastCallCrew.Network
 
         public override void OnNetworkSpawn()
         {
+            _intoxication = GetComponent<PlayerIntoxication>();
             if (!IsOwner)
                 return;
 
@@ -108,9 +119,13 @@ namespace LastCallCrew.Network
         {
             DrinkRequestOutcome outcome = ServerResolve(target, rpcParams.Receive.SenderClientId, out DrinkOffer offer, out float distance);
             if (outcome == DrinkRequestOutcome.Accepted)
-                outcome = DrinkRules.EvaluateAccept(distance, interactRange + serverRangeTolerance, offer.IsAvailable);
+                outcome = DrinkRules.EvaluateAccept(distance, interactRange + serverRangeTolerance);
             if (outcome == DrinkRequestOutcome.Accepted)
+            {
+                // Décision et gain d'ivresse dans le même chemin autoritaire : seule une acceptation validée donne des points.
                 offer.ServerDecide(DrinkDecision.Accepted, OwnerClientId);
+                _intoxication.ServerAddDrink();
+            }
             ServerReport("accept", outcome, distance);
         }
 
@@ -121,8 +136,8 @@ namespace LastCallCrew.Network
             DrinkRequestOutcome outcome = ServerResolve(target, rpcParams.Receive.SenderClientId, out DrinkOffer offer, out float distance);
             if (outcome == DrinkRequestOutcome.Accepted)
             {
-                // Début valide : on exige seulement portée et disponibilité maintenant ; la durée est jugée à la fin.
-                outcome = DrinkRules.EvaluateAccept(distance, interactRange + serverRangeTolerance, offer.IsAvailable);
+                // Début valide : on exige seulement la portée maintenant ; la durée est jugée à la fin.
+                outcome = DrinkRules.EvaluateAccept(distance, interactRange + serverRangeTolerance);
             }
 
             if (outcome == DrinkRequestOutcome.Accepted)
@@ -152,7 +167,7 @@ namespace LastCallCrew.Network
                 {
                     double held = Time.realtimeSinceStartupAsDouble - _serverRefuseStart;
                     outcome = DrinkRules.EvaluateRefuse(
-                        distance, interactRange + serverRangeTolerance, offer.IsAvailable,
+                        distance, interactRange + serverRangeTolerance,
                         held, offer.RefuseDurationSeconds, serverHoldTolerance);
                     if (outcome == DrinkRequestOutcome.Refused)
                         offer.ServerDecide(DrinkDecision.Refused, OwnerClientId);
@@ -193,52 +208,18 @@ namespace LastCallCrew.Network
             {
                 case DrinkRequestOutcome.Accepted:
                 case DrinkRequestOutcome.Refused:
-                    return; // la décision est affichée par DrinkOffer, depuis l'état répliqué
+                    return; // la décision est affichée par le HUD, depuis l'état répliqué de DrinkOffer
                 case DrinkRequestOutcome.HoldTooShort:
-                    _message = "Refus annulé (relâché trop tôt)";
-                    break;
-                case DrinkRequestOutcome.RejectedUnavailable:
-                    _message = "Verre indisponible";
+                    _message = "REFUS ANNULÉ";
                     break;
                 case DrinkRequestOutcome.RejectedOutOfRange:
-                    _message = "Trop loin";
+                    _message = "TROP LOIN";
                     break;
                 default:
-                    _message = "Demande refusée";
+                    _message = "DEMANDE REFUSÉE";
                     break;
             }
             _messageUntil = Time.time + 1.5f;
-        }
-
-        void OnGUI()
-        {
-            if (!IsOwner)
-                return;
-
-            float cx = Screen.width * 0.5f;
-            float cy = Screen.height * 0.5f;
-            GUI.Label(new Rect(cx - 10, cy - 12, 20, 24), "+");
-
-            if (_holding && _holdOffer != null)
-            {
-                float progress = Mathf.Clamp01((Time.time - _holdStartTime) / _holdOffer.RefuseDurationSeconds);
-                GUI.Box(new Rect(cx - 60, cy + 20, 120, 12), GUIContent.none);
-                Color previous = GUI.color;
-                GUI.color = new Color(0.9f, 0.3f, 0.3f);
-                GUI.DrawTexture(new Rect(cx - 60, cy + 20, 120 * progress, 12), Texture2D.whiteTexture);
-                GUI.color = previous;
-                GUI.Label(new Rect(cx - 80, cy + 34, 160, 24), "Refus en cours…");
-            }
-            else if (_aimedOffer != null)
-            {
-                string prompt = _aimedOffer.IsAvailable
-                    ? "[E] Accepter   [Clic droit maintenu] Refuser"
-                    : $"Indisponible ({_aimedOffer.RemainingCooldownSeconds:0} s)";
-                GUI.Label(new Rect(cx - 160, cy + 15, 320, 24), prompt);
-            }
-
-            if (Time.time < _messageUntil)
-                GUI.Label(new Rect(cx - 120, cy + 58, 240, 24), _message);
         }
     }
 }
