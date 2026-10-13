@@ -16,7 +16,7 @@
 
 | ID | Tâche | Critère de fin | Statut |
 | --- | --- | --- | --- |
-| P1-010 | Créer la greybox | Deux joueurs apparaissent dans un petit lieu avec entrée et sortie lisibles | Prêt pour Claude |
+| P1-010 | Créer la greybox | Deux joueurs apparaissent dans un petit lieu avec entrée et sortie lisibles | PASS validé par Dyllan le 13 octobre 2026 |
 | P1-011 | Créer le TuningConfig | Gain et décroissance d'ivresse, seuils, KO, refus et réveil sont réglables | PASS au commit `4757202` |
 | P1-012 | Boire et refuser | Le choix est autorisé par l'hôte et possède un feedback sur les deux instances | PASS validé par Dyllan le 13 octobre 2026 |
 | P1-013 | Ivresse synchronisée | L'état 0–100 et ses paliers restent cohérents chez l'hôte et le client | PASS validé par Dyllan le 13 octobre 2026 |
@@ -38,6 +38,7 @@
 | --- | --- | --- | --- |
 | P1-030 | Chronomètre autoritaire | Les deux clients partagent la même fin de partie | PASS validé par Dyllan le 13 octobre 2026 |
 | P1-031 | Retour collectif | Chaque joueur peut être marqué rentré, y compris lorsqu'il est porté | PASS validé par Dyllan le 13 octobre 2026 |
+| P1-031a | Présence réelle au retour | Un joueur sorti de la zone redevient dehors et ne peut pas provoquer une fausse victoire | Prêt pour Claude |
 | P1-032 | Victoire et échec | Victoire si les deux sont rentrés avant zéro, échec sinon | PASS validé par Dyllan le 13 octobre 2026 |
 | P1-033 | Bilan simple | Les deux joueurs voient la même conclusion et peuvent relancer | PASS validé par Dyllan le 13 octobre 2026 |
 

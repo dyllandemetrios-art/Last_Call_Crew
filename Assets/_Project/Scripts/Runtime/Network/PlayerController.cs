@@ -91,6 +91,46 @@ namespace LastCallCrew.Network
             Vector2 move = _move.ReadValue<Vector2>();
             Vector3 direction = transform.right * move.x + transform.forward * move.y;
             transform.position += direction * (moveSpeed * CarrySpeedFactor * Time.deltaTime);
+            PushOutOfObstacles();
+        }
+
+        // P1-010 : le joueur se déplace par transform (sans Rigidbody) ; on le repousse donc horizontalement hors des colliders
+        // solides de la scène (murs, comptoir, tables, PNJ). Les autres joueurs, les triggers et le sol ne comptent pas.
+        static readonly Collider[] ObstacleBuffer = new Collider[16];
+        CapsuleCollider _body;
+
+        void PushOutOfObstacles()
+        {
+            if (_body == null && !TryGetComponent(out _body))
+                return;
+
+            for (int pass = 0; pass < 3; pass++)
+            {
+                Vector3 center = transform.TransformPoint(_body.center);
+                float half = Mathf.Max(_body.height * 0.5f - _body.radius, 0f);
+                int count = Physics.OverlapCapsuleNonAlloc(
+                    center + Vector3.up * half, center - Vector3.up * half, _body.radius,
+                    ObstacleBuffer, ~0, QueryTriggerInteraction.Ignore);
+
+                bool moved = false;
+                for (int i = 0; i < count; i++)
+                {
+                    Collider other = ObstacleBuffer[i];
+                    if (other == _body || other.transform.IsChildOf(transform) || (other is MeshCollider mesh && !mesh.convex)
+                        || other.GetComponentInParent<PlayerController>() != null)
+                        continue;
+                    if (!Physics.ComputePenetration(_body, transform.position, transform.rotation,
+                            other, other.transform.position, other.transform.rotation, out Vector3 direction, out float distance))
+                        continue;
+                    direction.y = 0f;
+                    if (direction.sqrMagnitude < 1e-6f)
+                        continue;
+                    transform.position += direction.normalized * distance;
+                    moved = true;
+                }
+                if (!moved)
+                    break;
+            }
         }
 
         // P1-015 : exécuté après tous les Update, donc après PlayerInteractor, qui a déjà pu consommer Échap pour fermer un dialogue.
