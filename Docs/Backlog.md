@@ -37,7 +37,7 @@
 | --- | --- | --- | --- |
 | P1-030 | Chronomètre autoritaire | Les deux clients partagent la même fin de partie | PASS validé par Dyllan le 13 octobre 2026 |
 | P1-031 | Retour collectif | Chaque joueur peut être marqué rentré, y compris lorsqu'il est porté | PASS validé par Dyllan le 13 octobre 2026 |
-| P1-032 | Victoire et échec | Victoire si les deux sont rentrés avant zéro, échec sinon | Bloqué par P1-031 |
+| P1-032 | Victoire et échec | Victoire si les deux sont rentrés avant zéro, échec sinon | Prêt pour Claude |
 | P1-033 | Bilan simple | Les deux joueurs voient la même conclusion et peuvent relancer | Bloqué par P1-032 |
 
 ## Stabilisation
