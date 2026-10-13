@@ -4,7 +4,8 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "LastCallCrew.Config"
+        "LastCallCrew.Config",
+        "LastCallCrew.Drink"
     ],
     "includePlatforms": [
         "Editor"

@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 1314879678}
   - component: {fileID: 1314879683}
   m_Layer: 0
-  m_Name: InteractiveCube
+  m_Name: DrinkOffer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -598,14 +598,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1314879677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fcb374895136074ca04c4de96d51efa, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cd72304f7094e24c9ac2107ce5a9816, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LastCallCrew.Network.InteractiveCube
+  m_EditorClassIdentifier: Assembly-CSharp::LastCallCrew.Network.DrinkOffer
   ShowTopMostFoldoutHeaderGroup: 1
-  cubeRenderer: {fileID: 1314879679}
-  cubeCollider: {fileID: 1314879680}
-  offColor: {r: 0.8, g: 0.15, b: 0.15, a: 1}
-  onColor: {r: 0.2, g: 0.85, b: 0.25, a: 1}
+  tuning: {fileID: 11400000, guid: 93f73e323e74ac042a759a485eee3001, type: 2}
+  offerRenderer: {fileID: 1314879679}
+  offerCollider: {fileID: 1314879680}
+  availableColor: {r: 1, g: 0.8, b: 0.1, a: 1}
+  unavailableColor: {r: 0.35, g: 0.35, b: 0.35, a: 1}
 --- !u!1 &2089392925
 GameObject:
   m_ObjectHideFlags: 0
