@@ -9,6 +9,7 @@ namespace LastCallCrew.Network
     /// Ivresse d'un joueur (P1-013). L'hôte calcule gains et décroissance puis réplique la valeur ;
     /// toutes les instances (hôte compris) lisent la valeur répliquée et en déduisent le palier.
     /// </summary>
+    [RequireComponent(typeof(PlayerKnockout))]
     public class PlayerIntoxication : NetworkBehaviour
     {
         [SerializeField] TuningConfig tuning;
@@ -19,6 +20,7 @@ namespace LastCallCrew.Network
 
         readonly NetworkVariable<float> _value = new NetworkVariable<float>();
 
+        PlayerKnockout _knockout;
         float _serverValue;
         float _nextDecayWriteTime;
 
@@ -32,6 +34,7 @@ namespace LastCallCrew.Network
             if (tuning == null)
                 throw new System.InvalidOperationException("PlayerIntoxication : TuningConfig non assigné.");
             tuning.ThrowIfInvalid();
+            _knockout = GetComponent<PlayerKnockout>();
 
             if (IsServer)
             {
@@ -49,6 +52,10 @@ namespace LastCallCrew.Network
             _serverValue = IntoxicationRules.AddDrink(_serverValue, tuning);
             Write();
             Debug.Log($"[P1-013] host: client {OwnerClientId} drink {before:0.00} -> {_serverValue:0.00} ({IntoxicationRules.GetStage(_serverValue, tuning)})");
+
+            // P1-020 : seul l'hôte déclenche le KO, au franchissement du seuil ; idempotent si déjà KO.
+            if (KnockoutRules.ShouldEnterKnockout(_serverValue, tuning, _knockout.IsKnockedOut))
+                _knockout.ServerEnterKnockout();
         }
 
         void Update()

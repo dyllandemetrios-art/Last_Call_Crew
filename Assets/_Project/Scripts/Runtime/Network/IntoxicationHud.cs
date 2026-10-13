@@ -15,6 +15,7 @@ namespace LastCallCrew.Network
 
         readonly DebugGuiKit _kit = new DebugGuiKit();
         PlayerIntoxication[] _players = System.Array.Empty<PlayerIntoxication>();
+        PlayerKnockout[] _knockouts = System.Array.Empty<PlayerKnockout>();
         DrinkOffer _offer;
         float _nextRefresh;
         int _seenDecisionCount = -1;
@@ -30,8 +31,20 @@ namespace LastCallCrew.Network
 
             _kit.Ensure();
             Refresh();
+
+            PlayerKnockout localKnockout = nm.LocalClient?.PlayerObject != null
+                ? nm.LocalClient.PlayerObject.GetComponent<PlayerKnockout>()
+                : null;
+            bool localKnockedOut = localKnockout != null && localKnockout.IsKnockedOut;
+
+            // Voile léger d'abord, pour que les panneaux (dont celui du partenaire) restent par-dessus et lisibles.
+            if (localKnockedOut)
+                _kit.Panel(new Rect(0f, 0f, Screen.width, Screen.height), new Color(0f, 0f, 0f, 0.42f));
+
             DrawIntoxicationPanel();
             DrawInteractionFeedback(nm);
+            if (localKnockedOut)
+                DrawKnockoutMessage();
         }
 
         void Refresh()
@@ -41,6 +54,10 @@ namespace LastCallCrew.Network
             _nextRefresh = Time.unscaledTime + 0.5f;
             _players = FindObjectsByType<PlayerIntoxication>(FindObjectsSortMode.None);
             System.Array.Sort(_players, (a, b) => a.OwnerClientId.CompareTo(b.OwnerClientId));
+            if (_knockouts.Length != _players.Length)
+                _knockouts = new PlayerKnockout[_players.Length];
+            for (int i = 0; i < _players.Length; i++)
+                _knockouts[i] = _players[i] != null ? _players[i].GetComponent<PlayerKnockout>() : null;
             if (_offer == null)
                 _offer = FindFirstObjectByType<DrinkOffer>();
         }
@@ -65,16 +82,18 @@ namespace LastCallCrew.Network
             DebugGuiKit.Label(new Rect(x + u(14f), y + u(4f), width - u(28f), u(40f)), "IVRESSE", _kit.Title, new Color(0.7f, 0.82f, 1f));
 
             float cy = y + u(46f);
-            foreach (PlayerIntoxication p in _players)
+            for (int i = 0; i < _players.Length; i++)
             {
+                PlayerIntoxication p = _players[i];
                 if (p == null || !p.IsSpawned)
                     continue;
-                DrawPlayerCard(p, new Rect(x + u(10f), cy, width - u(20f), cardHeight));
+                bool knockedOut = _knockouts[i] != null && _knockouts[i].IsKnockedOut;
+                DrawPlayerCard(p, knockedOut, new Rect(x + u(10f), cy, width - u(20f), cardHeight));
                 cy += cardHeight + u(8f);
             }
         }
 
-        void DrawPlayerCard(PlayerIntoxication player, Rect card)
+        void DrawPlayerCard(PlayerIntoxication player, bool knockedOut, Rect card)
         {
             float u(float v) => _kit.U(v);
             IntoxicationStage stage = player.Stage;
@@ -89,8 +108,9 @@ namespace LastCallCrew.Network
             DebugGuiKit.Label(new Rect(card.x + card.width * 0.54f, card.y + u(4f), card.width * 0.46f - u(12f), u(44f)),
                 $"{Mathf.RoundToInt(player.Value)} / {Mathf.RoundToInt(player.MaxValue)}", _kit.Value, Color.white);
 
+            string stageText = knockedOut ? "KO · À TERRE" : IntoxicationRules.Label(stage).ToUpperInvariant();
             DebugGuiKit.Label(new Rect(card.x + u(12f), card.y + u(48f), card.width - u(24f), u(30f)),
-                IntoxicationRules.Label(stage).ToUpperInvariant(), _kit.Body, stageColor);
+                stageText, _kit.Body, stageColor);
             _kit.Bar(new Rect(card.x + u(12f), card.y + u(82f), card.width - u(24f), u(18f)), player.Value / player.MaxValue, stageColor);
         }
 
@@ -103,6 +123,18 @@ namespace LastCallCrew.Network
                 case IntoxicationStage.KoThreshold: return new Color(0.95f, 0.22f, 0.28f);
                 default: return new Color(0.4f, 0.85f, 0.5f);
             }
+        }
+
+        // ---- Message KO du joueur local (centre) ----
+
+        void DrawKnockoutMessage()
+        {
+            float u(float v) => _kit.U(v);
+            float width = Mathf.Min(u(900f), Screen.width - u(40f));
+            // Placé dans le tiers haut pour laisser le corps couché, cadré par la caméra de KO, visible au centre (P1-020a).
+            var rect = new Rect((Screen.width - width) * 0.5f, Screen.height * 0.1f, width, u(120f));
+            _kit.Panel(rect, new Color(0.05f, 0.02f, 0.03f, 0.88f));
+            DebugGuiKit.Label(rect, "VOUS ÊTES KO", _kit.Huge, new Color(1f, 0.35f, 0.4f));
         }
 
         // ---- Invite, progression du refus et feedback (bas au centre) ----

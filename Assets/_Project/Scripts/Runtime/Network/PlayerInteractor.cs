@@ -21,6 +21,7 @@ namespace LastCallCrew.Network
         [SerializeField] float serverHoldTolerance = 0.15f;
 
         PlayerIntoxication _intoxication;
+        PlayerKnockout _knockout;
         InputActionAsset _runtimeActions;
         InputAction _accept;
         InputAction _refuse;
@@ -49,6 +50,7 @@ namespace LastCallCrew.Network
         public override void OnNetworkSpawn()
         {
             _intoxication = GetComponent<PlayerIntoxication>();
+            _knockout = GetComponent<PlayerKnockout>();
             if (!IsOwner)
                 return;
 
@@ -74,6 +76,15 @@ namespace LastCallCrew.Network
                 return;
 
             _aimedOffer = null;
+
+            // P1-020 : un joueur KO n'interagit plus ; un refus en cours est abandonné sans décision (l'hôte le rejetterait de toute façon).
+            if (_knockout.IsKnockedOut)
+            {
+                _holding = false;
+                _holdOffer = null;
+                return;
+            }
+
             if (Physics.Raycast(cameraRoot.position, cameraRoot.forward, out RaycastHit hit, interactRange))
                 _aimedOffer = hit.collider.GetComponentInParent<DrinkOffer>();
 
@@ -178,6 +189,9 @@ namespace LastCallCrew.Network
             ServerReport("refuse-end", outcome, distance);
         }
 
+        /// <summary>Hôte : abandonne un début de refus en cours (appelé à l'entrée en KO).</summary>
+        public void ServerCancelRefusal() => _serverRefuseActive = false;
+
         // Vérifie l'émetteur et la cible ; renvoie Accepted si les deux sont valides (la suite est jugée par DrinkRules).
         DrinkRequestOutcome ServerResolve(NetworkObjectReference target, ulong senderClientId, out DrinkOffer offer, out float distance)
         {
@@ -185,6 +199,8 @@ namespace LastCallCrew.Network
             distance = float.PositiveInfinity;
             if (senderClientId != OwnerClientId)
                 return DrinkRequestOutcome.RejectedInvalidSender;
+            if (_knockout.IsKnockedOut)
+                return DrinkRequestOutcome.RejectedKnockedOut;
             if (!target.TryGet(out NetworkObject targetObject) || !targetObject.TryGetComponent(out offer))
                 return DrinkRequestOutcome.RejectedInvalidTarget;
 
@@ -215,6 +231,8 @@ namespace LastCallCrew.Network
                 case DrinkRequestOutcome.RejectedOutOfRange:
                     _message = "TROP LOIN";
                     break;
+                case DrinkRequestOutcome.RejectedKnockedOut:
+                    return; // l'écran KO du HUD suffit
                 default:
                     _message = "DEMANDE REFUSÉE";
                     break;

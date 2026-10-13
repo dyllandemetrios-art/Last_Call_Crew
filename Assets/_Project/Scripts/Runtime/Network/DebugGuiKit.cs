@@ -17,6 +17,7 @@ namespace LastCallCrew.Network
         public GUIStyle Body { get; private set; }
         public GUIStyle Value { get; private set; }
         public GUIStyle Prompt { get; private set; }
+        public GUIStyle Huge { get; private set; }
         public GUIStyle Button { get; private set; }
 
         Texture2D _white;
@@ -41,6 +42,7 @@ namespace LastCallCrew.Network
             Body = MakeStyle(28, FontStyle.Normal, TextAnchor.MiddleLeft, Color.white);
             Value = MakeStyle(34, FontStyle.Bold, TextAnchor.MiddleRight, Color.white);
             Prompt = MakeStyle(32, FontStyle.Bold, TextAnchor.MiddleCenter, Color.white);
+            Huge = MakeStyle(84, FontStyle.Bold, TextAnchor.MiddleCenter, Color.white);
             Button = new GUIStyle(GUI.skin.button)
             {
                 fontSize = Mathf.RoundToInt(28 * Scale),

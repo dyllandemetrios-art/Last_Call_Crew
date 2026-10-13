@@ -17,6 +17,7 @@ namespace LastCallCrew.Network
         [SerializeField] float moveSpeed = 5f;
         [SerializeField] float lookSensitivity = 0.1f;
 
+        PlayerKnockout _knockout;
         InputActionAsset _runtimeActions;
         InputAction _move;
         InputAction _look;
@@ -25,6 +26,7 @@ namespace LastCallCrew.Network
 
         public override void OnNetworkSpawn()
         {
+            _knockout = GetComponent<PlayerKnockout>();
             playerCamera.enabled = IsOwner;
             audioListener.enabled = IsOwner;
             if (!IsOwner)
@@ -52,6 +54,10 @@ namespace LastCallCrew.Network
         void Update()
         {
             if (!IsOwner || _runtimeActions == null)
+                return;
+
+            // P1-020 : un joueur KO ne se déplace ni ne tourne la caméra (auto-walk compris).
+            if (_knockout != null && _knockout.IsKnockedOut)
                 return;
 
             if (_autoWalk)
