@@ -26,6 +26,7 @@ namespace LastCallCrew.Network
         int[] _seenWakeCounts = System.Array.Empty<int>();
         DrinkOffer _offer;
         NightTimer _night;
+        NightOutcome _outcome;
         float _nextRefresh;
         int _seenDecisionCount = -1;
         float _decisionFeedbackUntil;
@@ -57,11 +58,14 @@ namespace LastCallCrew.Network
 
             DrawIntoxicationPanel();
             DrawNightTimer();
+            _koBottom = 0f;
             DrawInteractionFeedback(nm, localCarry);
             if (localCarry != null && localCarry.IsCarrying)
                 DrawCarryBanner(localCarry);
             if (localKnockedOut)
                 DrawKnockoutMessage(localCarry, nm.LocalClient.PlayerObject.GetComponent<PlayerWake>());
+            // Après le message KO : le bandeau de résultat se place dessous au lieu de passer derrière.
+            DrawNightOutcome();
         }
 
         void Refresh()
@@ -95,6 +99,8 @@ namespace LastCallCrew.Network
                 _offer = FindFirstObjectByType<DrinkOffer>();
             if (_night == null)
                 _night = FindFirstObjectByType<NightTimer>();
+            if (_outcome == null)
+                _outcome = FindFirstObjectByType<NightOutcome>();
         }
 
         // ---- Panneau Ivresse (haut à droite) ----
@@ -177,6 +183,7 @@ namespace LastCallCrew.Network
             // Placé dans le tiers haut pour laisser le corps couché, cadré par la caméra de KO, visible au centre (P1-020a).
             float height = u(120f) + (carrier.HasValue ? u(56f) : 0f) + (localWake != null ? u(56f) : 0f);
             var rect = new Rect((Screen.width - width) * 0.5f, Mathf.Max(Screen.height * 0.1f, _timerBottom + _kit.U(12f)), width, height);
+            _koBottom = rect.yMax;
             _kit.Panel(rect, new Color(0.05f, 0.02f, 0.03f, 0.88f));
             DebugGuiKit.Label(new Rect(rect.x, rect.y, rect.width, u(120f)), "VOUS ÊTES KO", _kit.Display, new Color(1f, 0.35f, 0.4f));
             float y = rect.y + u(118f);
@@ -200,6 +207,8 @@ namespace LastCallCrew.Network
 
         // Bas de la carte NUIT (pixels écran), pour que les messages centraux se placent dessous.
         float _timerBottom;
+        // Bas du message KO du joueur local (0 s'il n'est pas KO), pour placer le bandeau de résultat dessous.
+        float _koBottom;
 
         void DrawNightTimer()
         {
@@ -249,6 +258,22 @@ namespace LastCallCrew.Network
             DebugGuiKit.Label(new Rect(card.x + u(14f), card.y + u(4f), card.width - u(28f), u(40f)), "NUIT", _kit.Title, new Color(0.7f, 0.82f, 1f));
             DebugGuiKit.Label(new Rect(card.x, card.y + u(38f), card.width, u(80f)), text, style, color);
             _kit.Bar(new Rect(card.x + u(14f), card.y + u(TimerCardHeight - 32f), card.width - u(28f), u(18f)), fraction, fill);
+        }
+
+        // ---- Résultat de la nuit (bandeau central, sous le message KO, au-dessus des invites) ----
+
+        void DrawNightOutcome()
+        {
+            if (_outcome == null || !_outcome.IsSpawned || _outcome.Result == NightResult.Pending)
+                return;
+            float u(float v) => _kit.U(v);
+            bool victory = _outcome.Result == NightResult.Victory;
+            // Pleine largeur utile : placé sous les panneaux latéraux (y ≥ 46 % de l'écran), il ne les recouvre pas.
+            float width = Mathf.Min(u(1000f), Screen.width - u(32f));
+            var rect = new Rect((Screen.width - width) * 0.5f, Mathf.Max(Screen.height * 0.46f, _koBottom + u(12f)), width, u(96f));
+            _kit.Panel(rect, victory ? new Color(0.04f, 0.16f, 0.08f, 0.92f) : new Color(0.18f, 0.04f, 0.06f, 0.92f));
+            DebugGuiKit.Label(rect, NightOutcomeRules.Banner(_outcome.Result), _kit.Prompt,
+                victory ? new Color(0.5f, 1f, 0.6f) : new Color(1f, 0.4f, 0.45f));
         }
 
         // ---- Bandeau du porteur (haut au centre, sous la carte NUIT) ----

@@ -27,3 +27,4 @@ MonoBehaviour:
   _autoWakeSeconds: 45
   _drunkennessAfterAutoWake: 90
   _carrySpeedMultiplier: 0.6
+  _nightDurationSeconds: 300

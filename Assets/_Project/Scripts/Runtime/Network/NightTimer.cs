@@ -19,6 +19,8 @@ namespace LastCallCrew.Network
         readonly NetworkVariable<double> _deadline = new NetworkVariable<double>();
 
         public NightState State => _state.Value;
+        /// <summary>Échéance en temps serveur (valide dès que l'état n'est plus Waiting). Lecture seule, pour P1-032.</summary>
+        public double DeadlineServerTime => _deadline.Value;
         /// <summary>Durée totale configurée, pour la proportion affichée par le HUD (lecture seule).</summary>
         public float DurationSeconds => tuning.NightDurationSeconds;
         public bool IsExpired => NightTimerRules.IsExpiredForDisplay(State, RemainingSeconds);
