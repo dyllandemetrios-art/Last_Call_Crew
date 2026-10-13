@@ -21,6 +21,7 @@
 | P1-012 | Boire et refuser | Le choix est autorisé par l'hôte et possède un feedback sur les deux instances | PASS validé par Dyllan le 13 octobre 2026 |
 | P1-013 | Ivresse synchronisée | L'état 0–100 et ses paliers restent cohérents chez l'hôte et le client | PASS validé par Dyllan le 13 octobre 2026 |
 | P1-014 | Dialogue absurde | Une situation complète produit une réponse et une réaction comiques | PASS validé par Dyllan le 13 octobre 2026 ; défaut de souris consigné |
+| P1-015 | Capture souris et refus | La vue reste contrôlable et le clic droit maintenu fonctionne dans chaque instance de test | Prêt pour Claude |
 
 ## Entraide
 
