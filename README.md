@@ -1,6 +1,6 @@
-# Rentrer Vivant
+# Last Call Crew
 
-*Last Call Crew* est le titre provisoire de **Rentrer Vivant**, un jeu coopératif comique en ligne dans lequel deux amis doivent rentrer avant la fin de la nuit sans abandonner celui qui tombe en chemin.
+*Last Call Crew* est un jeu coopératif comique en ligne dans lequel des amis doivent rentrer avant la fin de la nuit sans abandonner celui qui tombe en chemin.
 
 Le prototype P1 doit prouver une boucle courte : rejoindre une partie, se déplacer à la première personne, accepter ou refuser un verre, subir une ivresse progressive, aider un partenaire KO et rentrer ensemble avant la fin du chronomètre.
 
