@@ -33,6 +33,7 @@ namespace LastCallCrew.Network
         readonly NetworkVariable<bool> _isKnockedOut = new NetworkVariable<bool>();
 
         PlayerInteractor _interactor;
+        PlayerCarry _carry;
         float _blend;
 
         // Caméra (propriétaire uniquement) : pose première personne mémorisée et avancement du recul.
@@ -45,6 +46,7 @@ namespace LastCallCrew.Network
         public override void OnNetworkSpawn()
         {
             _interactor = GetComponent<PlayerInteractor>();
+            _carry = GetComponent<PlayerCarry>();
             // Un client qui rejoint après le KO reçoit l'état par la NetworkVariable : visuel appliqué sans transition.
             _blend = _isKnockedOut.Value ? 1f : 0f;
             ApplyVisual();
@@ -66,6 +68,9 @@ namespace LastCallCrew.Network
             _isKnockedOut.Value = true;
             if (_interactor != null)
                 _interactor.ServerCancelRefusal();
+            // P1-021 : un porteur qui tombe KO lâche son partenaire.
+            if (_carry != null)
+                _carry.ServerDrop();
             Debug.Log($"[P1-020] host: client {OwnerClientId} is knocked out");
         }
 
@@ -78,6 +83,9 @@ namespace LastCallCrew.Network
             if (!IsServer || !_isKnockedOut.Value)
                 return;
             _isKnockedOut.Value = false;
+            // P1-021 : un joueur relevé n'est plus porté.
+            if (_carry != null)
+                _carry.ServerReleaseFromCarrier();
         }
 
         void Update()

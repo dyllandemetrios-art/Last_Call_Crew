@@ -16,6 +16,7 @@ namespace LastCallCrew.Network
         readonly DebugGuiKit _kit = new DebugGuiKit();
         PlayerIntoxication[] _players = System.Array.Empty<PlayerIntoxication>();
         PlayerKnockout[] _knockouts = System.Array.Empty<PlayerKnockout>();
+        PlayerCarry[] _carries = System.Array.Empty<PlayerCarry>();
         DrinkOffer _offer;
         float _nextRefresh;
         int _seenDecisionCount = -1;
@@ -36,15 +37,20 @@ namespace LastCallCrew.Network
                 ? nm.LocalClient.PlayerObject.GetComponent<PlayerKnockout>()
                 : null;
             bool localKnockedOut = localKnockout != null && localKnockout.IsKnockedOut;
+            PlayerCarry localCarry = nm.LocalClient?.PlayerObject != null
+                ? nm.LocalClient.PlayerObject.GetComponent<PlayerCarry>()
+                : null;
 
             // Voile léger d'abord, pour que les panneaux (dont celui du partenaire) restent par-dessus et lisibles.
             if (localKnockedOut)
                 _kit.Panel(new Rect(0f, 0f, Screen.width, Screen.height), new Color(0f, 0f, 0f, 0.42f));
 
             DrawIntoxicationPanel();
-            DrawInteractionFeedback(nm);
+            DrawInteractionFeedback(nm, localCarry);
+            if (localCarry != null && localCarry.IsCarrying)
+                DrawCarryBanner(localCarry);
             if (localKnockedOut)
-                DrawKnockoutMessage();
+                DrawKnockoutMessage(localCarry);
         }
 
         void Refresh()
@@ -55,9 +61,15 @@ namespace LastCallCrew.Network
             _players = FindObjectsByType<PlayerIntoxication>(FindObjectsSortMode.None);
             System.Array.Sort(_players, (a, b) => a.OwnerClientId.CompareTo(b.OwnerClientId));
             if (_knockouts.Length != _players.Length)
+            {
                 _knockouts = new PlayerKnockout[_players.Length];
+                _carries = new PlayerCarry[_players.Length];
+            }
             for (int i = 0; i < _players.Length; i++)
+            {
                 _knockouts[i] = _players[i] != null ? _players[i].GetComponent<PlayerKnockout>() : null;
+                _carries[i] = _players[i] != null ? _players[i].GetComponent<PlayerCarry>() : null;
+            }
             if (_offer == null)
                 _offer = FindFirstObjectByType<DrinkOffer>();
         }
@@ -88,12 +100,13 @@ namespace LastCallCrew.Network
                 if (p == null || !p.IsSpawned)
                     continue;
                 bool knockedOut = _knockouts[i] != null && _knockouts[i].IsKnockedOut;
-                DrawPlayerCard(p, knockedOut, new Rect(x + u(10f), cy, width - u(20f), cardHeight));
+                bool carried = _carries[i] != null && _carries[i].IsCarried;
+                DrawPlayerCard(p, knockedOut, carried, new Rect(x + u(10f), cy, width - u(20f), cardHeight));
                 cy += cardHeight + u(8f);
             }
         }
 
-        void DrawPlayerCard(PlayerIntoxication player, bool knockedOut, Rect card)
+        void DrawPlayerCard(PlayerIntoxication player, bool knockedOut, bool carried, Rect card)
         {
             float u(float v) => _kit.U(v);
             IntoxicationStage stage = player.Stage;
@@ -108,7 +121,7 @@ namespace LastCallCrew.Network
             DebugGuiKit.Label(new Rect(card.x + card.width * 0.54f, card.y + u(4f), card.width * 0.46f - u(12f), u(44f)),
                 $"{Mathf.RoundToInt(player.Value)} / {Mathf.RoundToInt(player.MaxValue)}", _kit.Value, Color.white);
 
-            string stageText = knockedOut ? "KO · À TERRE" : IntoxicationRules.Label(stage).ToUpperInvariant();
+            string stageText = knockedOut ? (carried ? "KO · PORTÉ" : "KO · À TERRE") : IntoxicationRules.Label(stage).ToUpperInvariant();
             DebugGuiKit.Label(new Rect(card.x + u(12f), card.y + u(48f), card.width - u(24f), u(30f)),
                 stageText, _kit.Body, stageColor);
             _kit.Bar(new Rect(card.x + u(12f), card.y + u(82f), card.width - u(24f), u(18f)), player.Value / player.MaxValue, stageColor);
@@ -127,19 +140,34 @@ namespace LastCallCrew.Network
 
         // ---- Message KO du joueur local (centre) ----
 
-        void DrawKnockoutMessage()
+        void DrawKnockoutMessage(PlayerCarry localCarry)
         {
             float u(float v) => _kit.U(v);
             float width = Mathf.Min(u(900f), Screen.width - u(40f));
+            ulong? carrier = localCarry != null ? localCarry.CarrierClientId : null;
             // Placé dans le tiers haut pour laisser le corps couché, cadré par la caméra de KO, visible au centre (P1-020a).
-            var rect = new Rect((Screen.width - width) * 0.5f, Screen.height * 0.1f, width, u(120f));
+            var rect = new Rect((Screen.width - width) * 0.5f, Screen.height * 0.1f, width, u(carrier.HasValue ? 176f : 120f));
             _kit.Panel(rect, new Color(0.05f, 0.02f, 0.03f, 0.88f));
-            DebugGuiKit.Label(rect, "VOUS ÊTES KO", _kit.Huge, new Color(1f, 0.35f, 0.4f));
+            DebugGuiKit.Label(new Rect(rect.x, rect.y, rect.width, u(120f)), "VOUS ÊTES KO", _kit.Huge, new Color(1f, 0.35f, 0.4f));
+            if (carrier.HasValue)
+                DebugGuiKit.Label(new Rect(rect.x, rect.y + u(118f), rect.width, u(50f)), $"PORTÉ PAR JOUEUR {carrier.Value}", _kit.Prompt, new Color(0.65f, 0.9f, 1f));
+        }
+
+        // ---- Bandeau du porteur (haut au centre) ----
+
+        void DrawCarryBanner(PlayerCarry localCarry)
+        {
+            float u(float v) => _kit.U(v);
+            ulong? carried = localCarry.CarriedPlayerClientId;
+            float width = Mathf.Min(u(640f), Screen.width * 0.34f);
+            var rect = new Rect((Screen.width - width) * 0.5f, u(16f), width, u(56f));
+            _kit.Panel(rect, DebugGuiKit.PanelColor);
+            DebugGuiKit.Label(rect, carried.HasValue ? $"VOUS PORTEZ JOUEUR {carried.Value}" : "VOUS PORTEZ UN JOUEUR", _kit.Prompt, new Color(0.65f, 0.9f, 1f));
         }
 
         // ---- Invite, progression du refus et feedback (bas au centre) ----
 
-        void DrawInteractionFeedback(NetworkManager nm)
+        void DrawInteractionFeedback(NetworkManager nm, PlayerCarry localCarry)
         {
             float u(float v) => _kit.U(v);
             PlayerInteractor local = nm.LocalClient?.PlayerObject != null
@@ -165,6 +193,16 @@ namespace LastCallCrew.Network
                 DebugGuiKit.Label(new Rect(promptRect.x, promptRect.y + u(4f), promptRect.width, u(34f)), "REFUS EN COURS…", _kit.Prompt, new Color(1f, 0.55f, 0.5f));
                 _kit.Bar(new Rect(promptRect.x + u(24f), promptRect.y + u(44f), promptRect.width - u(48f), u(22f)), local.HoldProgress, new Color(0.95f, 0.3f, 0.3f));
             }
+            else if (localCarry != null && localCarry.IsCarrying)
+            {
+                _kit.Panel(promptRect, DebugGuiKit.PanelColor);
+                DebugGuiKit.Label(promptRect, "E — LÂCHER", _kit.Prompt, new Color(1f, 0.85f, 0.4f));
+            }
+            else if (local.AimedPartner != null)
+            {
+                _kit.Panel(promptRect, DebugGuiKit.PanelColor);
+                DebugGuiKit.Label(promptRect, $"E — PORTER JOUEUR {local.AimedPartner.OwnerClientId}", _kit.Prompt, new Color(0.65f, 0.9f, 1f));
+            }
             else if (local.AimedOffer != null)
             {
                 _kit.Panel(promptRect, DebugGuiKit.PanelColor);
@@ -173,10 +211,10 @@ namespace LastCallCrew.Network
                 DebugGuiKit.Label(new Rect(promptRect.x + left, promptRect.y, promptRect.width - left, promptRect.height), "MAINTENIR CLIC DROIT — REFUSER", _kit.Prompt, new Color(1f, 0.6f, 0.55f));
             }
 
-            DrawFeedback(local, new Rect(promptRect.x, promptRect.y - u(70f), promptRect.width, u(56f)));
+            DrawFeedback(local, localCarry, new Rect(promptRect.x, promptRect.y - u(70f), promptRect.width, u(56f)));
         }
 
-        void DrawFeedback(PlayerInteractor local, Rect rect)
+        void DrawFeedback(PlayerInteractor local, PlayerCarry localCarry, Rect rect)
         {
             // Nouvelle décision répliquée : même feedback sur toutes les instances.
             if (_offer != null)
@@ -192,6 +230,8 @@ namespace LastCallCrew.Network
             }
 
             string local_message = local.FeedbackMessage;
+            if (string.IsNullOrEmpty(local_message) && localCarry != null)
+                local_message = localCarry.FeedbackMessage;
             string text = null;
             Color color = Color.white;
             if (!string.IsNullOrEmpty(local_message))

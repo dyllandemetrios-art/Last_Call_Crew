@@ -11,6 +11,7 @@ namespace LastCallCrew.Network
     /// cible, portée et, pour un refus, la durée de maintien qu'il mesure lui-même.
     /// </summary>
     [RequireComponent(typeof(PlayerIntoxication))]
+    [RequireComponent(typeof(PlayerCarry))]
     public class PlayerInteractor : NetworkBehaviour
     {
         [SerializeField] InputActionAsset inputActions;
@@ -22,15 +23,21 @@ namespace LastCallCrew.Network
 
         PlayerIntoxication _intoxication;
         PlayerKnockout _knockout;
+        PlayerCarry _carry;
         InputActionAsset _runtimeActions;
         InputAction _accept;
         InputAction _refuse;
         DrinkOffer _aimedOffer;
+        PlayerCarry _aimedPartner;
         string _message;
         float _messageUntil;
 
         /// <summary>Proposition visée par le propriétaire (null sinon). Lu par le HUD de debug.</summary>
         public DrinkOffer AimedOffer => _aimedOffer;
+        /// <summary>Partenaire KO visé et portable (null sinon). Lu par le HUD de debug.</summary>
+        public PlayerCarry AimedPartner => _aimedPartner;
+        /// <summary>Portée maximale acceptée par l'hôte (portée du raycast + tolérance), partagée avec le portage.</summary>
+        public float MaxServerRange => interactRange + serverRangeTolerance;
         public bool IsHolding => _holding;
         public float HoldProgress =>
             _holding && _holdOffer != null ? Mathf.Clamp01((Time.time - _holdStartTime) / _holdOffer.RefuseDurationSeconds) : 0f;
@@ -51,6 +58,7 @@ namespace LastCallCrew.Network
         {
             _intoxication = GetComponent<PlayerIntoxication>();
             _knockout = GetComponent<PlayerKnockout>();
+            _carry = GetComponent<PlayerCarry>();
             if (!IsOwner)
                 return;
 
@@ -76,6 +84,7 @@ namespace LastCallCrew.Network
                 return;
 
             _aimedOffer = null;
+            _aimedPartner = null;
 
             // P1-020 : un joueur KO n'interagit plus ; un refus en cours est abandonné sans décision (l'hôte le rejetterait de toute façon).
             if (_knockout.IsKnockedOut)
@@ -85,11 +94,31 @@ namespace LastCallCrew.Network
                 return;
             }
 
+            // P1-021 : pendant un portage, E est réservé au lâcher ; boire et refuser sont bloqués (l'hôte le vérifie aussi).
+            if (_carry.IsCarrying)
+            {
+                _holding = false;
+                _holdOffer = null;
+                if (_accept.WasPressedThisFrame())
+                    _carry.RequestDropRpc();
+                return;
+            }
+
             if (Physics.Raycast(cameraRoot.position, cameraRoot.forward, out RaycastHit hit, interactRange))
+            {
                 _aimedOffer = hit.collider.GetComponentInParent<DrinkOffer>();
+                PlayerCarry partner = hit.collider.GetComponentInParent<PlayerCarry>();
+                if (partner != null && partner != _carry && partner.IsKnockedOut && !partner.IsCarried)
+                    _aimedPartner = partner;
+            }
 
             if (_holding)
                 UpdateHold();
+            else if (_aimedPartner != null)
+            {
+                if (_accept.WasPressedThisFrame())
+                    _carry.RequestCarryRpc(new NetworkObjectReference(_aimedPartner.NetworkObject));
+            }
             else if (_aimedOffer != null)
                 ReadNewInput();
         }
@@ -201,6 +230,8 @@ namespace LastCallCrew.Network
                 return DrinkRequestOutcome.RejectedInvalidSender;
             if (_knockout.IsKnockedOut)
                 return DrinkRequestOutcome.RejectedKnockedOut;
+            if (_carry.IsCarrying)
+                return DrinkRequestOutcome.RejectedCarrying;
             if (!target.TryGet(out NetworkObject targetObject) || !targetObject.TryGetComponent(out offer))
                 return DrinkRequestOutcome.RejectedInvalidTarget;
 
@@ -233,6 +264,9 @@ namespace LastCallCrew.Network
                     break;
                 case DrinkRequestOutcome.RejectedKnockedOut:
                     return; // l'écran KO du HUD suffit
+                case DrinkRequestOutcome.RejectedCarrying:
+                    _message = "VOUS PORTEZ QUELQU'UN";
+                    break;
                 default:
                     _message = "DEMANDE REFUSÉE";
                     break;

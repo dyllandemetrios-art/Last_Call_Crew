@@ -17,6 +17,8 @@ namespace LastCallCrew.Drink
         RejectedInvalidTarget,
         /// <summary>Demande émise par un joueur KO (P1-020).</summary>
         RejectedKnockedOut,
+        /// <summary>Demande émise par un joueur qui porte un partenaire (P1-021).</summary>
+        RejectedCarrying,
         RejectedOutOfRange,
         /// <summary>Refus relâché avant la durée requise : annulé, aucune décision.</summary>
         HoldTooShort,

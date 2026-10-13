@@ -6,7 +6,8 @@
         "UnityEditor.TestRunner",
         "LastCallCrew.Config",
         "LastCallCrew.Drink",
-        "LastCallCrew.Intoxication"
+        "LastCallCrew.Intoxication",
+        "LastCallCrew.Carry"
     ],
     "includePlatforms": [
         "Editor"

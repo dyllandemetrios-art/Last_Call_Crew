@@ -18,6 +18,7 @@ namespace LastCallCrew.Network
         [SerializeField] float lookSensitivity = 0.1f;
 
         PlayerKnockout _knockout;
+        PlayerCarry _carry;
         InputActionAsset _runtimeActions;
         InputAction _move;
         InputAction _look;
@@ -27,6 +28,7 @@ namespace LastCallCrew.Network
         public override void OnNetworkSpawn()
         {
             _knockout = GetComponent<PlayerKnockout>();
+            _carry = GetComponent<PlayerCarry>();
             playerCamera.enabled = IsOwner;
             audioListener.enabled = IsOwner;
             if (!IsOwner)
@@ -63,7 +65,7 @@ namespace LastCallCrew.Network
             if (_autoWalk)
             {
                 transform.Rotate(0f, 30f * Time.deltaTime, 0f);
-                transform.position += transform.forward * (moveSpeed * 0.5f * Time.deltaTime);
+                transform.position += transform.forward * (moveSpeed * CarrySpeedFactor * 0.5f * Time.deltaTime);
                 return;
             }
 
@@ -74,7 +76,10 @@ namespace LastCallCrew.Network
 
             Vector2 move = _move.ReadValue<Vector2>();
             Vector3 direction = transform.right * move.x + transform.forward * move.y;
-            transform.position += direction * (moveSpeed * Time.deltaTime);
+            transform.position += direction * (moveSpeed * CarrySpeedFactor * Time.deltaTime);
         }
+
+        // P1-021 : le multiplicateur de portage (TuningConfig) s'applique sans toucher à la vitesse de base.
+        float CarrySpeedFactor => _carry != null ? _carry.SpeedMultiplier : 1f;
     }
 }
