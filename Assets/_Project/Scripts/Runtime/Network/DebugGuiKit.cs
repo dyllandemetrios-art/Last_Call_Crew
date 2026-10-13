@@ -22,6 +22,8 @@ namespace LastCallCrew.Network
         public GUIStyle Display { get; private set; }
         /// <summary>Message court plein cadre (ex. TEMPS ÉCOULÉ) : un cran sous Display pour tenir sur la largeur d'une carte.</summary>
         public GUIStyle Banner { get; private set; }
+        /// <summary>Petite étiquette alignée à droite (état secondaire d'une carte).</summary>
+        public GUIStyle Tag { get; private set; }
         public GUIStyle Button { get; private set; }
 
         Texture2D _white;
@@ -49,6 +51,7 @@ namespace LastCallCrew.Network
             Huge = MakeStyle(84, FontStyle.Bold, TextAnchor.MiddleCenter, Color.white);
             Display = MakeStyle(68, FontStyle.Bold, TextAnchor.MiddleCenter, Color.white);
             Banner = MakeStyle(50, FontStyle.Bold, TextAnchor.MiddleCenter, Color.white);
+            Tag = MakeStyle(22, FontStyle.Bold, TextAnchor.MiddleRight, Color.white);
             Button = new GUIStyle(GUI.skin.button)
             {
                 fontSize = Mathf.RoundToInt(28 * Scale),

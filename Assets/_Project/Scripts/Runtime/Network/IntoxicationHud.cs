@@ -19,6 +19,10 @@ namespace LastCallCrew.Network
         PlayerKnockout[] _knockouts = System.Array.Empty<PlayerKnockout>();
         PlayerCarry[] _carries = System.Array.Empty<PlayerCarry>();
         PlayerWake[] _wakes = System.Array.Empty<PlayerWake>();
+        PlayerReturn[] _returns = System.Array.Empty<PlayerReturn>();
+        int[] _seenReturned = System.Array.Empty<int>();
+        float _returnFeedbackUntil;
+        string _returnFeedbackText;
         int[] _seenWakeCounts = System.Array.Empty<int>();
         DrinkOffer _offer;
         NightTimer _night;
@@ -72,6 +76,10 @@ namespace LastCallCrew.Network
                 _knockouts = new PlayerKnockout[_players.Length];
                 _carries = new PlayerCarry[_players.Length];
                 _wakes = new PlayerWake[_players.Length];
+                _returns = new PlayerReturn[_players.Length];
+                _seenReturned = new int[_players.Length];
+                for (int i = 0; i < _seenReturned.Length; i++)
+                    _seenReturned[i] = -1; // -1 : pas encore observé, donc pas de feedback au rattrapage d'un nouveau client
                 _seenWakeCounts = new int[_players.Length];
                 for (int i = 0; i < _seenWakeCounts.Length; i++)
                     _seenWakeCounts[i] = -1; // -1 : pas encore observé, donc pas de feedback au rattrapage d'un nouveau client
@@ -81,6 +89,7 @@ namespace LastCallCrew.Network
                 _knockouts[i] = _players[i] != null ? _players[i].GetComponent<PlayerKnockout>() : null;
                 _carries[i] = _players[i] != null ? _players[i].GetComponent<PlayerCarry>() : null;
                 _wakes[i] = _players[i] != null ? _players[i].GetComponent<PlayerWake>() : null;
+                _returns[i] = _players[i] != null ? _players[i].GetComponent<PlayerReturn>() : null;
             }
             if (_offer == null)
                 _offer = FindFirstObjectByType<DrinkOffer>();
@@ -115,12 +124,13 @@ namespace LastCallCrew.Network
                     continue;
                 bool knockedOut = _knockouts[i] != null && _knockouts[i].IsKnockedOut;
                 bool carried = _carries[i] != null && _carries[i].IsCarried;
-                DrawPlayerCard(p, knockedOut, carried, new Rect(x + u(10f), cy, width - u(20f), cardHeight));
+                bool returned = _returns[i] != null && _returns[i].IsReturned;
+                DrawPlayerCard(p, knockedOut, carried, returned, new Rect(x + u(10f), cy, width - u(20f), cardHeight));
                 cy += cardHeight + u(8f);
             }
         }
 
-        void DrawPlayerCard(PlayerIntoxication player, bool knockedOut, bool carried, Rect card)
+        void DrawPlayerCard(PlayerIntoxication player, bool knockedOut, bool carried, bool returned, Rect card)
         {
             float u(float v) => _kit.U(v);
             IntoxicationStage stage = player.Stage;
@@ -138,6 +148,10 @@ namespace LastCallCrew.Network
             string stageText = knockedOut ? (carried ? "KO · PORTÉ" : "KO · À TERRE") : IntoxicationRules.Label(stage).ToUpperInvariant();
             DebugGuiKit.Label(new Rect(card.x + u(12f), card.y + u(48f), card.width - u(24f), u(30f)),
                 stageText, _kit.Body, stageColor);
+            // État de retour (P1-031) : à droite de la ligne de palier.
+            DebugGuiKit.Label(new Rect(card.x + card.width * 0.5f, card.y + u(48f), card.width * 0.5f - u(12f), u(30f)),
+                returned ? "RENTRÉ" : "ENCORE DEHORS", _kit.Tag,
+                returned ? new Color(0.45f, 0.95f, 0.6f) : new Color(1f, 1f, 1f, 0.6f));
             _kit.Bar(new Rect(card.x + u(12f), card.y + u(82f), card.width - u(24f), u(18f)), player.Value / player.MaxValue, stageColor);
         }
 
@@ -337,6 +351,37 @@ namespace LastCallCrew.Network
             }
         }
 
+        // Retour enregistré : détecté par l'état répliqué de chaque joueur, donc identique sur toutes les instances.
+        void UpdateReturnFeedback(ulong localClientId)
+        {
+            string text = null;
+            int newlyReturned = 0;
+            bool localReturned = false;
+            ulong partnerId = 0;
+            for (int i = 0; i < _returns.Length; i++)
+            {
+                PlayerReturn r = _returns[i];
+                if (r == null || !r.IsSpawned)
+                    continue;
+                int now = r.IsReturned ? 1 : 0;
+                int seen = _seenReturned[i];
+                _seenReturned[i] = now;
+                if (seen < 0 || now <= seen)
+                    continue;
+                newlyReturned++;
+                if (r.OwnerClientId == localClientId) localReturned = true;
+                else partnerId = r.OwnerClientId;
+            }
+
+            if (newlyReturned == 0)
+                return;
+            if (newlyReturned > 1) text = "VOUS ÊTES RENTRÉS ENSEMBLE";
+            else if (localReturned) text = "VOUS ÊTES RENTRÉ";
+            else text = $"JOUEUR {partnerId} EST RENTRÉ";
+            _returnFeedbackText = text;
+            _returnFeedbackUntil = Time.unscaledTime + FeedbackSeconds;
+        }
+
         void DrawFeedback(PlayerInteractor local, PlayerCarry localCarry, Rect rect)
         {
             // Nouvelle décision répliquée : même feedback sur toutes les instances.
@@ -353,6 +398,7 @@ namespace LastCallCrew.Network
             }
 
             UpdateWakeFeedback(local.OwnerClientId);
+            UpdateReturnFeedback(local.OwnerClientId);
 
             string local_message = local.FeedbackMessage;
             if (string.IsNullOrEmpty(local_message) && localCarry != null)
@@ -368,6 +414,11 @@ namespace LastCallCrew.Network
             {
                 text = _wakeFeedbackText;
                 color = new Color(0.55f, 0.85f, 1f);
+            }
+            else if (_returnFeedbackText != null && Time.unscaledTime < _returnFeedbackUntil)
+            {
+                text = _returnFeedbackText;
+                color = new Color(0.45f, 0.95f, 0.6f);
             }
             else if (_offer != null && Time.unscaledTime < _decisionFeedbackUntil)
             {

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8849773749959192340}
   - component: {fileID: 6043022380668971595}
   - component: {fileID: 6721435913014372504}
+  - component: {fileID: 4952807535739209181}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -246,6 +247,19 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   tuning: {fileID: 11400000, guid: 93f73e323e74ac042a759a485eee3001, type: 2}
   serverHoldTolerance: 0.15
+--- !u!114 &4952807535739209181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705727650154815863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504e9a9af8d916543a544694a114741a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LastCallCrew.Network.PlayerReturn
+  ShowTopMostFoldoutHeaderGroup: 1
 --- !u!1 &7793291444560062650
 GameObject:
   m_ObjectHideFlags: 0

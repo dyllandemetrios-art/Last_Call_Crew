@@ -49,6 +49,8 @@ namespace LastCallCrew.Network
         /// <summary>ClientId (propriétaire) du porteur, ou null. Pour l'affichage.</summary>
         public ulong? CarrierClientId => TryResolve(_carriedByIdPlusOne.Value, out PlayerCarry other) ? other.OwnerClientId : (ulong?)null;
         public string FeedbackMessage => Time.time < _messageUntil ? _message : string.Empty;
+        /// <summary>Joueur actuellement porté par celui-ci (état répliqué P1-021), s'il existe.</summary>
+        public bool TryGetCarriedPlayer(out PlayerCarry other) => TryResolve(_carryingIdPlusOne.Value, out other);
 
         public override void OnNetworkSpawn()
         {
