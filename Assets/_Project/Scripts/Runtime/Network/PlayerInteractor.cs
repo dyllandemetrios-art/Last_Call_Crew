@@ -48,6 +48,9 @@ namespace LastCallCrew.Network
         /// <summary>Origine de la visée (caméra), utilisée par l'hôte pour juger la portée d'un réveil.</summary>
         public Vector3 AimOrigin => cameraRoot.position;
         public bool IsWaking => _wakeHolding;
+        /// <summary>P1-015 : vrai si Échap vient de fermer un dialogue pendant cette frame (il ne doit pas aussi libérer la souris).</summary>
+        public bool ConsumedCancelThisFrame => _cancelFrame == Time.frameCount;
+        int _cancelFrame = -1;
         /// <summary>PNJ à dialogue visé (null sinon). Lu par le HUD.</summary>
         public NpcDialogue AimedNpc => _aimedNpc;
         /// <summary>PNJ dont le dialogue est ouvert pour ce joueur (null sinon). Lu par le HUD : seul le propriétaire le voit.</summary>
@@ -212,6 +215,8 @@ namespace LastCallCrew.Network
         // Fermeture locale sans réaction : Échap, perte de la cible / éloignement, ou nouvelle manche.
         void UpdateDialogue()
         {
+            if (_dialogueCancel.WasPressedThisFrame())
+                _cancelFrame = Time.frameCount;
             if (_dialogueCancel.WasPressedThisFrame() || _aimedNpc != _dialogueNpc || CurrentRound() != _dialogueRound)
             {
                 _dialogueNpc = null;

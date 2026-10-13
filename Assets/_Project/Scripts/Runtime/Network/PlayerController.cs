@@ -22,6 +22,10 @@ namespace LastCallCrew.Network
         InputActionAsset _runtimeActions;
         InputAction _move;
         InputAction _look;
+        InputAction _release;
+        PlayerInteractor _interactor;
+        bool _captured;
+        bool _wasFrozen;
         float _pitch;
         bool _autoWalk;
 
@@ -38,7 +42,11 @@ namespace LastCallCrew.Network
             _runtimeActions = Instantiate(inputActions);
             _move = _runtimeActions.FindAction("Player/Move", true);
             _look = _runtimeActions.FindAction("Player/Look", true);
+            _release = _runtimeActions.FindAction("Player/DialogueCancel", true);
+            _interactor = GetComponent<PlayerInteractor>();
             _runtimeActions.Enable();
+            // P1-015 : le propriétaire capture le pointeur dès son apparition ; un clic gauche le reprend après Échap ou un changement de fenêtre.
+            SetCaptured(true);
             // Entrée scriptée pour les tests sans humain : -lcc-autowalk (marche en cercle).
             _autoWalk = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lcc-autowalk") >= 0;
         }
@@ -47,6 +55,7 @@ namespace LastCallCrew.Network
         {
             if (_runtimeActions != null)
             {
+                SetCaptured(false);
                 _runtimeActions.Disable();
                 Destroy(_runtimeActions);
                 _runtimeActions = null;
@@ -73,7 +82,8 @@ namespace LastCallCrew.Network
                 return;
             }
 
-            Vector2 look = _look.ReadValue<Vector2>() * lookSensitivity;
+            // Pointeur libéré : pas de regard (le delta d'un curseur libre ferait tourner la caméra).
+            Vector2 look = _captured ? _look.ReadValue<Vector2>() * lookSensitivity : Vector2.zero;
             transform.Rotate(0f, look.x, 0f);
             _pitch = Mathf.Clamp(_pitch - look.y, -80f, 80f);
             cameraRoot.localRotation = Quaternion.Euler(_pitch, 0f, 0f);
@@ -81,6 +91,50 @@ namespace LastCallCrew.Network
             Vector2 move = _move.ReadValue<Vector2>();
             Vector3 direction = transform.right * move.x + transform.forward * move.y;
             transform.position += direction * (moveSpeed * CarrySpeedFactor * Time.deltaTime);
+        }
+
+        // P1-015 : exécuté après tous les Update, donc après PlayerInteractor, qui a déjà pu consommer Échap pour fermer un dialogue.
+        void LateUpdate()
+        {
+            if (!IsOwner || _runtimeActions == null)
+                return;
+
+            // Le bilan (bouton RELANCER) a besoin d'un curseur libre : libération au gel, reprise à la relance (sur transition uniquement).
+            bool frozen = NightOutcome.IsFrozen;
+            if (frozen != _wasFrozen)
+            {
+                _wasFrozen = frozen;
+                SetCaptured(!frozen);
+            }
+            if (frozen || !Application.isFocused)
+                return;
+
+            if (_captured)
+            {
+                if (_release.WasPressedThisFrame() && !_interactor.ConsumedCancelThisFrame)
+                    SetCaptured(false);
+                else if (Cursor.lockState != CursorLockMode.Locked && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+                    SetCaptured(true); // verrou perdu sans demande (focus, éditeur) : un clic volontaire le reprend, sans forcer chaque frame
+            }
+            else if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+                SetCaptured(true);
+        }
+
+        void SetCaptured(bool captured)
+        {
+            _captured = captured;
+            Cursor.lockState = captured ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible = !captured;
+        }
+
+        // Indication minimale quand la capture est perdue ; le HUD n'est pas modifié.
+        void OnGUI()
+        {
+            if (!IsOwner || _runtimeActions == null || NightOutcome.IsFrozen || (_captured && Cursor.lockState == CursorLockMode.Locked))
+                return;
+            const float w = 420f, h = 34f;
+            var rect = new Rect((Screen.width - w) * 0.5f, Screen.height - 70f, w, h);
+            GUI.Box(rect, "Clic gauche : reprendre la souris");
         }
 
         /// <summary>

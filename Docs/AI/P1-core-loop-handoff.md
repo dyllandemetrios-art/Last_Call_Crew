@@ -26,7 +26,7 @@ Conserver les commandes contextuelles : boire/porter sur `E`, refuser au clic dr
 - Le ressenti de perception (flou, oscillation, couleurs, temps altéré) est différé jusqu'à stabilisation de la boucle et des substances.
 - L'impossibilité de refuser à forte ivresse et la confusion progressive des choix sont des idées de design différées.
 - L'interface actuelle est un HUD de prototype en IMGUI ; elle est lisible mais n'est pas l'interface finale.
-- P1-014 est validé avec une réserve : lors du test réel, le clic droit de refus ne répond pas et le pointeur sort de la Game View en Multiplayer Play Mode. P1-015 doit reproduire puis corriger ce défaut avant la greybox.
+- P1-015 corrige la capture du pointeur et le refus au clic droit ; Dyllan a validé le comportement réel dans Multiplayer Play Mode.
 - NGO peut recréer `Assets/DefaultNetworkPrefabs.asset` : supprimer ce doublon avant commit et conserver `Assets/_Project/Prefabs/DefaultNetworkPrefabs.asset`.
 
 ## Prochaine décision
