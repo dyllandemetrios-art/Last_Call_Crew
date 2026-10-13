@@ -28,7 +28,7 @@
 | --- | --- | --- | --- |
 | P1-020 | KO | À 100, le joueur tombe, perd ses actions et ne bloque pas la partie de l'autre | PASS validé par Dyllan le 13 octobre 2026 |
 | P1-021 | Portage | Un joueur transporte puis lâche son partenaire KO avec un état réseau cohérent | PASS validé par Dyllan le 13 octobre 2026 |
-| P1-022 | Réveil | Maintenir l'interaction relève le joueur et applique la valeur d'ivresse prévue | Bloqué par P1-020 |
+| P1-022 | Réveil | Maintenir l'interaction relève le joueur et applique la valeur d'ivresse prévue | Prêt pour Claude |
 | P1-023 | Playtest entraide | Dyllan valide ou demande une correction du feeling de portage et de réveil | Bloqué par P1-021 et P1-022 |
 
 ## Fin de nuit
