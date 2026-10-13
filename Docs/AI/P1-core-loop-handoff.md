@@ -27,7 +27,7 @@ Conserver les commandes contextuelles : boire/porter sur `E`, refuser au clic dr
 - L'impossibilité de refuser à forte ivresse et la confusion progressive des choix sont des idées de design différées.
 - L'interface actuelle est un HUD de prototype en IMGUI ; elle est lisible mais n'est pas l'interface finale.
 - P1-015 corrige la capture du pointeur et le refus au clic droit ; Dyllan a validé le comportement réel dans Multiplayer Play Mode.
-- La greybox `BarGreybox.unity` est validée. Défaut ouvert P1-031a : un joueur sorti de la zone reste actuellement marqué rentré, ce qui peut produire une fausse victoire.
+- La greybox `BarGreybox.unity` est validée. P1-031a est corrigé et validé : sortir de la zone efface désormais le retour et empêche les fausses victoires.
 - NGO peut recréer `Assets/DefaultNetworkPrefabs.asset` : supprimer ce doublon avant commit et conserver `Assets/_Project/Prefabs/DefaultNetworkPrefabs.asset`.
 
 ## Prochaine décision

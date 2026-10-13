@@ -5,16 +5,16 @@ using UnityEngine;
 namespace LastCallCrew.Network
 {
     /// <summary>
-    /// Retour d'un joueur dans la zone de sortie (P1-031). Donnée durable répliquée, écrite par l'hôte uniquement,
-    /// une seule fois : l'instant serveur du premier retour (ReturnRules.NotReturned tant qu'il n'est pas rentré).
-    /// Aucune décision de victoire ou d'échec : P1-032 comparera cet instant à l'échéance du chronomètre.
+    /// Retour d'un joueur dans la zone de sortie (P1-031). Donnée répliquée, écrite par l'hôte uniquement
+    /// lors des transitions d'entrée et de sortie : l'instant serveur du début de la présence actuelle dans la zone
+    /// (ReturnRules.NotReturned tant que le joueur n'y est pas). P1-032 compare cet instant à l'échéance du chronomètre.
     /// </summary>
     public class PlayerReturn : NetworkBehaviour
     {
         readonly NetworkVariable<double> _returnTime = new NetworkVariable<double>(ReturnRules.NotReturned);
 
         public bool IsReturned => ReturnRules.IsReturned(_returnTime.Value);
-        /// <summary>Temps serveur du premier retour ; ReturnRules.NotReturned s'il n'est pas rentré.</summary>
+        /// <summary>Temps serveur de l'entrée actuelle dans la zone ; ReturnRules.NotReturned s'il n'y est pas.</summary>
         public double ReturnServerTime => _returnTime.Value;
 
         // Hôte : après une relance, la pose du joueur est remise par son propriétaire (autorité propriétaire) ;
@@ -49,14 +49,22 @@ namespace LastCallCrew.Network
             return !_awaitingPose;
         }
 
-        /// <summary>Hôte uniquement. Idempotent : le premier instant est conservé, les appels suivants ne changent rien.</summary>
-        public bool ServerMarkReturned(double serverTimeNow)
+        /// <summary>
+        /// Hôte uniquement (P1-031a). Applique la présence réelle dans la zone : l'instant d'entrée est conservé tant que le
+        /// joueur reste dedans, effacé à la sortie, renouvelé à une nouvelle entrée. N'écrit la NetworkVariable que lors
+        /// d'une transition.
+        /// </summary>
+        public void ServerSetPresence(bool present, double serverTimeNow)
         {
-            if (!IsServer || !ReturnRules.ShouldRecord(_returnTime.Value))
-                return false;
-            _returnTime.Value = ReturnRules.Record(_returnTime.Value, serverTimeNow);
-            Debug.Log($"[P1-031] host: client {OwnerClientId} returned at server time {_returnTime.Value:0.00}");
-            return true;
+            if (!IsServer)
+                return;
+            double next = ReturnRules.Next(_returnTime.Value, present, serverTimeNow);
+            if (next == _returnTime.Value)
+                return;
+            _returnTime.Value = next;
+            Debug.Log(present
+                ? $"[P1-031] host: client {OwnerClientId} entered return zone at server time {next:0.00}"
+                : $"[P1-031a] host: client {OwnerClientId} left return zone");
         }
     }
 }

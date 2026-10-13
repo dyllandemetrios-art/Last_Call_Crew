@@ -37,27 +37,36 @@ namespace LastCallCrew.Network
                 return;
 
             double now = nm.ServerTime.Time;
+            _presence.Clear();
+
+            // 1. Position réelle de chaque joueur. Après une relance, l'ancienne position est ignorée tant que la pose
+            //    de départ n'est pas arrivée sur l'hôte.
             foreach (NetworkClient client in nm.ConnectedClientsList)
             {
                 NetworkObject player = client.PlayerObject;
-                if (player == null || !IsInside(player.transform.position))
+                if (player == null)
                     continue;
+                bool inside = IsInside(player.transform.position);
+                if (inside && player.TryGetComponent(out PlayerReturn self) && !self.ServerPoseSettled(player.transform.position, now))
+                    inside = false;
+                _presence[player.OwnerClientId] = inside;
+            }
 
-                // Après une relance, ignorer la position tant que la pose de départ n'est pas arrivée sur l'hôte.
-                if (player.TryGetComponent(out PlayerReturn self))
-                {
-                    if (!self.ServerPoseSettled(player.transform.position, now))
-                        continue;
-                    self.ServerMarkReturned(now);
-                }
-
-                // Un porteur qui rentre ramène son partenaire porté, même si le collider de celui-ci est désactivé.
-                if (player.TryGetComponent(out PlayerCarry carrier)
-                    && carrier.TryGetCarriedPlayer(out PlayerCarry carried)
-                    && carried.TryGetComponent(out PlayerReturn partner))
-                    partner.ServerMarkReturned(now);
+            // 2. Un joueur porté compte dans la zone seulement tant que son porteur y est (son collider est désactivé et
+            //    sa position suit le porteur) ; un KO non porté suit sa propre position.
+            foreach (NetworkClient client in nm.ConnectedClientsList)
+            {
+                NetworkObject player = client.PlayerObject;
+                if (player == null || !player.TryGetComponent(out PlayerReturn ret))
+                    continue;
+                bool present = _presence[player.OwnerClientId];
+                if (player.TryGetComponent(out PlayerCarry carry) && carry.IsCarried)
+                    present = carry.CarrierClientId is ulong carrier && _presence.TryGetValue(carrier, out bool carrierInside) && carrierInside;
+                ret.ServerSetPresence(present, now);
             }
         }
+
+        readonly System.Collections.Generic.Dictionary<ulong, bool> _presence = new System.Collections.Generic.Dictionary<ulong, bool>();
 
         bool IsInside(Vector3 point) => (trigger.ClosestPoint(point) - point).sqrMagnitude < 1e-6f;
     }
