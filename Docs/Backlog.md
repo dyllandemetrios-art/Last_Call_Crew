@@ -35,7 +35,7 @@
 
 | ID | Tâche | Critère de fin | Statut |
 | --- | --- | --- | --- |
-| P1-030 | Chronomètre autoritaire | Les deux clients partagent la même fin de partie | Bloqué par P1-001 |
+| P1-030 | Chronomètre autoritaire | Les deux clients partagent la même fin de partie | Prêt pour Claude |
 | P1-031 | Retour collectif | Chaque joueur peut être marqué rentré, y compris lorsqu'il est porté | Bloqué par P1-021 et P1-030 |
 | P1-032 | Victoire et échec | Victoire si les deux sont rentrés avant zéro, échec sinon | Bloqué par P1-031 |
 | P1-033 | Bilan simple | Les deux joueurs voient la même conclusion et peuvent relancer | Bloqué par P1-032 |
