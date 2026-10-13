@@ -1,3 +1,4 @@
+using LastCallCrew.Dialogue;
 using LastCallCrew.Drink;
 using Unity.Netcode;
 using UnityEngine;
@@ -30,6 +31,9 @@ namespace LastCallCrew.Network
         InputAction _accept;
         InputAction _refuse;
         InputAction _wakeAction;
+        InputAction[] _dialogueChoice = new InputAction[DialogueRules.ChoiceCount];
+        InputAction _dialogueCancel;
+        NightRound _nightRound;
         DrinkOffer _aimedOffer;
         PlayerCarry _aimedPartner;
         string _message;
@@ -44,6 +48,10 @@ namespace LastCallCrew.Network
         /// <summary>Origine de la visée (caméra), utilisée par l'hôte pour juger la portée d'un réveil.</summary>
         public Vector3 AimOrigin => cameraRoot.position;
         public bool IsWaking => _wakeHolding;
+        /// <summary>PNJ à dialogue visé (null sinon). Lu par le HUD.</summary>
+        public NpcDialogue AimedNpc => _aimedNpc;
+        /// <summary>PNJ dont le dialogue est ouvert pour ce joueur (null sinon). Lu par le HUD : seul le propriétaire le voit.</summary>
+        public NpcDialogue OpenDialogue => _dialogueNpc;
         /// <summary>Partenaire en cours de réveil (null sinon). Lu par le HUD.</summary>
         public PlayerCarry WakeTarget => _wakeTarget;
         public float WakeProgress =>
@@ -58,6 +66,15 @@ namespace LastCallCrew.Network
         bool _holding;
         float _holdStartTime;
         DrinkOffer _holdOffer;
+
+        // Côté propriétaire : dialogue ouvert (P1-014). Le numéro de manche mémorisé le ferme à la relance.
+        NpcDialogue _aimedNpc;
+        NpcDialogue _dialogueNpc;
+        int _dialogueRound;
+
+        // Côté hôte : dialogue ouvert par ce joueur (validé par l'hôte, requis pour accepter un choix).
+        bool _serverDialogueOpen;
+        ulong _serverDialogueTargetId;
 
         // Côté propriétaire : maintien de réveil en cours.
         bool _wakeHolding;
@@ -82,6 +99,9 @@ namespace LastCallCrew.Network
             _accept = _runtimeActions.FindAction("Player/Interact", true);
             _refuse = _runtimeActions.FindAction("Player/Refuse", true);
             _wakeAction = _runtimeActions.FindAction("Player/Wake", true);
+            for (int i = 0; i < _dialogueChoice.Length; i++)
+                _dialogueChoice[i] = _runtimeActions.FindAction("Player/DialogueChoice" + (i + 1), true);
+            _dialogueCancel = _runtimeActions.FindAction("Player/DialogueCancel", true);
             _runtimeActions.Enable();
         }
 
@@ -102,10 +122,12 @@ namespace LastCallCrew.Network
 
             _aimedOffer = null;
             _aimedPartner = null;
+            _aimedNpc = null;
 
             // P1-033 : après le résultat de la nuit, plus aucune interaction (les maintiens en cours sont abandonnés).
             if (NightOutcome.IsFrozen)
             {
+                _dialogueNpc = null;
                 _holding = false;
                 _holdOffer = null;
                 _wakeHolding = false;
@@ -116,6 +138,7 @@ namespace LastCallCrew.Network
             // P1-020 : un joueur KO n'interagit plus ; un refus en cours est abandonné sans décision (l'hôte le rejetterait de toute façon).
             if (_knockout.IsKnockedOut)
             {
+                _dialogueNpc = null; // P1-014 : un KO ferme le dialogue sans réaction
                 _holding = false;
                 _holdOffer = null;
                 _wakeHolding = false;
@@ -126,6 +149,7 @@ namespace LastCallCrew.Network
             // P1-021 : pendant un portage, E est réservé au lâcher ; boire et refuser sont bloqués (l'hôte le vérifie aussi).
             if (_carry.IsCarrying)
             {
+                _dialogueNpc = null; // P1-014 : porter quelqu'un ferme le dialogue
                 _holding = false;
                 _holdOffer = null;
                 _wakeHolding = false;
@@ -141,12 +165,26 @@ namespace LastCallCrew.Network
                 PlayerCarry partner = hit.collider.GetComponentInParent<PlayerCarry>();
                 if (partner != null && partner != _carry && partner.IsKnockedOut && !partner.IsCarried)
                     _aimedPartner = partner;
+                _aimedNpc = hit.collider.GetComponentInParent<NpcDialogue>();
+            }
+
+            // P1-014 : tant qu'un dialogue est ouvert, seules ses touches sont lues (1/2/3, Échap).
+            if (_dialogueNpc != null)
+            {
+                UpdateDialogue();
+                return;
             }
 
             if (_wakeHolding)
                 UpdateWakeHold();
             else if (_holding)
                 UpdateHold();
+            else if (_aimedNpc != null)
+            {
+                // E ouvre la proposition du PNJ ; les commandes boire/porter/refuser/réveiller ne changent pas.
+                if (_accept.WasPressedThisFrame())
+                    BeginDialogue(_aimedNpc);
+            }
             else if (_aimedPartner != null)
             {
                 if (_accept.WasPressedThisFrame())
@@ -162,6 +200,40 @@ namespace LastCallCrew.Network
             }
             else if (_aimedOffer != null)
                 ReadNewInput();
+        }
+
+        void BeginDialogue(NpcDialogue npc)
+        {
+            _dialogueNpc = npc;
+            _dialogueRound = CurrentRound();
+            OpenDialogueRpc(new NetworkObjectReference(npc.NetworkObject));
+        }
+
+        // Fermeture locale sans réaction : Échap, perte de la cible / éloignement, ou nouvelle manche.
+        void UpdateDialogue()
+        {
+            if (_dialogueCancel.WasPressedThisFrame() || _aimedNpc != _dialogueNpc || CurrentRound() != _dialogueRound)
+            {
+                _dialogueNpc = null;
+                CloseDialogueRpc();
+                return;
+            }
+
+            for (int i = 0; i < _dialogueChoice.Length; i++)
+            {
+                if (!_dialogueChoice[i].WasPressedThisFrame())
+                    continue;
+                ChooseDialogueRpc(new NetworkObjectReference(_dialogueNpc.NetworkObject), (byte)(i + 1));
+                _dialogueNpc = null; // choix immédiat : la carte se ferme, la réaction arrive de l'hôte
+                return;
+            }
+        }
+
+        int CurrentRound()
+        {
+            if (_nightRound == null)
+                _nightRound = FindFirstObjectByType<NightRound>();
+            return _nightRound != null ? _nightRound.Round : 0;
         }
 
         void UpdateWakeHold()
@@ -273,8 +345,86 @@ namespace LastCallCrew.Network
             ServerReport("refuse-end", outcome, distance);
         }
 
-        /// <summary>Hôte : abandonne un début de refus en cours (appelé à l'entrée en KO).</summary>
-        public void ServerCancelRefusal() => _serverRefuseActive = false;
+        /// <summary>
+        /// Hôte : abandonne un début de refus et un dialogue ouverts (appelé à l'entrée en KO, au portage d'un partenaire
+        /// et à la relance de manche).
+        /// </summary>
+        public void ServerCancelRefusal()
+        {
+            _serverRefuseActive = false;
+            _serverDialogueOpen = false;
+        }
+
+        // ---- Dialogue du PNJ (P1-014) : l'hôte valide l'ouverture puis chaque choix ----
+
+        DialogueOutcome ServerDialogue(NetworkObjectReference target, ulong senderClientId, int choice, bool isChoice, out NpcDialogue npc)
+        {
+            npc = null;
+            var request = new DialogueRequest
+            {
+                InvalidSender = senderClientId != OwnerClientId,
+                InvalidTarget = !target.TryGet(out NetworkObject no) || !no.TryGetComponent(out npc),
+                Frozen = NightOutcome.IsFrozen,
+                KnockedOut = _knockout.IsKnockedOut,
+                Carried = _carry.IsCarried,
+                Carrying = _carry.IsCarrying,
+                DialogueOpen = _serverDialogueOpen,
+                Distance = float.PositiveInfinity,
+                MaxDistance = MaxServerRange,
+            };
+            if (npc != null)
+            {
+                request.DialogueOpen = _serverDialogueOpen && _serverDialogueTargetId == npc.NetworkObjectId;
+                Vector3 origin = cameraRoot.position;
+                request.Distance = Vector3.Distance(origin, npc.ClosestPoint(origin));
+            }
+            return isChoice ? DialogueRules.EvaluateChoice(request, choice) : DialogueRules.EvaluateOpen(request);
+        }
+
+        [Rpc(SendTo.Server)]
+        void OpenDialogueRpc(NetworkObjectReference target, RpcParams rpcParams = default)
+        {
+            DialogueOutcome outcome = ServerDialogue(target, rpcParams.Receive.SenderClientId, 0, false, out NpcDialogue npc);
+            _serverDialogueOpen = outcome == DialogueOutcome.Opened;
+            if (_serverDialogueOpen)
+                _serverDialogueTargetId = npc.NetworkObjectId;
+            Debug.Log($"[P1-014] host: client={OwnerClientId} dialogue open -> {outcome}");
+            if (!_serverDialogueOpen)
+                DialogueRejectedRpc(outcome);
+        }
+
+        [Rpc(SendTo.Server)]
+        void ChooseDialogueRpc(NetworkObjectReference target, byte choice, RpcParams rpcParams = default)
+        {
+            DialogueOutcome outcome = ServerDialogue(target, rpcParams.Receive.SenderClientId, choice, true, out NpcDialogue npc);
+            if (outcome == DialogueOutcome.Chosen)
+            {
+                // Un choix valide est accepté une seule fois : le dialogue se ferme avant de produire la réaction.
+                _serverDialogueOpen = false;
+                npc.ServerReact(OwnerClientId, choice);
+            }
+            else
+            {
+                _serverDialogueOpen = false;
+                Debug.Log($"[P1-014] host: client={OwnerClientId} dialogue choice {choice} -> {outcome}");
+                DialogueRejectedRpc(outcome);
+            }
+        }
+
+        [Rpc(SendTo.Server)]
+        void CloseDialogueRpc(RpcParams rpcParams = default)
+        {
+            if (rpcParams.Receive.SenderClientId == OwnerClientId)
+                _serverDialogueOpen = false;
+        }
+
+        [Rpc(SendTo.Owner)]
+        void DialogueRejectedRpc(DialogueOutcome outcome)
+        {
+            _dialogueNpc = null;
+            _message = outcome == DialogueOutcome.RejectedOutOfRange ? "TROP LOIN" : "DEMANDE REFUSÉE";
+            _messageUntil = Time.time + 1.5f;
+        }
 
         // Vérifie l'émetteur et la cible ; renvoie Accepted si les deux sont valides (la suite est jugée par DrinkRules).
         DrinkRequestOutcome ServerResolve(NetworkObjectReference target, ulong senderClientId, out DrinkOffer offer, out float distance)

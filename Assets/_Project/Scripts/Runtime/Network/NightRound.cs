@@ -16,6 +16,8 @@ namespace LastCallCrew.Network
         [SerializeField] NightTimer timer;
         [SerializeField] NightOutcome outcome;
         [SerializeField] TuningConfig tuning;
+        [Tooltip("PNJ à dialogue (P1-014), remis à zéro à la relance. Optionnel.")]
+        [SerializeField] NpcDialogue npc;
 
         readonly NetworkVariable<int> _round = new NetworkVariable<int>(1);
 
@@ -75,6 +77,8 @@ namespace LastCallCrew.Network
             }
 
             // 6. Chronomètre à l'attente (il repartira une seule fois), 7. résultat, 8. compteur de manche.
+            if (npc == null) npc = FindFirstObjectByType<NpcDialogue>();
+            if (npc != null) npc.ServerResetForRound();
             timer.ServerResetForRound();
             outcome.ServerResetForRound();
             _round.Value++;

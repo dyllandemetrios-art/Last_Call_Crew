@@ -28,6 +28,7 @@ namespace LastCallCrew.Network
         NightTimer _night;
         NightOutcome _outcome;
         NightRound _round;
+        NpcDialogue _npc;
         int _seenRound = -1;
         float _nextRefresh;
         int _seenDecisionCount = -1;
@@ -126,6 +127,8 @@ namespace LastCallCrew.Network
                 _outcome = FindFirstObjectByType<NightOutcome>();
             if (_round == null)
                 _round = FindFirstObjectByType<NightRound>();
+            if (_npc == null)
+                _npc = FindFirstObjectByType<NpcDialogue>();
         }
 
         // ---- Panneau Ivresse (haut à droite) ----
@@ -399,6 +402,24 @@ namespace LastCallCrew.Network
                 _kit.Panel(promptRect, DebugGuiKit.PanelColor);
                 DebugGuiKit.Label(promptRect, "E — LÂCHER", _kit.Prompt, new Color(1f, 0.85f, 0.4f));
             }
+            else if (local.OpenDialogue != null)
+            {
+                // P1-014 : carte de dialogue, visible seulement pour le joueur concerné.
+                NpcDialogue npc = local.OpenDialogue;
+                var card = new Rect(promptRect.x, promptRect.yMax - u(236f), promptRect.width, u(236f));
+                feedbackBottom = card.y;
+                _kit.Panel(card, DebugGuiKit.PanelColor);
+                DebugGuiKit.Label(new Rect(card.x + u(16f), card.y + u(6f), card.width - u(32f), u(36f)), npc.NpcName.ToUpperInvariant(), _kit.Title, new Color(0.7f, 0.82f, 1f));
+                DebugGuiKit.Label(new Rect(card.x + u(16f), card.y + u(40f), card.width - u(32f), u(40f)), npc.Prompt, _kit.Body, Color.white);
+                for (int n = 1; n <= 3; n++)
+                    DebugGuiKit.Label(new Rect(card.x + u(32f), card.y + u(76f) + (n - 1) * u(38f), card.width - u(48f), u(36f)), n + " — " + npc.Choice(n), _kit.Body, new Color(1f, 0.85f, 0.4f));
+                DebugGuiKit.Label(new Rect(card.x + u(16f), card.yMax - u(40f), card.width - u(32f), u(32f)), "ÉCHAP — FERMER", _kit.Tag, new Color(1f, 1f, 1f, 0.6f));
+            }
+            else if (local.AimedNpc != null)
+            {
+                _kit.Panel(promptRect, DebugGuiKit.PanelColor);
+                DebugGuiKit.Label(promptRect, "E — PARLER", _kit.Prompt, new Color(0.55f, 0.85f, 1f));
+            }
             else if (local.AimedPartner != null)
             {
                 // Deux lignes empilées : porter (E) et réveiller (F maintenu) ne tiennent pas côte à côte à 1280 px.
@@ -508,6 +529,12 @@ namespace LastCallCrew.Network
             {
                 text = _wakeFeedbackText;
                 color = new Color(0.55f, 0.85f, 1f);
+            }
+            else if (_npc != null && !string.IsNullOrEmpty(_npc.ActiveReaction))
+            {
+                // Réaction du PNJ (P1-014) : répliquée, donc la même pour les deux joueurs pendant la même durée.
+                text = _npc.NpcName + " : " + _npc.ActiveReaction;
+                color = new Color(1f, 0.85f, 0.4f);
             }
             else if (_returnFeedbackText != null && Time.unscaledTime < _returnFeedbackUntil)
             {

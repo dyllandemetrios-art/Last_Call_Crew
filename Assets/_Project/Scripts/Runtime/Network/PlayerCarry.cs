@@ -155,6 +155,9 @@ namespace LastCallCrew.Network
             {
                 _carryingIdPlusOne.Value = other.NetworkObjectId + 1;
                 other._carriedByIdPlusOne.Value = NetworkObjectId + 1;
+                // P1-014 : porter quelqu'un interrompt un dialogue ouvert (côté hôte aussi).
+                if (_interactor != null)
+                    _interactor.ServerCancelRefusal();
             }
             return outcome;
         }
