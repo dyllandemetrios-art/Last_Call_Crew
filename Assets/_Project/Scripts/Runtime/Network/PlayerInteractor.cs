@@ -12,6 +12,7 @@ namespace LastCallCrew.Network
     /// </summary>
     [RequireComponent(typeof(PlayerIntoxication))]
     [RequireComponent(typeof(PlayerCarry))]
+    [RequireComponent(typeof(PlayerWake))]
     public class PlayerInteractor : NetworkBehaviour
     {
         [SerializeField] InputActionAsset inputActions;
@@ -24,9 +25,11 @@ namespace LastCallCrew.Network
         PlayerIntoxication _intoxication;
         PlayerKnockout _knockout;
         PlayerCarry _carry;
+        PlayerWake _wake;
         InputActionAsset _runtimeActions;
         InputAction _accept;
         InputAction _refuse;
+        InputAction _wakeAction;
         DrinkOffer _aimedOffer;
         PlayerCarry _aimedPartner;
         string _message;
@@ -38,16 +41,28 @@ namespace LastCallCrew.Network
         public PlayerCarry AimedPartner => _aimedPartner;
         /// <summary>Portée maximale acceptée par l'hôte (portée du raycast + tolérance), partagée avec le portage.</summary>
         public float MaxServerRange => interactRange + serverRangeTolerance;
+        /// <summary>Origine de la visée (caméra), utilisée par l'hôte pour juger la portée d'un réveil.</summary>
+        public Vector3 AimOrigin => cameraRoot.position;
+        public bool IsWaking => _wakeHolding;
+        /// <summary>Partenaire en cours de réveil (null sinon). Lu par le HUD.</summary>
+        public PlayerCarry WakeTarget => _wakeTarget;
+        public float WakeProgress =>
+            _wakeHolding ? Mathf.Clamp01((Time.time - _wakeStartTime) / _wake.HoldSeconds) : 0f;
         public bool IsHolding => _holding;
         public float HoldProgress =>
             _holding && _holdOffer != null ? Mathf.Clamp01((Time.time - _holdStartTime) / _holdOffer.RefuseDurationSeconds) : 0f;
         /// <summary>Message local bref (rejet ou annulation) ; vide s'il n'y en a pas.</summary>
-        public string FeedbackMessage => Time.time < _messageUntil ? _message : string.Empty;
+        public string FeedbackMessage => Time.time < _messageUntil ? _message : _wake != null ? _wake.FeedbackMessage : string.Empty;
 
         // Côté propriétaire : maintien de refus en cours.
         bool _holding;
         float _holdStartTime;
         DrinkOffer _holdOffer;
+
+        // Côté propriétaire : maintien de réveil en cours.
+        bool _wakeHolding;
+        float _wakeStartTime;
+        PlayerCarry _wakeTarget;
 
         // Côté hôte : début de refus reçu pour ce joueur.
         bool _serverRefuseActive;
@@ -59,12 +74,14 @@ namespace LastCallCrew.Network
             _intoxication = GetComponent<PlayerIntoxication>();
             _knockout = GetComponent<PlayerKnockout>();
             _carry = GetComponent<PlayerCarry>();
+            _wake = GetComponent<PlayerWake>();
             if (!IsOwner)
                 return;
 
             _runtimeActions = Instantiate(inputActions);
             _accept = _runtimeActions.FindAction("Player/Interact", true);
             _refuse = _runtimeActions.FindAction("Player/Refuse", true);
+            _wakeAction = _runtimeActions.FindAction("Player/Wake", true);
             _runtimeActions.Enable();
         }
 
@@ -91,6 +108,8 @@ namespace LastCallCrew.Network
             {
                 _holding = false;
                 _holdOffer = null;
+                _wakeHolding = false;
+                _wakeTarget = null;
                 return;
             }
 
@@ -99,6 +118,8 @@ namespace LastCallCrew.Network
             {
                 _holding = false;
                 _holdOffer = null;
+                _wakeHolding = false;
+                _wakeTarget = null;
                 if (_accept.WasPressedThisFrame())
                     _carry.RequestDropRpc();
                 return;
@@ -112,15 +133,39 @@ namespace LastCallCrew.Network
                     _aimedPartner = partner;
             }
 
-            if (_holding)
+            if (_wakeHolding)
+                UpdateWakeHold();
+            else if (_holding)
                 UpdateHold();
             else if (_aimedPartner != null)
             {
                 if (_accept.WasPressedThisFrame())
                     _carry.RequestCarryRpc(new NetworkObjectReference(_aimedPartner.NetworkObject));
+                else if (_wakeAction.WasPressedThisFrame())
+                {
+                    // P1-022 : l'hôte mesure la durée entre ce début et la fin signalée.
+                    _wakeHolding = true;
+                    _wakeStartTime = Time.time;
+                    _wakeTarget = _aimedPartner;
+                    _wake.RequestStartRpc(new NetworkObjectReference(_wakeTarget.NetworkObject));
+                }
             }
             else if (_aimedOffer != null)
                 ReadNewInput();
+        }
+
+        void UpdateWakeHold()
+        {
+            bool aimLost = _aimedPartner != _wakeTarget;
+            bool released = !_wakeAction.IsPressed();
+            bool completed = Time.time - _wakeStartTime >= _wake.HoldSeconds;
+            if (!aimLost && !released && !completed)
+                return;
+
+            // Fin de maintien (relâché, visée perdue ou durée atteinte) : l'hôte décide d'après sa propre mesure.
+            _wakeHolding = false;
+            _wake.RequestEndRpc(new NetworkObjectReference(_wakeTarget.NetworkObject));
+            _wakeTarget = null;
         }
 
         void ReadNewInput()

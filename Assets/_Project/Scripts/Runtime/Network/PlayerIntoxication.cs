@@ -58,6 +58,16 @@ namespace LastCallCrew.Network
                 _knockout.ServerEnterKnockout();
         }
 
+        /// <summary>Hôte uniquement : fixe l'ivresse à une valeur validée (réveil, P1-022) ; la décroissance repart de cette valeur.</summary>
+        public void ServerSetValue(float value)
+        {
+            if (!IsServer)
+                return;
+            _serverValue = IntoxicationRules.Clamp(value, tuning);
+            Write();
+            Debug.Log($"[P1-022] host: client {OwnerClientId} drunkenness set to {_serverValue:0.00} ({IntoxicationRules.GetStage(_serverValue, tuning)})");
+        }
+
         void Update()
         {
             if (!IsServer || !IsSpawned)

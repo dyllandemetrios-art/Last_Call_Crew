@@ -34,6 +34,7 @@ namespace LastCallCrew.Network
 
         PlayerInteractor _interactor;
         PlayerCarry _carry;
+        PlayerWake _wake;
         float _blend;
 
         // Caméra (propriétaire uniquement) : pose première personne mémorisée et avancement du recul.
@@ -47,6 +48,7 @@ namespace LastCallCrew.Network
         {
             _interactor = GetComponent<PlayerInteractor>();
             _carry = GetComponent<PlayerCarry>();
+            _wake = GetComponent<PlayerWake>();
             // Un client qui rejoint après le KO reçoit l'état par la NetworkVariable : visuel appliqué sans transition.
             _blend = _isKnockedOut.Value ? 1f : 0f;
             ApplyVisual();
@@ -71,18 +73,26 @@ namespace LastCallCrew.Network
             // P1-021 : un porteur qui tombe KO lâche son partenaire.
             if (_carry != null)
                 _carry.ServerDrop();
+            // P1-022 : l'instant du KO fixe l'échéance du réveil automatique ; un maintien de réveil en cours est abandonné.
+            if (_wake != null)
+            {
+                _wake.ServerCancelHold();
+                _wake.ServerOnKnockedOut();
+            }
             Debug.Log($"[P1-020] host: client {OwnerClientId} is knocked out");
         }
 
         /// <summary>
-        /// Hôte uniquement. Non utilisé dans P1-020 (aucun réveil) : permet à P1-022 de relever le joueur
-        /// et au visuel de repasser debout proprement.
+        /// Hôte uniquement. Relève le joueur (P1-022 : appelé par PlayerWake, seul chemin de réveil) ;
+        /// le visuel et la caméra repassent debout depuis l'état répliqué.
         /// </summary>
         public void ServerExitKnockout()
         {
             if (!IsServer || !_isKnockedOut.Value)
                 return;
             _isKnockedOut.Value = false;
+            if (_wake != null)
+                _wake.ServerOnWoken();
             // P1-021 : un joueur relevé n'est plus porté.
             if (_carry != null)
                 _carry.ServerReleaseFromCarrier();

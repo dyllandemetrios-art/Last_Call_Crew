@@ -51,6 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Wake",
+                    "type": "Button",
+                    "id": "8c2d7e41-5a96-4b3f-b1d8-3e7f0a9c6d52",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Crouch",
                     "type": "Button",
                     "id": "27c5f898-bc57-4ee1-8800-db469aca5fe3",
@@ -457,6 +466,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Refuse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4a1b6c3-2e58-4f97-8a0b-91c7e3f5a826",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Wake",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
