@@ -8,7 +8,8 @@
         "LastCallCrew.Drink",
         "LastCallCrew.Intoxication",
         "LastCallCrew.Carry",
-        "LastCallCrew.Wake"
+        "LastCallCrew.Wake",
+        "LastCallCrew.Night"
     ],
     "includePlatforms": [
         "Editor"

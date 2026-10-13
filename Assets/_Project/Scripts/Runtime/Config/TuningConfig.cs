@@ -48,6 +48,10 @@ namespace LastCallCrew.Config
         [Tooltip("Multiplicateur de vitesse du porteur pendant le portage (0 exclu, 1 = vitesse normale).")]
         [SerializeField] float _carrySpeedMultiplier = 0.6f;
 
+        [Header("Nuit")]
+        [Tooltip("Durée de la nuit (chronomètre partagé), en secondes.")]
+        [SerializeField] float _nightDurationSeconds = 300f;
+
         public float DrunkennessMin => _drunkennessMin;
         public float PompetteThreshold => _pompetteThreshold;
         public float IvreThreshold => _ivreThreshold;
@@ -66,6 +70,7 @@ namespace LastCallCrew.Config
         public float AutoWakeSeconds => _autoWakeSeconds;
         public float DrunkennessAfterAutoWake => _drunkennessAfterAutoWake;
         public float CarrySpeedMultiplier => _carrySpeedMultiplier;
+        public float NightDurationSeconds => _nightDurationSeconds;
 
         public bool IsValid => GetValidationErrors().Count == 0;
 
@@ -106,6 +111,9 @@ namespace LastCallCrew.Config
 
             if (!(_carrySpeedMultiplier > 0f && _carrySpeedMultiplier <= 1f))
                 errors.Add("Le multiplicateur de vitesse de portage doit être dans ]0 ; 1].");
+
+            if (!(_nightDurationSeconds > 0f))
+                errors.Add("La durée de la nuit doit être strictement positive.");
 
             return errors;
         }

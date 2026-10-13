@@ -38,6 +38,7 @@ namespace LastCallCrew.Tests
             Assert.AreEqual(45f, c.AutoWakeSeconds);
             Assert.AreEqual(90f, c.DrunkennessAfterAutoWake);
             Assert.AreEqual(0.6f, c.CarrySpeedMultiplier);
+            Assert.AreEqual(300f, c.NightDurationSeconds);
         }
 
         [Test]
@@ -77,6 +78,8 @@ namespace LastCallCrew.Tests
         [TestCase("_carrySpeedMultiplier", 0f)]
         [TestCase("_carrySpeedMultiplier", 1.2f)]
         [TestCase("_carrySpeedMultiplier", -0.5f)]
+        [TestCase("_nightDurationSeconds", 0f)]
+        [TestCase("_nightDurationSeconds", -10f)]
         [TestCase("_gainPerDrink", float.NaN)]
         public void InvalidValue_IsReported_AndRefusedByThrowIfInvalid(string field, float value)
         {

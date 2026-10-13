@@ -1,5 +1,6 @@
 using LastCallCrew.Drink;
 using LastCallCrew.Intoxication;
+using LastCallCrew.Night;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ namespace LastCallCrew.Network
         PlayerWake[] _wakes = System.Array.Empty<PlayerWake>();
         int[] _seenWakeCounts = System.Array.Empty<int>();
         DrinkOffer _offer;
+        NightTimer _night;
         float _nextRefresh;
         int _seenDecisionCount = -1;
         float _decisionFeedbackUntil;
@@ -50,6 +52,7 @@ namespace LastCallCrew.Network
                 _kit.Panel(new Rect(0f, 0f, Screen.width, Screen.height), new Color(0f, 0f, 0f, 0.42f));
 
             DrawIntoxicationPanel();
+            DrawNightTimer();
             DrawInteractionFeedback(nm, localCarry);
             if (localCarry != null && localCarry.IsCarrying)
                 DrawCarryBanner(localCarry);
@@ -81,6 +84,8 @@ namespace LastCallCrew.Network
             }
             if (_offer == null)
                 _offer = FindFirstObjectByType<DrinkOffer>();
+            if (_night == null)
+                _night = FindFirstObjectByType<NightTimer>();
         }
 
         // ---- Panneau Ivresse (haut à droite) ----
@@ -152,13 +157,14 @@ namespace LastCallCrew.Network
         void DrawKnockoutMessage(PlayerCarry localCarry, PlayerWake localWake)
         {
             float u(float v) => _kit.U(v);
-            float width = Mathf.Min(u(900f), Screen.width - u(40f));
+            // Centré et assez étroit pour ne jamais recouvrir le panneau Ivresse (droite) ni le panneau réseau (gauche).
+            float width = Mathf.Min(u(900f), Screen.width - 2f * u(480f + 32f));
             ulong? carrier = localCarry != null ? localCarry.CarrierClientId : null;
             // Placé dans le tiers haut pour laisser le corps couché, cadré par la caméra de KO, visible au centre (P1-020a).
             float height = u(120f) + (carrier.HasValue ? u(56f) : 0f) + (localWake != null ? u(56f) : 0f);
-            var rect = new Rect((Screen.width - width) * 0.5f, Screen.height * 0.1f, width, height);
+            var rect = new Rect((Screen.width - width) * 0.5f, Mathf.Max(Screen.height * 0.1f, _timerBottom + _kit.U(12f)), width, height);
             _kit.Panel(rect, new Color(0.05f, 0.02f, 0.03f, 0.88f));
-            DebugGuiKit.Label(new Rect(rect.x, rect.y, rect.width, u(120f)), "VOUS ÊTES KO", _kit.Huge, new Color(1f, 0.35f, 0.4f));
+            DebugGuiKit.Label(new Rect(rect.x, rect.y, rect.width, u(120f)), "VOUS ÊTES KO", _kit.Display, new Color(1f, 0.35f, 0.4f));
             float y = rect.y + u(118f);
             if (carrier.HasValue)
             {
@@ -170,14 +176,75 @@ namespace LastCallCrew.Network
                     $"RÉVEIL AUTOMATIQUE DANS {Mathf.CeilToInt(localWake.AutoWakeRemaining)} s", _kit.Prompt, new Color(1f, 0.85f, 0.4f));
         }
 
-        // ---- Bandeau du porteur (haut au centre) ----
+        // ---- Chronomètre de nuit (carte centrée en haut) ----
+
+        const float TimerCardWidth = 560f;
+        const float TimerCardHeight = 156f;
+        // Seuils d'affichage seulement (aucune règle) : orange puis rouge.
+        const float UrgentSeconds = 10f;
+        const float CriticalSeconds = 5f;
+
+        // Bas de la carte NUIT (pixels écran), pour que les messages centraux se placent dessous.
+        float _timerBottom;
+
+        void DrawNightTimer()
+        {
+            float u(float v) => _kit.U(v);
+            _timerBottom = 0f;
+            if (_night == null || !_night.IsSpawned)
+                return;
+
+            bool waiting = _night.State == NightState.Waiting;
+            bool expired = _night.IsExpired;
+            float remaining = _night.RemainingSeconds;
+            float fraction = waiting ? 1f : expired ? 0f : Mathf.Clamp01(remaining / _night.DurationSeconds);
+
+            string text;
+            GUIStyle style = _kit.Display;
+            Color color;
+            Color fill;
+            Color background = DebugGuiKit.PanelColor;
+            if (waiting)
+            {
+                text = "EN ATTENTE DU PARTENAIRE";
+                style = _kit.Prompt;
+                color = new Color(1f, 0.85f, 0.4f);
+                fill = new Color(0.5f, 0.45f, 0.25f);
+            }
+            else if (expired)
+            {
+                text = "TEMPS ÉCOULÉ";
+                style = _kit.Banner;
+                color = new Color(1f, 0.35f, 0.4f);
+                fill = color;
+                background = new Color(0.16f, 0.04f, 0.06f, 0.9f);
+            }
+            else
+            {
+                text = NightTimerRules.Format(remaining);
+                if (remaining <= CriticalSeconds) color = new Color(1f, 0.3f, 0.35f);
+                else if (remaining <= UrgentSeconds) color = new Color(1f, 0.6f, 0.3f);
+                else color = Color.white;
+                fill = remaining <= UrgentSeconds ? color : new Color(0.45f, 0.7f, 1f);
+            }
+
+            float width = Mathf.Min(u(TimerCardWidth), Screen.width * 0.42f);
+            var card = new Rect((Screen.width - width) * 0.5f, u(16f), width, u(TimerCardHeight));
+            _timerBottom = card.yMax;
+            _kit.Panel(card, background);
+            DebugGuiKit.Label(new Rect(card.x + u(14f), card.y + u(4f), card.width - u(28f), u(40f)), "NUIT", _kit.Title, new Color(0.7f, 0.82f, 1f));
+            DebugGuiKit.Label(new Rect(card.x, card.y + u(38f), card.width, u(80f)), text, style, color);
+            _kit.Bar(new Rect(card.x + u(14f), card.y + u(TimerCardHeight - 32f), card.width - u(28f), u(18f)), fraction, fill);
+        }
+
+        // ---- Bandeau du porteur (haut au centre, sous la carte NUIT) ----
 
         void DrawCarryBanner(PlayerCarry localCarry)
         {
             float u(float v) => _kit.U(v);
             ulong? carried = localCarry.CarriedPlayerClientId;
             float width = Mathf.Min(u(640f), Screen.width * 0.34f);
-            var rect = new Rect((Screen.width - width) * 0.5f, u(16f), width, u(56f));
+            var rect = new Rect((Screen.width - width) * 0.5f, Mathf.Max(u(16f), _timerBottom + u(8f)), width, u(56f));
             _kit.Panel(rect, DebugGuiKit.PanelColor);
             DebugGuiKit.Label(rect, carried.HasValue ? $"VOUS PORTEZ JOUEUR {carried.Value}" : "VOUS PORTEZ UN JOUEUR", _kit.Prompt, new Color(0.65f, 0.9f, 1f));
         }

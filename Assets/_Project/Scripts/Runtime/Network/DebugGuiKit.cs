@@ -18,6 +18,10 @@ namespace LastCallCrew.Network
         public GUIStyle Value { get; private set; }
         public GUIStyle Prompt { get; private set; }
         public GUIStyle Huge { get; private set; }
+        /// <summary>Grand affichage centré (chronomètre) : plus petit que Huge pour tenir dans une carte.</summary>
+        public GUIStyle Display { get; private set; }
+        /// <summary>Message court plein cadre (ex. TEMPS ÉCOULÉ) : un cran sous Display pour tenir sur la largeur d'une carte.</summary>
+        public GUIStyle Banner { get; private set; }
         public GUIStyle Button { get; private set; }
 
         Texture2D _white;
@@ -43,6 +47,8 @@ namespace LastCallCrew.Network
             Value = MakeStyle(34, FontStyle.Bold, TextAnchor.MiddleRight, Color.white);
             Prompt = MakeStyle(32, FontStyle.Bold, TextAnchor.MiddleCenter, Color.white);
             Huge = MakeStyle(84, FontStyle.Bold, TextAnchor.MiddleCenter, Color.white);
+            Display = MakeStyle(68, FontStyle.Bold, TextAnchor.MiddleCenter, Color.white);
+            Banner = MakeStyle(50, FontStyle.Bold, TextAnchor.MiddleCenter, Color.white);
             Button = new GUIStyle(GUI.skin.button)
             {
                 fontSize = Mathf.RoundToInt(28 * Scale),
