@@ -24,6 +24,8 @@ namespace LastCallCrew.Network
         float _returnFeedbackUntil;
         // P1-050 : -1 = pas encore observé (un nouvel arrivant ne déclenche pas le feedback), puis 0 / 1.
         int _seenReturnActive = -1;
+        HouseKeys _keys;
+        int _seenKeysTaken = -1;
         string _returnFeedbackText;
         int[] _seenWakeCounts = System.Array.Empty<int>();
         DrinkOffer _offer;
@@ -72,6 +74,7 @@ namespace LastCallCrew.Network
                 DrawKnockoutMessage(localCarry, nm.LocalClient.PlayerObject.GetComponent<PlayerWake>());
             // Après le message KO : le bandeau de résultat se place dessous au lieu de passer derrière.
             DrawNightOutcome();
+            DrawKeysStatus();
         }
 
         // P1-033 : à chaque changement de manche répliqué, les feedbacks temporaires et les compteurs observés
@@ -88,6 +91,7 @@ namespace LastCallCrew.Network
             for (int i = 0; i < _seenReturned.Length; i++) _seenReturned[i] = -1;
             _seenDecisionCount = -1;
             _seenReturnActive = -1;
+            _seenKeysTaken = -1;
             _wakeFeedbackText = null;
             _returnFeedbackText = null;
             _wakeFeedbackUntil = 0f;
@@ -297,6 +301,20 @@ namespace LastCallCrew.Network
             _kit.Bar(new Rect(card.x + u(14f), card.y + u(TimerCardHeight - 32f), card.width - u(28f), u(18f)), fraction, fill);
         }
 
+        // P1-051 : statut discret des clés, en bas à gauche (pas de nouveau panneau), identique sur toutes les instances.
+        void DrawKeysStatus()
+        {
+            if (_keys == null)
+                _keys = FindFirstObjectByType<HouseKeys>();
+            if (_keys == null || !_keys.IsSpawned)
+                return;
+            float u(float v) => _kit.U(v);
+            bool taken = _keys.IsTaken;
+            var rect = new Rect(u(16f), Screen.height - u(112f), u(300f), u(36f));
+            _kit.Panel(rect, DebugGuiKit.PanelColor);
+            DebugGuiKit.Label(rect, KeyRules.StatusLabel(taken), _kit.Tag, taken ? new Color(0.45f, 0.95f, 0.6f) : new Color(1f, 0.9f, 0.4f));
+        }
+
         // ---- Bilan de la nuit (carte centrale, sous le message KO) ----
 
         void DrawNightOutcome()
@@ -431,6 +449,11 @@ namespace LastCallCrew.Network
                 _kit.Panel(promptRect, DebugGuiKit.PanelColor);
                 DebugGuiKit.Label(promptRect, "E — PARLER", _kit.Prompt, new Color(0.55f, 0.85f, 1f));
             }
+            else if (local.AimedKeys != null)
+            {
+                _kit.Panel(promptRect, DebugGuiKit.PanelColor);
+                DebugGuiKit.Label(promptRect, "E — PRENDRE LES CLÉS", _kit.Prompt, new Color(1f, 0.9f, 0.4f));
+            }
             else if (local.AimedPartner != null)
             {
                 // Deux lignes empilées : porter (E) et réveiller (F maintenu) ne tiennent pas côte à côte à 1280 px.
@@ -480,6 +503,21 @@ namespace LastCallCrew.Network
         // Retour enregistré : détecté par l'état répliqué de chaque joueur, donc identique sur toutes les instances.
         void UpdateReturnFeedback(ulong localClientId)
         {
+            // P1-051 : « CLÉS RÉCUPÉRÉES » sur la transition répliquée (pas au rattrapage d'un client qui arrive tard).
+            if (_keys == null)
+                _keys = FindFirstObjectByType<HouseKeys>();
+            if (_keys != null && _keys.IsSpawned)
+            {
+                int taken = _keys.IsTaken ? 1 : 0;
+                int seenTaken = _seenKeysTaken;
+                _seenKeysTaken = taken;
+                if (seenTaken == 0 && taken == 1)
+                {
+                    _returnFeedbackText = "CLÉS RÉCUPÉRÉES";
+                    _returnFeedbackUntil = Time.unscaledTime + 2f;
+                }
+            }
+
             if (_outcome != null && _outcome.IsSpawned)
             {
                 int active = _outcome.ReturnActive ? 1 : 0;

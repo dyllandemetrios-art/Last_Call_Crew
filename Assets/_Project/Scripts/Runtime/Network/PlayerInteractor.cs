@@ -1,3 +1,4 @@
+using LastCallCrew.Night;
 using LastCallCrew.Dialogue;
 using LastCallCrew.Drink;
 using Unity.Netcode;
@@ -53,6 +54,8 @@ namespace LastCallCrew.Network
         int _cancelFrame = -1;
         /// <summary>PNJ à dialogue visé (null sinon). Lu par le HUD.</summary>
         public NpcDialogue AimedNpc => _aimedNpc;
+        /// <summary>Clés de la maison visées et encore à prendre (null sinon). Lu par le HUD (P1-051).</summary>
+        public HouseKeys AimedKeys => _aimedKeys != null && !_aimedKeys.IsTaken ? _aimedKeys : null;
         /// <summary>PNJ dont le dialogue est ouvert pour ce joueur (null sinon). Lu par le HUD : seul le propriétaire le voit.</summary>
         public NpcDialogue OpenDialogue => _dialogueNpc;
         /// <summary>Partenaire en cours de réveil (null sinon). Lu par le HUD.</summary>
@@ -72,6 +75,7 @@ namespace LastCallCrew.Network
 
         // Côté propriétaire : dialogue ouvert (P1-014). Le numéro de manche mémorisé le ferme à la relance.
         NpcDialogue _aimedNpc;
+        HouseKeys _aimedKeys;
         NpcDialogue _dialogueNpc;
         int _dialogueRound;
 
@@ -126,6 +130,7 @@ namespace LastCallCrew.Network
             _aimedOffer = null;
             _aimedPartner = null;
             _aimedNpc = null;
+            _aimedKeys = null;
 
             // P1-033 : après le résultat de la nuit, plus aucune interaction (les maintiens en cours sont abandonnés).
             if (NightOutcome.IsFrozen)
@@ -169,6 +174,7 @@ namespace LastCallCrew.Network
                 if (partner != null && partner != _carry && partner.IsKnockedOut && !partner.IsCarried)
                     _aimedPartner = partner;
                 _aimedNpc = hit.collider.GetComponentInParent<NpcDialogue>();
+                _aimedKeys = hit.collider.GetComponentInParent<HouseKeys>();
             }
 
             // P1-014 : tant qu'un dialogue est ouvert, seules ses touches sont lues (1/2/3, Échap).
@@ -203,6 +209,8 @@ namespace LastCallCrew.Network
             }
             else if (_aimedOffer != null)
                 ReadNewInput();
+            else if (_aimedKeys != null && !_aimedKeys.IsTaken && _accept.WasPressedThisFrame())
+                TakeKeysRpc(new NetworkObjectReference(_aimedKeys.NetworkObject));
         }
 
         void BeginDialogue(NpcDialogue npc)
@@ -358,6 +366,55 @@ namespace LastCallCrew.Network
         {
             _serverRefuseActive = false;
             _serverDialogueOpen = false;
+        }
+
+        // ---- Clés de la maison (P1-051) : l'hôte revérifie émetteur, cible, portée et état du joueur ----
+
+        [Rpc(SendTo.Server)]
+        void TakeKeysRpc(NetworkObjectReference target, RpcParams rpcParams = default)
+        {
+            HouseKeys keys = null;
+            var request = new KeyRequest
+            {
+                InvalidSender = rpcParams.Receive.SenderClientId != OwnerClientId,
+                InvalidTarget = !target.TryGet(out NetworkObject no) || !no.TryGetComponent(out keys),
+                Frozen = NightOutcome.IsFrozen,
+                KnockedOut = _knockout.IsKnockedOut,
+                Carried = _carry.IsCarried,
+                Carrying = _carry.IsCarrying,
+                Distance = float.PositiveInfinity,
+                MaxDistance = MaxServerRange,
+            };
+            // Clés déjà prises : le collider est désactivé, aucune distance à mesurer ; la règle répond « déjà prises ».
+            if (keys != null && !keys.IsTaken)
+            {
+                Vector3 origin = cameraRoot.position;
+                request.Distance = Vector3.Distance(origin, keys.ClosestPoint(origin));
+            }
+
+            KeyOutcome outcome = KeyRules.Evaluate(keys != null && keys.IsTaken, request);
+            if (outcome == KeyOutcome.Taken)
+                keys.ServerTake(OwnerClientId);
+            else
+                Debug.Log($"[P1-051] host: client={OwnerClientId} keys request -> {outcome}");
+            KeysResultRpc(outcome);
+        }
+
+        [Rpc(SendTo.Owner)]
+        void KeysResultRpc(KeyOutcome outcome)
+        {
+            switch (outcome)
+            {
+                case KeyOutcome.Taken:
+                case KeyOutcome.RejectedKnockedOut:
+                    return; // la prise est affichée par le HUD, depuis l'état répliqué ; l'écran KO suffit
+                case KeyOutcome.RejectedOutOfRange: _message = "TROP LOIN"; break;
+                case KeyOutcome.RejectedCarrying: _message = "VOUS PORTEZ QUELQU'UN"; break;
+                case KeyOutcome.RejectedFrozen: _message = "NUIT TERMINÉE"; break;
+                case KeyOutcome.RejectedAlreadyTaken: _message = "CLÉS DÉJÀ PRISES"; break;
+                default: _message = "DEMANDE REFUSÉE"; break;
+            }
+            _messageUntil = Time.time + 1.5f;
         }
 
         // ---- Dialogue du PNJ (P1-014) : l'hôte valide l'ouverture puis chaque choix ----

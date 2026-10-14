@@ -58,6 +58,8 @@ Maison simple, clés, portefeuille, téléphone et taxi minimal. Aucun de ces é
 | ID | Tâche | Critère de fin | Statut |
 | --- | --- | --- | --- |
 | P1-050 | Maison simple | Les joueurs partent de la maison puis doivent y revenir ensemble, sans victoire immédiate au départ | PASS technique — 210/210 tests ; feeling du nouveau passage différé, non bloquant |
+| P1-051 | Clés de la maison | Un joueur prend les clés et l'état collectif est partagé puis réinitialisé à la relance | PASS — 224/224 tests, hôte/client et concurrence validés |
+| P1-052 | Portefeuille | Un joueur prend le portefeuille, indépendamment des clés, et l'état collectif est partagé | PRÊT — fiche `Docs/Specs/P1-052-house-wallet.md` |
 
 ## Décision d'interaction pour P1-014
 

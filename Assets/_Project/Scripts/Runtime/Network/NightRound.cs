@@ -51,6 +51,7 @@ namespace LastCallCrew.Network
         /// (LateUpdate) ne peut donc pas conclure à partir d'anciennes données.
         /// </summary>
         ReturnZone _zone;
+        HouseKeys _keys;
         readonly System.Collections.Generic.List<ulong> _connectedIds = new System.Collections.Generic.List<ulong>(4);
 
         static Vector3 StartFor(NetworkObject player) =>
@@ -98,6 +99,9 @@ namespace LastCallCrew.Network
             // 6. Chronomètre à l'attente (il repartira une seule fois), 7. résultat, 8. compteur de manche.
             if (npc == null) npc = FindFirstObjectByType<NpcDialogue>();
             if (npc != null) npc.ServerResetForRound();
+            // P1-051 : les clés réapparaissent avant que les joueurs reprennent le contrôle (le gel tombe avec le résultat).
+            if (_keys == null) _keys = FindFirstObjectByType<HouseKeys>();
+            if (_keys != null) _keys.ServerResetForRound();
             timer.ServerResetForRound();
             outcome.ServerResetForRound();
             _round.Value++;
