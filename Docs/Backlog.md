@@ -62,7 +62,7 @@ Direction validée pour la suite : la maison appartient au quartier résidentiel
 | P1-050 | Maison simple | Les joueurs partent de la maison puis doivent y revenir ensemble, sans victoire immédiate au départ | PASS technique — 210/210 tests ; feeling du nouveau passage différé, non bloquant |
 | P1-051 | Clés de la maison | Un joueur prend les clés et l'état collectif est partagé puis réinitialisé à la relance | PASS — 224/224 tests, hôte/client et concurrence validés |
 | P1-052 | Portefeuille | Un joueur prend le portefeuille, indépendamment des clés, et l'état collectif est partagé | PASS — 230/230 tests, indépendance et concurrence validées |
-| P1-053 | Téléphone | Le groupe récupère le téléphone et complète la checklist de départ | PRÊT — fiche `Docs/Specs/P1-053-house-phone.md` |
+| P1-053 | Téléphone | Le groupe récupère le téléphone et complète la checklist de départ | PASS — 240/240 tests, hôte/client injectés, checklist vérifiée à 960×540 (un défaut de troncature corrigé) |
 
 ## Décision d'interaction pour P1-014
 

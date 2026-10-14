@@ -26,8 +26,11 @@ namespace LastCallCrew.Network
         int _seenReturnActive = -1;
         HouseKeys _keys;
         HouseWallet _wallet;
+        HousePhone _phone;
         int _seenKeysTaken = -1;
         int _seenWalletTaken = -1;
+        int _seenPhoneTaken = -1;
+        int _seenReady = -1;
         string _returnFeedbackText;
         int[] _seenWakeCounts = System.Array.Empty<int>();
         DrinkOffer _offer;
@@ -95,6 +98,8 @@ namespace LastCallCrew.Network
             _seenReturnActive = -1;
             _seenKeysTaken = -1;
             _seenWalletTaken = -1;
+            _seenPhoneTaken = -1;
+            _seenReady = -1;
             _wakeFeedbackText = null;
             _returnFeedbackText = null;
             _wakeFeedbackUntil = 0f;
@@ -304,28 +309,45 @@ namespace LastCallCrew.Network
             _kit.Bar(new Rect(card.x + u(14f), card.y + u(TimerCardHeight - 32f), card.width - u(28f), u(18f)), fraction, fill);
         }
 
-        // P1-051/P1-052 : ligne compacte de préparation (clés et portefeuille), en bas à gauche, sans nouveau grand panneau.
-        // Chaque état est lu séparément depuis son propre état répliqué.
+        // P1-051/P1-052/P1-053 : checklist compacte de départ (clés, portefeuille, téléphone), à gauche, sans nouveau grand
+        // panneau. Chaque état est lu séparément depuis son propre état répliqué ; « DÉPART · PRÊT » quand les trois sont pris.
         void DrawKeysStatus()
         {
-            if (_keys == null)
-                _keys = FindFirstObjectByType<HouseKeys>();
-            if (_wallet == null)
-                _wallet = FindFirstObjectByType<HouseWallet>();
+            if (_keys == null) _keys = FindFirstObjectByType<HouseKeys>();
+            if (_wallet == null) _wallet = FindFirstObjectByType<HouseWallet>();
+            if (_phone == null) _phone = FindFirstObjectByType<HousePhone>();
             bool hasKeys = _keys != null && _keys.IsSpawned;
             bool hasWallet = _wallet != null && _wallet.IsSpawned;
-            if (!hasKeys && !hasWallet)
+            bool hasPhone = _phone != null && _phone.IsSpawned;
+            int lines = (hasKeys ? 1 : 0) + (hasWallet ? 1 : 0) + (hasPhone ? 1 : 0);
+            if (lines == 0)
                 return;
             float u(float v) => _kit.U(v);
-            var rect = new Rect(u(16f), Screen.height - u(112f), u(560f), u(36f));
+            bool ready = hasKeys && hasWallet && hasPhone && DepartureChecklist.AllTaken(_keys.IsTaken, _wallet.IsTaken, _phone.IsTaken);
+            float lineHeight = u(30f);
+            float height = lineHeight * (lines + (ready ? 1 : 0)) + u(10f);
+            // Milieu gauche : libre à 960 × 540 comme à 1280 × 720 (ni invites du bas, ni panneaux du haut) ; assez large pour « PORTEFEUILLE · À PRENDRE ».
+            var rect = new Rect(u(16f), Screen.height * 0.42f, u(380f), height);
             _kit.Panel(rect, DebugGuiKit.PanelColor);
-            float half = rect.width * 0.5f;
+            float y = rect.y + u(5f);
+            Color done = new Color(0.45f, 0.95f, 0.6f);
             if (hasKeys)
-                DebugGuiKit.Label(new Rect(rect.x, rect.y, half - u(6f), rect.height), KeyRules.StatusLabel(_keys.IsTaken), _kit.Tag,
-                    _keys.IsTaken ? new Color(0.45f, 0.95f, 0.6f) : new Color(1f, 0.9f, 0.4f));
+            {
+                DebugGuiKit.Label(new Rect(rect.x + u(10f), y, rect.width - u(20f), lineHeight), KeyRules.StatusLabel(_keys.IsTaken), _kit.Tag, _keys.IsTaken ? done : new Color(1f, 0.9f, 0.4f));
+                y += lineHeight;
+            }
             if (hasWallet)
-                DebugGuiKit.Label(new Rect(rect.x + half, rect.y, half - u(10f), rect.height), WalletRules.StatusLabel(_wallet.IsTaken), _kit.Tag,
-                    _wallet.IsTaken ? new Color(0.45f, 0.95f, 0.6f) : new Color(0.6f, 0.8f, 1f));
+            {
+                DebugGuiKit.Label(new Rect(rect.x + u(10f), y, rect.width - u(20f), lineHeight), WalletRules.StatusLabel(_wallet.IsTaken), _kit.Tag, _wallet.IsTaken ? done : new Color(0.6f, 0.8f, 1f));
+                y += lineHeight;
+            }
+            if (hasPhone)
+            {
+                DebugGuiKit.Label(new Rect(rect.x + u(10f), y, rect.width - u(20f), lineHeight), PhoneRules.StatusLabel(_phone.IsTaken), _kit.Tag, _phone.IsTaken ? done : new Color(0.85f, 0.88f, 1f));
+                y += lineHeight;
+            }
+            if (ready)
+                DebugGuiKit.Label(new Rect(rect.x + u(10f), y, rect.width - u(20f), lineHeight), DepartureChecklist.ReadyStatus, _kit.Tag, done);
         }
 
         // ---- Bilan de la nuit (carte centrale, sous le message KO) ----
@@ -462,6 +484,11 @@ namespace LastCallCrew.Network
                 _kit.Panel(promptRect, DebugGuiKit.PanelColor);
                 DebugGuiKit.Label(promptRect, "E — PARLER", _kit.Prompt, new Color(0.55f, 0.85f, 1f));
             }
+            else if (local.AimedPhone != null)
+            {
+                _kit.Panel(promptRect, DebugGuiKit.PanelColor);
+                DebugGuiKit.Label(promptRect, "E — PRENDRE LE TÉLÉPHONE", _kit.Prompt, new Color(0.8f, 0.85f, 0.95f));
+            }
             else if (local.AimedWallet != null)
             {
                 _kit.Panel(promptRect, DebugGuiKit.PanelColor);
@@ -546,6 +573,31 @@ namespace LastCallCrew.Network
                 if (seenWallet == 0 && walletTaken == 1)
                 {
                     _returnFeedbackText = "PORTEFEUILLE RÉCUPÉRÉ";
+                    _returnFeedbackUntil = Time.unscaledTime + 2f;
+                }
+            }
+            // P1-053 : téléphone observé indépendamment, puis la checklist complète (une seule annonce par passage à « tout pris »).
+            if (_phone == null)
+                _phone = FindFirstObjectByType<HousePhone>();
+            if (_phone != null && _phone.IsSpawned)
+            {
+                int phoneTaken = _phone.IsTaken ? 1 : 0;
+                int seenPhone = _seenPhoneTaken;
+                _seenPhoneTaken = phoneTaken;
+                if (seenPhone == 0 && phoneTaken == 1)
+                {
+                    _returnFeedbackText = "TÉLÉPHONE RÉCUPÉRÉ";
+                    _returnFeedbackUntil = Time.unscaledTime + 2f;
+                }
+            }
+            if (_keys != null && _keys.IsSpawned && _wallet != null && _wallet.IsSpawned && _phone != null && _phone.IsSpawned)
+            {
+                int ready = DepartureChecklist.AllTaken(_keys.IsTaken, _wallet.IsTaken, _phone.IsTaken) ? 1 : 0;
+                int seenReady = _seenReady;
+                _seenReady = ready;
+                if (seenReady >= 0 && DepartureChecklist.BecameReady(seenReady == 1, ready == 1))
+                {
+                    _returnFeedbackText = DepartureChecklist.ReadyAnnouncement; // remplace le feedback de la dernière prise
                     _returnFeedbackUntil = Time.unscaledTime + 2f;
                 }
             }

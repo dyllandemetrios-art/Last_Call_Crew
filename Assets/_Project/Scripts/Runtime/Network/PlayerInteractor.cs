@@ -57,6 +57,8 @@ namespace LastCallCrew.Network
         /// <summary>Clés de la maison visées et encore à prendre (null sinon). Lu par le HUD (P1-051).</summary>
         /// <summary>Portefeuille visé et encore à prendre (null sinon). Lu par le HUD (P1-052).</summary>
         public HouseWallet AimedWallet => _aimedWallet != null && !_aimedWallet.IsTaken ? _aimedWallet : null;
+        /// <summary>Téléphone visé et encore à prendre (null sinon). Lu par le HUD (P1-053).</summary>
+        public HousePhone AimedPhone => _aimedPhone != null && !_aimedPhone.IsTaken ? _aimedPhone : null;
         public HouseKeys AimedKeys => _aimedKeys != null && !_aimedKeys.IsTaken ? _aimedKeys : null;
         /// <summary>PNJ dont le dialogue est ouvert pour ce joueur (null sinon). Lu par le HUD : seul le propriétaire le voit.</summary>
         public NpcDialogue OpenDialogue => _dialogueNpc;
@@ -79,6 +81,7 @@ namespace LastCallCrew.Network
         NpcDialogue _aimedNpc;
         HouseKeys _aimedKeys;
         HouseWallet _aimedWallet;
+        HousePhone _aimedPhone;
         NpcDialogue _dialogueNpc;
         int _dialogueRound;
 
@@ -135,6 +138,7 @@ namespace LastCallCrew.Network
             _aimedNpc = null;
             _aimedKeys = null;
             _aimedWallet = null;
+            _aimedPhone = null;
 
             // P1-033 : après le résultat de la nuit, plus aucune interaction (les maintiens en cours sont abandonnés).
             if (NightOutcome.IsFrozen)
@@ -180,6 +184,7 @@ namespace LastCallCrew.Network
                 _aimedNpc = hit.collider.GetComponentInParent<NpcDialogue>();
                 _aimedKeys = hit.collider.GetComponentInParent<HouseKeys>();
                 _aimedWallet = hit.collider.GetComponentInParent<HouseWallet>();
+                _aimedPhone = hit.collider.GetComponentInParent<HousePhone>();
             }
 
             // P1-014 : tant qu'un dialogue est ouvert, seules ses touches sont lues (1/2/3, Échap).
@@ -218,6 +223,8 @@ namespace LastCallCrew.Network
                 TakeKeysRpc(new NetworkObjectReference(_aimedKeys.NetworkObject));
             else if (_aimedWallet != null && !_aimedWallet.IsTaken && _accept.WasPressedThisFrame())
                 TakeWalletRpc(new NetworkObjectReference(_aimedWallet.NetworkObject));
+            else if (_aimedPhone != null && !_aimedPhone.IsTaken && _accept.WasPressedThisFrame())
+                TakePhoneRpc(new NetworkObjectReference(_aimedPhone.NetworkObject));
         }
 
         void BeginDialogue(NpcDialogue npc)
@@ -377,21 +384,25 @@ namespace LastCallCrew.Network
 
         // ---- Clés de la maison (P1-051) : l'hôte revérifie émetteur, cible, portée et état du joueur ----
 
+        // P1-053 : partie commune des trois objets collectifs (identité, gel, KO, portage, portée maximale). La cible et la
+        // distance restent propres à chaque objet.
+        KeyRequest BuildPickupRequest(ulong senderClientId) => new KeyRequest
+        {
+            InvalidSender = senderClientId != OwnerClientId,
+            Frozen = NightOutcome.IsFrozen,
+            KnockedOut = _knockout.IsKnockedOut,
+            Carried = _carry.IsCarried,
+            Carrying = _carry.IsCarrying,
+            Distance = float.PositiveInfinity,
+            MaxDistance = MaxServerRange,
+        };
+
         [Rpc(SendTo.Server)]
         void TakeKeysRpc(NetworkObjectReference target, RpcParams rpcParams = default)
         {
             HouseKeys keys = null;
-            var request = new KeyRequest
-            {
-                InvalidSender = rpcParams.Receive.SenderClientId != OwnerClientId,
-                InvalidTarget = !target.TryGet(out NetworkObject no) || !no.TryGetComponent(out keys),
-                Frozen = NightOutcome.IsFrozen,
-                KnockedOut = _knockout.IsKnockedOut,
-                Carried = _carry.IsCarried,
-                Carrying = _carry.IsCarrying,
-                Distance = float.PositiveInfinity,
-                MaxDistance = MaxServerRange,
-            };
+            KeyRequest request = BuildPickupRequest(rpcParams.Receive.SenderClientId);
+            request.InvalidTarget = !target.TryGet(out NetworkObject no) || !no.TryGetComponent(out keys);
             // Clés déjà prises : le collider est désactivé, aucune distance à mesurer ; la règle répond « déjà prises ».
             if (keys != null && !keys.IsTaken)
             {
@@ -413,17 +424,8 @@ namespace LastCallCrew.Network
         void TakeWalletRpc(NetworkObjectReference target, RpcParams rpcParams = default)
         {
             HouseWallet wallet = null;
-            var request = new KeyRequest
-            {
-                InvalidSender = rpcParams.Receive.SenderClientId != OwnerClientId,
-                InvalidTarget = !target.TryGet(out NetworkObject no) || !no.TryGetComponent(out wallet),
-                Frozen = NightOutcome.IsFrozen,
-                KnockedOut = _knockout.IsKnockedOut,
-                Carried = _carry.IsCarried,
-                Carrying = _carry.IsCarrying,
-                Distance = float.PositiveInfinity,
-                MaxDistance = MaxServerRange,
-            };
+            KeyRequest request = BuildPickupRequest(rpcParams.Receive.SenderClientId);
+            request.InvalidTarget = !target.TryGet(out NetworkObject no) || !no.TryGetComponent(out wallet);
             if (wallet != null && !wallet.IsTaken)
             {
                 Vector3 origin = cameraRoot.position;
@@ -436,6 +438,28 @@ namespace LastCallCrew.Network
             else
                 Debug.Log($"[P1-052] host: client={OwnerClientId} wallet request -> {outcome}");
             KeysResultRpc(outcome); // mêmes retours au propriétaire que les clés (TROP LOIN, NUIT TERMINÉE…)
+        }
+
+        // ---- Téléphone de la maison (P1-053) : mêmes validations, état indépendant ----
+
+        [Rpc(SendTo.Server)]
+        void TakePhoneRpc(NetworkObjectReference target, RpcParams rpcParams = default)
+        {
+            HousePhone phone = null;
+            KeyRequest request = BuildPickupRequest(rpcParams.Receive.SenderClientId);
+            request.InvalidTarget = !target.TryGet(out NetworkObject no) || !no.TryGetComponent(out phone);
+            if (phone != null && !phone.IsTaken)
+            {
+                Vector3 origin = cameraRoot.position;
+                request.Distance = Vector3.Distance(origin, phone.ClosestPoint(origin));
+            }
+
+            KeyOutcome outcome = PhoneRules.Evaluate(phone != null && phone.IsTaken, request);
+            if (outcome == KeyOutcome.Taken)
+                phone.ServerTake(OwnerClientId);
+            else
+                Debug.Log($"[P1-053] host: client={OwnerClientId} phone request -> {outcome}");
+            KeysResultRpc(outcome);
         }
 
         [Rpc(SendTo.Owner)]

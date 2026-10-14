@@ -53,6 +53,7 @@ namespace LastCallCrew.Network
         ReturnZone _zone;
         HouseKeys _keys;
         HouseWallet _wallet;
+        HousePhone _phone;
         readonly System.Collections.Generic.List<ulong> _connectedIds = new System.Collections.Generic.List<ulong>(4);
 
         static Vector3 StartFor(NetworkObject player) =>
@@ -106,6 +107,9 @@ namespace LastCallCrew.Network
             // P1-052 : le portefeuille réapparaît dans le même ordre sûr, indépendamment des clés.
             if (_wallet == null) _wallet = FindFirstObjectByType<HouseWallet>();
             if (_wallet != null) _wallet.ServerResetForRound();
+            // P1-053 : le téléphone aussi, séparément, avant la reprise du contrôle.
+            if (_phone == null) _phone = FindFirstObjectByType<HousePhone>();
+            if (_phone != null) _phone.ServerResetForRound();
             timer.ServerResetForRound();
             outcome.ServerResetForRound();
             _round.Value++;
