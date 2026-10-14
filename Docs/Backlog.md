@@ -55,11 +55,14 @@
 
 Maison simple, clés, portefeuille, téléphone et taxi minimal. Aucun de ces éléments ne doit retarder la boucle boire, KO, entraide et retour.
 
+Direction validée pour la suite : la maison appartient au quartier résidentiel ; le taxi transporte ensuite les joueurs vers la ville, où les objets, la monnaie et les échanges avec les PNJ prennent place, avant un retour au quartier. Ces systèmes seront découpés séparément et ne sont pas ajoutés avec les objets domestiques.
+
 | ID | Tâche | Critère de fin | Statut |
 | --- | --- | --- | --- |
 | P1-050 | Maison simple | Les joueurs partent de la maison puis doivent y revenir ensemble, sans victoire immédiate au départ | PASS technique — 210/210 tests ; feeling du nouveau passage différé, non bloquant |
 | P1-051 | Clés de la maison | Un joueur prend les clés et l'état collectif est partagé puis réinitialisé à la relance | PASS — 224/224 tests, hôte/client et concurrence validés |
-| P1-052 | Portefeuille | Un joueur prend le portefeuille, indépendamment des clés, et l'état collectif est partagé | PRÊT — fiche `Docs/Specs/P1-052-house-wallet.md` |
+| P1-052 | Portefeuille | Un joueur prend le portefeuille, indépendamment des clés, et l'état collectif est partagé | PASS — 230/230 tests, indépendance et concurrence validées |
+| P1-053 | Téléphone | Le groupe récupère le téléphone et complète la checklist de départ | PRÊT — fiche `Docs/Specs/P1-053-house-phone.md` |
 
 ## Décision d'interaction pour P1-014
 

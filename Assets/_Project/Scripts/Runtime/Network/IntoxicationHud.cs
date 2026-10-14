@@ -25,7 +25,9 @@ namespace LastCallCrew.Network
         // P1-050 : -1 = pas encore observé (un nouvel arrivant ne déclenche pas le feedback), puis 0 / 1.
         int _seenReturnActive = -1;
         HouseKeys _keys;
+        HouseWallet _wallet;
         int _seenKeysTaken = -1;
+        int _seenWalletTaken = -1;
         string _returnFeedbackText;
         int[] _seenWakeCounts = System.Array.Empty<int>();
         DrinkOffer _offer;
@@ -92,6 +94,7 @@ namespace LastCallCrew.Network
             _seenDecisionCount = -1;
             _seenReturnActive = -1;
             _seenKeysTaken = -1;
+            _seenWalletTaken = -1;
             _wakeFeedbackText = null;
             _returnFeedbackText = null;
             _wakeFeedbackUntil = 0f;
@@ -301,18 +304,28 @@ namespace LastCallCrew.Network
             _kit.Bar(new Rect(card.x + u(14f), card.y + u(TimerCardHeight - 32f), card.width - u(28f), u(18f)), fraction, fill);
         }
 
-        // P1-051 : statut discret des clés, en bas à gauche (pas de nouveau panneau), identique sur toutes les instances.
+        // P1-051/P1-052 : ligne compacte de préparation (clés et portefeuille), en bas à gauche, sans nouveau grand panneau.
+        // Chaque état est lu séparément depuis son propre état répliqué.
         void DrawKeysStatus()
         {
             if (_keys == null)
                 _keys = FindFirstObjectByType<HouseKeys>();
-            if (_keys == null || !_keys.IsSpawned)
+            if (_wallet == null)
+                _wallet = FindFirstObjectByType<HouseWallet>();
+            bool hasKeys = _keys != null && _keys.IsSpawned;
+            bool hasWallet = _wallet != null && _wallet.IsSpawned;
+            if (!hasKeys && !hasWallet)
                 return;
             float u(float v) => _kit.U(v);
-            bool taken = _keys.IsTaken;
-            var rect = new Rect(u(16f), Screen.height - u(112f), u(300f), u(36f));
+            var rect = new Rect(u(16f), Screen.height - u(112f), u(560f), u(36f));
             _kit.Panel(rect, DebugGuiKit.PanelColor);
-            DebugGuiKit.Label(rect, KeyRules.StatusLabel(taken), _kit.Tag, taken ? new Color(0.45f, 0.95f, 0.6f) : new Color(1f, 0.9f, 0.4f));
+            float half = rect.width * 0.5f;
+            if (hasKeys)
+                DebugGuiKit.Label(new Rect(rect.x, rect.y, half - u(6f), rect.height), KeyRules.StatusLabel(_keys.IsTaken), _kit.Tag,
+                    _keys.IsTaken ? new Color(0.45f, 0.95f, 0.6f) : new Color(1f, 0.9f, 0.4f));
+            if (hasWallet)
+                DebugGuiKit.Label(new Rect(rect.x + half, rect.y, half - u(10f), rect.height), WalletRules.StatusLabel(_wallet.IsTaken), _kit.Tag,
+                    _wallet.IsTaken ? new Color(0.45f, 0.95f, 0.6f) : new Color(0.6f, 0.8f, 1f));
         }
 
         // ---- Bilan de la nuit (carte centrale, sous le message KO) ----
@@ -449,6 +462,11 @@ namespace LastCallCrew.Network
                 _kit.Panel(promptRect, DebugGuiKit.PanelColor);
                 DebugGuiKit.Label(promptRect, "E — PARLER", _kit.Prompt, new Color(0.55f, 0.85f, 1f));
             }
+            else if (local.AimedWallet != null)
+            {
+                _kit.Panel(promptRect, DebugGuiKit.PanelColor);
+                DebugGuiKit.Label(promptRect, "E — PRENDRE LE PORTEFEUILLE", _kit.Prompt, new Color(0.55f, 0.75f, 1f));
+            }
             else if (local.AimedKeys != null)
             {
                 _kit.Panel(promptRect, DebugGuiKit.PanelColor);
@@ -514,6 +532,20 @@ namespace LastCallCrew.Network
                 if (seenTaken == 0 && taken == 1)
                 {
                     _returnFeedbackText = "CLÉS RÉCUPÉRÉES";
+                    _returnFeedbackUntil = Time.unscaledTime + 2f;
+                }
+            }
+            // P1-052 : même mécanisme pour le portefeuille, observé indépendamment.
+            if (_wallet == null)
+                _wallet = FindFirstObjectByType<HouseWallet>();
+            if (_wallet != null && _wallet.IsSpawned)
+            {
+                int walletTaken = _wallet.IsTaken ? 1 : 0;
+                int seenWallet = _seenWalletTaken;
+                _seenWalletTaken = walletTaken;
+                if (seenWallet == 0 && walletTaken == 1)
+                {
+                    _returnFeedbackText = "PORTEFEUILLE RÉCUPÉRÉ";
                     _returnFeedbackUntil = Time.unscaledTime + 2f;
                 }
             }

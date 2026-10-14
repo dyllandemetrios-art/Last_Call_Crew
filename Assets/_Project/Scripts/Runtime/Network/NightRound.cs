@@ -52,6 +52,7 @@ namespace LastCallCrew.Network
         /// </summary>
         ReturnZone _zone;
         HouseKeys _keys;
+        HouseWallet _wallet;
         readonly System.Collections.Generic.List<ulong> _connectedIds = new System.Collections.Generic.List<ulong>(4);
 
         static Vector3 StartFor(NetworkObject player) =>
@@ -102,6 +103,9 @@ namespace LastCallCrew.Network
             // P1-051 : les clés réapparaissent avant que les joueurs reprennent le contrôle (le gel tombe avec le résultat).
             if (_keys == null) _keys = FindFirstObjectByType<HouseKeys>();
             if (_keys != null) _keys.ServerResetForRound();
+            // P1-052 : le portefeuille réapparaît dans le même ordre sûr, indépendamment des clés.
+            if (_wallet == null) _wallet = FindFirstObjectByType<HouseWallet>();
+            if (_wallet != null) _wallet.ServerResetForRound();
             timer.ServerResetForRound();
             outcome.ServerResetForRound();
             _round.Value++;

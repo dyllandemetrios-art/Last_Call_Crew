@@ -55,6 +55,8 @@ namespace LastCallCrew.Network
         /// <summary>PNJ à dialogue visé (null sinon). Lu par le HUD.</summary>
         public NpcDialogue AimedNpc => _aimedNpc;
         /// <summary>Clés de la maison visées et encore à prendre (null sinon). Lu par le HUD (P1-051).</summary>
+        /// <summary>Portefeuille visé et encore à prendre (null sinon). Lu par le HUD (P1-052).</summary>
+        public HouseWallet AimedWallet => _aimedWallet != null && !_aimedWallet.IsTaken ? _aimedWallet : null;
         public HouseKeys AimedKeys => _aimedKeys != null && !_aimedKeys.IsTaken ? _aimedKeys : null;
         /// <summary>PNJ dont le dialogue est ouvert pour ce joueur (null sinon). Lu par le HUD : seul le propriétaire le voit.</summary>
         public NpcDialogue OpenDialogue => _dialogueNpc;
@@ -76,6 +78,7 @@ namespace LastCallCrew.Network
         // Côté propriétaire : dialogue ouvert (P1-014). Le numéro de manche mémorisé le ferme à la relance.
         NpcDialogue _aimedNpc;
         HouseKeys _aimedKeys;
+        HouseWallet _aimedWallet;
         NpcDialogue _dialogueNpc;
         int _dialogueRound;
 
@@ -131,6 +134,7 @@ namespace LastCallCrew.Network
             _aimedPartner = null;
             _aimedNpc = null;
             _aimedKeys = null;
+            _aimedWallet = null;
 
             // P1-033 : après le résultat de la nuit, plus aucune interaction (les maintiens en cours sont abandonnés).
             if (NightOutcome.IsFrozen)
@@ -175,6 +179,7 @@ namespace LastCallCrew.Network
                     _aimedPartner = partner;
                 _aimedNpc = hit.collider.GetComponentInParent<NpcDialogue>();
                 _aimedKeys = hit.collider.GetComponentInParent<HouseKeys>();
+                _aimedWallet = hit.collider.GetComponentInParent<HouseWallet>();
             }
 
             // P1-014 : tant qu'un dialogue est ouvert, seules ses touches sont lues (1/2/3, Échap).
@@ -211,6 +216,8 @@ namespace LastCallCrew.Network
                 ReadNewInput();
             else if (_aimedKeys != null && !_aimedKeys.IsTaken && _accept.WasPressedThisFrame())
                 TakeKeysRpc(new NetworkObjectReference(_aimedKeys.NetworkObject));
+            else if (_aimedWallet != null && !_aimedWallet.IsTaken && _accept.WasPressedThisFrame())
+                TakeWalletRpc(new NetworkObjectReference(_aimedWallet.NetworkObject));
         }
 
         void BeginDialogue(NpcDialogue npc)
@@ -400,6 +407,37 @@ namespace LastCallCrew.Network
             KeysResultRpc(outcome);
         }
 
+        // ---- Portefeuille de la maison (P1-052) : mêmes validations que les clés, état indépendant ----
+
+        [Rpc(SendTo.Server)]
+        void TakeWalletRpc(NetworkObjectReference target, RpcParams rpcParams = default)
+        {
+            HouseWallet wallet = null;
+            var request = new KeyRequest
+            {
+                InvalidSender = rpcParams.Receive.SenderClientId != OwnerClientId,
+                InvalidTarget = !target.TryGet(out NetworkObject no) || !no.TryGetComponent(out wallet),
+                Frozen = NightOutcome.IsFrozen,
+                KnockedOut = _knockout.IsKnockedOut,
+                Carried = _carry.IsCarried,
+                Carrying = _carry.IsCarrying,
+                Distance = float.PositiveInfinity,
+                MaxDistance = MaxServerRange,
+            };
+            if (wallet != null && !wallet.IsTaken)
+            {
+                Vector3 origin = cameraRoot.position;
+                request.Distance = Vector3.Distance(origin, wallet.ClosestPoint(origin));
+            }
+
+            KeyOutcome outcome = WalletRules.Evaluate(wallet != null && wallet.IsTaken, request);
+            if (outcome == KeyOutcome.Taken)
+                wallet.ServerTake(OwnerClientId);
+            else
+                Debug.Log($"[P1-052] host: client={OwnerClientId} wallet request -> {outcome}");
+            KeysResultRpc(outcome); // mêmes retours au propriétaire que les clés (TROP LOIN, NUIT TERMINÉE…)
+        }
+
         [Rpc(SendTo.Owner)]
         void KeysResultRpc(KeyOutcome outcome)
         {
@@ -411,7 +449,7 @@ namespace LastCallCrew.Network
                 case KeyOutcome.RejectedOutOfRange: _message = "TROP LOIN"; break;
                 case KeyOutcome.RejectedCarrying: _message = "VOUS PORTEZ QUELQU'UN"; break;
                 case KeyOutcome.RejectedFrozen: _message = "NUIT TERMINÉE"; break;
-                case KeyOutcome.RejectedAlreadyTaken: _message = "CLÉS DÉJÀ PRISES"; break;
+                case KeyOutcome.RejectedAlreadyTaken: _message = "DÉJÀ PRIS"; break;
                 default: _message = "DEMANDE REFUSÉE"; break;
             }
             _messageUntil = Time.time + 1.5f;
