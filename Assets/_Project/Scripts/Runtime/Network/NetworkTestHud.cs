@@ -61,7 +61,7 @@ namespace LastCallCrew.Network
             foreach (var kv in nm.SpawnManager.SpawnedObjects)
             {
                 if (!kv.Value.IsPlayerObject) continue;
-                Debug.Log($"[P1-001] local={nm.LocalClientId} player owner={kv.Value.OwnerClientId} pos={kv.Value.transform.position}");
+                Debug.Log($"[P1-001] local={nm.LocalClientId} player owner={kv.Value.OwnerClientId} pos={kv.Value.transform.position} yaw={kv.Value.transform.eulerAngles.y:0}");
             }
         }
 

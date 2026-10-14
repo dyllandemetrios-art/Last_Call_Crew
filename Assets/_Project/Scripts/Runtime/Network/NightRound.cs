@@ -50,6 +50,7 @@ namespace LastCallCrew.Network
         /// que le résultat redevienne Pending, et les retours sont déjà effacés : l'évaluation de la même frame
         /// (LateUpdate) ne peut donc pas conclure à partir d'anciennes données.
         /// </summary>
+        ReturnZone _zone;
         readonly System.Collections.Generic.List<ulong> _connectedIds = new System.Collections.Generic.List<ulong>(4);
 
         static Vector3 StartFor(NetworkObject player) =>
@@ -57,6 +58,10 @@ namespace LastCallCrew.Network
 
         void ServerRestart()
         {
+            // P1-050 : sorties mémorisées et retour désactivé avant de replacer les joueurs.
+            if (_zone == null) _zone = FindFirstObjectByType<ReturnZone>();
+            if (_zone != null) _zone.ServerResetForRound();
+
             // 0. Emplacements : rang par ClientId croissant parmi les joueurs connectés (P1-040), pas ClientId × 3.
             _connectedIds.Clear();
             foreach (NetworkClient client in NetworkManager.ConnectedClientsList)
@@ -87,7 +92,7 @@ namespace LastCallCrew.Network
                 if (player.TryGetComponent(out PlayerReturn ret))
                     ret.ServerResetForRound(StartFor(player), NetworkManager.ServerTime.Time);
                 if (player.TryGetComponent(out PlayerController controller))
-                    controller.ResetPoseRpc(StartFor(player), Quaternion.identity);
+                    controller.ResetPoseRpc(StartFor(player), Quaternion.Euler(0f, RestartRules.StartYaw, 0f));
             }
 
             // 6. Chronomètre à l'attente (il repartira une seule fois), 7. résultat, 8. compteur de manche.

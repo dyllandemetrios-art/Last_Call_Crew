@@ -37,13 +37,18 @@ namespace LastCallCrew.Network
             _knockout = GetComponent<PlayerKnockout>();
             _carry = GetComponent<PlayerCarry>();
             if (IsServer)
+            {
                 _slot.Value = FirstFreeSlot();
+                if (TryGetComponent(out PlayerReturn expected))
+                    expected.ServerExpectPose(LastCallCrew.Night.RestartRules.StartPosition(_slot.Value), NetworkManager.ServerTime.Time);
+            }
             playerCamera.enabled = IsOwner;
             audioListener.enabled = IsOwner;
             if (!IsOwner)
                 return;
 
-            transform.position = LastCallCrew.Night.RestartRules.StartPosition(_slot.Value);
+            transform.SetPositionAndRotation(LastCallCrew.Night.RestartRules.StartPosition(_slot.Value),
+                Quaternion.Euler(0f, LastCallCrew.Night.RestartRules.StartYaw, 0f));
             _runtimeActions = Instantiate(inputActions);
             _move = _runtimeActions.FindAction("Player/Move", true);
             _look = _runtimeActions.FindAction("Player/Look", true);

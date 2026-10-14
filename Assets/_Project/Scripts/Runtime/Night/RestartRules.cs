@@ -37,12 +37,16 @@ namespace LastCallCrew.Night
             return connectedPlayers < PlayersRequired ? RestartOutcome.RejectedNotEnoughPlayers : RestartOutcome.Restarted;
         }
 
+        /// <summary>Orientation de départ (P1-050) : vers l'ouest, face à la porte de la maison.</summary>
+        public const float StartYaw = 270f;
+
         /// <summary>
-        /// Position de départ d'un emplacement (P1-040). L'emplacement vient de l'ordre des joueurs connectés
-        /// (<see cref="PlayerSlots"/>), jamais d'un ClientId NGO qui croît à chaque reconnexion.
+        /// Position de départ d'un emplacement (P1-040, P1-050) : dans la maison (centre vers (20 ; 16)), en file devant la
+        /// porte ouest, 1,6 m d'écart. L'emplacement vient de l'ordre des joueurs connectés (<see cref="PlayerSlots"/>),
+        /// jamais d'un ClientId NGO.
         /// </summary>
         public static UnityEngine.Vector3 StartPosition(int slot) =>
-            new UnityEngine.Vector3(slot * 3f, 1f, 0f);
+            new UnityEngine.Vector3(21f, 1f, 15.2f + 1.6f * slot);
 
         public static string FinalState(bool returned, bool knockedOut) =>
             (returned ? "RENTRÉ" : "DEHORS") + " · " + (knockedOut ? "KO" : "DEBOUT");

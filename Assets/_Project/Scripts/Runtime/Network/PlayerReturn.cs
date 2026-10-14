@@ -37,6 +37,18 @@ namespace LastCallCrew.Network
         }
 
         /// <summary>
+        /// Hôte, apparition d'un joueur (P1-050) : sa pose de départ n'est pas encore arrivée sur l'hôte ; sa position de
+        /// passage ne doit compter ni comme retour ni comme sortie de la maison. Ne touche pas aux NetworkVariable
+        /// (appelé pendant le spawn).
+        /// </summary>
+        public void ServerExpectPose(Vector3 startPosition, double serverTimeNow)
+        {
+            _awaitingPose = true;
+            _poseTarget = startPosition;
+            _poseDeadline = serverTimeNow + PoseTimeoutSeconds;
+        }
+
+        /// <summary>
         /// Hôte : faux tant que la pose de départ de la relance n'est pas arrivée sur l'hôte (position proche du point
         /// de départ, ou délai écoulé). Évite d'enregistrer un retour à partir d'une position de la manche précédente.
         /// </summary>

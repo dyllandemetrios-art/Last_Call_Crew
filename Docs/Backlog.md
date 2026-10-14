@@ -47,13 +47,17 @@
 | ID | Tâche | Critère de fin | Statut |
 | --- | --- | --- | --- |
 | P1-040 | Cas réseau critiques | Code invalide, client parti, hôte parti et session pleine ont un résultat documenté | PASS le 14 octobre 2026 — build Windows, jusqu'à trois processus |
-| P1-041 | Tests de règles | Seuils d'ivresse, KO et victoire disposent de tests automatisés utiles | Bloqué par les règles correspondantes |
-| P1-042 | Playtest externe | Un nouveau joueur comprend l'objectif en moins d'une minute | Bloqué par P1-033 |
-| P1-043 | Candidate P1 | Build identifié, critères prouvés, défauts connus consignés | Bloqué par P1-040 à P1-042 |
+| P1-041 | Tests de règles | Seuils d'ivresse, KO et victoire disposent de tests automatisés utiles | PASS par audit du commit `1be60c0` et exécution EditMode 199/199 |
+| P1-042 | Playtest externe | Un nouveau joueur comprend l'objectif en moins d'une minute | DIFFÉRÉ — aucun participant disponible ; archive Windows prête |
+| P1-043 | Candidate P1 | Build identifié, critères prouvés, défauts connus consignés | READY WITH LIMITATION — P1 technique validée, P1-042 différée |
 
 ## Conditionnel après boucle complète
 
 Maison simple, clés, portefeuille, téléphone et taxi minimal. Aucun de ces éléments ne doit retarder la boucle boire, KO, entraide et retour.
+
+| ID | Tâche | Critère de fin | Statut |
+| --- | --- | --- | --- |
+| P1-050 | Maison simple | Les joueurs partent de la maison puis doivent y revenir ensemble, sans victoire immédiate au départ | PASS technique — 210/210 tests ; feeling du nouveau passage différé, non bloquant |
 
 ## Décision d'interaction pour P1-014
 

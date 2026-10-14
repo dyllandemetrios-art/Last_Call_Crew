@@ -37,10 +37,10 @@ namespace LastCallCrew.Tests
             Assert.AreEqual(RestartOutcome.RejectedNotFinished, RestartRules.Evaluate(true, NightResult.Pending));
         }
 
-        [TestCase(0, 0f)]
-        [TestCase(1, 3f)]
-        public void StartPosition_FollowsSlot(int slot, float x) =>
-            Assert.AreEqual(new Vector3(x, 1f, 0f), RestartRules.StartPosition(slot));
+        [TestCase(0, 15.2f)]
+        [TestCase(1, 16.8f)]
+        public void StartPosition_FollowsSlot(int slot, float z) =>
+            Assert.AreEqual(new Vector3(21f, 1f, z), RestartRules.StartPosition(slot));
 
         [Test]
         public void Restart_NeedsTwoConnectedPlayers()
@@ -58,7 +58,7 @@ namespace LastCallCrew.Tests
             var ids = new System.Collections.Generic.List<ulong> { 0UL, 47UL };
             Assert.AreEqual(0, PlayerSlots.Rank(0UL, ids));
             Assert.AreEqual(1, PlayerSlots.Rank(47UL, ids));
-            Assert.AreEqual(new Vector3(3f, 1f, 0f), RestartRules.StartPosition(PlayerSlots.Rank(47UL, ids)));
+            Assert.AreEqual(RestartRules.StartPosition(1), RestartRules.StartPosition(PlayerSlots.Rank(47UL, ids)));
 
             var sparse = new System.Collections.Generic.List<ulong> { 5UL, 2UL };
             Assert.AreEqual(0, PlayerSlots.Rank(2UL, sparse));

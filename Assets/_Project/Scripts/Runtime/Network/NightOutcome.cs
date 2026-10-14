@@ -20,10 +20,13 @@ namespace LastCallCrew.Network
         readonly NetworkVariable<NightResult> _result = new NetworkVariable<NightResult>(NightResult.Pending);
         readonly NetworkVariable<double> _decidedAt = new NetworkVariable<double>(ReturnRules.NotReturned);
         // P1-040 : raison du résultat, écrite avec lui (une seule fois par manche), lue par le bilan.
+        // P1-050 : le retour n'est actif qu'après la sortie de tous les joueurs ; écrit par l'hôte, remis à zéro à la relance.
+        readonly NetworkVariable<bool> _returnActive = new NetworkVariable<bool>(false);
         readonly NetworkVariable<NightReason> _reason = new NetworkVariable<NightReason>(NightReason.None);
         readonly List<double> _returnTimes = new List<double>(4);
 
         static NightOutcome _current;
+        static readonly double[] NoReturns = new double[0];
 
         /// <summary>
         /// Vrai dès qu'un résultat terminal est répliqué : le gameplay est gelé jusqu'à la relance (P1-033).
@@ -36,6 +39,15 @@ namespace LastCallCrew.Network
 
         public NightResult Result => _result.Value;
         public NightReason Reason => _reason.Value;
+        /// <summary>Vrai une fois que tous les joueurs de la manche sont sortis de la maison au moins une fois.</summary>
+        public bool ReturnActive => _returnActive.Value;
+
+        /// <summary>Hôte uniquement (ReturnZone) : active le retour, une seule fois par manche.</summary>
+        public void ServerSetReturnActive(bool active)
+        {
+            if (IsServer && _returnActive.Value != active)
+                _returnActive.Value = active;
+        }
         /// <summary>Temps serveur de la décision ; ReturnRules.NotReturned tant qu'elle n'a pas eu lieu.</summary>
         public double DecidedServerTime => _decidedAt.Value;
 
@@ -88,6 +100,7 @@ namespace LastCallCrew.Network
                 return;
             _decidedAt.Value = ReturnRules.NotReturned;
             _reason.Value = NightReason.None;
+            _returnActive.Value = false;
             _result.Value = NightResult.Pending;
         }
 
@@ -104,7 +117,8 @@ namespace LastCallCrew.Network
                     _returnTimes.Add(pr.ReturnServerTime);
             }
 
-            NightResult evaluated = NightOutcomeRules.Evaluate(timer.State, timer.DeadlineServerTime, _returnTimes);
+            // Retour inactif : aucune victoire possible (liste vide) ; l'échec à l'échéance reste évalué normalement.
+            NightResult evaluated = NightOutcomeRules.Evaluate(timer.State, timer.DeadlineServerTime, _returnActive.Value ? _returnTimes : NoReturns);
             NightResult next = NightOutcomeRules.Next(_result.Value, evaluated);
             if (next == _result.Value)
                 return;

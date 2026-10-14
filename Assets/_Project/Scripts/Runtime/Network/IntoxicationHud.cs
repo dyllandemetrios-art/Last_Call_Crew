@@ -22,6 +22,8 @@ namespace LastCallCrew.Network
         PlayerReturn[] _returns = System.Array.Empty<PlayerReturn>();
         int[] _seenReturned = System.Array.Empty<int>();
         float _returnFeedbackUntil;
+        // P1-050 : -1 = pas encore observé (un nouvel arrivant ne déclenche pas le feedback), puis 0 / 1.
+        int _seenReturnActive = -1;
         string _returnFeedbackText;
         int[] _seenWakeCounts = System.Array.Empty<int>();
         DrinkOffer _offer;
@@ -85,6 +87,7 @@ namespace LastCallCrew.Network
             for (int i = 0; i < _seenWakeCounts.Length; i++) _seenWakeCounts[i] = -1;
             for (int i = 0; i < _seenReturned.Length; i++) _seenReturned[i] = -1;
             _seenDecisionCount = -1;
+            _seenReturnActive = -1;
             _wakeFeedbackText = null;
             _returnFeedbackText = null;
             _wakeFeedbackUntil = 0f;
@@ -184,7 +187,7 @@ namespace LastCallCrew.Network
                 stageText, _kit.Body, stageColor);
             // État de retour (P1-031) : à droite de la ligne de palier.
             DebugGuiKit.Label(new Rect(card.x + card.width * 0.5f, card.y + u(48f), card.width * 0.5f - u(12f), u(30f)),
-                returned ? "RENTRÉ" : "ENCORE DEHORS", _kit.Tag,
+                returned ? "RENTRÉ" : (_outcome != null && _outcome.IsSpawned && !_outcome.ReturnActive ? "MAISON" : "ENCORE DEHORS"), _kit.Tag,
                 returned ? new Color(0.45f, 0.95f, 0.6f) : new Color(1f, 1f, 1f, 0.6f));
             _kit.Bar(new Rect(card.x + u(12f), card.y + u(82f), card.width - u(24f), u(18f)), player.Value / player.MaxValue, stageColor);
         }
@@ -286,6 +289,10 @@ namespace LastCallCrew.Network
             _timerBottom = card.yMax;
             _kit.Panel(card, background);
             DebugGuiKit.Label(new Rect(card.x + u(14f), card.y + u(4f), card.width - u(28f), u(40f)), "NUIT", _kit.Title, new Color(0.7f, 0.82f, 1f));
+            // P1-050 : tant que le retour n'est pas activé, la maison ne peut pas faire gagner la nuit.
+            if (!waiting && !expired && _outcome != null && _outcome.IsSpawned && _outcome.Result == NightResult.Pending && !_outcome.ReturnActive)
+                DebugGuiKit.Label(new Rect(card.x + card.width * 0.3f, card.y + u(4f), card.width * 0.7f - u(14f), u(30f)),
+                    "MAISON · QUITTEZ LES LIEUX", _kit.Tag, new Color(1f, 0.85f, 0.4f));
             DebugGuiKit.Label(new Rect(card.x, card.y + u(38f), card.width, u(80f)), text, style, color);
             _kit.Bar(new Rect(card.x + u(14f), card.y + u(TimerCardHeight - 32f), card.width - u(28f), u(18f)), fraction, fill);
         }
@@ -473,6 +480,19 @@ namespace LastCallCrew.Network
         // Retour enregistré : détecté par l'état répliqué de chaque joueur, donc identique sur toutes les instances.
         void UpdateReturnFeedback(ulong localClientId)
         {
+            if (_outcome != null && _outcome.IsSpawned)
+            {
+                int active = _outcome.ReturnActive ? 1 : 0;
+                int seenActive = _seenReturnActive;
+                _seenReturnActive = active;
+                if (seenActive == 0 && active == 1)
+                {
+                    _returnFeedbackText = "RETOUR ACTIVÉ";
+                    _returnFeedbackUntil = Time.unscaledTime + 2f;
+                    return;
+                }
+            }
+
             string text = null;
             int newlyReturned = 0;
             bool localReturned = false;
