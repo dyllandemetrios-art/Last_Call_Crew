@@ -311,7 +311,7 @@ namespace LastCallCrew.Network
             var rect = new Rect((Screen.width - width) * 0.5f, Mathf.Max(Screen.height * 0.46f, _koBottom + u(12f)), width, height);
             Color accent = victory ? new Color(0.5f, 1f, 0.6f) : new Color(1f, 0.4f, 0.45f);
             _kit.Panel(rect, victory ? new Color(0.04f, 0.16f, 0.08f, 0.94f) : new Color(0.18f, 0.04f, 0.06f, 0.94f));
-            DebugGuiKit.Label(new Rect(rect.x, rect.y, rect.width, u(60f)), NightOutcomeRules.Banner(_outcome.Result), _kit.Prompt, accent);
+            DebugGuiKit.Label(new Rect(rect.x, rect.y, rect.width, u(60f)), NightOutcomeRules.Banner(_outcome.Result, _outcome.Reason), _kit.Prompt, accent);
 
             string remaining = _night != null ? NightTimerRules.Format(_night.RemainingSeconds) : "00:00";
             DebugGuiKit.Label(new Rect(rect.x, rect.y + u(52f), rect.width, u(40f)), "TEMPS RESTANT " + remaining, _kit.Prompt, new Color(0.8f, 0.88f, 1f));
@@ -335,9 +335,13 @@ namespace LastCallCrew.Network
             float bottom = rect.yMax - u(16f);
             if (isHost && _round != null)
             {
-                var button = new Rect(rect.x + rect.width * 0.5f - u(150f), bottom - u(56f), u(300f), u(56f));
-                if (GUI.Button(button, "RELANCER", _kit.Button))
+                var button = new Rect(rect.x + rect.width * 0.5f - u(260f), bottom - u(56f), u(520f), u(56f));
+                // P1-040 : la relance attend le retour du partenaire (l'hôte la refuserait de toute façon).
+                bool enough = NetworkManager.Singleton.ConnectedClientsIds.Count >= RestartRules.PlayersRequired;
+                GUI.enabled = enough;
+                if (GUI.Button(button, enough ? "RELANCER" : "ATTENTE DU PARTENAIRE", _kit.Button))
                     _round.RequestRestartRpc();
+                GUI.enabled = true;
             }
             else
             {

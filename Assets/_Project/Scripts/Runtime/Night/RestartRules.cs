@@ -6,6 +6,8 @@ namespace LastCallCrew.Night
         Restarted,
         RejectedNotHost,
         RejectedNotFinished,
+        /// <summary>P1-040 : la relance attend que les deux joueurs soient de nouveau connectés.</summary>
+        RejectedNotEnoughPlayers,
     }
 
     /// <summary>Règles pures du gel et de la relance (sans NGO).</summary>
@@ -24,9 +26,23 @@ namespace LastCallCrew.Night
             return RestartOutcome.Restarted;
         }
 
-        /// <summary>Position de départ d'un joueur (même formule que PlayerController, factorisée pour la relance).</summary>
-        public static UnityEngine.Vector3 StartPosition(ulong clientId) =>
-            new UnityEngine.Vector3(clientId * 3f, 1f, 0f);
+        public const int PlayersRequired = 2;
+
+        /// <summary>Comme <see cref="Evaluate(bool, NightResult)"/>, avec en plus le nombre de joueurs actuellement connectés.</summary>
+        public static RestartOutcome Evaluate(bool senderIsHost, NightResult result, int connectedPlayers)
+        {
+            RestartOutcome basic = Evaluate(senderIsHost, result);
+            if (basic != RestartOutcome.Restarted)
+                return basic;
+            return connectedPlayers < PlayersRequired ? RestartOutcome.RejectedNotEnoughPlayers : RestartOutcome.Restarted;
+        }
+
+        /// <summary>
+        /// Position de départ d'un emplacement (P1-040). L'emplacement vient de l'ordre des joueurs connectés
+        /// (<see cref="PlayerSlots"/>), jamais d'un ClientId NGO qui croît à chaque reconnexion.
+        /// </summary>
+        public static UnityEngine.Vector3 StartPosition(int slot) =>
+            new UnityEngine.Vector3(slot * 3f, 1f, 0f);
 
         public static string FinalState(bool returned, bool knockedOut) =>
             (returned ? "RENTRÉ" : "DEHORS") + " · " + (knockedOut ? "KO" : "DEBOUT");

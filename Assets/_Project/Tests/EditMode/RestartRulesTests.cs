@@ -37,11 +37,42 @@ namespace LastCallCrew.Tests
             Assert.AreEqual(RestartOutcome.RejectedNotFinished, RestartRules.Evaluate(true, NightResult.Pending));
         }
 
-        [TestCase(0UL, 0f)]
-        [TestCase(1UL, 3f)]
-        [TestCase(2UL, 6f)]
-        public void StartPosition_MatchesSpawnFormula(ulong id, float x) =>
-            Assert.AreEqual(new Vector3(x, 1f, 0f), RestartRules.StartPosition(id));
+        [TestCase(0, 0f)]
+        [TestCase(1, 3f)]
+        public void StartPosition_FollowsSlot(int slot, float x) =>
+            Assert.AreEqual(new Vector3(x, 1f, 0f), RestartRules.StartPosition(slot));
+
+        [Test]
+        public void Restart_NeedsTwoConnectedPlayers()
+        {
+            Assert.AreEqual(RestartOutcome.RejectedNotEnoughPlayers, RestartRules.Evaluate(true, NightResult.Failure, 1));
+            Assert.AreEqual(RestartOutcome.Restarted, RestartRules.Evaluate(true, NightResult.Failure, 2));
+            Assert.AreEqual(RestartOutcome.RejectedNotHost, RestartRules.Evaluate(false, NightResult.Failure, 1));
+            Assert.AreEqual(RestartOutcome.RejectedNotFinished, RestartRules.Evaluate(true, NightResult.Pending, 2));
+        }
+
+        [Test]
+        public void TwoSlots_WithHighOrSparseClientIds_StayInsideTheStartZone()
+        {
+            // L'hôte (0) et un client reconnecté avec un identifiant élevé : emplacements 0 et 1, pas x = 3 × identifiant.
+            var ids = new System.Collections.Generic.List<ulong> { 0UL, 47UL };
+            Assert.AreEqual(0, PlayerSlots.Rank(0UL, ids));
+            Assert.AreEqual(1, PlayerSlots.Rank(47UL, ids));
+            Assert.AreEqual(new Vector3(3f, 1f, 0f), RestartRules.StartPosition(PlayerSlots.Rank(47UL, ids)));
+
+            var sparse = new System.Collections.Generic.List<ulong> { 5UL, 2UL };
+            Assert.AreEqual(0, PlayerSlots.Rank(2UL, sparse));
+            Assert.AreEqual(1, PlayerSlots.Rank(5UL, sparse));
+        }
+
+        [Test]
+        public void FirstFree_ReusesAFreedSlot()
+        {
+            Assert.AreEqual(0, PlayerSlots.FirstFree(new int[0]));
+            Assert.AreEqual(1, PlayerSlots.FirstFree(new[] { 0 }));
+            Assert.AreEqual(1, PlayerSlots.FirstFree(new[] { 0, 2 }));
+            Assert.AreEqual(0, PlayerSlots.FirstFree(new[] { 1 }));
+        }
 
         [Test]
         public void FinalState_Texts()

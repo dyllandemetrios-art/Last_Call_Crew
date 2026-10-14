@@ -9,8 +9,8 @@
 | P1-000 | Établir la référence Unity | Projet ouvert avec Unity 6000.3.8f1, compilation sans erreur bloquante | PASS |
 | P1-001 | Créer la fondation réseau locale | Un hôte et un client contrôlent chacun une capsule et voient les deux déplacements pendant 5 minutes | PASS le 12 octobre 2026 |
 | P1-002 | Ajouter une interaction réseau générique | Un joueur active un objet ; l'hôte autorise le changement et les deux joueurs voient le même état | PASS au commit `9f13a46` |
-| P1-003 | Configurer Unity Cloud et Relay | Une session produit un code que la seconde instance peut rejoindre | Bloqué par P1-002 et action Dyllan |
-| P1-004 | Valider un build Windows à deux joueurs | Deux processus rejoignent la même partie via Relay sans erreur bloquante | Bloqué par P1-003 |
+| P1-003 | Configurer Unity Cloud et Relay | Une session produit un code que la seconde instance peut rejoindre | PASS validé par Dyllan le 14 octobre 2026 |
+| P1-004 | Valider un build Windows à deux joueurs | Deux processus rejoignent la même partie via Relay sans erreur bloquante | PASS validé en build Windows le 14 octobre 2026 |
 
 ## Tranche jouable
 
@@ -46,7 +46,7 @@
 
 | ID | Tâche | Critère de fin | Statut |
 | --- | --- | --- | --- |
-| P1-040 | Cas réseau critiques | Code invalide, client parti, hôte parti et session pleine ont un résultat documenté | Bloqué par P1-004 |
+| P1-040 | Cas réseau critiques | Code invalide, client parti, hôte parti et session pleine ont un résultat documenté | PASS le 14 octobre 2026 — build Windows, jusqu'à trois processus |
 | P1-041 | Tests de règles | Seuils d'ivresse, KO et victoire disposent de tests automatisés utiles | Bloqué par les règles correspondantes |
 | P1-042 | Playtest externe | Un nouveau joueur comprend l'objectif en moins d'une minute | Bloqué par P1-033 |
 | P1-043 | Candidate P1 | Build identifié, critères prouvés, défauts connus consignés | Bloqué par P1-040 à P1-042 |

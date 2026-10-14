@@ -17,6 +17,9 @@ namespace LastCallCrew.Network
         [SerializeField] float moveSpeed = 5f;
         [SerializeField] float lookSensitivity = 0.1f;
 
+        // P1-040 : emplacement de départ attribué par l'hôte (ordre des joueurs connectés), jamais déduit du ClientId.
+        readonly NetworkVariable<int> _slot = new NetworkVariable<int>(0);
+
         PlayerKnockout _knockout;
         PlayerCarry _carry;
         InputActionAsset _runtimeActions;
@@ -33,22 +36,44 @@ namespace LastCallCrew.Network
         {
             _knockout = GetComponent<PlayerKnockout>();
             _carry = GetComponent<PlayerCarry>();
+            if (IsServer)
+                _slot.Value = FirstFreeSlot();
             playerCamera.enabled = IsOwner;
             audioListener.enabled = IsOwner;
             if (!IsOwner)
                 return;
 
-            transform.position = LastCallCrew.Night.RestartRules.StartPosition(OwnerClientId);
+            transform.position = LastCallCrew.Night.RestartRules.StartPosition(_slot.Value);
             _runtimeActions = Instantiate(inputActions);
             _move = _runtimeActions.FindAction("Player/Move", true);
             _look = _runtimeActions.FindAction("Player/Look", true);
             _release = _runtimeActions.FindAction("Player/DialogueCancel", true);
             _interactor = GetComponent<PlayerInteractor>();
             _runtimeActions.Enable();
-            // P1-015 : le propriétaire capture le pointeur dès son apparition ; un clic gauche le reprend après Échap ou un changement de fenêtre.
+            // P1-015 : le propriétaire capture le pointeur dès son apparition ; Échap le libère puis le reprend (P1-015a).
             SetCaptured(true);
             // Entrée scriptée pour les tests sans humain : -lcc-autowalk (marche en cercle).
             _autoWalk = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lcc-autowalk") >= 0;
+        }
+
+        /// <summary>Emplacement de départ courant (répliqué).</summary>
+        public int Slot => _slot.Value;
+
+        /// <summary>Hôte, relance : réattribue l'emplacement selon l'ordre des joueurs connectés.</summary>
+        public void ServerSetSlot(int slot)
+        {
+            if (IsServer)
+                _slot.Value = slot;
+        }
+
+        int FirstFreeSlot()
+        {
+            var used = new System.Collections.Generic.List<int>(2);
+            foreach (NetworkClient client in NetworkManager.ConnectedClientsList)
+                if (client.PlayerObject != null && client.PlayerObject != NetworkObject
+                    && client.PlayerObject.TryGetComponent(out PlayerController other))
+                    used.Add(other._slot.Value);
+            return LastCallCrew.Night.PlayerSlots.FirstFree(used);
         }
 
         public override void OnNetworkDespawn()
@@ -83,7 +108,7 @@ namespace LastCallCrew.Network
             }
 
             // Pointeur libéré : pas de regard (le delta d'un curseur libre ferait tourner la caméra).
-            Vector2 look = _captured ? _look.ReadValue<Vector2>() * lookSensitivity : Vector2.zero;
+            Vector2 look = _captured && Cursor.lockState == CursorLockMode.Locked ? _look.ReadValue<Vector2>() * lookSensitivity : Vector2.zero;
             transform.Rotate(0f, look.x, 0f);
             _pitch = Mathf.Clamp(_pitch - look.y, -80f, 80f);
             cameraRoot.localRotation = Quaternion.Euler(_pitch, 0f, 0f);
@@ -149,15 +174,18 @@ namespace LastCallCrew.Network
             if (frozen || !Application.isFocused)
                 return;
 
-            if (_captured)
-            {
-                if (_release.WasPressedThisFrame() && !_interactor.ConsumedCancelThisFrame)
-                    SetCaptured(false);
-                else if (Cursor.lockState != CursorLockMode.Locked && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
-                    SetCaptured(true); // verrou perdu sans demande (focus, éditeur) : un clic volontaire le reprend, sans forcer chaque frame
-            }
-            else if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
-                SetCaptured(true);
+            // P1-015a : seul Échap bascule la capture ; un clic gauche ne la reprend plus, il reste pour les boutons et champs du HUD.
+            if (!_release.WasPressedThisFrame())
+                return;
+            if (_interactor.ConsumedCancelThisFrame)
+                return; // cet Échap vient de fermer un dialogue
+#if UNITY_EDITOR
+            // L'éditeur relâche lui-même le verrou sur Échap : on ne fait que suivre son état pour ne pas lutter contre lui.
+            SetCaptured(!_captured);
+#else
+            // Libre (ou verrou perdu au changement de fenêtre) : on recapture ; verrouillé : on libère.
+            SetCaptured(Cursor.lockState != CursorLockMode.Locked);
+#endif
         }
 
         void SetCaptured(bool captured)
@@ -174,7 +202,7 @@ namespace LastCallCrew.Network
                 return;
             const float w = 420f, h = 34f;
             var rect = new Rect((Screen.width - w) * 0.5f, Screen.height - 70f, w, h);
-            GUI.Box(rect, "Clic gauche : reprendre la souris");
+            GUI.Box(rect, "Échap : reprendre la souris");
         }
 
         /// <summary>

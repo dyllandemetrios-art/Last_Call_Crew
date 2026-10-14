@@ -10,7 +10,8 @@
         "LastCallCrew.Carry",
         "LastCallCrew.Wake",
         "LastCallCrew.Night",
-        "LastCallCrew.Dialogue"
+        "LastCallCrew.Dialogue",
+        "LastCallCrew.Connection"
     ],
     "includePlatforms": [
         "Editor"

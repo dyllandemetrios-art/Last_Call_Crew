@@ -10,6 +10,16 @@ namespace LastCallCrew.Night
         Failure = 2,
     }
 
+    /// <summary>Raison du résultat (P1-040), répliquée avec lui et écrite une seule fois : le HUD ne la déduit pas d'un texte.</summary>
+    public enum NightReason : byte
+    {
+        None = 0,
+        /// <summary>Résultat issu de la comparaison retours / échéance (P1-032).</summary>
+        Deadline = 1,
+        /// <summary>Un client s'est déconnecté pendant une manche active.</summary>
+        PartnerDisconnected = 2,
+    }
+
     /// <summary>
     /// Règles pures de conclusion de la nuit, sans NGO. La comparaison utilise uniquement les instants serveur
     /// (retour de chaque joueur et échéance), jamais l'ordre d'exécution des mises à jour.
@@ -49,6 +59,24 @@ namespace LastCallCrew.Night
         /// <summary>Le premier résultat terminal gagne : un résultat déjà décidé n'est jamais remplacé.</summary>
         public static NightResult Next(NightResult current, NightResult evaluated) =>
             current != NightResult.Pending ? current : evaluated;
+
+        /// <summary>
+        /// Départ d'un client (P1-040). Avant le démarrage de la manche (chronomètre en attente) : rien ne change.
+        /// Manche active (en cours ou échéance atteinte) sans résultat : échec immédiat. Résultat déjà décidé : inchangé.
+        /// </summary>
+        public static NightResult OnClientDisconnected(NightState timerState, NightResult current)
+        {
+            if (current != NightResult.Pending || timerState == NightState.Waiting)
+                return current;
+            return NightResult.Failure;
+        }
+
+        public static string Banner(NightResult result, NightReason reason)
+        {
+            if (result == NightResult.Failure && reason == NightReason.PartnerDisconnected)
+                return "ÉCHEC — PARTENAIRE DÉCONNECTÉ";
+            return Banner(result);
+        }
 
         public static string Banner(NightResult result)
         {

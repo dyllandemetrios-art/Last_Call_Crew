@@ -38,7 +38,7 @@ namespace LastCallCrew.Network
         public void RequestRestartRpc(RpcParams rpcParams = default)
         {
             bool senderIsHost = rpcParams.Receive.SenderClientId == NetworkManager.ServerClientId;
-            RestartOutcome result = RestartRules.Evaluate(senderIsHost, outcome.Result);
+            RestartOutcome result = RestartRules.Evaluate(senderIsHost, outcome.Result, NetworkManager.ConnectedClientsIds.Count);
             Debug.Log($"[P1-033] host: restart request from client {rpcParams.Receive.SenderClientId} -> {result}");
             if (result == RestartOutcome.Restarted)
                 ServerRestart();
@@ -50,14 +50,28 @@ namespace LastCallCrew.Network
         /// que le résultat redevienne Pending, et les retours sont déjà effacés : l'évaluation de la même frame
         /// (LateUpdate) ne peut donc pas conclure à partir d'anciennes données.
         /// </summary>
+        readonly System.Collections.Generic.List<ulong> _connectedIds = new System.Collections.Generic.List<ulong>(4);
+
+        static Vector3 StartFor(NetworkObject player) =>
+            RestartRules.StartPosition(player.TryGetComponent(out PlayerController c) ? c.Slot : 0);
+
         void ServerRestart()
         {
+            // 0. Emplacements : rang par ClientId croissant parmi les joueurs connectés (P1-040), pas ClientId × 3.
+            _connectedIds.Clear();
+            foreach (NetworkClient client in NetworkManager.ConnectedClientsList)
+                if (client.PlayerObject != null)
+                    _connectedIds.Add(client.ClientId);
+            foreach (NetworkClient client in NetworkManager.ConnectedClientsList)
+                if (client.PlayerObject != null && client.PlayerObject.TryGetComponent(out PlayerController slotted))
+                    slotted.ServerSetSlot(PlayerSlots.Rank(client.ClientId, _connectedIds));
+
             // 1. Portages et maintiens en cours (positions de dépose = points de départ).
             foreach (NetworkClient client in NetworkManager.ConnectedClientsList)
             {
                 NetworkObject player = client.PlayerObject;
                 if (player == null) continue;
-                Vector3 start = RestartRules.StartPosition(player.OwnerClientId);
+                Vector3 start = StartFor(player);
                 if (player.TryGetComponent(out PlayerCarry carry)) carry.ServerResetForRound(start);
                 if (player.TryGetComponent(out PlayerInteractor interactor)) interactor.ServerCancelRefusal();
                 if (player.TryGetComponent(out PlayerWake wake)) wake.ServerResetForRound();
@@ -71,9 +85,9 @@ namespace LastCallCrew.Network
                 if (player.TryGetComponent(out PlayerKnockout knockout)) knockout.ServerExitKnockout();
                 if (player.TryGetComponent(out PlayerIntoxication intoxication)) intoxication.ServerSetValue(tuning.DrunkennessMin);
                 if (player.TryGetComponent(out PlayerReturn ret))
-                    ret.ServerResetForRound(RestartRules.StartPosition(player.OwnerClientId), NetworkManager.ServerTime.Time);
+                    ret.ServerResetForRound(StartFor(player), NetworkManager.ServerTime.Time);
                 if (player.TryGetComponent(out PlayerController controller))
-                    controller.ResetPoseRpc(RestartRules.StartPosition(player.OwnerClientId), Quaternion.identity);
+                    controller.ResetPoseRpc(StartFor(player), Quaternion.identity);
             }
 
             // 6. Chronomètre à l'attente (il repartira une seule fois), 7. résultat, 8. compteur de manche.
