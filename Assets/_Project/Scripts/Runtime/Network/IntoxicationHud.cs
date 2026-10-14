@@ -80,6 +80,7 @@ namespace LastCallCrew.Network
             // Après le message KO : le bandeau de résultat se place dessous au lieu de passer derrière.
             DrawNightOutcome();
             DrawKeysStatus();
+            DrawTaxiStatus();
         }
 
         // P1-033 : à chaque changement de manche répliqué, les feedbacks temporaires et les compteurs observés
@@ -409,6 +410,20 @@ namespace LastCallCrew.Network
             }
         }
 
+        // ---- État du taxi (haut au centre, sous la carte NUIT) : seulement pendant un trajet (P1-055) ----
+
+        void DrawTaxiStatus()
+        {
+            CollectiveTaxi taxi = CollectiveTaxi.Current;
+            if (taxi == null || TaxiRules.IsParked(taxi.State))
+                return;
+            float u(float v) => _kit.U(v);
+            float width = Mathf.Min(u(560f), Screen.width * 0.34f);
+            var rect = new Rect((Screen.width - width) * 0.5f, Mathf.Max(u(16f), _timerBottom + u(72f)), width, u(48f));
+            _kit.Panel(rect, DebugGuiKit.PanelColor);
+            DebugGuiKit.Label(rect, TaxiRules.StatusLabel(taxi.State, Mathf.CeilToInt(taxi.SecondsLeft)), _kit.Prompt, new Color(1f, 0.82f, 0.2f));
+        }
+
         // ---- Bandeau du porteur (haut au centre, sous la carte NUIT) ----
 
         void DrawCarryBanner(PlayerCarry localCarry)
@@ -447,6 +462,9 @@ namespace LastCallCrew.Network
             // P1-033 : plus d'invite d'action pendant le bilan (le gameplay est gelé).
             if (NightOutcome.IsFrozen)
                 return;
+            // P1-055 : pas d'invite pendant un trajet en taxi ; l'état TAXI du haut suffit.
+            if (CollectiveTaxi.IsRiding)
+                return;
             if (local.IsWaking)
             {
                 // Grande barre de réveil : plus haute que celle du refus pour être lue d'un coup d'œil.
@@ -460,6 +478,11 @@ namespace LastCallCrew.Network
                 _kit.Panel(promptRect, DebugGuiKit.PanelColor);
                 DebugGuiKit.Label(new Rect(promptRect.x, promptRect.y + u(4f), promptRect.width, u(34f)), "REFUS EN COURS…", _kit.Prompt, new Color(1f, 0.55f, 0.5f));
                 _kit.Bar(new Rect(promptRect.x + u(24f), promptRect.y + u(44f), promptRect.width - u(48f), u(22f)), local.HoldProgress, new Color(0.95f, 0.3f, 0.3f));
+            }
+            else if (local.AimedTaxi != null && CollectiveTaxi.Current != null)
+            {
+                _kit.Panel(promptRect, DebugGuiKit.PanelColor);
+                DebugGuiKit.Label(promptRect, TaxiRules.Prompt(CollectiveTaxi.Current.State, local.AimedTaxi.Stop), _kit.Prompt, new Color(1f, 0.82f, 0.2f));
             }
             else if (localCarry != null && localCarry.IsCarrying)
             {

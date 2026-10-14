@@ -64,6 +64,8 @@ Direction validée pour la suite : la maison appartient au quartier résidentiel
 | P1-052 | Portefeuille | Un joueur prend le portefeuille, indépendamment des clés, et l'état collectif est partagé | PASS — 230/230 tests, indépendance et concurrence validées |
 | P1-053 | Téléphone | Le groupe récupère le téléphone et complète la checklist de départ | PASS — 240/240 tests, hôte/client injectés, checklist vérifiée à 960×540 (un défaut de troncature corrigé) |
 | P1-054 | Squelette de ville | Deux joueurs parcourent la coloc, le bar et les deux chemins dans une scène continue | PASS validé par Dyllan le 14 octobre 2026 — chronos exacts non consignés |
+| P1-055 | Taxi collectif | Le groupe préparé effectue un aller-retour visible entre les deux quartiers sans changement de scène | PASS validé par Dyllan le 14 octobre 2026 — 267/267 tests |
+| P1-056 | Première passe d'assets | Le taxi, la route et le quartier résidentiel utilisent les packs téléchargés sans casser la greybox | PRÊT — fiche `Docs/Specs/P1-056-first-asset-pass.md` |
 
 ## Décision d'interaction pour P1-014
 

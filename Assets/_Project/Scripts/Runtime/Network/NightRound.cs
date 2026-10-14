@@ -54,6 +54,7 @@ namespace LastCallCrew.Network
         HouseKeys _keys;
         HouseWallet _wallet;
         HousePhone _phone;
+        CollectiveTaxi _taxi;
         readonly System.Collections.Generic.List<ulong> _connectedIds = new System.Collections.Generic.List<ulong>(4);
 
         static Vector3 StartFor(NetworkObject player) =>
@@ -64,6 +65,9 @@ namespace LastCallCrew.Network
             // P1-050 : sorties mémorisées et retour désactivé avant de replacer les joueurs.
             if (_zone == null) _zone = FindFirstObjectByType<ReturnZone>();
             if (_zone != null) _zone.ServerResetForRound();
+            // P1-055 : le taxi revient à A et tout trajet est annulé avant que les joueurs soient replacés.
+            if (_taxi == null) _taxi = FindFirstObjectByType<CollectiveTaxi>();
+            if (_taxi != null) _taxi.ServerResetForRound();
 
             // 0. Emplacements : rang par ClientId croissant parmi les joueurs connectés (P1-040), pas ClientId × 3.
             _connectedIds.Clear();

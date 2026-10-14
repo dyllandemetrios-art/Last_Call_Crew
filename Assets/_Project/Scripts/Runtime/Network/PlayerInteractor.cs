@@ -59,6 +59,8 @@ namespace LastCallCrew.Network
         public HouseWallet AimedWallet => _aimedWallet != null && !_aimedWallet.IsTaken ? _aimedWallet : null;
         /// <summary>Téléphone visé et encore à prendre (null sinon). Lu par le HUD (P1-053).</summary>
         public HousePhone AimedPhone => _aimedPhone != null && !_aimedPhone.IsTaken ? _aimedPhone : null;
+        /// <summary>Borne de taxi visée (null sinon). Lu par le HUD (P1-055).</summary>
+        public TaxiTerminal AimedTaxi => _aimedTaxi;
         public HouseKeys AimedKeys => _aimedKeys != null && !_aimedKeys.IsTaken ? _aimedKeys : null;
         /// <summary>PNJ dont le dialogue est ouvert pour ce joueur (null sinon). Lu par le HUD : seul le propriétaire le voit.</summary>
         public NpcDialogue OpenDialogue => _dialogueNpc;
@@ -82,6 +84,7 @@ namespace LastCallCrew.Network
         HouseKeys _aimedKeys;
         HouseWallet _aimedWallet;
         HousePhone _aimedPhone;
+        TaxiTerminal _aimedTaxi;
         NpcDialogue _dialogueNpc;
         int _dialogueRound;
 
@@ -139,9 +142,21 @@ namespace LastCallCrew.Network
             _aimedKeys = null;
             _aimedWallet = null;
             _aimedPhone = null;
+            _aimedTaxi = null;
 
             // P1-033 : après le résultat de la nuit, plus aucune interaction (les maintiens en cours sont abandonnés).
             if (NightOutcome.IsFrozen)
+            {
+                _dialogueNpc = null;
+                _holding = false;
+                _holdOffer = null;
+                _wakeHolding = false;
+                _wakeTarget = null;
+                return;
+            }
+
+            // P1-055 : pendant un trajet en taxi, plus aucune interaction (les maintiens en cours sont abandonnés).
+            if (CollectiveTaxi.IsRiding)
             {
                 _dialogueNpc = null;
                 _holding = false;
@@ -170,8 +185,16 @@ namespace LastCallCrew.Network
                 _holdOffer = null;
                 _wakeHolding = false;
                 _wakeTarget = null;
+                // P1-055 : un porteur peut demander le taxi (E sur la borne) ; ailleurs, E reste le lâcher.
+                if (Physics.Raycast(cameraRoot.position, cameraRoot.forward, out RaycastHit carryHit, interactRange))
+                    _aimedTaxi = carryHit.collider.GetComponentInParent<TaxiTerminal>();
                 if (_accept.WasPressedThisFrame())
-                    _carry.RequestDropRpc();
+                {
+                    if (_aimedTaxi != null)
+                        TaxiInteractRpc((byte)_aimedTaxi.Stop);
+                    else
+                        _carry.RequestDropRpc();
+                }
                 return;
             }
 
@@ -185,6 +208,7 @@ namespace LastCallCrew.Network
                 _aimedKeys = hit.collider.GetComponentInParent<HouseKeys>();
                 _aimedWallet = hit.collider.GetComponentInParent<HouseWallet>();
                 _aimedPhone = hit.collider.GetComponentInParent<HousePhone>();
+                _aimedTaxi = hit.collider.GetComponentInParent<TaxiTerminal>();
             }
 
             // P1-014 : tant qu'un dialogue est ouvert, seules ses touches sont lues (1/2/3, Échap).
@@ -219,6 +243,11 @@ namespace LastCallCrew.Network
             }
             else if (_aimedOffer != null)
                 ReadNewInput();
+            else if (_aimedTaxi != null)
+            {
+                if (_accept.WasPressedThisFrame())
+                    TaxiInteractRpc((byte)_aimedTaxi.Stop);
+            }
             else if (_aimedKeys != null && !_aimedKeys.IsTaken && _accept.WasPressedThisFrame())
                 TakeKeysRpc(new NetworkObjectReference(_aimedKeys.NetworkObject));
             else if (_aimedWallet != null && !_aimedWallet.IsTaken && _accept.WasPressedThisFrame())
@@ -460,6 +489,35 @@ namespace LastCallCrew.Network
             else
                 Debug.Log($"[P1-053] host: client={OwnerClientId} phone request -> {outcome}");
             KeysResultRpc(outcome);
+        }
+
+        // ---- Taxi collectif (P1-055) : l'hôte reconstruit identité, gel, KO, porté et portée ; le taxi juge le reste ----
+
+        [Rpc(SendTo.Server)]
+        void TaxiInteractRpc(byte stop, RpcParams rpcParams = default)
+        {
+            var request = new TaxiRequest
+            {
+                InvalidSender = rpcParams.Receive.SenderClientId != OwnerClientId,
+                Frozen = NightOutcome.IsFrozen,
+                RequesterKnockedOut = _knockout.IsKnockedOut,
+                RequesterCarried = _carry.IsCarried,
+                MaxDistance = MaxServerRange,
+            };
+            CollectiveTaxi taxi = CollectiveTaxi.Current;
+            TaxiOutcome outcome = taxi == null ? TaxiOutcome.RejectedInvalidTarget : taxi.ServerInteract(stop, request, cameraRoot.position);
+            Debug.Log($"[P1-055] host: client={OwnerClientId} taxi request at stop {stop} -> {outcome}");
+            TaxiResultRpc(outcome);
+        }
+
+        [Rpc(SendTo.Owner)]
+        void TaxiResultRpc(TaxiOutcome outcome)
+        {
+            string text = TaxiRules.Feedback(outcome);
+            if (string.IsNullOrEmpty(text))
+                return;
+            _message = text;
+            _messageUntil = Time.time + 1.5f;
         }
 
         [Rpc(SendTo.Owner)]

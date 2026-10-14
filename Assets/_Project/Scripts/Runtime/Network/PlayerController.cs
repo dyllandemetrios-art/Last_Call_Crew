@@ -105,6 +105,10 @@ namespace LastCallCrew.Network
             if (NightOutcome.IsFrozen)
                 return;
 
+            // P1-055 : ni déplacement ni regard pendant un trajet en taxi.
+            if (CollectiveTaxi.IsRiding)
+                return;
+
             if (_autoWalk)
             {
                 transform.Rotate(0f, 30f * Time.deltaTime, 0f);
