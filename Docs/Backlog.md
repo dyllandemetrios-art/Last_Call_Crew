@@ -63,6 +63,7 @@ Direction validée pour la suite : la maison appartient au quartier résidentiel
 | P1-051 | Clés de la maison | Un joueur prend les clés et l'état collectif est partagé puis réinitialisé à la relance | PASS — 224/224 tests, hôte/client et concurrence validés |
 | P1-052 | Portefeuille | Un joueur prend le portefeuille, indépendamment des clés, et l'état collectif est partagé | PASS — 230/230 tests, indépendance et concurrence validées |
 | P1-053 | Téléphone | Le groupe récupère le téléphone et complète la checklist de départ | PASS — 240/240 tests, hôte/client injectés, checklist vérifiée à 960×540 (un défaut de troncature corrigé) |
+| P1-054 | Squelette de ville | Deux joueurs parcourent la coloc, le bar et les deux chemins dans une scène continue | PASS validé par Dyllan le 14 octobre 2026 — chronos exacts non consignés |
 
 ## Décision d'interaction pour P1-014
 
