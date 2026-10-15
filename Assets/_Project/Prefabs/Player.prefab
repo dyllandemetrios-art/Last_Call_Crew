@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6043022380668971595}
   - component: {fileID: 6721435913014372504}
   - component: {fileID: 4952807535739209181}
+  - component: {fileID: 4079853520348292280}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -260,6 +261,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LastCallCrew.Network.PlayerReturn
   ShowTopMostFoldoutHeaderGroup: 1
+--- !u!114 &4079853520348292280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705727650154815863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f98503395bc28d419b83b04766e6fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LastCallCrew.Network.TaxiRideCamera
+  ShowTopMostFoldoutHeaderGroup: 1
+  cameraRoot: {fileID: 1470204162343861948}
+  distance: 7
+  height: 3
+  lookAhead: 1.5
+  lookHeight: 1.5
+  followSpeed: 14
+  turnSpeed: 12
 --- !u!1 &7793291444560062650
 GameObject:
   m_ObjectHideFlags: 0

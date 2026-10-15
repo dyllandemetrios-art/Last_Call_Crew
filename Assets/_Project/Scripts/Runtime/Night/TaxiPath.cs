@@ -17,6 +17,8 @@ namespace LastCallCrew.Night
             new Vector3(-130f, 0f, 13f),
         };
 
+        const float TangentWindow = 1.5f;
+
         readonly Vector3[] _points;
         readonly float[] _cumulative;
         readonly float _stopYawA;
@@ -53,7 +55,7 @@ namespace LastCallCrew.Night
                 float r = Mathf.Min(radius, Vector3.Distance(prev, corner) * 0.5f, Vector3.Distance(corner, next) * 0.5f);
                 Vector3 a = corner + (prev - corner).normalized * r;
                 Vector3 b = corner + (next - corner).normalized * r;
-                const int steps = 10;
+                const int steps = 24;
                 for (int s = 0; s <= steps; s++)
                 {
                     float t = s / (float)steps;
@@ -76,7 +78,10 @@ namespace LastCallCrew.Night
         {
             float travelled = Ease(t) * Length;
             float along = towardsB ? travelled : Length - travelled;
-            position = PositionAt(along, out Vector3 tangent);
+            position = PositionAt(along, out Vector3 segmentTangent);
+            // Cap lissé : direction moyenne sur ±TangentWindow m, pour que le véhicule (et la caméra qui le suit) ne tourne pas par à-coups.
+            Vector3 tangent = PositionAt(Mathf.Min(along + TangentWindow, Length), out _) - PositionAt(Mathf.Max(along - TangentWindow, 0f), out _);
+            tangent = tangent.sqrMagnitude > 1e-6f ? tangent.normalized : segmentTangent;
             if (!towardsB)
                 tangent = -tangent;
             float tangentYaw = Mathf.Atan2(tangent.x, tangent.z) * Mathf.Rad2Deg;

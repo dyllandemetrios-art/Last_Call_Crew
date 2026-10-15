@@ -54,6 +54,10 @@ namespace LastCallCrew.Network
         public static bool IsRiding => Current != null && TaxiRules.IsCarryingPassengers(_current._state.Value);
 
         public TaxiState State => _state.Value;
+        /// <summary>Véhicule greybox/modèle déplacé localement ; lu par la caméra de trajet (P1-056a).</summary>
+        public Transform Vehicle => vehicle;
+        /// <summary>Numéro de relance répliqué : change quand un trajet est annulé (P1-056a, lecture seule).</summary>
+        public int Epoch => _epoch.Value;
         public float TripSeconds => tripSeconds;
 
         public float SecondsLeft

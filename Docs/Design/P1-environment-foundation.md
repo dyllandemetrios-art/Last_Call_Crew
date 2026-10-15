@@ -7,11 +7,11 @@ Décision validée le 14 octobre 2026. La carte P1 est fixe et tient dans la mê
 ## Organisation retenue
 
 - La coloc et la zone de retour restent dans le quartier résidentiel.
-- Une promenade lisible conduit au quartier nocturne et au bar P1.
+- Une promenade lisible conduit au quartier nocturne et au bar P1, sans constituer un couloir obligatoire.
 - Une ruelle plus courte offre trois poches de 6 × 6 m pour de futurs PNJ, offres et amorces de missions.
 - Une route périphérique relie deux emplacements de taxi dans la même scène.
 - Le taxi devra raccourcir le trajet en quelques secondes ; son appel, son paiement et son comportement réseau feront l'objet de fiches séparées.
-- Le trajet à pied reste toujours possible et pourra recevoir des événements ultérieurement.
+- Le monde est ouvert à pied : rues, pelouses, lots libres et chaussées peuvent être traversés lorsqu'aucun bâtiment, clôture ou limite visible ne les bloque. Se perdre fait partie de l'expérience et le décor recevra plus tard des jeux, rencontres et autres distractions.
 - Un seul bar est visitable pour P1. Les autres bars, la boîte de nuit, les vendeurs et les stands sont représentés par des parcelles fermées.
 
 ## Dimensions de travail
@@ -38,7 +38,7 @@ Ces valeurs servent à mesurer le premier blockout. Elles restent modifiables ap
 - Portes jouables : 3 m minimum.
 - Route du taxi : chaussée de 6 m et trottoirs de 3 m.
 
-Les îlots, jardins et façades ferment physiquement les diagonales. Les joueurs doivent suivre les passages prévus. Le sol jouable reste plat car le contrôleur actuel ne gère ni gravité, ni pente, ni marche.
+Les axes restent des repères et des emplacements de contenu, pas des couloirs imposés. Toute collision intérieure doit correspondre à un obstacle visible : bâtiment, clôture, mobilier ou limite claire. Les blocs abstraits de la greybox ne doivent pas enfermer les joueurs. Le sol jouable reste plat car le contrôleur actuel ne gère ni gravité, ni pente, ni marche.
 
 ## Assets disponibles
 
@@ -59,4 +59,4 @@ Sources de l'étude :
 
 ## Limite de cette décision
 
-Cette carte est une base de test, pas un PASS gameplay. Le premier playtest doit décider si les trajets sont intéressants ou trop longs avant tout habillage, taxi fonctionnel ou génération procédurale.
+Cette carte est une base de placement, pas un réseau de chemins obligatoires. Les distances des axes documentent les parcours principaux ; les joueurs peuvent trouver des diagonales et se perdre dans les espaces ouverts. La génération procédurale reste postérieure à P1.
