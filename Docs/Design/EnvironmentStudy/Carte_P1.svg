@@ -1,0 +1,254 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120">
+<rect width="1800" height="1120" fill="#101c2b"/>
+<text x="50" y="44.4" fill="#75ddc6" font-size="20" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">RENTRER VIVANT</text>
+<text x="50" y="94.44" fill="#edf3fa" font-size="42" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">Les Deux-Lanternes</text>
+<text x="50" y="134.04" fill="#afc2d6" font-size="22" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Révision 4 · petits bars thématiques · proposition de tracé, pas un relevé de la scène</text>
+<text x="1430" y="55.94" fill="#afc2d6" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">ÉTUDE ENVIRONNEMENT</text>
+<text x="1430" y="86.4" fill="#edf3fa" font-size="20" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">17 octobre 2026</text>
+<text x="1430" y="117.76" fill="#afc2d6" font-size="18" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">P1 visé : 30 novembre</text>
+<rect x="50" y="180" width="1320" height="780" fill="#233342" stroke="#53697b" stroke-width="2"/>
+<rect x="50" y="234" width="630" height="546" fill="#302e40" stroke="none" stroke-width="2"/>
+<rect x="680" y="300" width="330" height="390" fill="#263d3c" stroke="none" stroke-width="2"/>
+<rect x="1010" y="240" width="360" height="540" fill="#2b3d43" stroke="none" stroke-width="2"/>
+<polyline points="50,960 50,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="110,960 110,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="170,960 170,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="230,960 230,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="290,960 290,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="350,960 350,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="410,960 410,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="470,960 470,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="530,960 530,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="590,960 590,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="650,960 650,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="710,960 710,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="770,960 770,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="830,960 830,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="890,960 890,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="950,960 950,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="1010,960 1010,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="1070,960 1070,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="1130,960 1130,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="1190,960 1190,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="1250,960 1250,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="1310,960 1310,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="1370,960 1370,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,960 1370,960" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,900 1370,900" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,840 1370,840" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,780 1370,780" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,720 1370,720" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,660 1370,660" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,600 1370,600" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,540 1370,540" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,480 1370,480" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,420 1370,420" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,360 1370,360" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,300 1370,300" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,240 1370,240" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<polyline points="50,180 1370,180" fill="none" stroke="#344652" stroke-width="1" stroke-linejoin="round" />
+<rect x="50" y="180" width="1320" height="48" fill="#264e69" stroke="none" stroke-width="2"/>
+<polyline points="50,234 1370,234" fill="none" stroke="#84a8b8" stroke-width="3" stroke-linejoin="round" />
+<text x="716" y="205.12" fill="#bcdcea" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="middle">CANAL DÉCORATIF · rive fermée par garde-corps</text>
+<text x="188" y="253.94" fill="#d7c4ec" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">QUARTIER NOCTURNE</text>
+<text x="722" y="271.94" fill="#a0d7c3" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">LIAISON PIÉTONNE</text>
+<text x="1076" y="271.94" fill="#bbd6d9" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">RÉSIDENTIEL</text>
+<polyline points="1070,714 1070,834 290,834 290,714" fill="none" stroke="#899398" stroke-width="72" stroke-linejoin="round" />
+<polyline points="1070,714 1070,834 290,834 290,714" fill="none" stroke="#495660" stroke-width="36" stroke-linejoin="round" />
+<polyline points="1070,714 1070,834 290,834 290,714" fill="none" stroke="#f0bc58" stroke-width="4" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<rect x="1094" y="714" width="36" height="48" fill="#6b6147" stroke="#caa45c" stroke-width="2"/>
+<rect x="218" y="714" width="36" height="48" fill="#6b6147" stroke="#caa45c" stroke-width="2"/>
+<polyline points="1160,714 1070,714 1070,570 650,570 650,450 410,450 410,630 315.5,630" fill="none" stroke="#92a9a7" stroke-width="36" stroke-linejoin="round" />
+<polyline points="650,450 410,450 410,630 315.5,630" fill="none" stroke="#92a9a7" stroke-width="48" stroke-linejoin="round" />
+<polyline points="315.5,630 315.5,594" fill="none" stroke="#92a9a7" stroke-width="18" stroke-linejoin="round" />
+<polyline points="650,570 410,570 410,630" fill="none" stroke="#88909e" stroke-width="24" stroke-linejoin="round" />
+<polyline points="410,450 410,294 590,294 590,450 650,450" fill="none" stroke="#88909e" stroke-width="24" stroke-linejoin="round" />
+<polyline points="410,474 194,474 194,294" fill="none" stroke="#a8a19b" stroke-width="48" stroke-linejoin="round" />
+<polyline points="194,630 194,474" fill="none" stroke="#8995a2" stroke-width="24" stroke-linejoin="round" />
+<polyline points="194,294 410,294" fill="none" stroke="#8995a2" stroke-width="24" stroke-linejoin="round" />
+<polyline points="194,414 98,414" fill="none" stroke="#8995a2" stroke-width="24" stroke-linejoin="round" />
+<polyline points="590,402 686,402 686,330" fill="none" stroke="#8995a2" stroke-width="24" stroke-linejoin="round" />
+<rect x="80" y="396" width="36" height="36" fill="#8995a2" stroke="none" stroke-width="2"/>
+<polyline points="116,396 80,396 80,432 116,432" fill="none" stroke="#d3a3a1" stroke-width="4" stroke-linejoin="round" />
+<rect x="668" y="312" width="36" height="36" fill="#8995a2" stroke="none" stroke-width="2"/>
+<polyline points="668,348 668,312 704,312 704,348" fill="none" stroke="#d3a3a1" stroke-width="4" stroke-linejoin="round" />
+<polyline points="170,402 116,402 116,396" fill="none" stroke="#d3a3a1" stroke-width="3" stroke-linejoin="round" />
+<polyline points="170,426 116,426 116,432" fill="none" stroke="#d3a3a1" stroke-width="3" stroke-linejoin="round" />
+<polyline points="602,390 674,390 674,348 668,348" fill="none" stroke="#d3a3a1" stroke-width="3" stroke-linejoin="round" />
+<polyline points="602,414 698,414 698,348 704,348" fill="none" stroke="#d3a3a1" stroke-width="3" stroke-linejoin="round" />
+<rect x="194" y="594" width="192" height="120" fill="#a4a5a1" stroke="none" stroke-width="2"/>
+<polyline points="290,714 290,594" fill="none" stroke="#ced3c9" stroke-width="24" stroke-linejoin="round" />
+<rect x="1124" y="540" width="120" height="84" fill="#40515c" stroke="#667984" stroke-width="2"/>
+<rect x="1130" y="378" width="120" height="96" fill="#40515c" stroke="#667984" stroke-width="2"/>
+<rect x="1268" y="510" width="72" height="120" fill="#40515c" stroke="#667984" stroke-width="2"/>
+<rect x="734" y="360" width="120" height="108" fill="#40515c" stroke="#667984" stroke-width="2"/>
+<rect x="878" y="360" width="120" height="108" fill="#40515c" stroke="#667984" stroke-width="2"/>
+<rect x="698" y="594" width="240" height="120" fill="#40515c" stroke="#667984" stroke-width="2"/>
+<rect x="452" y="480" width="156" height="30" fill="#40515c" stroke="#667984" stroke-width="2"/>
+<rect x="80" y="450" width="72" height="120" fill="#40515c" stroke="#667984" stroke-width="2"/>
+<rect x="86" y="258" width="72" height="120" fill="#433d52" stroke="#a991c9" stroke-width="2"/>
+<polyline points="86,378 86,378" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="86,364 100,378" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="86,350 114,378" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="86,336 128,378" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="86,322 142,378" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="86,308 156,378" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="86,294 158,366" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="86,280 158,352" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="86,266 158,338" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="92,258 158,324" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="106,258 158,310" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="120,258 158,296" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="134,258 158,282" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="148,258 158,268" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<text x="122.0" y="313.94" fill="#f0dfff" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">X1</text>
+<text x="122.0" y="331.48" fill="#eee1fa" font-size="14" font-family="Arial, sans-serif" font-weight="400" text-anchor="middle">Boîte</text>
+<rect x="260" y="354" width="60" height="72" fill="#433d52" stroke="#a991c9" stroke-width="2"/>
+<polyline points="260,426 260,426" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="260,412 274,426" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="260,398 288,426" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="260,384 302,426" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="260,370 316,426" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="260,356 320,416" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="272,354 320,402" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="286,354 320,388" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="300,354 320,374" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="314,354 320,360" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<text x="290.0" y="385.94" fill="#f0dfff" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">B3</text>
+<text x="290.0" y="403.48" fill="#eee1fa" font-size="14" font-family="Arial, sans-serif" font-weight="400" text-anchor="middle">Cocktails</text>
+<rect x="446" y="318" width="96" height="48" fill="#433d52" stroke="#a991c9" stroke-width="2"/>
+<polyline points="446,366 446,366" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="446,352 460,366" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="446,338 474,366" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="446,324 488,366" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="454,318 502,366" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="468,318 516,366" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="482,318 530,366" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="496,318 542,364" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="510,318 542,350" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="524,318 542,336" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="538,318 542,322" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<text x="494.0" y="337.94" fill="#f0dfff" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">X3</text>
+<text x="494.0" y="355.48" fill="#eee1fa" font-size="14" font-family="Arial, sans-serif" font-weight="400" text-anchor="middle">Vendeurs</text>
+<rect x="80" y="606" width="84" height="84" fill="#433d52" stroke="#a991c9" stroke-width="2"/>
+<polyline points="80,690 80,690" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="80,676 94,690" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="80,662 108,690" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="80,648 122,690" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="80,634 136,690" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="80,620 150,690" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="80,606 164,690" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="94,606 164,676" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="108,606 164,662" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="122,606 164,648" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="136,606 164,634" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="150,606 164,620" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<text x="122.0" y="643.94" fill="#f0dfff" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">X4</text>
+<text x="122.0" y="661.48" fill="#eee1fa" font-size="14" font-family="Arial, sans-serif" font-weight="400" text-anchor="middle">Stands</text>
+<rect x="239.0" y="498" width="51.0" height="96" fill="#433d52" stroke="#a991c9" stroke-width="2"/>
+<polyline points="239.0,594 239.0,594" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="239.0,580 253.0,594" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="239.0,566 267.0,594" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="239.0,552 281.0,594" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="239.0,538 290.0,589.0" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="239.0,524 290.0,575.0" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="239.0,510 290.0,561.0" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="241.0,498 290.0,547.0" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="255.0,498 290.0,533.0" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="269.0,498 290.0,519.0" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<polyline points="283.0,498 290.0,505.0" fill="none" stroke="#61516e" stroke-width="1" stroke-linejoin="round" />
+<text x="264.5" y="539.48" fill="#f0dfff" font-size="14" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">B2</text>
+<text x="264.5" y="556.2" fill="#eee1fa" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="middle">Shooters</text>
+<rect x="290" y="498" width="51.0" height="96" fill="#b2764b" stroke="#ffd49e" stroke-width="2"/>
+<rect x="293.0" y="510" width="33.0" height="12" fill="#5d4238" stroke="none" stroke-width="2"/>
+<rect x="293.0" y="558" width="15.0" height="18" fill="#795344" stroke="none" stroke-width="2"/>
+<rect x="326" y="534" width="12" height="18" fill="#795344" stroke="none" stroke-width="2"/>
+<polyline points="306.5,594 324.5,594" fill="none" stroke="#f8e5b4" stroke-width="8" stroke-linejoin="round" />
+<text x="315.5" y="529.12" fill="#fff3db" font-size="16" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">B1</text>
+<text x="315.5" y="549.02" fill="#fff3db" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="middle">Bières · P1</text>
+<polyline points="341.0,546 410,546" fill="none" stroke="#92a9a7" stroke-width="18" stroke-linejoin="round" />
+<polyline points="341.0,555.0 341.0,537.0" fill="none" stroke="#b1e7ee" stroke-width="7" stroke-linejoin="round" />
+<text x="356" y="526.66" fill="#b1e7ee" font-size="13" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Sortie</text>
+<rect x="1160" y="684" width="60" height="60" fill="#418a73" stroke="#a8f0c1" stroke-width="2"/>
+<polyline points="1160,723.0 1160,705.0" fill="none" stroke="#d9ffb2" stroke-width="8" stroke-linejoin="round" />
+<circle cx="1190" cy="714" r="14" fill="#c2f2c5" stroke="#101c2b" stroke-width="2"/>
+<text x="1190" y="717.94" fill="#101c2b" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">1</text>
+<text x="1160" y="783.58" fill="#bdedc9" font-size="19" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">COLOC</text>
+<text x="1160" y="805.12" fill="#c7ded5" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">10 × 10 m</text>
+<polyline points="1160,714 1070,714 1070,570 650,570 650,450 410,450 410,630 315.5,630 315.5,594" fill="none" stroke="#5ce1c0" stroke-width="5" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<polyline points="650,570 410,570 410,630" fill="none" stroke="#d4b2fc" stroke-width="5" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<circle cx="1070" cy="714" r="14" fill="#f0bc58" stroke="#101c2b" stroke-width="2"/>
+<text x="1070" y="717.94" fill="#101c2b" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">A</text>
+<circle cx="290" cy="714" r="14" fill="#f0bc58" stroke="#101c2b" stroke-width="2"/>
+<text x="290" y="717.94" fill="#101c2b" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">B</text>
+<circle cx="410" cy="450" r="14" fill="#99d9ec" stroke="#101c2b" stroke-width="2"/>
+<text x="410" y="453.94" fill="#101c2b" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">2</text>
+<circle cx="315.5" cy="594" r="14" fill="#ffd49e" stroke="#101c2b" stroke-width="2"/>
+<text x="315.5" y="597.94" fill="#101c2b" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">3</text>
+<text x="212" y="650.76" fill="#253740" font-size="18" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">PLACE</text>
+<text x="212" y="672.3" fill="#253740" font-size="15" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">32 × 20 m</text>
+<text x="698" y="614.76" fill="#d3eee3" font-size="18" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">Promenade des Ateliers</text>
+<text x="680" y="649.12" fill="#b8d1cc" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">70 m · poches futures hors passage</text>
+<text x="440" y="645.84" fill="#dec6fd" font-size="12" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">P · Ruelle de la Poudre de Perlimpinpin</text>
+<text x="116" y="514.66" fill="#c2cbd4" font-size="13" font-family="Arial, sans-serif" font-weight="400" text-anchor="middle">Façades</text>
+<text x="920" y="391.12" fill="#b8c8d1" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="middle">Ateliers fermés</text>
+<text x="1100" y="349.12" fill="#c5d6db" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Maisons non visitables</text>
+<text x="512" y="872.76" fill="#ffe0a4" font-size="18" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">ROUTE DU TAXI · 170 m sur l’axe · cible 12 s à tester</text>
+<text x="524" y="913.12" fill="#c5d0dc" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Trottoirs continus : retour à pied toujours possible</text>
+<rect x="740" y="522" width="48" height="36" fill="#487265" stroke="#9cbfaf" stroke-width="2"/>
+<rect x="926" y="522" width="48" height="36" fill="#487265" stroke="#9cbfaf" stroke-width="2"/>
+<text x="746" y="541.94" fill="#d1f0de" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">E1</text>
+<text x="932" y="541.94" fill="#d1f0de" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">E2</text>
+<rect x="446" y="582" width="36" height="36" fill="#705c80" stroke="#dfb6f5" stroke-width="2"/>
+<text x="464" y="600.3" fill="#fff0ff" font-size="15" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">R1</text>
+<rect x="506" y="522" width="36" height="36" fill="#705c80" stroke="#dfb6f5" stroke-width="2"/>
+<text x="524" y="540.3" fill="#fff0ff" font-size="15" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">R2</text>
+<rect x="578" y="582" width="36" height="36" fill="#705c80" stroke="#dfb6f5" stroke-width="2"/>
+<text x="596" y="600.3" fill="#fff0ff" font-size="15" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">R3</text>
+<text x="218" y="475.12" fill="#172b36" font-size="16" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">S · RUE DE LA SOIF</text>
+<circle cx="194" cy="348" r="14" fill="#f8ce9b" stroke="#101c2b" stroke-width="2"/>
+<text x="194" y="351.94" fill="#101c2b" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">S</text>
+<circle cx="194" cy="558" r="14" fill="#b7d4f0" stroke="#101c2b" stroke-width="2"/>
+<text x="194" y="561.94" fill="#101c2b" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">M</text>
+<circle cx="98" cy="414" r="14" fill="#e6b7bb" stroke="#101c2b" stroke-width="2"/>
+<text x="98" y="417.94" fill="#101c2b" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">D</text>
+<circle cx="686" cy="330" r="14" fill="#e6b7bb" stroke="#101c2b" stroke-width="2"/>
+<text x="686" y="333.94" fill="#101c2b" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">T</text>
+<circle cx="350" cy="294" r="14" fill="#b7d4f0" stroke="#101c2b" stroke-width="2"/>
+<text x="350" y="297.94" fill="#101c2b" font-size="17" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">B</text>
+<polyline points="158,339.0 158,321.0" fill="none" stroke="#e9bce7" stroke-width="6" stroke-linejoin="round" />
+<polyline points="281.0,426 299.0,426" fill="none" stroke="#e9bce7" stroke-width="6" stroke-linejoin="round" />
+<polyline points="255.5,594 273.5,594" fill="none" stroke="#e9bce7" stroke-width="6" stroke-linejoin="round" />
+<polyline points="50,234 50,960 1370,960 1370,234" fill="none" stroke="#9fadb5" stroke-width="4" stroke-linejoin="round" />
+<text x="1280" y="918.86" fill="#d6e3ed" font-size="23" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">N ↑</text>
+<text x="1420" y="202.4" fill="#75ddc6" font-size="20" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">RUES &amp; IMPASSES</text>
+<text x="1420" y="238.12" fill="#edf3fa" font-size="16" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">S  Rue de la Soif</text>
+<text x="1420" y="264.12" fill="#b6c9d9" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Entre B1/B2, B3 et boîte X1.</text>
+<text x="1420" y="310.12" fill="#edf3fa" font-size="16" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">P  Ruelle de la Poudre de Perlimpinpin</text>
+<text x="1420" y="336.12" fill="#b6c9d9" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Raccourci ; trois poches R1–R3.</text>
+<text x="1420" y="382.12" fill="#edf3fa" font-size="16" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">M  Passage des Champignons de Mémé</text>
+<text x="1420" y="408.12" fill="#b6c9d9" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Nouvelle liaison place ↔ rue S.</text>
+<text x="1420" y="454.12" fill="#edf3fa" font-size="16" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">B  Ruelle des Bonbons Câlins</text>
+<text x="1420" y="480.12" fill="#b6c9d9" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Boucle nord et liaison vers X1.</text>
+<text x="1420" y="526.12" fill="#edf3fa" font-size="16" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">D  Impasse de la Fumée de Dragon</text>
+<text x="1420" y="552.12" fill="#b6c9d9" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">16 m ; cour de retournement.</text>
+<text x="1420" y="598.12" fill="#edf3fa" font-size="16" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">T  Impasse de la Tisane de Morphée</text>
+<text x="1420" y="624.12" fill="#b6c9d9" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">28 m ; fond visible après le coude.</text>
+<text x="1420" y="685.94" fill="#dfb6f5" font-size="17" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Noms tirés du GDD.</text>
+<text x="1420" y="711.94" fill="#b6c9d9" font-size="17" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Affectation aux voies modifiable.</text>
+<text x="1420" y="759.58" fill="#75ddc6" font-size="19" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">REPÈRES &amp; RENCONTRES</text>
+<text x="1420" y="789.94" fill="#b6c9d9" font-size="17" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">1 Coloc · 2 Carrefour · 3 Bières P1</text>
+<text x="1420" y="818.12" fill="#b6c9d9" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">B2 Shooters · B3 Cocktails : fermés.</text>
+<text x="1420" y="845.12" fill="#b6c9d9" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">X1 boîte · X3 vendeurs · X4 stands.</text>
+<text x="1420" y="887.94" fill="#b6c9d9" font-size="17" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Ville ouverte hors obstacles visibles.</text>
+<text x="1420" y="917.94" fill="#b6c9d9" font-size="17" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Tracés mesurés : 221 m / 181 m.</text>
+<text x="1420" y="944.94" fill="#b6c9d9" font-size="17" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Diagonales libres : temps à rejouer.</text>
+<polyline points="50,997 170,997" fill="none" stroke="#e7edf4" stroke-width="4" stroke-linejoin="round" />
+<polyline points="50,989 50,1005" fill="none" stroke="#e7edf4" stroke-width="2" stroke-linejoin="round" />
+<polyline points="170,989 170,1005" fill="none" stroke="#e7edf4" stroke-width="2" stroke-linejoin="round" />
+<text x="50" y="1024.12" fill="#edf3fa" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">0</text>
+<text x="170" y="1024.12" fill="#edf3fa" font-size="16" font-family="Arial, sans-serif" font-weight="400" text-anchor="middle">20 m</text>
+<text x="225" y="1001.4" fill="#edf3fa" font-size="20" font-family="Arial, sans-serif" font-weight="700" text-anchor="start">Emprise : 220 × 130 m · grille : 10 m · sol de jeu plat</text>
+<text x="225" y="1031.76" fill="#b6c9d9" font-size="18" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">Trajets par l’entrée principale. Retour par la sortie latérale : 164,5 m / 33 s seul.</text>
+<text x="50" y="1085.58" fill="#b6c9d9" font-size="19" font-family="Arial, sans-serif" font-weight="400" text-anchor="start">AJOUTS DE DESIGN · Trois bars compacts et thématiques. Impasses signalées, greybox prioritaire.</text>
+</svg>

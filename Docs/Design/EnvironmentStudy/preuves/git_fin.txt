@@ -1,0 +1,6 @@
+Branche:
+feature/p1-001-network-foundation
+HEAD:
+302e7ab574b489caacdc68d5cb81a107526a5e6a
+Status:
+Diff stat:

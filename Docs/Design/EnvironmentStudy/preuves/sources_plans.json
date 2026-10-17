@@ -1,0 +1,20 @@
+[
+  {
+    "name": "rennes",
+    "url": "https://reservation.tourisme-rennes.com/medias/documents/documentation/documentation-ACCESSGUIDE-FR.pdf",
+    "bytes": 3948887,
+    "page": 9,
+    "render_return": 0,
+    "stderr": ""
+  },
+  {
+    "name": "tours",
+    "url": "https://reservation.tours-tourisme.fr/medias/images/prestations/Parcours-lumiere-2019.pdf",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "amiens",
+    "url": "https://www.visit-amiens.com/sites/amiens-tourisme.qualif.faire-savoir.com/files/file_fields/2023/04/25/plan_centre-ville_damiens_2018.pdf",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

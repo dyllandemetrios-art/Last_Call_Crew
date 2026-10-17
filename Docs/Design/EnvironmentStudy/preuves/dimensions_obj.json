@@ -1,0 +1,10002 @@
+[
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-a.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.7999998,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-b.obj",
+    "vertices": 44,
+    "min": [
+      -0.8,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8000001,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-c.obj",
+    "vertices": 42,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-d.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-e.obj",
+    "vertices": 44,
+    "min": [
+      -0.7999999,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8000001,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-f.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8000001,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-g.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8000001,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-h.obj",
+    "vertices": 44,
+    "min": [
+      -0.7999999,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8000001,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-i.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-j.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-k.obj",
+    "vertices": 44,
+    "min": [
+      -0.8,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8000001,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-l.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.7999998,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-m.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8000001,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-n.obj",
+    "vertices": 44,
+    "min": [
+      -0.7999999,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8000001,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-o.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-p.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-q.obj",
+    "vertices": 44,
+    "min": [
+      -0.8,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.8000001,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_blocky-characters_20.zip",
+    "file": "Models/OBJ format/character-r.obj",
+    "vertices": 44,
+    "min": [
+      -0.8000001,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.7999998,
+      2.7,
+      0.4
+    ],
+    "size": [
+      1.6,
+      2.7,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/bridge-pillar-wide.obj",
+    "vertices": 24,
+    "min": [
+      -0.07,
+      0.0,
+      -0.07
+    ],
+    "max": [
+      0.07,
+      0.5,
+      0.07
+    ],
+    "size": [
+      0.14,
+      0.5,
+      0.14
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/bridge-pillar.obj",
+    "vertices": 24,
+    "min": [
+      -0.05,
+      0.0,
+      -0.05
+    ],
+    "max": [
+      0.05,
+      0.5,
+      0.05
+    ],
+    "size": [
+      0.1,
+      0.5,
+      0.1
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/construction-barrier.obj",
+    "vertices": 32,
+    "min": [
+      -0.06775,
+      0.0,
+      -0.1125
+    ],
+    "max": [
+      0.06775,
+      0.13,
+      0.1125
+    ],
+    "size": [
+      0.1355,
+      0.13,
+      0.225
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/construction-cone.obj",
+    "vertices": 48,
+    "min": [
+      -0.0375,
+      0.0,
+      -0.0375
+    ],
+    "max": [
+      0.0375,
+      0.09375,
+      0.0375
+    ],
+    "size": [
+      0.075,
+      0.09375,
+      0.075
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/construction-fence.obj",
+    "vertices": 80,
+    "min": [
+      -0.0375,
+      0.0,
+      -0.1875001
+    ],
+    "max": [
+      0.0375,
+      0.17875,
+      0.1875001
+    ],
+    "size": [
+      0.075,
+      0.17875,
+      0.375
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/construction-light.obj",
+    "vertices": 88,
+    "min": [
+      -0.0375,
+      0.0,
+      -0.0375
+    ],
+    "max": [
+      0.0375,
+      0.23375,
+      0.0375
+    ],
+    "size": [
+      0.075,
+      0.23375,
+      0.075
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/dumpster.obj",
+    "vertices": 142,
+    "min": [
+      -0.13,
+      0.0,
+      -0.185
+    ],
+    "max": [
+      0.145,
+      0.2094418,
+      0.1850002
+    ],
+    "size": [
+      0.275,
+      0.20944,
+      0.37
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/electricity-pole-single.obj",
+    "vertices": 112,
+    "min": [
+      -0.04736,
+      4.511975e-16,
+      -0.1071125
+    ],
+    "max": [
+      0.031725,
+      0.525,
+      0.1071125
+    ],
+    "size": [
+      0.07909,
+      0.525,
+      0.21422
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/electricity-pole-wide.obj",
+    "vertices": 328,
+    "min": [
+      -0.54736,
+      4.511975e-16,
+      -0.1071125
+    ],
+    "max": [
+      0.531725,
+      0.525,
+      0.1071125
+    ],
+    "size": [
+      1.07909,
+      0.525,
+      0.21422
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/electricity-pole.obj",
+    "vertices": 264,
+    "min": [
+      -0.29736,
+      4.511975e-16,
+      -0.1071125
+    ],
+    "max": [
+      0.281725,
+      0.525,
+      0.1071125
+    ],
+    "size": [
+      0.57909,
+      0.525,
+      0.21422
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/electricity-side-single.obj",
+    "vertices": 112,
+    "min": [
+      -0.031725,
+      0.0,
+      -0.3988372
+    ],
+    "max": [
+      0.031725,
+      0.525,
+      0.03172478
+    ],
+    "size": [
+      0.06345,
+      0.525,
+      0.43056
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/electricity-side-wide.obj",
+    "vertices": 328,
+    "min": [
+      -0.531725,
+      2.255954e-16,
+      -0.1388375
+    ],
+    "max": [
+      0.531725,
+      0.525,
+      0.291725
+    ],
+    "size": [
+      1.06345,
+      0.525,
+      0.43056
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/electricity-side.obj",
+    "vertices": 264,
+    "min": [
+      -0.281725,
+      4.511975e-16,
+      -0.1388375
+    ],
+    "max": [
+      0.281725,
+      0.525,
+      0.291725
+    ],
+    "size": [
+      0.56345,
+      0.525,
+      0.43056
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/electricity-wires-wide.obj",
+    "vertices": 104,
+    "min": [
+      -0.5355891,
+      0.3979836,
+      -0.0916502
+    ],
+    "max": [
+      0.4715891,
+      0.5024616,
+      0.09335013
+    ],
+    "size": [
+      1.00718,
+      0.10448,
+      0.185
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/electricity-wires.obj",
+    "vertices": 40,
+    "min": [
+      -0.2849508,
+      0.4379486,
+      -0.0916502
+    ],
+    "max": [
+      0.2209508,
+      0.5026347,
+      0.09335013
+    ],
+    "size": [
+      0.5059,
+      0.06469,
+      0.185
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/light-curved-cross.obj",
+    "vertices": 137,
+    "min": [
+      -0.2,
+      0.0,
+      -0.2
+    ],
+    "max": [
+      0.2,
+      0.675,
+      0.2
+    ],
+    "size": [
+      0.4,
+      0.675,
+      0.4
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/light-curved-double.obj",
+    "vertices": 78,
+    "min": [
+      -0.025,
+      0.0,
+      -0.2
+    ],
+    "max": [
+      0.025,
+      0.675,
+      0.2
+    ],
+    "size": [
+      0.05,
+      0.675,
+      0.4
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/light-curved.obj",
+    "vertices": 54,
+    "min": [
+      -0.025,
+      0.0,
+      -0.2
+    ],
+    "max": [
+      0.025,
+      0.675,
+      0.025
+    ],
+    "size": [
+      0.05,
+      0.675,
+      0.225
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/light-square-cross.obj",
+    "vertices": 80,
+    "min": [
+      -0.2125,
+      0.0,
+      -0.2125
+    ],
+    "max": [
+      0.2125,
+      0.6,
+      0.2125
+    ],
+    "size": [
+      0.425,
+      0.6,
+      0.425
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/light-square-double.obj",
+    "vertices": 57,
+    "min": [
+      -0.025,
+      0.0,
+      -0.2125
+    ],
+    "max": [
+      0.025,
+      0.6,
+      0.2125
+    ],
+    "size": [
+      0.05,
+      0.6,
+      0.425
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/light-square.obj",
+    "vertices": 38,
+    "min": [
+      -0.025,
+      0.0,
+      -0.2125
+    ],
+    "max": [
+      0.025,
+      0.6,
+      0.025
+    ],
+    "size": [
+      0.05,
+      0.6,
+      0.2375
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-bend-barrier.obj",
+    "vertices": 68,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.08,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-bend-sidewalk.obj",
+    "vertices": 197,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-bend-square-barrier.obj",
+    "vertices": 28,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.08,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-bend-square.obj",
+    "vertices": 48,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-bend.obj",
+    "vertices": 217,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-bridge.obj",
+    "vertices": 144,
+    "min": [
+      -0.5000004,
+      0.0,
+      -0.5000004
+    ],
+    "max": [
+      0.5000001,
+      0.52,
+      0.5000001
+    ],
+    "size": [
+      1.0,
+      0.52,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-crossing.obj",
+    "vertices": 54,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-crossroad-barrier.obj",
+    "vertices": 64,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.08,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-crossroad-line.obj",
+    "vertices": 72,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-crossroad-path.obj",
+    "vertices": 188,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-crossroad.obj",
+    "vertices": 80,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-curve-barrier.obj",
+    "vertices": 104,
+    "min": [
+      -1.0,
+      0.0,
+      -1.0
+    ],
+    "max": [
+      1.0,
+      0.08,
+      1.0
+    ],
+    "size": [
+      2.0,
+      0.08,
+      2.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-curve-intersection-barrier.obj",
+    "vertices": 89,
+    "min": [
+      -1.0,
+      0.0,
+      -1.0
+    ],
+    "max": [
+      1.0,
+      0.08,
+      1.0
+    ],
+    "size": [
+      2.0,
+      0.08,
+      2.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-curve-intersection.obj",
+    "vertices": 229,
+    "min": [
+      -1.0,
+      0.0,
+      -1.0
+    ],
+    "max": [
+      1.0,
+      0.02,
+      1.0
+    ],
+    "size": [
+      2.0,
+      0.02,
+      2.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-curve-pavement.obj",
+    "vertices": 190,
+    "min": [
+      -1.0,
+      0.0,
+      -1.0
+    ],
+    "max": [
+      1.0,
+      0.02,
+      1.0
+    ],
+    "size": [
+      2.0,
+      0.02,
+      2.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-curve.obj",
+    "vertices": 232,
+    "min": [
+      -1.0,
+      0.0,
+      -1.0
+    ],
+    "max": [
+      1.0,
+      0.02,
+      1.0
+    ],
+    "size": [
+      2.0,
+      0.02,
+      2.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-driveway-double-barrier.obj",
+    "vertices": 44,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.08,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-driveway-double.obj",
+    "vertices": 38,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-driveway-single-barrier.obj",
+    "vertices": 30,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.08,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-driveway-single.obj",
+    "vertices": 32,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-end-barrier.obj",
+    "vertices": 16,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.08,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-end-round-barrier.obj",
+    "vertices": 76,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5000002
+    ],
+    "max": [
+      0.5,
+      0.08,
+      0.4999998
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-end-round.obj",
+    "vertices": 161,
+    "min": [
+      -0.5,
+      -2.819966e-18,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-end.obj",
+    "vertices": 38,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-intersection-barrier.obj",
+    "vertices": 40,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.08,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-intersection-line.obj",
+    "vertices": 56,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-intersection-path.obj",
+    "vertices": 181,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-intersection.obj",
+    "vertices": 84,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5000001
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-roundabout-barrier.obj",
+    "vertices": 385,
+    "min": [
+      -1.5,
+      0.0,
+      -1.5
+    ],
+    "max": [
+      1.5,
+      0.08,
+      1.5
+    ],
+    "size": [
+      3.0,
+      0.08,
+      3.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-roundabout.obj",
+    "vertices": 823,
+    "min": [
+      -1.5,
+      0.0,
+      -1.5
+    ],
+    "max": [
+      1.5,
+      0.02,
+      1.5
+    ],
+    "size": [
+      3.0,
+      0.02,
+      3.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-side-barrier.obj",
+    "vertices": 16,
+    "min": [
+      -0.8100001,
+      0.0,
+      -0.5000002
+    ],
+    "max": [
+      0.5000002,
+      0.08,
+      0.5000001
+    ],
+    "size": [
+      1.31,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-side-entry-barrier.obj",
+    "vertices": 120,
+    "min": [
+      -0.8100001,
+      0.0,
+      -0.5000001
+    ],
+    "max": [
+      0.5000002,
+      0.08,
+      0.5000001
+    ],
+    "size": [
+      1.31,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-side-entry.obj",
+    "vertices": 178,
+    "min": [
+      -0.5,
+      -9.327885e-14,
+      -0.8099999
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.31
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-side-exit-barrier.obj",
+    "vertices": 120,
+    "min": [
+      -0.8100002,
+      0.0,
+      -0.4999998
+    ],
+    "max": [
+      0.5000001,
+      0.08,
+      0.5000005
+    ],
+    "size": [
+      1.31,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-side-exit.obj",
+    "vertices": 178,
+    "min": [
+      -0.5,
+      -9.328167e-14,
+      -0.8099999
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.31
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-side.obj",
+    "vertices": 32,
+    "min": [
+      -0.5,
+      -2.650768e-16,
+      -0.8099999
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.31
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-sign-empty-hanging.obj",
+    "vertices": 64,
+    "min": [
+      -0.045,
+      0.0,
+      -0.25
+    ],
+    "max": [
+      0.045,
+      0.475,
+      0.045
+    ],
+    "size": [
+      0.09,
+      0.475,
+      0.295
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-sign-empty.obj",
+    "vertices": 24,
+    "min": [
+      -0.025,
+      0.0,
+      -0.025
+    ],
+    "max": [
+      0.025,
+      0.475,
+      0.025
+    ],
+    "size": [
+      0.05,
+      0.475,
+      0.05
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-sign-object-stop.obj",
+    "vertices": 36,
+    "min": [
+      -0.03999998,
+      -0.0628238,
+      -0.0628238
+    ],
+    "max": [
+      0.03750001,
+      0.0628238,
+      0.0628238
+    ],
+    "size": [
+      0.0775,
+      0.12565,
+      0.12565
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-sign-object-street.obj",
+    "vertices": 32,
+    "min": [
+      -0.02125,
+      -0.03000002,
+      -0.02125
+    ],
+    "max": [
+      0.02125,
+      0.03,
+      0.1712498
+    ],
+    "size": [
+      0.0425,
+      0.06,
+      0.1925
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-sign-object-warning.obj",
+    "vertices": 36,
+    "min": [
+      -0.03969206,
+      -0.06682304,
+      -0.06690329
+    ],
+    "max": [
+      0.03765397,
+      0.06698354,
+      0.06690329
+    ],
+    "size": [
+      0.07735,
+      0.13381,
+      0.13381
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-sign-stop.obj",
+    "vertices": 60,
+    "min": [
+      -0.05140397,
+      0.0,
+      -0.06910618
+    ],
+    "max": [
+      0.02609603,
+      0.4940749,
+      0.06910618
+    ],
+    "size": [
+      0.0775,
+      0.49407,
+      0.13821
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-sign-street.obj",
+    "vertices": 88,
+    "min": [
+      -0.17125,
+      0.0,
+      -0.025
+    ],
+    "max": [
+      0.025,
+      0.475,
+      0.1712498
+    ],
+    "size": [
+      0.19625,
+      0.475,
+      0.19625
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-sign-warning.obj",
+    "vertices": 60,
+    "min": [
+      -0.05124999,
+      0.0,
+      -0.07359362
+    ],
+    "max": [
+      0.02609603,
+      0.4985623,
+      0.07359362
+    ],
+    "size": [
+      0.07735,
+      0.49856,
+      0.14719
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-slant-barrier.obj",
+    "vertices": 16,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.33,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.33,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-slant-curve-barrier.obj",
+    "vertices": 214,
+    "min": [
+      -1.0,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      1.0,
+      0.58,
+      0.5
+    ],
+    "size": [
+      2.0,
+      0.58,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-slant-curve.obj",
+    "vertices": 310,
+    "min": [
+      -1.0,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      1.0,
+      0.52,
+      0.5
+    ],
+    "size": [
+      2.0,
+      0.52,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-slant-flat-curve.obj",
+    "vertices": 388,
+    "min": [
+      -1.000284,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.999716,
+      0.52,
+      0.5
+    ],
+    "size": [
+      2.0,
+      0.52,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-slant-flat-high.obj",
+    "vertices": 24,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.52,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.52,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-slant-flat.obj",
+    "vertices": 24,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.27,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.27,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-slant-high-barrier.obj",
+    "vertices": 16,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.58,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.58,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-slant-high.obj",
+    "vertices": 24,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.52,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.52,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-slant.obj",
+    "vertices": 24,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.27,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.27,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-split-barrier.obj",
+    "vertices": 262,
+    "min": [
+      -0.5,
+      0.0,
+      -1.0
+    ],
+    "max": [
+      0.5,
+      0.08,
+      1.0
+    ],
+    "size": [
+      1.0,
+      0.08,
+      2.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-split.obj",
+    "vertices": 647,
+    "min": [
+      -0.5,
+      0.0,
+      -1.0
+    ],
+    "max": [
+      0.5,
+      0.02,
+      1.0
+    ],
+    "size": [
+      1.0,
+      0.02,
+      2.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-square-barrier.obj",
+    "vertices": 16,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.08,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-square.obj",
+    "vertices": 20,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-straight-barrier-end.obj",
+    "vertices": 12,
+    "min": [
+      -0.5000002,
+      0.0,
+      -0.5000001
+    ],
+    "max": [
+      0.5000001,
+      0.08,
+      0.5000001
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-straight-barrier-half.obj",
+    "vertices": 16,
+    "min": [
+      -0.5000002,
+      0.0,
+      -0.2500001
+    ],
+    "max": [
+      0.5,
+      0.08,
+      0.25
+    ],
+    "size": [
+      1.0,
+      0.08,
+      0.5
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-straight-barrier.obj",
+    "vertices": 16,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5000001
+    ],
+    "max": [
+      0.5000002,
+      0.08,
+      0.5000001
+    ],
+    "size": [
+      1.0,
+      0.08,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-straight-half.obj",
+    "vertices": 24,
+    "min": [
+      -0.25,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.25,
+      0.02,
+      0.5
+    ],
+    "size": [
+      0.5,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/road-straight.obj",
+    "vertices": 24,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/sign-highway-detailed.obj",
+    "vertices": 166,
+    "min": [
+      -0.107375,
+      0.0,
+      -0.4999999
+    ],
+    "max": [
+      0.025,
+      0.822125,
+      0.4999999
+    ],
+    "size": [
+      0.13237,
+      0.82212,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/sign-highway-wide.obj",
+    "vertices": 90,
+    "min": [
+      -0.107375,
+      0.0,
+      -0.4999999
+    ],
+    "max": [
+      0.025,
+      0.707375,
+      0.4999999
+    ],
+    "size": [
+      0.13237,
+      0.70737,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/sign-highway.obj",
+    "vertices": 114,
+    "min": [
+      -0.1073749,
+      0.0,
+      -0.4999999
+    ],
+    "max": [
+      0.025,
+      0.707375,
+      0.4999999
+    ],
+    "size": [
+      0.13237,
+      0.70737,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/tile-high.obj",
+    "vertices": 8,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.25,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.25,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/tile-low.obj",
+    "vertices": 8,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.02,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.02,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/tile-slant.obj",
+    "vertices": 8,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.27,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.27,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/tile-slantHigh.obj",
+    "vertices": 8,
+    "min": [
+      -0.5,
+      0.0,
+      -0.5
+    ],
+    "max": [
+      0.5,
+      0.52,
+      0.5
+    ],
+    "size": [
+      1.0,
+      0.52,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/traffic-light-hanging.obj",
+    "vertices": 136,
+    "min": [
+      -0.07259999,
+      0.0,
+      -0.2500001
+    ],
+    "max": [
+      0.045,
+      0.5090938,
+      0.045
+    ],
+    "size": [
+      0.1176,
+      0.50909,
+      0.295
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/traffic-light-object-hanging.obj",
+    "vertices": 72,
+    "min": [
+      -0.06009997,
+      -0.07159375,
+      -0.03053125
+    ],
+    "max": [
+      0.03750001,
+      0.07159375,
+      0.03053125
+    ],
+    "size": [
+      0.0976,
+      0.14319,
+      0.06106
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/traffic-light-object-horizontal.obj",
+    "vertices": 80,
+    "min": [
+      -0.06010005,
+      -0.03053125,
+      -0.07159375
+    ],
+    "max": [
+      0.03750001,
+      0.03053125,
+      0.07159375
+    ],
+    "size": [
+      0.0976,
+      0.06106,
+      0.14319
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/traffic-light-object-vertical.obj",
+    "vertices": 84,
+    "min": [
+      -0.06009997,
+      -0.07159375,
+      -0.03053125
+    ],
+    "max": [
+      0.03750001,
+      0.07159375,
+      0.03053125
+    ],
+    "size": [
+      0.0976,
+      0.14319,
+      0.06106
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-roads.zip",
+    "file": "Models/OBJ format/traffic-light.obj",
+    "vertices": 126,
+    "min": [
+      -0.0726,
+      2.255818e-17,
+      -0.045
+    ],
+    "max": [
+      0.045,
+      0.515,
+      0.045
+    ],
+    "size": [
+      0.1176,
+      0.515,
+      0.09
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-a.obj",
+    "vertices": 707,
+    "min": [
+      -0.65,
+      0.0,
+      -0.5140689
+    ],
+    "max": [
+      0.65,
+      0.833541,
+      0.5140689
+    ],
+    "size": [
+      1.3,
+      0.83354,
+      1.02814
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-b.obj",
+    "vertices": 1088,
+    "min": [
+      -0.914,
+      0.0,
+      -0.57
+    ],
+    "max": [
+      0.914,
+      1.1375,
+      0.57
+    ],
+    "size": [
+      1.828,
+      1.1375,
+      1.14
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-c.obj",
+    "vertices": 720,
+    "min": [
+      -0.6431901,
+      0.0,
+      -0.5140689
+    ],
+    "max": [
+      0.6431901,
+      1.033541,
+      0.5140689
+    ],
+    "size": [
+      1.28638,
+      1.03354,
+      1.02814
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-d.obj",
+    "vertices": 1093,
+    "min": [
+      -0.8781902,
+      0.0,
+      -0.514
+    ],
+    "max": [
+      0.8781902,
+      1.2375,
+      0.514
+    ],
+    "size": [
+      1.75638,
+      1.2375,
+      1.028
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-e.obj",
+    "vertices": 1099,
+    "min": [
+      -0.65,
+      2.707168e-16,
+      -0.514
+    ],
+    "max": [
+      0.65,
+      1.1375,
+      0.514
+    ],
+    "size": [
+      1.3,
+      1.1375,
+      1.028
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-f.obj",
+    "vertices": 1049,
+    "min": [
+      -0.714,
+      0.0,
+      -0.7029456
+    ],
+    "max": [
+      0.714,
+      1.1375,
+      0.7029456
+    ],
+    "size": [
+      1.428,
+      1.1375,
+      1.40589
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-g.obj",
+    "vertices": 662,
+    "min": [
+      -0.725,
+      0.0,
+      -0.589
+    ],
+    "max": [
+      0.725,
+      0.7682097,
+      0.589
+    ],
+    "size": [
+      1.45,
+      0.76821,
+      1.178
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-h.obj",
+    "vertices": 458,
+    "min": [
+      -0.65,
+      0.0,
+      -0.458
+    ],
+    "max": [
+      0.65,
+      0.7375,
+      0.458
+    ],
+    "size": [
+      1.3,
+      0.7375,
+      0.916
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-i.obj",
+    "vertices": 508,
+    "min": [
+      -0.6431901,
+      0.0,
+      -0.514
+    ],
+    "max": [
+      0.6431901,
+      0.7375,
+      0.514
+    ],
+    "size": [
+      1.28638,
+      0.7375,
+      1.028
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-j.obj",
+    "vertices": 723,
+    "min": [
+      -0.685,
+      0.0,
+      -0.458
+    ],
+    "max": [
+      0.685,
+      1.0375,
+      0.458
+    ],
+    "size": [
+      1.37,
+      1.0375,
+      0.916
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-k.obj",
+    "vertices": 618,
+    "min": [
+      -0.460469,
+      0.0,
+      -0.51
+    ],
+    "max": [
+      0.460469,
+      1.149596,
+      0.51
+    ],
+    "size": [
+      0.92094,
+      1.1496,
+      1.02
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-l.obj",
+    "vertices": 761,
+    "min": [
+      -0.516794,
+      0.0,
+      -0.51
+    ],
+    "max": [
+      0.516794,
+      1.049193,
+      0.5100001
+    ],
+    "size": [
+      1.03359,
+      1.04919,
+      1.02
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-m.obj",
+    "vertices": 703,
+    "min": [
+      -0.714,
+      0.0,
+      -0.714
+    ],
+    "max": [
+      0.714,
+      0.7375,
+      0.714
+    ],
+    "size": [
+      1.428,
+      0.7375,
+      1.428
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-n.obj",
+    "vertices": 1036,
+    "min": [
+      -0.8921358,
+      0.0,
+      -0.6889457
+    ],
+    "max": [
+      0.8921357,
+      1.1375,
+      0.6889455
+    ],
+    "size": [
+      1.78427,
+      1.1375,
+      1.37789
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-o.obj",
+    "vertices": 806,
+    "min": [
+      -0.6350001,
+      0.0,
+      -0.514
+    ],
+    "max": [
+      0.635,
+      1.1375,
+      0.514
+    ],
+    "size": [
+      1.27,
+      1.1375,
+      1.028
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-p.obj",
+    "vertices": 779,
+    "min": [
+      -0.6200001,
+      0.0,
+      -0.495
+    ],
+    "max": [
+      0.6200001,
+      0.918,
+      0.4950001
+    ],
+    "size": [
+      1.24,
+      0.918,
+      0.99
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-q.obj",
+    "vertices": 665,
+    "min": [
+      -0.62,
+      -8.823155e-19,
+      -0.422
+    ],
+    "max": [
+      0.62,
+      0.918,
+      0.4635879
+    ],
+    "size": [
+      1.24,
+      0.918,
+      0.88559
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-r.obj",
+    "vertices": 625,
+    "min": [
+      -0.5140001,
+      0.0,
+      -0.5100001
+    ],
+    "max": [
+      0.5140001,
+      1.141143,
+      0.51
+    ],
+    "size": [
+      1.028,
+      1.14114,
+      1.02
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-s.obj",
+    "vertices": 761,
+    "min": [
+      -0.7030145,
+      0.0,
+      -0.5431902
+    ],
+    "max": [
+      0.7030146,
+      1.1375,
+      0.5431902
+    ],
+    "size": [
+      1.40603,
+      1.1375,
+      1.08638
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-t.obj",
+    "vertices": 1269,
+    "min": [
+      -0.6635879,
+      0.0,
+      -0.7031901
+    ],
+    "max": [
+      0.65,
+      1.156331,
+      0.7031901
+    ],
+    "size": [
+      1.31359,
+      1.15633,
+      1.40638
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/building-type-u.obj",
+    "vertices": 852,
+    "min": [
+      -0.7140002,
+      0.0,
+      -0.5434675
+    ],
+    "max": [
+      0.714,
+      1.1375,
+      0.5434675
+    ],
+    "size": [
+      1.428,
+      1.1375,
+      1.08693
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/driveway-long.obj",
+    "vertices": 8,
+    "min": [
+      -0.18,
+      0.0,
+      -0.2
+    ],
+    "max": [
+      0.18,
+      0.01,
+      0.2
+    ],
+    "size": [
+      0.36,
+      0.01,
+      0.4
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/driveway-short.obj",
+    "vertices": 8,
+    "min": [
+      -0.18,
+      0.0,
+      -0.1
+    ],
+    "max": [
+      0.18,
+      0.01,
+      0.1
+    ],
+    "size": [
+      0.36,
+      0.01,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/fence-1x2.obj",
+    "vertices": 104,
+    "min": [
+      -0.4375,
+      -3.253113e-14,
+      -0.2
+    ],
+    "max": [
+      0.4375,
+      0.27,
+      0.2375
+    ],
+    "size": [
+      0.875,
+      0.27,
+      0.4375
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/fence-1x3.obj",
+    "vertices": 136,
+    "min": [
+      -0.6375,
+      -3.253113e-14,
+      -0.2
+    ],
+    "max": [
+      0.6375,
+      0.27,
+      0.2375
+    ],
+    "size": [
+      1.275,
+      0.27,
+      0.4375
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/fence-1x4.obj",
+    "vertices": 168,
+    "min": [
+      -0.8375,
+      -3.253113e-14,
+      -0.2
+    ],
+    "max": [
+      0.8375,
+      0.27,
+      0.2375
+    ],
+    "size": [
+      1.675,
+      0.27,
+      0.4375
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/fence-2x2.obj",
+    "vertices": 152,
+    "min": [
+      -0.4375,
+      -3.253113e-14,
+      -0.4
+    ],
+    "max": [
+      0.4375,
+      0.27,
+      0.4375
+    ],
+    "size": [
+      0.875,
+      0.27,
+      0.8375
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/fence-2x3.obj",
+    "vertices": 184,
+    "min": [
+      -0.6375,
+      -3.253113e-14,
+      -0.4
+    ],
+    "max": [
+      0.6375,
+      0.27,
+      0.4375
+    ],
+    "size": [
+      1.275,
+      0.27,
+      0.8375
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/fence-3x2.obj",
+    "vertices": 200,
+    "min": [
+      -0.4375,
+      -3.253112e-14,
+      -0.6
+    ],
+    "max": [
+      0.4375,
+      0.27,
+      0.6375
+    ],
+    "size": [
+      0.875,
+      0.27,
+      1.2375
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/fence-3x3.obj",
+    "vertices": 232,
+    "min": [
+      -0.6375,
+      -3.253113e-14,
+      -0.6
+    ],
+    "max": [
+      0.6375,
+      0.27,
+      0.6375
+    ],
+    "size": [
+      1.275,
+      0.27,
+      1.2375
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/fence-low.obj",
+    "vertices": 112,
+    "min": [
+      -0.6375,
+      0.0,
+      -0.4375
+    ],
+    "max": [
+      0.6375,
+      0.17,
+      0.4
+    ],
+    "size": [
+      1.275,
+      0.17,
+      0.8375
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/fence.obj",
+    "vertices": 56,
+    "min": [
+      -0.2375,
+      0.0,
+      -0.0375
+    ],
+    "max": [
+      0.2375,
+      0.27,
+      0.0375
+    ],
+    "size": [
+      0.475,
+      0.27,
+      0.075
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/path-long.obj",
+    "vertices": 8,
+    "min": [
+      -0.1,
+      0.0,
+      -0.2
+    ],
+    "max": [
+      0.1,
+      0.01,
+      0.2
+    ],
+    "size": [
+      0.2,
+      0.01,
+      0.4
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/path-short.obj",
+    "vertices": 8,
+    "min": [
+      -0.1,
+      0.0,
+      -0.1
+    ],
+    "max": [
+      0.1,
+      0.01,
+      0.1
+    ],
+    "size": [
+      0.2,
+      0.01,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/path-stones-long.obj",
+    "vertices": 30,
+    "min": [
+      -0.07,
+      0.0,
+      -0.2
+    ],
+    "max": [
+      0.07,
+      0.01,
+      0.2
+    ],
+    "size": [
+      0.14,
+      0.01,
+      0.4
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/path-stones-messy.obj",
+    "vertices": 24,
+    "min": [
+      -0.07781206,
+      0.0,
+      -0.1806752
+    ],
+    "max": [
+      0.07781206,
+      0.01,
+      0.1806752
+    ],
+    "size": [
+      0.15562,
+      0.01,
+      0.36135
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/path-stones-short.obj",
+    "vertices": 14,
+    "min": [
+      -0.07,
+      0.0,
+      -0.1
+    ],
+    "max": [
+      0.07,
+      0.01,
+      0.1
+    ],
+    "size": [
+      0.14,
+      0.01,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/planter.obj",
+    "vertices": 120,
+    "min": [
+      -0.2,
+      0.0,
+      -0.1505734
+    ],
+    "max": [
+      0.2,
+      0.1771095,
+      0.1494266
+    ],
+    "size": [
+      0.4,
+      0.17711,
+      0.3
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/tree-large.obj",
+    "vertices": 26,
+    "min": [
+      -0.1052221,
+      0.0,
+      -0.1215
+    ],
+    "max": [
+      0.1052221,
+      0.767,
+      0.1215
+    ],
+    "size": [
+      0.21044,
+      0.767,
+      0.243
+    ]
+  },
+  {
+    "archive": "kenney_city-kit-suburban_20.zip",
+    "file": "Models/OBJ format/tree-small.obj",
+    "vertices": 26,
+    "min": [
+      -0.1052221,
+      0.0,
+      -0.1215
+    ],
+    "max": [
+      0.1052221,
+      0.567,
+      0.1215
+    ],
+    "size": [
+      0.21044,
+      0.567,
+      0.243
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/advocado-half.obj",
+    "vertices": 64,
+    "min": [
+      -0.07509935,
+      0.0,
+      -0.08671726
+    ],
+    "max": [
+      0.02853775,
+      0.2137397,
+      0.08671726
+    ],
+    "size": [
+      0.10364,
+      0.21374,
+      0.17343
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/apple-half.obj",
+    "vertices": 73,
+    "min": [
+      -0.09814728,
+      0.0,
+      -0.09814728
+    ],
+    "max": [
+      0.0,
+      0.1907534,
+      0.09814728
+    ],
+    "size": [
+      0.09815,
+      0.19075,
+      0.19629
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/apple.obj",
+    "vertices": 71,
+    "min": [
+      -0.09814728,
+      0.0,
+      -0.09814728
+    ],
+    "max": [
+      0.09814728,
+      0.1907534,
+      0.09814728
+    ],
+    "size": [
+      0.19629,
+      0.19075,
+      0.19629
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/avocado.obj",
+    "vertices": 24,
+    "min": [
+      -0.07509935,
+      0.0,
+      -0.08671726
+    ],
+    "max": [
+      0.07509935,
+      0.2137397,
+      0.08671726
+    ],
+    "size": [
+      0.1502,
+      0.21374,
+      0.17343
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bacon-raw.obj",
+    "vertices": 30,
+    "min": [
+      -0.065,
+      0.0,
+      -0.26
+    ],
+    "max": [
+      0.065,
+      0.03,
+      0.26
+    ],
+    "size": [
+      0.13,
+      0.03,
+      0.52
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bacon.obj",
+    "vertices": 30,
+    "min": [
+      -0.065,
+      0.0,
+      -0.26
+    ],
+    "max": [
+      0.065,
+      0.03,
+      0.26
+    ],
+    "size": [
+      0.13,
+      0.03,
+      0.52
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bag-flat.obj",
+    "vertices": 59,
+    "min": [
+      -0.325,
+      0.0,
+      -0.23375
+    ],
+    "max": [
+      0.325,
+      0.1905256,
+      0.23375
+    ],
+    "size": [
+      0.65,
+      0.19053,
+      0.4675
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bag.obj",
+    "vertices": 24,
+    "min": [
+      -0.11005,
+      0.0,
+      -0.2059
+    ],
+    "max": [
+      0.11005,
+      0.599759,
+      0.2059
+    ],
+    "size": [
+      0.2201,
+      0.59976,
+      0.4118
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/banana.obj",
+    "vertices": 54,
+    "min": [
+      -0.06879999,
+      0.0,
+      -0.3149356
+    ],
+    "max": [
+      0.06879999,
+      0.1958004,
+      0.3149356
+    ],
+    "size": [
+      0.1376,
+      0.1958,
+      0.62987
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/barrel.obj",
+    "vertices": 156,
+    "min": [
+      -0.38,
+      0.0,
+      -0.3394531
+    ],
+    "max": [
+      0.38,
+      0.6789062,
+      0.3394531
+    ],
+    "size": [
+      0.76,
+      0.67891,
+      0.67891
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/beet.obj",
+    "vertices": 56,
+    "min": [
+      -0.0489911,
+      0.0,
+      -0.0489911
+    ],
+    "max": [
+      0.0489911,
+      0.265345,
+      0.0489911
+    ],
+    "size": [
+      0.09798,
+      0.26534,
+      0.09798
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bottle-ketchup.obj",
+    "vertices": 50,
+    "min": [
+      -0.07205331,
+      0.0,
+      -0.0832
+    ],
+    "max": [
+      0.07205331,
+      0.39312,
+      0.0832
+    ],
+    "size": [
+      0.14411,
+      0.39312,
+      0.1664
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bottle-musterd.obj",
+    "vertices": 50,
+    "min": [
+      -0.07205331,
+      0.0,
+      -0.0832
+    ],
+    "max": [
+      0.07205331,
+      0.39312,
+      0.0832
+    ],
+    "size": [
+      0.14411,
+      0.39312,
+      0.1664
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bottle-oil.obj",
+    "vertices": 56,
+    "min": [
+      -0.07,
+      7.55751e-16,
+      -0.07
+    ],
+    "max": [
+      0.07,
+      0.6218,
+      0.07
+    ],
+    "size": [
+      0.14,
+      0.6218,
+      0.14
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bowl-broth.obj",
+    "vertices": 148,
+    "min": [
+      -0.2751317,
+      0.0,
+      -0.2899182
+    ],
+    "max": [
+      0.2510765,
+      0.290309,
+      0.2899182
+    ],
+    "size": [
+      0.52621,
+      0.29031,
+      0.57984
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bowl-cereal.obj",
+    "vertices": 77,
+    "min": [
+      -0.2510765,
+      0.0,
+      -0.344646
+    ],
+    "max": [
+      0.2510765,
+      0.4192776,
+      0.2899182
+    ],
+    "size": [
+      0.50215,
+      0.41928,
+      0.63456
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bowl-soup.obj",
+    "vertices": 96,
+    "min": [
+      -0.2510765,
+      0.0,
+      -0.2899182
+    ],
+    "max": [
+      0.2510765,
+      0.2138248,
+      0.2899182
+    ],
+    "size": [
+      0.50215,
+      0.21382,
+      0.57984
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bowl.obj",
+    "vertices": 42,
+    "min": [
+      -0.2510765,
+      0.0,
+      -0.2899182
+    ],
+    "max": [
+      0.2510765,
+      0.2138248,
+      0.2899182
+    ],
+    "size": [
+      0.50215,
+      0.21382,
+      0.57984
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/bread.obj",
+    "vertices": 77,
+    "min": [
+      -0.2211603,
+      0.0,
+      -0.182952
+    ],
+    "max": [
+      0.2211603,
+      0.03974401,
+      0.182952
+    ],
+    "size": [
+      0.44232,
+      0.03974,
+      0.3659
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/broccoli.obj",
+    "vertices": 125,
+    "min": [
+      -0.1875899,
+      0.0,
+      -0.1875899
+    ],
+    "max": [
+      0.1875899,
+      0.421668,
+      0.1875899
+    ],
+    "size": [
+      0.37518,
+      0.42167,
+      0.37518
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/burger-cheese-double.obj",
+    "vertices": 126,
+    "min": [
+      -0.189,
+      0.0,
+      -0.189
+    ],
+    "max": [
+      0.189,
+      0.32,
+      0.189
+    ],
+    "size": [
+      0.378,
+      0.32,
+      0.378
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/burger-cheese.obj",
+    "vertices": 78,
+    "min": [
+      -0.189,
+      0.0,
+      -0.189
+    ],
+    "max": [
+      0.189,
+      0.22,
+      0.189
+    ],
+    "size": [
+      0.378,
+      0.22,
+      0.378
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/burger-double.obj",
+    "vertices": 186,
+    "min": [
+      -0.202048,
+      0.0,
+      -0.202048
+    ],
+    "max": [
+      0.202048,
+      0.36,
+      0.202048
+    ],
+    "size": [
+      0.4041,
+      0.36,
+      0.4041
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/burger.obj",
+    "vertices": 125,
+    "min": [
+      -0.202048,
+      0.0,
+      -0.202048
+    ],
+    "max": [
+      0.202048,
+      0.29,
+      0.202048
+    ],
+    "size": [
+      0.4041,
+      0.29,
+      0.4041
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cabbage.obj",
+    "vertices": 74,
+    "min": [
+      -0.189725,
+      0.0,
+      -0.2018067
+    ],
+    "max": [
+      0.189725,
+      0.3073915,
+      0.2018067
+    ],
+    "size": [
+      0.37945,
+      0.30739,
+      0.40361
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cake-birthday.obj",
+    "vertices": 842,
+    "min": [
+      -0.3196,
+      0.0,
+      -0.3196002
+    ],
+    "max": [
+      0.3196,
+      0.3637736,
+      0.3196002
+    ],
+    "size": [
+      0.6392,
+      0.36377,
+      0.6392
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cake-slicer.obj",
+    "vertices": 22,
+    "min": [
+      -0.3623147,
+      0.0,
+      -0.095
+    ],
+    "max": [
+      0.3623147,
+      0.06923846,
+      0.095
+    ],
+    "size": [
+      0.72463,
+      0.06924,
+      0.19
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cake.obj",
+    "vertices": 566,
+    "min": [
+      -0.3196,
+      0.0,
+      -0.3196002
+    ],
+    "max": [
+      0.3196,
+      0.2730772,
+      0.3196002
+    ],
+    "size": [
+      0.6392,
+      0.27308,
+      0.6392
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/can-open.obj",
+    "vertices": 107,
+    "min": [
+      -0.15,
+      0.0,
+      -0.15
+    ],
+    "max": [
+      0.15,
+      0.4070611,
+      0.15
+    ],
+    "size": [
+      0.3,
+      0.40706,
+      0.3
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/can-small.obj",
+    "vertices": 79,
+    "min": [
+      -0.15,
+      0.0,
+      -0.15
+    ],
+    "max": [
+      0.15,
+      0.1611223,
+      0.15
+    ],
+    "size": [
+      0.3,
+      0.16112,
+      0.3
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/can.obj",
+    "vertices": 80,
+    "min": [
+      -0.15,
+      0.0,
+      -0.15
+    ],
+    "max": [
+      0.15,
+      0.32,
+      0.15
+    ],
+    "size": [
+      0.3,
+      0.32,
+      0.3
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/candy-bar-wrapper.obj",
+    "vertices": 24,
+    "min": [
+      -0.146224,
+      0.0,
+      -0.05847216
+    ],
+    "max": [
+      0.146224,
+      0.08120394,
+      0.05847216
+    ],
+    "size": [
+      0.29245,
+      0.0812,
+      0.11694
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/candy-bar.obj",
+    "vertices": 38,
+    "min": [
+      -0.146224,
+      0.0,
+      -0.03726821
+    ],
+    "max": [
+      0.146224,
+      0.065292,
+      0.03726821
+    ],
+    "size": [
+      0.29245,
+      0.06529,
+      0.07454
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/carrot.obj",
+    "vertices": 78,
+    "min": [
+      -0.171571,
+      0.0,
+      -0.171571
+    ],
+    "max": [
+      0.171571,
+      0.7163037,
+      0.171571
+    ],
+    "size": [
+      0.34314,
+      0.7163,
+      0.34314
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/carton-small.obj",
+    "vertices": 46,
+    "min": [
+      -0.115,
+      0.0,
+      -0.115
+    ],
+    "max": [
+      0.115,
+      0.3905463,
+      0.115
+    ],
+    "size": [
+      0.23,
+      0.39055,
+      0.23
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/carton.obj",
+    "vertices": 58,
+    "min": [
+      -0.115,
+      0.0,
+      -0.115
+    ],
+    "max": [
+      0.115,
+      0.5905463,
+      0.115
+    ],
+    "size": [
+      0.23,
+      0.59055,
+      0.23
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cauliflower.obj",
+    "vertices": 80,
+    "min": [
+      -0.189725,
+      0.0,
+      -0.2018067
+    ],
+    "max": [
+      0.189725,
+      0.3073915,
+      0.2018067
+    ],
+    "size": [
+      0.37945,
+      0.30739,
+      0.40361
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/celery-stick.obj",
+    "vertices": 28,
+    "min": [
+      -0.0229803,
+      0.0,
+      -0.0441
+    ],
+    "max": [
+      0.0229803,
+      0.54,
+      0.0441
+    ],
+    "size": [
+      0.04596,
+      0.54,
+      0.0882
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cheese-cut.obj",
+    "vertices": 78,
+    "min": [
+      -0.192,
+      0.0,
+      -0.132
+    ],
+    "max": [
+      0.192,
+      0.02048,
+      0.132
+    ],
+    "size": [
+      0.384,
+      0.02048,
+      0.264
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cheese-slicer.obj",
+    "vertices": 24,
+    "min": [
+      -0.3092117,
+      0.0,
+      -0.0959
+    ],
+    "max": [
+      0.3092117,
+      0.02923846,
+      0.0959
+    ],
+    "size": [
+      0.61842,
+      0.02924,
+      0.1918
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cheese.obj",
+    "vertices": 432,
+    "min": [
+      -0.3400001,
+      -3.101963e-17,
+      -0.34
+    ],
+    "max": [
+      0.34,
+      0.22,
+      0.34
+    ],
+    "size": [
+      0.68,
+      0.22,
+      0.68
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cherries.obj",
+    "vertices": 69,
+    "min": [
+      -0.044,
+      0.0,
+      -0.08095237
+    ],
+    "max": [
+      0.044,
+      0.170709,
+      0.08095237
+    ],
+    "size": [
+      0.088,
+      0.17071,
+      0.1619
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/chinese.obj",
+    "vertices": 72,
+    "min": [
+      -0.2269249,
+      0.0,
+      -0.2787632
+    ],
+    "max": [
+      0.2269249,
+      0.5670755,
+      0.2787632
+    ],
+    "size": [
+      0.45385,
+      0.56708,
+      0.55753
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/chocolate-wrapper.obj",
+    "vertices": 68,
+    "min": [
+      -0.146224,
+      0.0,
+      -0.1009915
+    ],
+    "max": [
+      0.146224,
+      0.06494794,
+      0.1009915
+    ],
+    "size": [
+      0.29245,
+      0.06495,
+      0.20198
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/chocolate.obj",
+    "vertices": 72,
+    "min": [
+      -0.146224,
+      0.0,
+      -0.073112
+    ],
+    "max": [
+      0.146224,
+      0.033744,
+      0.073112
+    ],
+    "size": [
+      0.29245,
+      0.03374,
+      0.14622
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/chopstic-decorative.obj",
+    "vertices": 26,
+    "min": [
+      -0.01,
+      0.0,
+      -0.225
+    ],
+    "max": [
+      0.01,
+      0.02,
+      0.225
+    ],
+    "size": [
+      0.02,
+      0.02,
+      0.45
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/chopstick.obj",
+    "vertices": 8,
+    "min": [
+      -0.01,
+      0.0,
+      -0.225
+    ],
+    "max": [
+      0.01,
+      0.02,
+      0.225
+    ],
+    "size": [
+      0.02,
+      0.02,
+      0.45
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cocktail.obj",
+    "vertices": 86,
+    "min": [
+      -0.1303408,
+      0.0,
+      -0.2109788
+    ],
+    "max": [
+      0.1303408,
+      0.505898,
+      0.1505046
+    ],
+    "size": [
+      0.26068,
+      0.5059,
+      0.36148
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/coconut-half.obj",
+    "vertices": 56,
+    "min": [
+      -0.1242,
+      0.0,
+      -0.1242
+    ],
+    "max": [
+      0.1242,
+      0.1242,
+      0.1242
+    ],
+    "size": [
+      0.2484,
+      0.1242,
+      0.2484
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/coconut.obj",
+    "vertices": 40,
+    "min": [
+      -0.1242,
+      0.0,
+      -0.1242
+    ],
+    "max": [
+      0.1242,
+      0.2484,
+      0.1242
+    ],
+    "size": [
+      0.2484,
+      0.2484,
+      0.2484
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cookie-chocolate.obj",
+    "vertices": 78,
+    "min": [
+      -0.06062178,
+      0.0,
+      -0.07
+    ],
+    "max": [
+      0.06062178,
+      0.0652,
+      0.07
+    ],
+    "size": [
+      0.12124,
+      0.0652,
+      0.14
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cookie.obj",
+    "vertices": 42,
+    "min": [
+      -0.109872,
+      0.0,
+      -0.09515195
+    ],
+    "max": [
+      0.109872,
+      0.04977,
+      0.09515195
+    ],
+    "size": [
+      0.21974,
+      0.04977,
+      0.1903
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cooking-fork.obj",
+    "vertices": 22,
+    "min": [
+      -0.3413362,
+      0.0,
+      -0.03746422
+    ],
+    "max": [
+      0.3413362,
+      0.07211657,
+      0.03746422
+    ],
+    "size": [
+      0.68267,
+      0.07212,
+      0.07493
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cooking-knife-chopping.obj",
+    "vertices": 42,
+    "min": [
+      -0.3,
+      1.69198e-17,
+      -0.09748808
+    ],
+    "max": [
+      0.3,
+      0.04,
+      0.1251823
+    ],
+    "size": [
+      0.6,
+      0.04,
+      0.22267
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cooking-knife.obj",
+    "vertices": 23,
+    "min": [
+      -0.358125,
+      0.0,
+      -0.06633517
+    ],
+    "max": [
+      0.358125,
+      0.04,
+      0.06633517
+    ],
+    "size": [
+      0.71625,
+      0.04,
+      0.13267
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cooking-spatula.obj",
+    "vertices": 34,
+    "min": [
+      -0.3413362,
+      0.0,
+      -0.095
+    ],
+    "max": [
+      0.3413362,
+      0.07211657,
+      0.095
+    ],
+    "size": [
+      0.68267,
+      0.07212,
+      0.19
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cooking-spoon.obj",
+    "vertices": 22,
+    "min": [
+      -0.3327984,
+      0.0,
+      -0.0864
+    ],
+    "max": [
+      0.3327984,
+      0.0244,
+      0.0864
+    ],
+    "size": [
+      0.6656,
+      0.0244,
+      0.1728
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/corn-dog.obj",
+    "vertices": 36,
+    "min": [
+      -0.302196,
+      8.4599e-18,
+      -0.05427242
+    ],
+    "max": [
+      0.302196,
+      0.09400255,
+      0.05427242
+    ],
+    "size": [
+      0.60439,
+      0.094,
+      0.10854
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/corn.obj",
+    "vertices": 66,
+    "min": [
+      -0.1781274,
+      0.0,
+      -0.15578
+    ],
+    "max": [
+      0.1650916,
+      0.3161982,
+      0.144441
+    ],
+    "size": [
+      0.34322,
+      0.3162,
+      0.30022
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/croissant.obj",
+    "vertices": 83,
+    "min": [
+      -0.173045,
+      0.0,
+      -0.2388284
+    ],
+    "max": [
+      0.173045,
+      0.1936086,
+      0.2388284
+    ],
+    "size": [
+      0.34609,
+      0.19361,
+      0.47766
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cup-coffee.obj",
+    "vertices": 60,
+    "min": [
+      -0.1081449,
+      -2.819966e-18,
+      -0.1643991
+    ],
+    "max": [
+      0.1081449,
+      0.14,
+      0.1222504
+    ],
+    "size": [
+      0.21629,
+      0.14,
+      0.28665
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cup-saucer.obj",
+    "vertices": 60,
+    "min": [
+      -0.1783548,
+      0.0,
+      -0.1783548
+    ],
+    "max": [
+      0.1783548,
+      0.038,
+      0.1783548
+    ],
+    "size": [
+      0.35671,
+      0.038,
+      0.35671
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cup-tea.obj",
+    "vertices": 88,
+    "min": [
+      -0.115,
+      0.0,
+      -0.1771166
+    ],
+    "max": [
+      0.1219279,
+      0.2,
+      0.115
+    ],
+    "size": [
+      0.23693,
+      0.2,
+      0.29212
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cup.obj",
+    "vertices": 62,
+    "min": [
+      -0.115,
+      0.0,
+      -0.1771166
+    ],
+    "max": [
+      0.115,
+      0.2,
+      0.115
+    ],
+    "size": [
+      0.23,
+      0.2,
+      0.29212
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cupcake.obj",
+    "vertices": 118,
+    "min": [
+      -0.1775814,
+      0.0,
+      -0.15379
+    ],
+    "max": [
+      0.1775814,
+      0.4238,
+      0.15379
+    ],
+    "size": [
+      0.35516,
+      0.4238,
+      0.30758
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cutting-board-japanese.obj",
+    "vertices": 54,
+    "min": [
+      -0.245,
+      0.0,
+      -0.42
+    ],
+    "max": [
+      0.245,
+      0.08,
+      0.42
+    ],
+    "size": [
+      0.49,
+      0.08,
+      0.84
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cutting-board-round.obj",
+    "vertices": 80,
+    "min": [
+      -0.4,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.4,
+      0.06,
+      0.4
+    ],
+    "size": [
+      0.8,
+      0.06,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/cutting-board.obj",
+    "vertices": 62,
+    "min": [
+      -0.29,
+      0.0,
+      -0.41
+    ],
+    "max": [
+      0.29,
+      0.06,
+      0.41
+    ],
+    "size": [
+      0.58,
+      0.06,
+      0.82
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/dim-sum.obj",
+    "vertices": 30,
+    "min": [
+      -0.08036716,
+      0.0,
+      -0.0928
+    ],
+    "max": [
+      0.08036716,
+      0.12,
+      0.0928
+    ],
+    "size": [
+      0.16073,
+      0.12,
+      0.1856
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/donut-chocolate.obj",
+    "vertices": 68,
+    "min": [
+      -0.1225293,
+      0.0,
+      -0.1414846
+    ],
+    "max": [
+      0.1225293,
+      0.08889225,
+      0.1414846
+    ],
+    "size": [
+      0.24506,
+      0.08889,
+      0.28297
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/donut-sprinkles.obj",
+    "vertices": 128,
+    "min": [
+      -0.1225293,
+      0.0,
+      -0.1414846
+    ],
+    "max": [
+      0.1225293,
+      0.09499224,
+      0.1414846
+    ],
+    "size": [
+      0.24506,
+      0.09499,
+      0.28297
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/donut.obj",
+    "vertices": 54,
+    "min": [
+      -0.1225293,
+      0.0,
+      -0.1414846
+    ],
+    "max": [
+      0.1225293,
+      0.08889224,
+      0.1414846
+    ],
+    "size": [
+      0.24506,
+      0.08889,
+      0.28297
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/egg-cooked.obj",
+    "vertices": 48,
+    "min": [
+      -0.2070371,
+      0.0,
+      -0.190851
+    ],
+    "max": [
+      0.2070371,
+      0.0282,
+      0.190851
+    ],
+    "size": [
+      0.41407,
+      0.0282,
+      0.3817
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/egg-cup.obj",
+    "vertices": 42,
+    "min": [
+      -0.07906049,
+      0.0,
+      -0.0912912
+    ],
+    "max": [
+      0.07906049,
+      0.15,
+      0.0912912
+    ],
+    "size": [
+      0.15812,
+      0.15,
+      0.18258
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/egg-half.obj",
+    "vertices": 36,
+    "min": [
+      -0.05804449,
+      0.0,
+      -0.067024
+    ],
+    "max": [
+      0.05804449,
+      0.1062,
+      0.067024
+    ],
+    "size": [
+      0.11609,
+      0.1062,
+      0.13405
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/egg.obj",
+    "vertices": 24,
+    "min": [
+      -0.05804449,
+      0.0,
+      -0.067024
+    ],
+    "max": [
+      0.05804449,
+      0.1652,
+      0.067024
+    ],
+    "size": [
+      0.11609,
+      0.1652,
+      0.13405
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/eggplant.obj",
+    "vertices": 79,
+    "min": [
+      -0.1020179,
+      0.0,
+      -0.1077783
+    ],
+    "max": [
+      0.1020179,
+      0.4051983,
+      0.1077783
+    ],
+    "size": [
+      0.20404,
+      0.4052,
+      0.21556
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/fish-bones.obj",
+    "vertices": 194,
+    "min": [
+      -0.1556319,
+      0.0,
+      -0.3178997
+    ],
+    "max": [
+      0.1556319,
+      0.07257822,
+      0.3178997
+    ],
+    "size": [
+      0.31126,
+      0.07258,
+      0.6358
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/fish.obj",
+    "vertices": 147,
+    "min": [
+      -0.09891591,
+      0.0,
+      -0.3103913
+    ],
+    "max": [
+      0.09891591,
+      0.3222011,
+      0.3103913
+    ],
+    "size": [
+      0.19783,
+      0.3222,
+      0.62078
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/frappe.obj",
+    "vertices": 168,
+    "min": [
+      -0.1270344,
+      0.0,
+      -0.1270344
+    ],
+    "max": [
+      0.1270344,
+      0.499299,
+      0.1270344
+    ],
+    "size": [
+      0.25407,
+      0.4993,
+      0.25407
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/fries-empty.obj",
+    "vertices": 52,
+    "min": [
+      -0.081774,
+      0.0,
+      -0.1326302
+    ],
+    "max": [
+      0.081774,
+      0.236,
+      0.1326302
+    ],
+    "size": [
+      0.16355,
+      0.236,
+      0.26526
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/fries.obj",
+    "vertices": 228,
+    "min": [
+      -0.09056404,
+      0.0,
+      -0.1326302
+    ],
+    "max": [
+      0.09240328,
+      0.3977219,
+      0.1326302
+    ],
+    "size": [
+      0.18297,
+      0.39772,
+      0.26526
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/frikandel-speciaal.obj",
+    "vertices": 192,
+    "min": [
+      -0.3179892,
+      0.0,
+      -0.08304817
+    ],
+    "max": [
+      0.3179892,
+      0.1087016,
+      0.08304817
+    ],
+    "size": [
+      0.63598,
+      0.1087,
+      0.1661
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/frying-pan-lid.obj",
+    "vertices": 72,
+    "min": [
+      -0.288346,
+      0.0,
+      -0.303185
+    ],
+    "max": [
+      0.288346,
+      0.1084,
+      0.303185
+    ],
+    "size": [
+      0.57669,
+      0.1084,
+      0.60637
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/frying-pan.obj",
+    "vertices": 102,
+    "min": [
+      -0.3287247,
+      0.0,
+      -0.7093661
+    ],
+    "max": [
+      0.3287247,
+      0.1206487,
+      0.3126358
+    ],
+    "size": [
+      0.65745,
+      0.12065,
+      1.022
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/ginger-bread-cutter.obj",
+    "vertices": 51,
+    "min": [
+      -0.1459704,
+      0.0,
+      -0.134661
+    ],
+    "max": [
+      0.1459704,
+      0.042,
+      0.134661
+    ],
+    "size": [
+      0.29194,
+      0.042,
+      0.26932
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/ginger-bread.obj",
+    "vertices": 46,
+    "min": [
+      -0.1301817,
+      0.0,
+      -0.1177794
+    ],
+    "max": [
+      0.1301817,
+      0.03,
+      0.1177794
+    ],
+    "size": [
+      0.26036,
+      0.03,
+      0.23556
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/glass-wine.obj",
+    "vertices": 60,
+    "min": [
+      -0.1133827,
+      0.0,
+      -0.09846481
+    ],
+    "max": [
+      0.1133827,
+      0.4998623,
+      0.09846481
+    ],
+    "size": [
+      0.22677,
+      0.49986,
+      0.19693
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/glass.obj",
+    "vertices": 24,
+    "min": [
+      -0.0798129,
+      0.0,
+      -0.09216
+    ],
+    "max": [
+      0.0798129,
+      0.285143,
+      0.09216
+    ],
+    "size": [
+      0.15963,
+      0.28514,
+      0.18432
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/grapes.obj",
+    "vertices": 350,
+    "min": [
+      -0.1394973,
+      0.0,
+      -0.1192996
+    ],
+    "max": [
+      0.1394973,
+      0.4226179,
+      0.1192996
+    ],
+    "size": [
+      0.27899,
+      0.42262,
+      0.2386
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/honey.obj",
+    "vertices": 72,
+    "min": [
+      -0.16302,
+      0.0,
+      -0.16302
+    ],
+    "max": [
+      0.16302,
+      0.316018,
+      0.16302
+    ],
+    "size": [
+      0.32604,
+      0.31602,
+      0.32604
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/hot-dog-raw.obj",
+    "vertices": 48,
+    "min": [
+      -0.29295,
+      0.0,
+      -0.0558
+    ],
+    "max": [
+      0.29295,
+      0.09664843,
+      0.0558
+    ],
+    "size": [
+      0.5859,
+      0.09665,
+      0.1116
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/hot-dog.obj",
+    "vertices": 155,
+    "min": [
+      -0.29295,
+      0.0,
+      -0.101277
+    ],
+    "max": [
+      0.29295,
+      0.1525494,
+      0.101277
+    ],
+    "size": [
+      0.5859,
+      0.15255,
+      0.20255
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/ice-cream-cne.obj",
+    "vertices": 24,
+    "min": [
+      -0.09223171,
+      0.0,
+      -0.1065
+    ],
+    "max": [
+      0.09223171,
+      0.2982,
+      0.1065
+    ],
+    "size": [
+      0.18446,
+      0.2982,
+      0.213
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/ice-cream-cup.obj",
+    "vertices": 36,
+    "min": [
+      -0.1005326,
+      0.0,
+      -0.116085
+    ],
+    "max": [
+      0.1005326,
+      0.1804,
+      0.116085
+    ],
+    "size": [
+      0.20107,
+      0.1804,
+      0.23217
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/ice-cream-scoop-chocolate.obj",
+    "vertices": 42,
+    "min": [
+      -0.1176231,
+      0.0,
+      -0.1358195
+    ],
+    "max": [
+      0.1176231,
+      0.1650197,
+      0.1358195
+    ],
+    "size": [
+      0.23525,
+      0.16502,
+      0.27164
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/ice-cream-scoop-mint.obj",
+    "vertices": 30,
+    "min": [
+      -0.1176231,
+      0.0,
+      -0.1358195
+    ],
+    "max": [
+      0.1176231,
+      0.1650197,
+      0.1358195
+    ],
+    "size": [
+      0.23525,
+      0.16502,
+      0.27164
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/ice-cream.obj",
+    "vertices": 44,
+    "min": [
+      -0.1176231,
+      0.0,
+      -0.1358195
+    ],
+    "max": [
+      0.1176231,
+      0.4632196,
+      0.1358195
+    ],
+    "size": [
+      0.23525,
+      0.46322,
+      0.27164
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/knife-block.obj",
+    "vertices": 91,
+    "min": [
+      -0.2817657,
+      -0.01525132,
+      -0.11088
+    ],
+    "max": [
+      0.3541455,
+      0.647193,
+      0.11088
+    ],
+    "size": [
+      0.63591,
+      0.66244,
+      0.22176
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/leek.obj",
+    "vertices": 88,
+    "min": [
+      -0.1364703,
+      0.0,
+      -0.1364703
+    ],
+    "max": [
+      0.1364703,
+      0.8474299,
+      0.1364703
+    ],
+    "size": [
+      0.27294,
+      0.84743,
+      0.27294
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/lemon-half.obj",
+    "vertices": 60,
+    "min": [
+      -0.08660254,
+      0.0,
+      -0.1
+    ],
+    "max": [
+      0.08660254,
+      0.112,
+      0.1
+    ],
+    "size": [
+      0.17321,
+      0.112,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/lemon.obj",
+    "vertices": 54,
+    "min": [
+      -0.08660254,
+      0.0,
+      -0.1
+    ],
+    "max": [
+      0.08660254,
+      0.224,
+      0.1
+    ],
+    "size": [
+      0.17321,
+      0.224,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/loaf-baguette.obj",
+    "vertices": 63,
+    "min": [
+      -0.415,
+      0.0,
+      -0.125
+    ],
+    "max": [
+      0.415,
+      0.25,
+      0.125
+    ],
+    "size": [
+      0.83,
+      0.25,
+      0.25
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/loaf-round.obj",
+    "vertices": 60,
+    "min": [
+      -0.3858548,
+      0.0,
+      -0.2572365
+    ],
+    "max": [
+      0.3858548,
+      0.2931796,
+      0.2572365
+    ],
+    "size": [
+      0.77171,
+      0.29318,
+      0.51447
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/loaf.obj",
+    "vertices": 64,
+    "min": [
+      -0.289872,
+      0.0,
+      -0.182952
+    ],
+    "max": [
+      0.289872,
+      0.4423206,
+      0.182952
+    ],
+    "size": [
+      0.57974,
+      0.44232,
+      0.3659
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/lollypop.obj",
+    "vertices": 68,
+    "min": [
+      -0.019256,
+      0.0,
+      -0.09376168
+    ],
+    "max": [
+      0.019256,
+      0.3798,
+      0.09376168
+    ],
+    "size": [
+      0.03851,
+      0.3798,
+      0.18752
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/maki-roe.obj",
+    "vertices": 30,
+    "min": [
+      -0.06,
+      0.0,
+      -0.05196153
+    ],
+    "max": [
+      0.06,
+      0.09,
+      0.05196153
+    ],
+    "size": [
+      0.12,
+      0.09,
+      0.10392
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/maki-salmon.obj",
+    "vertices": 30,
+    "min": [
+      -0.06,
+      0.0,
+      -0.05196153
+    ],
+    "max": [
+      0.06,
+      0.07,
+      0.05196153
+    ],
+    "size": [
+      0.12,
+      0.07,
+      0.10392
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/maki-vegetable.obj",
+    "vertices": 32,
+    "min": [
+      -0.06,
+      0.0,
+      -0.05196153
+    ],
+    "max": [
+      0.06,
+      0.07,
+      0.05196153
+    ],
+    "size": [
+      0.12,
+      0.07,
+      0.10392
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/meat-cooked.obj",
+    "vertices": 74,
+    "min": [
+      -0.2392471,
+      0.0,
+      -0.2876866
+    ],
+    "max": [
+      0.2392471,
+      0.0645,
+      0.2876866
+    ],
+    "size": [
+      0.47849,
+      0.0645,
+      0.57537
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/meat-patty.obj",
+    "vertices": 54,
+    "min": [
+      -0.1493894,
+      0.0,
+      -0.1725
+    ],
+    "max": [
+      0.1493894,
+      0.0624312,
+      0.1725
+    ],
+    "size": [
+      0.29878,
+      0.06243,
+      0.345
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/meat-raw.obj",
+    "vertices": 62,
+    "min": [
+      -0.2392471,
+      0.0,
+      -0.2876866
+    ],
+    "max": [
+      0.2392471,
+      0.0645,
+      0.2876866
+    ],
+    "size": [
+      0.47849,
+      0.0645,
+      0.57537
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/meat-ribs.obj",
+    "vertices": 84,
+    "min": [
+      -0.2676937,
+      0.0,
+      -0.1916889
+    ],
+    "max": [
+      0.2676937,
+      0.06,
+      0.1916889
+    ],
+    "size": [
+      0.53539,
+      0.06,
+      0.38338
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/meat-sausage.obj",
+    "vertices": 162,
+    "min": [
+      -0.07577484,
+      0.0,
+      -0.1958045
+    ],
+    "max": [
+      0.07577484,
+      0.07274614,
+      0.1958045
+    ],
+    "size": [
+      0.15155,
+      0.07275,
+      0.39161
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/meat-tenderizer.obj",
+    "vertices": 168,
+    "min": [
+      -0.2678971,
+      0.0,
+      -0.137846
+    ],
+    "max": [
+      0.2728858,
+      0.1181537,
+      0.137846
+    ],
+    "size": [
+      0.54078,
+      0.11815,
+      0.27569
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/mincemeat-pie.obj",
+    "vertices": 84,
+    "min": [
+      -0.2654632,
+      0.0,
+      -0.3065305
+    ],
+    "max": [
+      0.2654632,
+      0.1673173,
+      0.3065305
+    ],
+    "size": [
+      0.53093,
+      0.16732,
+      0.61306
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/mortar-pestle.obj",
+    "vertices": 30,
+    "min": [
+      -0.0570781,
+      0.0,
+      -0.0659081
+    ],
+    "max": [
+      0.0570781,
+      0.3401536,
+      0.0659081
+    ],
+    "size": [
+      0.11416,
+      0.34015,
+      0.13182
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/mortar.obj",
+    "vertices": 48,
+    "min": [
+      -0.1977647,
+      -4.007413e-32,
+      -0.228359
+    ],
+    "max": [
+      0.1977647,
+      0.2104203,
+      0.228359
+    ],
+    "size": [
+      0.39553,
+      0.21042,
+      0.45672
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/muffin.obj",
+    "vertices": 44,
+    "min": [
+      -0.1523584,
+      0.0,
+      -0.1319462
+    ],
+    "max": [
+      0.1523584,
+      0.2486,
+      0.1319462
+    ],
+    "size": [
+      0.30472,
+      0.2486,
+      0.26389
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/mug.obj",
+    "vertices": 116,
+    "min": [
+      -0.1234606,
+      1.500252e-18,
+      -0.14256
+    ],
+    "max": [
+      0.2202088,
+      0.27336,
+      0.14256
+    ],
+    "size": [
+      0.34367,
+      0.27336,
+      0.28512
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/mushroom-half.obj",
+    "vertices": 36,
+    "min": [
+      -0.06243523,
+      0.0,
+      -0.072094
+    ],
+    "max": [
+      0.0,
+      0.1392,
+      0.072094
+    ],
+    "size": [
+      0.06244,
+      0.1392,
+      0.14419
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/mushroom.obj",
+    "vertices": 42,
+    "min": [
+      -0.06243523,
+      0.0,
+      -0.072094
+    ],
+    "max": [
+      0.06243523,
+      0.1392,
+      0.072094
+    ],
+    "size": [
+      0.12487,
+      0.1392,
+      0.14419
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/mussel-open.obj",
+    "vertices": 33,
+    "min": [
+      -0.04995879,
+      0.0,
+      -0.07767899
+    ],
+    "max": [
+      0.04613883,
+      0.08036412,
+      0.07767899
+    ],
+    "size": [
+      0.0961,
+      0.08036,
+      0.15536
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/mussel.obj",
+    "vertices": 21,
+    "min": [
+      -0.04613883,
+      0.0,
+      -0.07767899
+    ],
+    "max": [
+      0.04613883,
+      0.04152384,
+      0.07767899
+    ],
+    "size": [
+      0.09228,
+      0.04152,
+      0.15536
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/onion-half.obj",
+    "vertices": 87,
+    "min": [
+      -0.1065211,
+      0.0,
+      -0.123
+    ],
+    "max": [
+      2.165734e-15,
+      0.25,
+      0.123
+    ],
+    "size": [
+      0.10652,
+      0.25,
+      0.246
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/onion.obj",
+    "vertices": 36,
+    "min": [
+      -0.1065211,
+      0.0,
+      -0.123
+    ],
+    "max": [
+      0.1065211,
+      0.25,
+      0.123
+    ],
+    "size": [
+      0.21304,
+      0.25,
+      0.246
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/orange.obj",
+    "vertices": 64,
+    "min": [
+      -0.084846,
+      0.0,
+      -0.084846
+    ],
+    "max": [
+      0.084846,
+      0.1672,
+      0.084846
+    ],
+    "size": [
+      0.16969,
+      0.1672,
+      0.16969
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pan-stew.obj",
+    "vertices": 201,
+    "min": [
+      -0.3287247,
+      0.0,
+      -0.3810358
+    ],
+    "max": [
+      0.3287247,
+      0.175347,
+      0.3810358
+    ],
+    "size": [
+      0.65745,
+      0.17535,
+      0.76207
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pan.obj",
+    "vertices": 124,
+    "min": [
+      -0.3287247,
+      0.005453,
+      -0.3810358
+    ],
+    "max": [
+      0.3287247,
+      0.1808,
+      0.3810358
+    ],
+    "size": [
+      0.65745,
+      0.17535,
+      0.76207
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pancakes.obj",
+    "vertices": 331,
+    "min": [
+      -0.2325061,
+      -1.001088e-16,
+      -0.2519566
+    ],
+    "max": [
+      0.2029985,
+      0.1215985,
+      0.2519567
+    ],
+    "size": [
+      0.4355,
+      0.1216,
+      0.50391
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/paprika-slice.obj",
+    "vertices": 48,
+    "min": [
+      -0.08010925,
+      0.0,
+      -0.08010925
+    ],
+    "max": [
+      0.08010925,
+      0.03,
+      0.08010925
+    ],
+    "size": [
+      0.16022,
+      0.03,
+      0.16022
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/paprika.obj",
+    "vertices": 72,
+    "min": [
+      -0.08403247,
+      0.0,
+      -0.08403247
+    ],
+    "max": [
+      0.08403247,
+      0.199349,
+      0.08403247
+    ],
+    "size": [
+      0.16806,
+      0.19935,
+      0.16806
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/peanut-butter.obj",
+    "vertices": 88,
+    "min": [
+      -0.117972,
+      0.0,
+      -0.117972
+    ],
+    "max": [
+      0.117972,
+      0.2958,
+      0.117972
+    ],
+    "size": [
+      0.23594,
+      0.2958,
+      0.23594
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pear-half.obj",
+    "vertices": 73,
+    "min": [
+      -0.09814728,
+      0.0,
+      -0.09814728
+    ],
+    "max": [
+      0.0,
+      0.2707534,
+      0.09814728
+    ],
+    "size": [
+      0.09815,
+      0.27075,
+      0.19629
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pear.obj",
+    "vertices": 71,
+    "min": [
+      -0.09814728,
+      0.0,
+      -0.09814728
+    ],
+    "max": [
+      0.09814728,
+      0.2707534,
+      0.09814728
+    ],
+    "size": [
+      0.19629,
+      0.27075,
+      0.19629
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pepper-mill.obj",
+    "vertices": 128,
+    "min": [
+      -0.07904819,
+      0.0,
+      -0.07904819
+    ],
+    "max": [
+      0.07904819,
+      0.5481398,
+      0.07904819
+    ],
+    "size": [
+      0.1581,
+      0.54814,
+      0.1581
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pepper.obj",
+    "vertices": 52,
+    "min": [
+      -0.05195044,
+      0.0,
+      -0.159537
+    ],
+    "max": [
+      0.05195044,
+      0.07747463,
+      0.159537
+    ],
+    "size": [
+      0.1039,
+      0.07747,
+      0.31907
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pie.obj",
+    "vertices": 150,
+    "min": [
+      -0.4752,
+      0.0,
+      -0.4752
+    ],
+    "max": [
+      0.4752,
+      0.149688,
+      0.4752
+    ],
+    "size": [
+      0.9504,
+      0.14969,
+      0.9504
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pineapple.obj",
+    "vertices": 96,
+    "min": [
+      -0.1205823,
+      0.0,
+      -0.1223818
+    ],
+    "max": [
+      0.1205823,
+      0.4715913,
+      0.1223818
+    ],
+    "size": [
+      0.24116,
+      0.47159,
+      0.24476
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pizza-box.obj",
+    "vertices": 46,
+    "min": [
+      -0.4709,
+      0.0,
+      -0.4759
+    ],
+    "max": [
+      0.4709,
+      0.8816254,
+      0.4759
+    ],
+    "size": [
+      0.9418,
+      0.88163,
+      0.9518
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pizza-cutter.obj",
+    "vertices": 52,
+    "min": [
+      -0.268007,
+      0.0,
+      -0.127452
+    ],
+    "max": [
+      0.268007,
+      0.0556,
+      0.127452
+    ],
+    "size": [
+      0.53601,
+      0.0556,
+      0.2549
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pizza.obj",
+    "vertices": 1026,
+    "min": [
+      -0.4209,
+      -4.351998e-17,
+      -0.4209
+    ],
+    "max": [
+      0.4209,
+      0.04347,
+      0.4209
+    ],
+    "size": [
+      0.8418,
+      0.04347,
+      0.8418
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/plate-broken.obj",
+    "vertices": 157,
+    "min": [
+      -0.445887,
+      0.0,
+      -0.445887
+    ],
+    "max": [
+      0.445887,
+      0.09,
+      0.445887
+    ],
+    "size": [
+      0.89177,
+      0.09,
+      0.89177
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/plate-deep.obj",
+    "vertices": 72,
+    "min": [
+      -0.445887,
+      0.0,
+      -0.445887
+    ],
+    "max": [
+      0.445887,
+      0.1449,
+      0.445887
+    ],
+    "size": [
+      0.89177,
+      0.1449,
+      0.89177
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/plate-dinner.obj",
+    "vertices": 208,
+    "min": [
+      -0.445887,
+      0.0,
+      -0.445887
+    ],
+    "max": [
+      0.445887,
+      0.221359,
+      0.445887
+    ],
+    "size": [
+      0.89177,
+      0.22136,
+      0.89177
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/plate-rectangle.obj",
+    "vertices": 28,
+    "min": [
+      -0.4293206,
+      0.0,
+      -0.3593206
+    ],
+    "max": [
+      0.4293206,
+      0.13,
+      0.3593206
+    ],
+    "size": [
+      0.85864,
+      0.13,
+      0.71864
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/plate-sauerkraut.obj",
+    "vertices": 310,
+    "min": [
+      -0.445887,
+      0.0,
+      -0.445887
+    ],
+    "max": [
+      0.445887,
+      0.1752277,
+      0.445887
+    ],
+    "size": [
+      0.89177,
+      0.17523,
+      0.89177
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/plate.obj",
+    "vertices": 72,
+    "min": [
+      -0.445887,
+      0.0,
+      -0.445887
+    ],
+    "max": [
+      0.445887,
+      0.09,
+      0.445887
+    ],
+    "size": [
+      0.89177,
+      0.09,
+      0.89177
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/popsicle-chocolate.obj",
+    "vertices": 84,
+    "min": [
+      -0.0475,
+      0.0,
+      -0.1
+    ],
+    "max": [
+      0.0475,
+      0.49,
+      0.1
+    ],
+    "size": [
+      0.095,
+      0.49,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/popsicle-stick.obj",
+    "vertices": 20,
+    "min": [
+      -0.01,
+      0.0,
+      -0.02
+    ],
+    "max": [
+      0.01,
+      0.34,
+      0.02
+    ],
+    "size": [
+      0.02,
+      0.34,
+      0.04
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/popsicle.obj",
+    "vertices": 44,
+    "min": [
+      -0.0375,
+      0.0,
+      -0.09
+    ],
+    "max": [
+      0.0375,
+      0.49,
+      0.09
+    ],
+    "size": [
+      0.075,
+      0.49,
+      0.18
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pot-lid.obj",
+    "vertices": 72,
+    "min": [
+      -0.3287247,
+      0.0,
+      -0.3126358
+    ],
+    "max": [
+      0.3287247,
+      0.1184,
+      0.3126358
+    ],
+    "size": [
+      0.65745,
+      0.1184,
+      0.62527
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pot-stew-lid.obj",
+    "vertices": 82,
+    "min": [
+      -0.3287247,
+      0.0,
+      -0.3126358
+    ],
+    "max": [
+      0.3287247,
+      0.1184,
+      0.3126358
+    ],
+    "size": [
+      0.65745,
+      0.1184,
+      0.62527
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pot-stew.obj",
+    "vertices": 222,
+    "min": [
+      -0.3287247,
+      0.0,
+      -0.4110358
+    ],
+    "max": [
+      0.3287247,
+      0.3608,
+      0.4110358
+    ],
+    "size": [
+      0.65745,
+      0.3608,
+      0.82207
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pot.obj",
+    "vertices": 124,
+    "min": [
+      -0.3287247,
+      0.0,
+      -0.4110358
+    ],
+    "max": [
+      0.3287247,
+      0.3608,
+      0.4110358
+    ],
+    "size": [
+      0.65745,
+      0.3608,
+      0.82207
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pudding.obj",
+    "vertices": 30,
+    "min": [
+      -0.1249675,
+      0.0,
+      -0.1443
+    ],
+    "max": [
+      0.1249675,
+      0.1998,
+      0.1443
+    ],
+    "size": [
+      0.24993,
+      0.1998,
+      0.2886
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pumpkin-basic.obj",
+    "vertices": 42,
+    "min": [
+      -0.21,
+      0.0,
+      -0.1818653
+    ],
+    "max": [
+      0.21,
+      0.299,
+      0.1818653
+    ],
+    "size": [
+      0.42,
+      0.299,
+      0.36373
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/pumpkin.obj",
+    "vertices": 98,
+    "min": [
+      -0.2094385,
+      0.0,
+      -0.2094385
+    ],
+    "max": [
+      0.2094385,
+      0.2291429,
+      0.2094385
+    ],
+    "size": [
+      0.41888,
+      0.22914,
+      0.41888
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/radish.obj",
+    "vertices": 90,
+    "min": [
+      -0.171571,
+      0.0,
+      -0.171571
+    ],
+    "max": [
+      0.171571,
+      0.5763037,
+      0.171571
+    ],
+    "size": [
+      0.34314,
+      0.5763,
+      0.34314
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/rice-ball.obj",
+    "vertices": 56,
+    "min": [
+      -0.0406,
+      0.0,
+      -0.05760201
+    ],
+    "max": [
+      0.0406,
+      0.130935,
+      0.05760201
+    ],
+    "size": [
+      0.0812,
+      0.13093,
+      0.1152
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/rollingPin.obj",
+    "vertices": 75,
+    "min": [
+      -0.4068278,
+      -0.07014806,
+      -0.081
+    ],
+    "max": [
+      0.4068278,
+      0.07014806,
+      0.081
+    ],
+    "size": [
+      0.81366,
+      0.1403,
+      0.162
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/salad.obj",
+    "vertices": 106,
+    "min": [
+      -0.2510765,
+      0.0,
+      -0.2899182
+    ],
+    "max": [
+      0.2510765,
+      0.2733658,
+      0.2899182
+    ],
+    "size": [
+      0.50215,
+      0.27337,
+      0.57984
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/sandwich.obj",
+    "vertices": 108,
+    "min": [
+      -0.2261546,
+      0.0,
+      -0.2069291
+    ],
+    "max": [
+      0.2061546,
+      0.168,
+      0.2269291
+    ],
+    "size": [
+      0.43231,
+      0.168,
+      0.43386
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/sausage-half.obj",
+    "vertices": 54,
+    "min": [
+      -0.1853285,
+      3.792291e-14,
+      -0.068634
+    ],
+    "max": [
+      -7.259541e-12,
+      0.1188776,
+      0.068634
+    ],
+    "size": [
+      0.18533,
+      0.11888,
+      0.13727
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/sausage.obj",
+    "vertices": 48,
+    "min": [
+      -0.1853285,
+      0.0,
+      -0.068634
+    ],
+    "max": [
+      0.1853285,
+      0.1188776,
+      0.068634
+    ],
+    "size": [
+      0.37066,
+      0.11888,
+      0.13727
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/shaker-pepper.obj",
+    "vertices": 68,
+    "min": [
+      -0.04746,
+      0.0,
+      -0.04746
+    ],
+    "max": [
+      0.04746,
+      0.196,
+      0.04746
+    ],
+    "size": [
+      0.09492,
+      0.196,
+      0.09492
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/shaker-salt.obj",
+    "vertices": 68,
+    "min": [
+      -0.04746,
+      0.0,
+      -0.04746
+    ],
+    "max": [
+      0.04746,
+      0.196,
+      0.04746
+    ],
+    "size": [
+      0.09492,
+      0.196,
+      0.09492
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/skewer-vegetables.obj",
+    "vertices": 90,
+    "min": [
+      -0.29835,
+      0.0,
+      -0.05427241
+    ],
+    "max": [
+      0.29835,
+      0.1076705,
+      0.05427241
+    ],
+    "size": [
+      0.5967,
+      0.10767,
+      0.10854
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/skewer.obj",
+    "vertices": 66,
+    "min": [
+      -0.29835,
+      -3.101963e-17,
+      -0.05427241
+    ],
+    "max": [
+      0.29835,
+      0.09400255,
+      0.05427241
+    ],
+    "size": [
+      0.5967,
+      0.094,
+      0.10854
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/soda-bottle.obj",
+    "vertices": 60,
+    "min": [
+      -0.090246,
+      0.0,
+      -0.07815533
+    ],
+    "max": [
+      0.090246,
+      0.580412,
+      0.07815533
+    ],
+    "size": [
+      0.18049,
+      0.58041,
+      0.15631
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/soda-can-crushed.obj",
+    "vertices": 120,
+    "min": [
+      -0.123552,
+      0.0,
+      -0.123552
+    ],
+    "max": [
+      0.123552,
+      0.180597,
+      0.123552
+    ],
+    "size": [
+      0.2471,
+      0.1806,
+      0.2471
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/soda-can.obj",
+    "vertices": 86,
+    "min": [
+      -0.11232,
+      0.0,
+      -0.11232
+    ],
+    "max": [
+      0.11232,
+      0.350597,
+      0.11232
+    ],
+    "size": [
+      0.22464,
+      0.3506,
+      0.22464
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/soda-glass.obj",
+    "vertices": 91,
+    "min": [
+      -0.1309,
+      0.0,
+      -0.1833627
+    ],
+    "max": [
+      0.1309,
+      0.4134382,
+      0.1133627
+    ],
+    "size": [
+      0.2618,
+      0.41344,
+      0.29673
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/soda.obj",
+    "vertices": 104,
+    "min": [
+      -0.1270344,
+      0.0,
+      -0.1270344
+    ],
+    "max": [
+      0.1270344,
+      0.4324473,
+      0.1270344
+    ],
+    "size": [
+      0.25407,
+      0.43245,
+      0.25407
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/soy.obj",
+    "vertices": 36,
+    "min": [
+      -0.08266112,
+      0.0,
+      -0.09544884
+    ],
+    "max": [
+      0.08266112,
+      0.04,
+      0.09544884
+    ],
+    "size": [
+      0.16532,
+      0.04,
+      0.1909
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/steamer.obj",
+    "vertices": 262,
+    "min": [
+      -0.32,
+      0.0,
+      -0.32
+    ],
+    "max": [
+      0.32,
+      0.6,
+      0.32
+    ],
+    "size": [
+      0.64,
+      0.6,
+      0.64
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/strawberry.obj",
+    "vertices": 80,
+    "min": [
+      -0.05984,
+      0.0,
+      -0.05984
+    ],
+    "max": [
+      0.05984,
+      0.182,
+      0.05984
+    ],
+    "size": [
+      0.11968,
+      0.182,
+      0.11968
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/styrofoam-dinner.obj",
+    "vertices": 147,
+    "min": [
+      -0.8797641,
+      0.0,
+      -0.379463
+    ],
+    "max": [
+      0.379463,
+      0.8219852,
+      0.379463
+    ],
+    "size": [
+      1.25923,
+      0.82199,
+      0.75893
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/styrofoam.obj",
+    "vertices": 80,
+    "min": [
+      -0.8797641,
+      0.0,
+      -0.379463
+    ],
+    "max": [
+      0.379463,
+      0.8219852,
+      0.379463
+    ],
+    "size": [
+      1.25923,
+      0.82199,
+      0.75893
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/sub.obj",
+    "vertices": 272,
+    "min": [
+      -0.1413559,
+      0.0,
+      -0.3378197
+    ],
+    "max": [
+      0.1413558,
+      0.2225305,
+      0.3378197
+    ],
+    "size": [
+      0.28271,
+      0.22253,
+      0.67564
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/sundae.obj",
+    "vertices": 176,
+    "min": [
+      -0.1115943,
+      0.0,
+      -0.128858
+    ],
+    "max": [
+      0.1115943,
+      0.667883,
+      0.128858
+    ],
+    "size": [
+      0.22319,
+      0.66788,
+      0.25772
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/sushi-egg.obj",
+    "vertices": 56,
+    "min": [
+      -0.05895,
+      0.0,
+      -0.08714589
+    ],
+    "max": [
+      0.05895,
+      0.079176,
+      0.08714589
+    ],
+    "size": [
+      0.1179,
+      0.07918,
+      0.17429
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/sushi-salmon.obj",
+    "vertices": 68,
+    "min": [
+      -0.05395,
+      0.0,
+      -0.1003869
+    ],
+    "max": [
+      0.05395,
+      0.089176,
+      0.1003869
+    ],
+    "size": [
+      0.1079,
+      0.08918,
+      0.20077
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/taco.obj",
+    "vertices": 112,
+    "min": [
+      -0.2128,
+      0.0,
+      -0.057
+    ],
+    "max": [
+      0.2128,
+      0.2621635,
+      0.057
+    ],
+    "size": [
+      0.4256,
+      0.26216,
+      0.114
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/tajine-lid.obj",
+    "vertices": 81,
+    "min": [
+      -0.3777333,
+      0.0,
+      -0.3971723
+    ],
+    "max": [
+      0.3777333,
+      0.4420105,
+      0.3971723
+    ],
+    "size": [
+      0.75547,
+      0.44201,
+      0.79434
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/tajine.obj",
+    "vertices": 84,
+    "min": [
+      -0.4095529,
+      0.0,
+      -0.4306294
+    ],
+    "max": [
+      0.4095529,
+      0.1380046,
+      0.4306294
+    ],
+    "size": [
+      0.81911,
+      0.138,
+      0.86126
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/tomato-slice.obj",
+    "vertices": 88,
+    "min": [
+      -0.09,
+      0.0,
+      -0.09
+    ],
+    "max": [
+      0.09,
+      0.03,
+      0.09
+    ],
+    "size": [
+      0.18,
+      0.03,
+      0.18
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/tomato.obj",
+    "vertices": 68,
+    "min": [
+      -0.084846,
+      0.0,
+      -0.084846
+    ],
+    "max": [
+      0.084846,
+      0.1426643,
+      0.084846
+    ],
+    "size": [
+      0.16969,
+      0.14266,
+      0.16969
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/turkey.obj",
+    "vertices": 190,
+    "min": [
+      -0.4744892,
+      -4.22995e-18,
+      -0.3394991
+    ],
+    "max": [
+      0.4603205,
+      0.3768994,
+      0.3394991
+    ],
+    "size": [
+      0.93481,
+      0.3769,
+      0.679
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/utensil-fork.obj",
+    "vertices": 24,
+    "min": [
+      -0.2517377,
+      0.0,
+      -0.042
+    ],
+    "max": [
+      0.2517377,
+      0.0178,
+      0.042
+    ],
+    "size": [
+      0.50348,
+      0.0178,
+      0.084
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/utensil-knife.obj",
+    "vertices": 11,
+    "min": [
+      -0.3003841,
+      0.0,
+      -0.0389
+    ],
+    "max": [
+      0.3003841,
+      0.0178,
+      0.0389
+    ],
+    "size": [
+      0.60077,
+      0.0178,
+      0.0778
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/utensil-spoon.obj",
+    "vertices": 19,
+    "min": [
+      -0.2397933,
+      0.0,
+      -0.06
+    ],
+    "max": [
+      0.2397933,
+      0.0278,
+      0.06
+    ],
+    "size": [
+      0.47959,
+      0.0278,
+      0.12
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/waffle.obj",
+    "vertices": 296,
+    "min": [
+      -0.1602,
+      0.0,
+      -0.1602
+    ],
+    "max": [
+      0.1602,
+      0.04005,
+      0.1602
+    ],
+    "size": [
+      0.3204,
+      0.04005,
+      0.3204
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/watermelon.obj",
+    "vertices": 1217,
+    "min": [
+      -0.2277,
+      9.023893e-17,
+      -0.2277
+    ],
+    "max": [
+      0.2277,
+      0.4761,
+      0.2277
+    ],
+    "size": [
+      0.4554,
+      0.4761,
+      0.4554
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/whipped-cream.obj",
+    "vertices": 42,
+    "min": [
+      -0.06812156,
+      0.0,
+      -0.07866
+    ],
+    "max": [
+      0.06812156,
+      0.09668045,
+      0.07866
+    ],
+    "size": [
+      0.13624,
+      0.09668,
+      0.15732
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/whisk.obj",
+    "vertices": 66,
+    "min": [
+      -0.3622049,
+      0.0,
+      -0.07880832
+    ],
+    "max": [
+      0.3622049,
+      0.1576166,
+      0.07880832
+    ],
+    "size": [
+      0.72441,
+      0.15762,
+      0.15762
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/whole-ham.obj",
+    "vertices": 72,
+    "min": [
+      -0.1904735,
+      0.0,
+      -0.3198705
+    ],
+    "max": [
+      0.1904735,
+      0.4398797,
+      0.3198705
+    ],
+    "size": [
+      0.38095,
+      0.43988,
+      0.63974
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/wholer-ham.obj",
+    "vertices": 54,
+    "min": [
+      -0.1705402,
+      0.0,
+      -0.4146769
+    ],
+    "max": [
+      0.1705402,
+      0.3938458,
+      0.4146769
+    ],
+    "size": [
+      0.34108,
+      0.39385,
+      0.82935
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/wine-red.obj",
+    "vertices": 76,
+    "min": [
+      -0.09539712,
+      0.0,
+      -0.08261633
+    ],
+    "max": [
+      0.09539712,
+      0.69888,
+      0.08261633
+    ],
+    "size": [
+      0.19079,
+      0.69888,
+      0.16523
+    ]
+  },
+  {
+    "archive": "kenney_food-kit.zip",
+    "file": "Models/OBJ format/wine-white.obj",
+    "vertices": 66,
+    "min": [
+      -0.1014,
+      -0.0216,
+      -0.08781498
+    ],
+    "max": [
+      0.1014,
+      0.6340001,
+      0.08781498
+    ],
+    "size": [
+      0.2028,
+      0.6556,
+      0.17563
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bathroomCabinet.obj",
+    "vertices": 32,
+    "min": [
+      -0.43,
+      0.0,
+      0.08
+    ],
+    "max": [
+      -0.2,
+      0.39,
+      0.21
+    ],
+    "size": [
+      0.23,
+      0.39,
+      0.13
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bathroomCabinetDrawer.obj",
+    "vertices": 182,
+    "min": [
+      -0.43,
+      0.05824186,
+      0.13
+    ],
+    "max": [
+      0.0,
+      0.53,
+      0.45
+    ],
+    "size": [
+      0.43,
+      0.47176,
+      0.32
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bathroomMirror.obj",
+    "vertices": 32,
+    "min": [
+      -0.30134,
+      4.443999e-15,
+      -0.0956
+    ],
+    "max": [
+      0.0,
+      0.434625,
+      0.0488
+    ],
+    "size": [
+      0.30134,
+      0.43462,
+      0.1444
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bathroomSink.obj",
+    "vertices": 156,
+    "min": [
+      -0.34,
+      -0.4,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.16,
+      0.29
+    ],
+    "size": [
+      0.34,
+      0.56,
+      0.29
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bathroomSinkSquare.obj",
+    "vertices": 118,
+    "min": [
+      -0.43,
+      0.05680801,
+      0.15
+    ],
+    "max": [
+      0.0,
+      0.636808,
+      0.45
+    ],
+    "size": [
+      0.43,
+      0.58,
+      0.3
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bathtub.obj",
+    "vertices": 302,
+    "min": [
+      -1.19,
+      -3.158362e-16,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.42,
+      0.56
+    ],
+    "size": [
+      1.19,
+      0.42,
+      0.56
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bear.obj",
+    "vertices": 65,
+    "min": [
+      -0.3897114,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.45,
+      0.2475
+    ],
+    "size": [
+      0.38971,
+      0.45,
+      0.2475
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bedBunk.obj",
+    "vertices": 260,
+    "min": [
+      -0.5710001,
+      0.0,
+      0.0
+    ],
+    "max": [
+      -5.960464e-08,
+      0.85,
+      1.095
+    ],
+    "size": [
+      0.571,
+      0.85,
+      1.095
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bedDouble.obj",
+    "vertices": 118,
+    "min": [
+      -0.9560001,
+      0.0,
+      0.0
+    ],
+    "max": [
+      8.381903e-09,
+      0.375,
+      1.125
+    ],
+    "size": [
+      0.956,
+      0.375,
+      1.125
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bedSingle.obj",
+    "vertices": 102,
+    "min": [
+      -0.9560001,
+      3.311769e-14,
+      0.0
+    ],
+    "max": [
+      -0.3850001,
+      0.375,
+      1.125
+    ],
+    "size": [
+      0.571,
+      0.375,
+      1.125
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bench.obj",
+    "vertices": 77,
+    "min": [
+      -0.4,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.47,
+      0.2
+    ],
+    "size": [
+      0.4,
+      0.47,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/benchCushion.obj",
+    "vertices": 90,
+    "min": [
+      -0.4,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.46,
+      0.2
+    ],
+    "size": [
+      0.4,
+      0.46,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/benchCushionLow.obj",
+    "vertices": 64,
+    "min": [
+      -0.41,
+      0.0,
+      -0.01
+    ],
+    "max": [
+      0.01,
+      0.2,
+      0.21
+    ],
+    "size": [
+      0.42,
+      0.2,
+      0.22
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bookcaseClosed.obj",
+    "vertices": 188,
+    "min": [
+      -0.4,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.85,
+      0.25
+    ],
+    "size": [
+      0.4,
+      0.85,
+      0.25
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bookcaseClosedDoors.obj",
+    "vertices": 146,
+    "min": [
+      -0.4,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.85,
+      0.25
+    ],
+    "size": [
+      0.4,
+      0.85,
+      0.25
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bookcaseClosedWide.obj",
+    "vertices": 188,
+    "min": [
+      -0.8,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.79,
+      0.25
+    ],
+    "size": [
+      0.8,
+      0.79,
+      0.25
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bookcaseOpen.obj",
+    "vertices": 144,
+    "min": [
+      -0.4,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.8799999,
+      0.25
+    ],
+    "size": [
+      0.4,
+      0.88,
+      0.25
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/bookcaseOpenLow.obj",
+    "vertices": 88,
+    "min": [
+      -0.4,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.4,
+      0.25
+    ],
+    "size": [
+      0.4,
+      0.4,
+      0.25
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/books.obj",
+    "vertices": 35,
+    "min": [
+      -0.1504476,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.1039023,
+      0.0945
+    ],
+    "size": [
+      0.15045,
+      0.1039,
+      0.0945
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/cabinetBed.obj",
+    "vertices": 40,
+    "min": [
+      -0.256,
+      0.0,
+      -0.01
+    ],
+    "max": [
+      0.01,
+      0.2332,
+      0.205
+    ],
+    "size": [
+      0.266,
+      0.2332,
+      0.215
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/cabinetBedDrawer.obj",
+    "vertices": 98,
+    "min": [
+      -0.256,
+      0.0,
+      -0.0123
+    ],
+    "max": [
+      0.01,
+      0.2632,
+      0.205
+    ],
+    "size": [
+      0.266,
+      0.2632,
+      0.2173
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/cabinetBedDrawerTable.obj",
+    "vertices": 74,
+    "min": [
+      -0.256,
+      0.0,
+      -0.0123
+    ],
+    "max": [
+      0.01,
+      0.2632,
+      0.205
+    ],
+    "size": [
+      0.266,
+      0.2632,
+      0.2173
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/cabinetTelevision.obj",
+    "vertices": 64,
+    "min": [
+      -0.8,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.31,
+      0.25
+    ],
+    "size": [
+      0.8,
+      0.31,
+      0.25
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/cabinetTelevisionDoors.obj",
+    "vertices": 96,
+    "min": [
+      -0.8,
+      0.0,
+      -0.01
+    ],
+    "max": [
+      0.0,
+      0.31,
+      0.25
+    ],
+    "size": [
+      0.8,
+      0.31,
+      0.26
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/cardboardBoxClosed.obj",
+    "vertices": 20,
+    "min": [
+      -0.2125,
+      0.0,
+      -9.023893e-17
+    ],
+    "max": [
+      0.0,
+      0.281,
+      0.2125
+    ],
+    "size": [
+      0.2125,
+      0.281,
+      0.2125
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/cardboardBoxOpen.obj",
+    "vertices": 20,
+    "min": [
+      -0.2921875,
+      0.0,
+      -9.023893e-17
+    ],
+    "max": [
+      0.0796875,
+      0.281,
+      0.2125
+    ],
+    "size": [
+      0.37187,
+      0.281,
+      0.2125
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/ceilingFan.obj",
+    "vertices": 104,
+    "min": [
+      -0.2828291,
+      -0.133718,
+      -0.2613474
+    ],
+    "max": [
+      0.1719066,
+      0.0,
+      0.2637362
+    ],
+    "size": [
+      0.45474,
+      0.13372,
+      0.52508
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/chair.obj",
+    "vertices": 77,
+    "min": [
+      -0.2,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.47,
+      0.2
+    ],
+    "size": [
+      0.2,
+      0.47,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/chairCushion.obj",
+    "vertices": 91,
+    "min": [
+      -0.2,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.46,
+      0.2
+    ],
+    "size": [
+      0.2,
+      0.46,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/chairDesk.obj",
+    "vertices": 292,
+    "min": [
+      -0.33495,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.6076,
+      0.314299
+    ],
+    "size": [
+      0.33495,
+      0.6076,
+      0.3143
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/chairModernCushion.obj",
+    "vertices": 48,
+    "min": [
+      -0.2,
+      -1.116358e-17,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.46,
+      0.2
+    ],
+    "size": [
+      0.2,
+      0.46,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/chairModernFrameCushion.obj",
+    "vertices": 142,
+    "min": [
+      -0.2,
+      -1.116358e-17,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.46,
+      0.2
+    ],
+    "size": [
+      0.2,
+      0.46,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/chairRounded.obj",
+    "vertices": 130,
+    "min": [
+      -0.2,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.455,
+      0.2
+    ],
+    "size": [
+      0.2,
+      0.455,
+      0.2
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/coatRack.obj",
+    "vertices": 68,
+    "min": [
+      -0.448,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.28,
+      0.1344
+    ],
+    "size": [
+      0.448,
+      0.28,
+      0.1344
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/coatRackStanding.obj",
+    "vertices": 92,
+    "min": [
+      -0.1364,
+      3.077694e-29,
+      -0.1364
+    ],
+    "max": [
+      0.1364,
+      0.77,
+      0.1364
+    ],
+    "size": [
+      0.2728,
+      0.77,
+      0.2728
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/computerKeyboard.obj",
+    "vertices": 18,
+    "min": [
+      -0.2822,
+      1.602965e-31,
+      3.609557e-16
+    ],
+    "max": [
+      0.0,
+      0.027556,
+      0.118192
+    ],
+    "size": [
+      0.2822,
+      0.02756,
+      0.11819
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/computerMouse.obj",
+    "vertices": 32,
+    "min": [
+      -0.02485,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.02485,
+      0.023572,
+      0.08510379
+    ],
+    "size": [
+      0.0497,
+      0.02357,
+      0.0851
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/computerScreen.obj",
+    "vertices": 38,
+    "min": [
+      -0.392688,
+      -8.014827e-32,
+      5.414336e-16
+    ],
+    "max": [
+      1.443823e-15,
+      0.2942852,
+      0.104004
+    ],
+    "size": [
+      0.39269,
+      0.29429,
+      0.104
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/desk.obj",
+    "vertices": 103,
+    "min": [
+      -0.7244754,
+      0.0,
+      -0.0123
+    ],
+    "max": [
+      0.01,
+      0.3844076,
+      0.38
+    ],
+    "size": [
+      0.73448,
+      0.38441,
+      0.3923
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/deskCorner.obj",
+    "vertices": 129,
+    "min": [
+      -0.9744755,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.3844076,
+      0.9744755
+    ],
+    "size": [
+      0.97448,
+      0.38441,
+      0.97448
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/doorway.obj",
+    "vertices": 98,
+    "min": [
+      -0.486,
+      0.0,
+      -0.01215
+    ],
+    "max": [
+      0.0,
+      1.009532,
+      0.10125
+    ],
+    "size": [
+      0.486,
+      1.00953,
+      0.1134
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/doorwayFront.obj",
+    "vertices": 78,
+    "min": [
+      -0.486,
+      0.0,
+      -0.01215
+    ],
+    "max": [
+      0.0,
+      1.009532,
+      0.10125
+    ],
+    "size": [
+      0.486,
+      1.00953,
+      0.1134
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/doorwayOpen.obj",
+    "vertices": 16,
+    "min": [
+      -0.486,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      1.009532,
+      0.0891
+    ],
+    "size": [
+      0.486,
+      1.00953,
+      0.0891
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/dryer.obj",
+    "vertices": 135,
+    "min": [
+      -0.39,
+      0.0,
+      -0.03
+    ],
+    "max": [
+      0.0,
+      0.47,
+      0.35
+    ],
+    "size": [
+      0.39,
+      0.47,
+      0.38
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/floorCorner.obj",
+    "vertices": 10,
+    "min": [
+      -0.55,
+      -5.639933e-18,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.05,
+      0.55
+    ],
+    "size": [
+      0.55,
+      0.05,
+      0.55
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/floorCornerRound.obj",
+    "vertices": 32,
+    "min": [
+      -0.55,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.05,
+      0.55
+    ],
+    "size": [
+      0.55,
+      0.05,
+      0.55
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/floorFull.obj",
+    "vertices": 8,
+    "min": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.05,
+      1.0
+    ],
+    "size": [
+      1.0,
+      0.05,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/floorHalf.obj",
+    "vertices": 8,
+    "min": [
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.05,
+      1.0
+    ],
+    "size": [
+      0.5,
+      0.05,
+      1.0
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/hoodLarge.obj",
+    "vertices": 20,
+    "min": [
+      -0.43,
+      0.0,
+      0.0
+    ],
+    "max": [
+      1.443823e-15,
+      0.3695317,
+      0.2849
+    ],
+    "size": [
+      0.43,
+      0.36953,
+      0.2849
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/hoodModern.obj",
+    "vertices": 16,
+    "min": [
+      -0.43,
+      -0.03,
+      0.0
+    ],
+    "max": [
+      1.443823e-15,
+      0.3695317,
+      0.2849
+    ],
+    "size": [
+      0.43,
+      0.39953,
+      0.2849
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenBar.obj",
+    "vertices": 40,
+    "min": [
+      -0.43,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.42,
+      0.21
+    ],
+    "size": [
+      0.43,
+      0.42,
+      0.21
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenBarEnd.obj",
+    "vertices": 78,
+    "min": [
+      -0.1015625,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.42,
+      0.21
+    ],
+    "size": [
+      0.10156,
+      0.42,
+      0.21
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenBlender.obj",
+    "vertices": 77,
+    "min": [
+      -0.1358262,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.22752,
+      0.1091188
+    ],
+    "size": [
+      0.13583,
+      0.22752,
+      0.10912
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenCabinet.obj",
+    "vertices": 60,
+    "min": [
+      -0.43,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.45,
+      0.45
+    ],
+    "size": [
+      0.43,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenCabinetCornerInner.obj",
+    "vertices": 29,
+    "min": [
+      -0.46,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.45,
+      0.46
+    ],
+    "size": [
+      0.46,
+      0.45,
+      0.46
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenCabinetCornerRound.obj",
+    "vertices": 99,
+    "min": [
+      -0.45,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.45,
+      0.45
+    ],
+    "size": [
+      0.45,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenCabinetDrawer.obj",
+    "vertices": 86,
+    "min": [
+      -0.43,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.45,
+      0.45
+    ],
+    "size": [
+      0.43,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenCabinetUpper.obj",
+    "vertices": 40,
+    "min": [
+      -0.43,
+      0.0,
+      -0.01
+    ],
+    "max": [
+      0.0,
+      0.39,
+      0.21
+    ],
+    "size": [
+      0.43,
+      0.39,
+      0.22
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenCabinetUpperCorner.obj",
+    "vertices": 96,
+    "min": [
+      -0.215,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.39,
+      0.21
+    ],
+    "size": [
+      0.215,
+      0.39,
+      0.21
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenCabinetUpperDouble.obj",
+    "vertices": 76,
+    "min": [
+      -0.43,
+      0.0,
+      -0.01
+    ],
+    "max": [
+      0.0,
+      0.39,
+      0.21
+    ],
+    "size": [
+      0.43,
+      0.39,
+      0.22
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenCabinetUpperLow.obj",
+    "vertices": 34,
+    "min": [
+      -0.43,
+      0.0,
+      -0.01
+    ],
+    "max": [
+      0.0,
+      0.195,
+      0.21
+    ],
+    "size": [
+      0.43,
+      0.195,
+      0.22
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenCoffeeMachine.obj",
+    "vertices": 80,
+    "min": [
+      -0.18954,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.177489,
+      0.2401671
+    ],
+    "size": [
+      0.18954,
+      0.17749,
+      0.24017
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenFridge.obj",
+    "vertices": 106,
+    "min": [
+      -0.43,
+      0.0,
+      -0.01
+    ],
+    "max": [
+      0.0,
+      0.92,
+      0.2819339
+    ],
+    "size": [
+      0.43,
+      0.92,
+      0.29193
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenFridgeBuiltIn.obj",
+    "vertices": 114,
+    "min": [
+      -0.43,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.8687478,
+      0.45
+    ],
+    "size": [
+      0.43,
+      0.86875,
+      0.45
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenFridgeLarge.obj",
+    "vertices": 206,
+    "min": [
+      -0.52,
+      -1.045753e-18,
+      -0.063616
+    ],
+    "max": [
+      0.0,
+      0.92,
+      0.3419339
+    ],
+    "size": [
+      0.52,
+      0.92,
+      0.40555
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenFridgeSmall.obj",
+    "vertices": 68,
+    "min": [
+      -0.43,
+      0.0,
+      -0.01
+    ],
+    "max": [
+      0.0,
+      0.6002463,
+      0.2819339
+    ],
+    "size": [
+      0.43,
+      0.60025,
+      0.29193
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenMicrowave.obj",
+    "vertices": 76,
+    "min": [
+      -0.29,
+      0.0,
+      -0.01
+    ],
+    "max": [
+      0.0,
+      0.18,
+      0.22
+    ],
+    "size": [
+      0.29,
+      0.18,
+      0.23
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenSink.obj",
+    "vertices": 148,
+    "min": [
+      -0.43,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.49,
+      0.45
+    ],
+    "size": [
+      0.43,
+      0.49,
+      0.45
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenStove.obj",
+    "vertices": 410,
+    "min": [
+      -0.43,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.45,
+      0.45
+    ],
+    "size": [
+      0.43,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/kitchenStoveElectric.obj",
+    "vertices": 164,
+    "min": [
+      -0.43,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.45,
+      0.45
+    ],
+    "size": [
+      0.43,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/lampRoundFloor.obj",
+    "vertices": 40,
+    "min": [
+      -0.1360197,
+      0.0,
+      -0.02778
+    ],
+    "max": [
+      0.01601971,
+      0.86,
+      0.14778
+    ],
+    "size": [
+      0.15204,
+      0.86,
+      0.17556
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/lampRoundTable.obj",
+    "vertices": 40,
+    "min": [
+      -0.1360197,
+      0.0,
+      -0.02778
+    ],
+    "max": [
+      0.01601971,
+      0.31425,
+      0.14778
+    ],
+    "size": [
+      0.15204,
+      0.31425,
+      0.17556
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/lampSquareCeiling.obj",
+    "vertices": 32,
+    "min": [
+      -0.12,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.23,
+      0.12
+    ],
+    "size": [
+      0.12,
+      0.23,
+      0.12
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/lampSquareFloor.obj",
+    "vertices": 32,
+    "min": [
+      -0.12,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.86,
+      0.12
+    ],
+    "size": [
+      0.12,
+      0.86,
+      0.12
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/lampSquareTable.obj",
+    "vertices": 32,
+    "min": [
+      -0.12,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.29,
+      0.12
+    ],
+    "size": [
+      0.12,
+      0.29,
+      0.12
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/lampWall.obj",
+    "vertices": 18,
+    "min": [
+      -0.1133177,
+      0.0,
+      -0.150336
+    ],
+    "max": [
+      0.1133177,
+      0.0928,
+      0.0
+    ],
+    "size": [
+      0.22664,
+      0.0928,
+      0.15034
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/laptop.obj",
+    "vertices": 36,
+    "min": [
+      -0.264,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.1618094,
+      0.2400652
+    ],
+    "size": [
+      0.264,
+      0.16181,
+      0.24007
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/loungeChair.obj",
+    "vertices": 66,
+    "min": [
+      -0.49,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.46,
+      0.41
+    ],
+    "size": [
+      0.49,
+      0.46,
+      0.41
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/loungeChairRelax.obj",
+    "vertices": 94,
+    "min": [
+      -0.49,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.63,
+      0.6746927
+    ],
+    "size": [
+      0.49,
+      0.63,
+      0.67469
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/loungeDesignChair.obj",
+    "vertices": 60,
+    "min": [
+      -0.7295953,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.4,
+      0.41
+    ],
+    "size": [
+      0.7296,
+      0.4,
+      0.41
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/loungeDesignSofa.obj",
+    "vertices": 60,
+    "min": [
+      -1.12,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.4,
+      0.41
+    ],
+    "size": [
+      1.12,
+      0.4,
+      0.41
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/loungeDesignSofaCorner.obj",
+    "vertices": 90,
+    "min": [
+      -1.349828,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.4,
+      1.349828
+    ],
+    "size": [
+      1.34983,
+      0.4,
+      1.34983
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/loungeSofa.obj",
+    "vertices": 66,
+    "min": [
+      -0.98,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.46,
+      0.41
+    ],
+    "size": [
+      0.98,
+      0.46,
+      0.41
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/loungeSofaCorner.obj",
+    "vertices": 97,
+    "min": [
+      -0.98,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.46,
+      0.98
+    ],
+    "size": [
+      0.98,
+      0.46,
+      0.98
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/loungeSofaLong.obj",
+    "vertices": 95,
+    "min": [
+      -0.98,
+      0.0,
+      -0.41
+    ],
+    "max": [
+      0.0,
+      0.46,
+      0.41
+    ],
+    "size": [
+      0.98,
+      0.46,
+      0.82
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/loungeSofaOttoman.obj",
+    "vertices": 44,
+    "min": [
+      -0.9098285,
+      0.0,
+      -0.41
+    ],
+    "max": [
+      -0.47,
+      0.23,
+      0.04
+    ],
+    "size": [
+      0.43983,
+      0.23,
+      0.45
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/paneling.obj",
+    "vertices": 22,
+    "min": [
+      -0.5,
+      0.0,
+      -0.03
+    ],
+    "max": [
+      0.0,
+      0.5947658,
+      0.0
+    ],
+    "size": [
+      0.5,
+      0.59477,
+      0.03
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/pillow.obj",
+    "vertices": 16,
+    "min": [
+      -0.23,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.2221629,
+      0.08848359
+    ],
+    "size": [
+      0.23,
+      0.22216,
+      0.08848
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/pillowBlue.obj",
+    "vertices": 16,
+    "min": [
+      -0.23,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.1285122,
+      0.06338995
+    ],
+    "size": [
+      0.23,
+      0.12851,
+      0.06339
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/pillowBlueLong.obj",
+    "vertices": 16,
+    "min": [
+      -0.3865755,
+      -3.609557e-16,
+      0.0
+    ],
+    "max": [
+      0.13,
+      0.2221629,
+      0.08848359
+    ],
+    "size": [
+      0.51658,
+      0.22216,
+      0.08848
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/pillowLong.obj",
+    "vertices": 16,
+    "min": [
+      -0.3865755,
+      -3.609557e-16,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.2221629,
+      0.08848359
+    ],
+    "size": [
+      0.38658,
+      0.22216,
+      0.08848
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/plantSmall1.obj",
+    "vertices": 53,
+    "min": [
+      -0.04733037,
+      0.0,
+      -0.04733037
+    ],
+    "max": [
+      0.04733037,
+      0.14,
+      0.04733037
+    ],
+    "size": [
+      0.09466,
+      0.14,
+      0.09466
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/plantSmall2.obj",
+    "vertices": 81,
+    "min": [
+      -0.04733037,
+      0.0,
+      -0.04733037
+    ],
+    "max": [
+      0.04733037,
+      0.14,
+      0.04733037
+    ],
+    "size": [
+      0.09466,
+      0.14,
+      0.09466
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/plantSmall3.obj",
+    "vertices": 51,
+    "min": [
+      -0.04900001,
+      0.0,
+      -0.04243525
+    ],
+    "max": [
+      0.04900001,
+      0.145,
+      0.04243525
+    ],
+    "size": [
+      0.098,
+      0.145,
+      0.08487
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/pottedPlant.obj",
+    "vertices": 37,
+    "min": [
+      -0.1060296,
+      0.0,
+      -0.120731
+    ],
+    "max": [
+      0.1060296,
+      0.6540168,
+      0.120731
+    ],
+    "size": [
+      0.21206,
+      0.65402,
+      0.24146
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/radio.obj",
+    "vertices": 216,
+    "min": [
+      -0.315,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.2281911,
+      0.0975
+    ],
+    "size": [
+      0.315,
+      0.22819,
+      0.0975
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/rugDoormat.obj",
+    "vertices": 104,
+    "min": [
+      -0.4293,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.01,
+      0.237009
+    ],
+    "size": [
+      0.4293,
+      0.01,
+      0.23701
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/rugRectangle.obj",
+    "vertices": 16,
+    "min": [
+      -1.57,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.01,
+      0.92
+    ],
+    "size": [
+      1.57,
+      0.01,
+      0.92
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/rugRound.obj",
+    "vertices": 96,
+    "min": [
+      -0.92,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.01,
+      0.92
+    ],
+    "size": [
+      0.92,
+      0.01,
+      0.92
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/rugRounded.obj",
+    "vertices": 104,
+    "min": [
+      -1.57,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.01,
+      0.92
+    ],
+    "size": [
+      1.57,
+      0.01,
+      0.92
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/rugSquare.obj",
+    "vertices": 16,
+    "min": [
+      -0.9043259,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.01,
+      0.92
+    ],
+    "size": [
+      0.90433,
+      0.01,
+      0.92
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/shower.obj",
+    "vertices": 232,
+    "min": [
+      0.0,
+      0.0,
+      -0.02000003
+    ],
+    "max": [
+      0.5617921,
+      1.094033,
+      0.561792
+    ],
+    "size": [
+      0.56179,
+      1.09403,
+      0.58179
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/showerRound.obj",
+    "vertices": 325,
+    "min": [
+      -0.561792,
+      0.0,
+      0.0
+    ],
+    "max": [
+      7.219114e-16,
+      1.094033,
+      0.561792
+    ],
+    "size": [
+      0.56179,
+      1.09403,
+      0.56179
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/sideTable.obj",
+    "vertices": 56,
+    "min": [
+      -0.5244755,
+      0.0,
+      -0.01
+    ],
+    "max": [
+      0.01,
+      0.3844076,
+      0.21
+    ],
+    "size": [
+      0.53448,
+      0.38441,
+      0.22
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/sideTableDrawers.obj",
+    "vertices": 120,
+    "min": [
+      -0.5244755,
+      0.0,
+      -0.0123
+    ],
+    "max": [
+      0.01,
+      0.3844076,
+      0.21
+    ],
+    "size": [
+      0.53448,
+      0.38441,
+      0.2223
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/speaker.obj",
+    "vertices": 116,
+    "min": [
+      -0.148,
+      1.69198e-17,
+      3.609557e-16
+    ],
+    "max": [
+      1.082867e-15,
+      0.6364,
+      0.148
+    ],
+    "size": [
+      0.148,
+      0.6364,
+      0.148
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/speakerSmall.obj",
+    "vertices": 112,
+    "min": [
+      -0.148,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.2979797,
+      0.1332
+    ],
+    "size": [
+      0.148,
+      0.29798,
+      0.1332
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/stairs.obj",
+    "vertices": 156,
+    "min": [
+      -1.823435,
+      1.231924e-15,
+      0.0
+    ],
+    "max": [
+      0.0,
+      1.339532,
+      0.79
+    ],
+    "size": [
+      1.82343,
+      1.33953,
+      0.79
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/stairsCorner.obj",
+    "vertices": 158,
+    "min": [
+      -1.93764,
+      0.0,
+      0.0
+    ],
+    "max": [
+      -0.1639486,
+      1.339532,
+      1.425794
+    ],
+    "size": [
+      1.77369,
+      1.33953,
+      1.42579
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/stairsOpen.obj",
+    "vertices": 209,
+    "min": [
+      -1.823435,
+      6.314011e-15,
+      0.0
+    ],
+    "max": [
+      0.0,
+      1.339532,
+      0.79
+    ],
+    "size": [
+      1.82343,
+      1.33953,
+      0.79
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/stairsOpenSingle.obj",
+    "vertices": 139,
+    "min": [
+      -1.823435,
+      9.337238e-15,
+      0.0
+    ],
+    "max": [
+      0.0,
+      1.339532,
+      0.79
+    ],
+    "size": [
+      1.82343,
+      1.33953,
+      0.79
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/stoolBar.obj",
+    "vertices": 80,
+    "min": [
+      -0.26544,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.435,
+      0.2298778
+    ],
+    "size": [
+      0.26544,
+      0.435,
+      0.22988
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/stoolBarSquare.obj",
+    "vertices": 65,
+    "min": [
+      -0.20947,
+      0.0,
+      0.04112688
+    ],
+    "max": [
+      -0.05597,
+      0.405,
+      0.1887509
+    ],
+    "size": [
+      0.1535,
+      0.405,
+      0.14762
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/table.obj",
+    "vertices": 56,
+    "min": [
+      -0.8414879,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.326734,
+      0.4473733
+    ],
+    "size": [
+      0.84149,
+      0.32673,
+      0.44737
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/tableCloth.obj",
+    "vertices": 68,
+    "min": [
+      -0.8414879,
+      0.0,
+      -1.281393e-13
+    ],
+    "max": [
+      0.0,
+      0.326734,
+      0.4473733
+    ],
+    "size": [
+      0.84149,
+      0.32673,
+      0.44737
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/tableCoffee.obj",
+    "vertices": 56,
+    "min": [
+      -0.2,
+      -3.609557e-16,
+      -0.1
+    ],
+    "max": [
+      0.4609961,
+      0.23,
+      0.3
+    ],
+    "size": [
+      0.661,
+      0.23,
+      0.4
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/tableCoffeeGlass.obj",
+    "vertices": 60,
+    "min": [
+      -0.2,
+      -3.609557e-16,
+      -0.1
+    ],
+    "max": [
+      0.4609961,
+      0.23,
+      0.3
+    ],
+    "size": [
+      0.661,
+      0.23,
+      0.4
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/tableCoffeeGlassSquare.obj",
+    "vertices": 60,
+    "min": [
+      0.06099608,
+      -3.609557e-16,
+      -0.1
+    ],
+    "max": [
+      0.4609961,
+      0.23,
+      0.3
+    ],
+    "size": [
+      0.4,
+      0.23,
+      0.4
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/tableCoffeeSquare.obj",
+    "vertices": 56,
+    "min": [
+      0.06099608,
+      -3.609557e-16,
+      -0.1
+    ],
+    "max": [
+      0.4609961,
+      0.23,
+      0.3
+    ],
+    "size": [
+      0.4,
+      0.23,
+      0.4
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/tableCross.obj",
+    "vertices": 82,
+    "min": [
+      -0.85212,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.3474133,
+      0.4473733
+    ],
+    "size": [
+      0.85212,
+      0.34741,
+      0.44737
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/tableCrossCloth.obj",
+    "vertices": 94,
+    "min": [
+      -0.85212,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.3474133,
+      0.4473733
+    ],
+    "size": [
+      0.85212,
+      0.34741,
+      0.44737
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/tableGlass.obj",
+    "vertices": 64,
+    "min": [
+      -0.8414879,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.326734,
+      0.4473733
+    ],
+    "size": [
+      0.84149,
+      0.32673,
+      0.44737
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/tableRound.obj",
+    "vertices": 42,
+    "min": [
+      -0.6928203,
+      -0.27,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.09673398,
+      0.8
+    ],
+    "size": [
+      0.69282,
+      0.36673,
+      0.8
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/televisionAntenna.obj",
+    "vertices": 24,
+    "min": [
+      -0.1322639,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.1322639,
+      0.1027343,
+      0.08
+    ],
+    "size": [
+      0.26453,
+      0.10273,
+      0.08
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/televisionModern.obj",
+    "vertices": 38,
+    "min": [
+      -0.3424,
+      0.0,
+      -0.0642
+    ],
+    "max": [
+      0.3424,
+      0.45475,
+      0.0642
+    ],
+    "size": [
+      0.6848,
+      0.45475,
+      0.1284
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/televisionVintage.obj",
+    "vertices": 142,
+    "min": [
+      -0.41,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.27,
+      0.27
+    ],
+    "size": [
+      0.41,
+      0.27,
+      0.27
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/toaster.obj",
+    "vertices": 112,
+    "min": [
+      -0.09399187,
+      0.0,
+      -0.05
+    ],
+    "max": [
+      0.09399187,
+      0.13,
+      0.05
+    ],
+    "size": [
+      0.18798,
+      0.13,
+      0.1
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/toilet.obj",
+    "vertices": 116,
+    "min": [
+      -0.31255,
+      0.0,
+      -0.4771768
+    ],
+    "max": [
+      2.980232e-08,
+      0.450965,
+      -4.656613e-10
+    ],
+    "size": [
+      0.31255,
+      0.45097,
+      0.47718
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/toiletSquare.obj",
+    "vertices": 118,
+    "min": [
+      -0.30362,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.450965,
+      0.3871767
+    ],
+    "size": [
+      0.30362,
+      0.45097,
+      0.38718
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/trashcan.obj",
+    "vertices": 36,
+    "min": [
+      -0.1038468,
+      -2.506236e-18,
+      -0.1224878
+    ],
+    "max": [
+      0.1038468,
+      0.427866,
+      0.1116365
+    ],
+    "size": [
+      0.20769,
+      0.42787,
+      0.23412
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/wall.obj",
+    "vertices": 8,
+    "min": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      1.289532,
+      0.05
+    ],
+    "size": [
+      1.0,
+      1.28953,
+      0.05
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/wallCorner.obj",
+    "vertices": 16,
+    "min": [
+      -0.55,
+      -9.023893e-17,
+      0.0
+    ],
+    "max": [
+      0.0,
+      1.289532,
+      0.55
+    ],
+    "size": [
+      0.55,
+      1.28953,
+      0.55
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/wallCornerRond.obj",
+    "vertices": 60,
+    "min": [
+      -0.55,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      1.289532,
+      0.55
+    ],
+    "size": [
+      0.55,
+      1.28953,
+      0.55
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/wallDoorway.obj",
+    "vertices": 32,
+    "min": [
+      -1.0,
+      0.0,
+      -0.01955
+    ],
+    "max": [
+      0.0,
+      1.289532,
+      0.06955
+    ],
+    "size": [
+      1.0,
+      1.28953,
+      0.0891
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/wallDoorwayWide.obj",
+    "vertices": 32,
+    "min": [
+      -1.0,
+      -2.136945e-16,
+      -0.01955
+    ],
+    "max": [
+      0.0,
+      1.289532,
+      0.06955
+    ],
+    "size": [
+      1.0,
+      1.28953,
+      0.0891
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/wallHalf.obj",
+    "vertices": 8,
+    "min": [
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      1.289532,
+      0.05
+    ],
+    "size": [
+      0.5,
+      1.28953,
+      0.05
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/wallWindow.obj",
+    "vertices": 52,
+    "min": [
+      -1.0,
+      0.0,
+      -0.01955
+    ],
+    "max": [
+      0.0,
+      1.289532,
+      0.06955
+    ],
+    "size": [
+      1.0,
+      1.28953,
+      0.0891
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/wallWindowSlide.obj",
+    "vertices": 70,
+    "min": [
+      -1.0,
+      0.0,
+      -0.01955
+    ],
+    "max": [
+      0.0,
+      1.289532,
+      0.06955
+    ],
+    "size": [
+      1.0,
+      1.28953,
+      0.0891
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/washer.obj",
+    "vertices": 214,
+    "min": [
+      -0.39,
+      0.0,
+      -0.04000001
+    ],
+    "max": [
+      0.0,
+      0.47,
+      0.35
+    ],
+    "size": [
+      0.39,
+      0.47,
+      0.39
+    ]
+  },
+  {
+    "archive": "kenney_furniture-kit.zip",
+    "file": "Models/OBJ format/washerDryerStacked.obj",
+    "vertices": 351,
+    "min": [
+      -0.39,
+      0.0,
+      -0.04000001
+    ],
+    "max": [
+      0.0,
+      0.94,
+      0.35
+    ],
+    "size": [
+      0.39,
+      0.94,
+      0.39
+    ]
+  },
+  {
+    "archive": "Realistic Car Pack - Nov 2018-20261013T152945Z-1-001.zip",
+    "file": "Realistic Car Pack - Nov 2018/OBJ/NormalCar1.obj",
+    "vertices": 1491,
+    "min": [
+      -0.90368,
+      0.00603,
+      -2.107265
+    ],
+    "max": [
+      0.90368,
+      1.182609,
+      2.113452
+    ],
+    "size": [
+      1.80736,
+      1.17658,
+      4.22072
+    ]
+  },
+  {
+    "archive": "Realistic Car Pack - Nov 2018-20261013T152945Z-1-001.zip",
+    "file": "Realistic Car Pack - Nov 2018/OBJ/Cop.obj",
+    "vertices": 1630,
+    "min": [
+      -0.888813,
+      -0.016261,
+      -1.867038
+    ],
+    "max": [
+      0.888813,
+      1.222489,
+      1.863452
+    ],
+    "size": [
+      1.77763,
+      1.23875,
+      3.73049
+    ]
+  },
+  {
+    "archive": "Realistic Car Pack - Nov 2018-20261013T152945Z-1-001.zip",
+    "file": "Realistic Car Pack - Nov 2018/OBJ/Taxi.obj",
+    "vertices": 1665,
+    "min": [
+      -0.904123,
+      -0.010888,
+      -2.006755
+    ],
+    "max": [
+      0.903237,
+      1.299577,
+      2.213962
+    ],
+    "size": [
+      1.80736,
+      1.31046,
+      4.22072
+    ]
+  },
+  {
+    "archive": "Realistic Car Pack - Nov 2018-20261013T152945Z-1-001.zip",
+    "file": "Realistic Car Pack - Nov 2018/OBJ/SUV.obj",
+    "vertices": 1663,
+    "min": [
+      -1.055551,
+      -0.01809,
+      -2.104891
+    ],
+    "max": [
+      1.055551,
+      1.509761,
+      2.104458
+    ],
+    "size": [
+      2.1111,
+      1.52785,
+      4.20935
+    ]
+  },
+  {
+    "archive": "Realistic Car Pack - Nov 2018-20261013T152945Z-1-001.zip",
+    "file": "Realistic Car Pack - Nov 2018/OBJ/NormalCar2.obj",
+    "vertices": 1574,
+    "min": [
+      -0.819224,
+      -0.028343,
+      -1.649289
+    ],
+    "max": [
+      0.819224,
+      1.117273,
+      1.660334
+    ],
+    "size": [
+      1.63845,
+      1.14562,
+      3.30962
+    ]
+  },
+  {
+    "archive": "Realistic Car Pack - Nov 2018-20261013T152945Z-1-001.zip",
+    "file": "Realistic Car Pack - Nov 2018/OBJ/SportsCar.obj",
+    "vertices": 1551,
+    "min": [
+      -0.903168,
+      -0.010285,
+      -1.984631
+    ],
+    "max": [
+      0.901351,
+      1.145119,
+      1.984076
+    ],
+    "size": [
+      1.80452,
+      1.1554,
+      3.96871
+    ]
+  },
+  {
+    "archive": "Realistic Car Pack - Nov 2018-20261013T152945Z-1-001.zip",
+    "file": "Realistic Car Pack - Nov 2018/OBJ/SportsCar2.obj",
+    "vertices": 1588,
+    "min": [
+      -0.935796,
+      -0.015738,
+      -2.028564
+    ],
+    "max": [
+      0.935795,
+      1.187317,
+      1.897969
+    ],
+    "size": [
+      1.87159,
+      1.20305,
+      3.92653
+    ]
+  }
+]
